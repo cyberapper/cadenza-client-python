@@ -1,7 +1,7 @@
 {
   "packages": {
     ".": {
-      "release-type": "node",
+      "release-type": "python",
       "versioning": "default",
       "include-component-in-tag": false,
       "tag-separator": "",
