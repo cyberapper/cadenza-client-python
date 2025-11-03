@@ -69,3 +69,5 @@ target/
 # Dev
 .vscode/
 .env*
+example*
+CLAUDE.md
