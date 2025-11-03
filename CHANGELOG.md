@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/cyberapper/cadenza-client-python/compare/v3.0.0...v3.0.1) (2025-11-03)
+
+
+### Miscellaneous
+
+* update gitignore for dev files ([b204cfc](https://github.com/cyberapper/cadenza-client-python/commit/b204cfcb98c8cab8481766cebd9a0cd97c9e52be))
+
 ## [3.0.0](https://github.com/cyberapper/cadenza-client-python/compare/v2.3.1...v3.0.0) (2025-10-31)
 
 
