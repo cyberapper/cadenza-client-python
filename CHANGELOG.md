@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/cyberapper/cadenza-client-python/compare/v3.0.1...v3.0.2) (2025-11-11)
+
+
+### Bug Fixes
+
+* update root endpoints ([8c8c5dc](https://github.com/cyberapper/cadenza-client-python/commit/8c8c5dcbfc442ab706adfe25bec41ee6a48b3eb3))
+
 ## [3.0.1](https://github.com/cyberapper/cadenza-client-python/compare/v3.0.0...v3.0.1) (2025-11-03)
 
 
