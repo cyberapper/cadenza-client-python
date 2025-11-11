@@ -17,23 +17,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cadenza_client.models.base_response_details import BaseResponseDetails
-from cadenza_client.models.root200_response_all_of_data import Root200ResponseAllOfData
+from cadenza_client.models.health_check_component import HealthCheckComponent
+from cadenza_client.models.health_status import HealthStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Root200Response(BaseModel):
+class Health503Response(BaseModel):
     """
-    Root200Response
+    Health503Response
     """ # noqa: E501
-    success: StrictBool = Field(description="Indicates if the operation was successful")
-    errno: StrictInt = Field(description="Error code (0 for success, negative for errors)")
-    error: Optional[StrictStr] = Field(description="Error message (null for successful operations)")
-    details: Optional[BaseResponseDetails] = None
-    data: Optional[Root200ResponseAllOfData] = None
-    __properties: ClassVar[List[str]] = ["success", "errno", "error", "details", "data"]
+    status: Optional[HealthStatus] = None
+    timestamp: Optional[StrictInt] = None
+    timestamp_iso: Optional[datetime] = Field(default=None, alias="timestampISO")
+    version: Optional[StrictStr] = None
+    checks: Optional[Dict[str, HealthCheckComponent]] = Field(default=None, description="Details about failed health checks")
+    __properties: ClassVar[List[str]] = ["status", "timestamp", "timestampISO", "version", "checks"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +54,7 @@ class Root200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Root200Response from a JSON string"""
+        """Create an instance of Health503Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,27 +75,18 @@ class Root200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of details
-        if self.details:
-            _dict['details'] = self.details.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
-            _dict['data'] = self.data.to_dict()
-        # set to None if error (nullable) is None
-        # and model_fields_set contains the field
-        if self.error is None and "error" in self.model_fields_set:
-            _dict['error'] = None
-
-        # set to None if details (nullable) is None
-        # and model_fields_set contains the field
-        if self.details is None and "details" in self.model_fields_set:
-            _dict['details'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of each value in checks (dict)
+        _field_dict = {}
+        if self.checks:
+            for _key_checks in self.checks:
+                if self.checks[_key_checks]:
+                    _field_dict[_key_checks] = self.checks[_key_checks].to_dict()
+            _dict['checks'] = _field_dict
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Root200Response from a dict"""
+        """Create an instance of Health503Response from a dict"""
         if obj is None:
             return None
 
@@ -102,11 +94,16 @@ class Root200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "success": obj.get("success"),
-            "errno": obj.get("errno"),
-            "error": obj.get("error"),
-            "details": BaseResponseDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
-            "data": Root200ResponseAllOfData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "status": obj.get("status"),
+            "timestamp": obj.get("timestamp"),
+            "timestampISO": obj.get("timestampISO"),
+            "version": obj.get("version"),
+            "checks": dict(
+                (_k, HealthCheckComponent.from_dict(_v))
+                for _k, _v in obj["checks"].items()
+            )
+            if obj.get("checks") is not None
+            else None
         })
         return _obj
 

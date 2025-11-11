@@ -16,6 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
+from cadenza_client.models.health200_response import Health200Response
 from cadenza_client.models.root200_response import Root200Response
 
 from cadenza_client.api_client import ApiClient, RequestSerialized
@@ -51,10 +52,10 @@ class UtilityApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Root200Response:
+    ) -> Health200Response:
         """Health check
 
-        Health check endpoint
+        Health check endpoint for monitoring service status and dependencies. No authentication required - designed for load balancers, Kubernetes probes, and monitoring systems.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -86,12 +87,8 @@ class UtilityApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '200': "Health200Response",
+            '503': "Health503Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -119,10 +116,10 @@ class UtilityApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Root200Response]:
+    ) -> ApiResponse[Health200Response]:
         """Health check
 
-        Health check endpoint
+        Health check endpoint for monitoring service status and dependencies. No authentication required - designed for load balancers, Kubernetes probes, and monitoring systems.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -154,12 +151,8 @@ class UtilityApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '200': "Health200Response",
+            '503': "Health503Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -190,7 +183,7 @@ class UtilityApi:
     ) -> RESTResponseType:
         """Health check
 
-        Health check endpoint
+        Health check endpoint for monitoring service status and dependencies. No authentication required - designed for load balancers, Kubernetes probes, and monitoring systems.
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -222,12 +215,8 @@ class UtilityApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '200': "Health200Response",
+            '503': "Health503Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -276,7 +265,6 @@ class UtilityApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'SupabaseOAuth2BearerAuth'
         ]
 
         return self.api_client.param_serialize(
@@ -315,7 +303,7 @@ class UtilityApi:
     ) -> Root200Response:
         """Root, Information about the API
 
-        Root endpoint, information about the API
+        Root endpoint providing API metadata, version information, and available endpoints
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -383,7 +371,7 @@ class UtilityApi:
     ) -> ApiResponse[Root200Response]:
         """Root, Information about the API
 
-        Root endpoint, information about the API
+        Root endpoint providing API metadata, version information, and available endpoints
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -451,7 +439,7 @@ class UtilityApi:
     ) -> RESTResponseType:
         """Root, Information about the API
 
-        Root endpoint, information about the API
+        Root endpoint providing API metadata, version information, and available endpoints
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

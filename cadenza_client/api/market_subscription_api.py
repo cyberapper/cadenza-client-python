@@ -20,7 +20,6 @@ from pydantic import Field, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 from cadenza_client.models.list_trading_account_subscriptions200_response import ListTradingAccountSubscriptions200Response
-from cadenza_client.models.root200_response import Root200Response
 from cadenza_client.models.subscribe_market_order_book_request import SubscribeMarketOrderBookRequest
 from cadenza_client.models.subscribe_trading_account200_response import SubscribeTradingAccount200Response
 from cadenza_client.models.unsubscribe_request import UnsubscribeRequest
@@ -376,6 +375,7 @@ class MarketSubscriptionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SubscribeTradingAccount200Response",
+            '201': "SubscribeTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -448,6 +448,7 @@ class MarketSubscriptionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SubscribeTradingAccount200Response",
+            '201': "SubscribeTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -520,6 +521,7 @@ class MarketSubscriptionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SubscribeTradingAccount200Response",
+            '201': "SubscribeTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -626,7 +628,7 @@ class MarketSubscriptionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Root200Response:
+    ) -> SubscribeTradingAccount200Response:
         """Unsubscribe from order book updates
 
         Unsubscribe from real-time order book updates
@@ -664,7 +666,7 @@ class MarketSubscriptionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "SubscribeTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -698,7 +700,7 @@ class MarketSubscriptionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Root200Response]:
+    ) -> ApiResponse[SubscribeTradingAccount200Response]:
         """Unsubscribe from order book updates
 
         Unsubscribe from real-time order book updates
@@ -736,7 +738,7 @@ class MarketSubscriptionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "SubscribeTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -808,7 +810,7 @@ class MarketSubscriptionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "SubscribeTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",

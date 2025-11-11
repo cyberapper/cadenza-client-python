@@ -1,6 +1,6 @@
 # cadenza_client.MarketSubscriptionApi
 
-All URIs are relative to *https://cadenza-fermata-uat.algo724.com*
+All URIs are relative to *https://cadenza-api-uat.algo724.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,10 +26,10 @@ from cadenza_client.models.list_trading_account_subscriptions200_response import
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -110,10 +110,10 @@ from cadenza_client.models.subscribe_trading_account200_response import Subscrib
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -168,6 +168,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Subscription response |  -  |
+**201** | Subscription response |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Authentication required |  -  |
 **403** | Forbidden - Insufficient permissions |  -  |
@@ -177,7 +178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unsubscribe_market_order_book**
-> Root200Response unsubscribe_market_order_book(unsubscribe_request=unsubscribe_request)
+> SubscribeTradingAccount200Response unsubscribe_market_order_book(unsubscribe_request=unsubscribe_request)
 
 Unsubscribe from order book updates
 
@@ -189,15 +190,15 @@ Unsubscribe from real-time order book updates
 
 ```python
 import cadenza_client
-from cadenza_client.models.root200_response import Root200Response
+from cadenza_client.models.subscribe_trading_account200_response import SubscribeTradingAccount200Response
 from cadenza_client.models.unsubscribe_request import UnsubscribeRequest
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -236,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Root200Response**](Root200Response.md)
+[**SubscribeTradingAccount200Response**](SubscribeTradingAccount200Response.md)
 
 ### Authorization
 
@@ -251,7 +252,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Simple successful response |  -  |
+**200** | Subscription response |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Authentication required |  -  |
 **403** | Forbidden - Insufficient permissions |  -  |

@@ -58,10 +58,10 @@ import cadenza_client
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -93,7 +93,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://cadenza-fermata-uat.algo724.com*
+All URIs are relative to *https://cadenza-api-uat.algo724.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -152,6 +152,7 @@ Class | Method | HTTP request | Description
  - [CreateTradingAccountCredential201Response](docs/CreateTradingAccountCredential201Response.md)
  - [CreateTradingAccountCredentialRequest](docs/CreateTradingAccountCredentialRequest.md)
  - [CredentialType](docs/CredentialType.md)
+ - [DeleteMarketInstrument200Response](docs/DeleteMarketInstrument200Response.md)
  - [DeleteMarketInstrumentRequest](docs/DeleteMarketInstrumentRequest.md)
  - [DeleteMarketSecurity200Response](docs/DeleteMarketSecurity200Response.md)
  - [DeleteMarketSecurityRequest](docs/DeleteMarketSecurityRequest.md)
@@ -168,6 +169,11 @@ Class | Method | HTTP request | Description
  - [GetTradeOrderQuery](docs/GetTradeOrderQuery.md)
  - [GetTradeOrderQueryData](docs/GetTradeOrderQueryData.md)
  - [GetTradeOrderResponseEvent](docs/GetTradeOrderResponseEvent.md)
+ - [Health200Response](docs/Health200Response.md)
+ - [Health200ResponseChecks](docs/Health200ResponseChecks.md)
+ - [Health503Response](docs/Health503Response.md)
+ - [HealthCheckComponent](docs/HealthCheckComponent.md)
+ - [HealthStatus](docs/HealthStatus.md)
  - [InlineObject](docs/InlineObject.md)
  - [Instrument](docs/Instrument.md)
  - [InstrumentStatus](docs/InstrumentStatus.md)
@@ -204,6 +210,7 @@ Class | Method | HTTP request | Description
  - [ResponseMetadata](docs/ResponseMetadata.md)
  - [RevokeTradingAccountCredentialRequest](docs/RevokeTradingAccountCredentialRequest.md)
  - [Root200Response](docs/Root200Response.md)
+ - [Root200ResponseAllOfData](docs/Root200ResponseAllOfData.md)
  - [Root400Response](docs/Root400Response.md)
  - [Root401Response](docs/Root401Response.md)
  - [Root403Response](docs/Root403Response.md)
@@ -223,7 +230,9 @@ Class | Method | HTTP request | Description
  - [Subscription](docs/Subscription.md)
  - [SubscriptionStatus](docs/SubscriptionStatus.md)
  - [SubscriptionType](docs/SubscriptionType.md)
+ - [SyncMarketInstruments200Response](docs/SyncMarketInstruments200Response.md)
  - [SyncMarketInstrumentsRequest](docs/SyncMarketInstrumentsRequest.md)
+ - [SyncMarketInstrumentsResponseData](docs/SyncMarketInstrumentsResponseData.md)
  - [SyncMarketSecuritiesRequest](docs/SyncMarketSecuritiesRequest.md)
  - [TimeInForce](docs/TimeInForce.md)
  - [TradeExecution](docs/TradeExecution.md)

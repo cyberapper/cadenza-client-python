@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **success** | **bool** | Indicates if the operation was successful | 
 **errno** | **int** | Error code (0 for success, negative for errors) | 
 **error** | **str** | Error message (null for successful operations) | 
-**data** | **str** |  | [optional] 
+**details** | [**BaseResponseDetails**](BaseResponseDetails.md) |  | [optional] 
+**data** | [**Root200ResponseAllOfData**](Root200ResponseAllOfData.md) |  | [optional] 
 
 ## Example
 

@@ -1,6 +1,6 @@
 # cadenza_client.TradingAccountApi
 
-All URIs are relative to *https://cadenza-fermata-uat.algo724.com*
+All URIs are relative to *https://cadenza-api-uat.algo724.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,10 +31,10 @@ from cadenza_client.models.connect_trading_account_request import ConnectTrading
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,10 +115,10 @@ from cadenza_client.models.disable_trading_account_request import DisableTrading
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -199,10 +199,10 @@ from cadenza_client.models.disconnect_trading_account_request import DisconnectT
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -283,10 +283,10 @@ from cadenza_client.models.enable_trading_account_request import EnableTradingAc
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -367,10 +367,10 @@ from cadenza_client.models.operation_type import OperationType
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -464,10 +464,10 @@ from cadenza_client.models.venue import Venue
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -556,10 +556,10 @@ from cadenza_client.models.update_trading_account_request import UpdateTradingAc
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://cadenza-fermata-uat.algo724.com
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = cadenza_client.Configuration(
-    host = "https://cadenza-fermata-uat.algo724.com"
+    host = "https://cadenza-api-uat.algo724.com"
 )
 
 # The client must configure the authentication and authorization parameters

@@ -17,23 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from cadenza_client.models.base_response_details import BaseResponseDetails
-from cadenza_client.models.root200_response_all_of_data import Root200ResponseAllOfData
+from cadenza_client.models.health_check_component import HealthCheckComponent
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Root200Response(BaseModel):
+class Health200ResponseChecks(BaseModel):
     """
-    Root200Response
+    Health status of individual components
     """ # noqa: E501
-    success: StrictBool = Field(description="Indicates if the operation was successful")
-    errno: StrictInt = Field(description="Error code (0 for success, negative for errors)")
-    error: Optional[StrictStr] = Field(description="Error message (null for successful operations)")
-    details: Optional[BaseResponseDetails] = None
-    data: Optional[Root200ResponseAllOfData] = None
-    __properties: ClassVar[List[str]] = ["success", "errno", "error", "details", "data"]
+    database: Optional[HealthCheckComponent] = None
+    temporal: Optional[HealthCheckComponent] = None
+    redis: Optional[HealthCheckComponent] = None
+    __properties: ClassVar[List[str]] = ["database", "temporal", "redis"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +50,7 @@ class Root200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Root200Response from a JSON string"""
+        """Create an instance of Health200ResponseChecks from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,27 +71,20 @@ class Root200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of details
-        if self.details:
-            _dict['details'] = self.details.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
-            _dict['data'] = self.data.to_dict()
-        # set to None if error (nullable) is None
-        # and model_fields_set contains the field
-        if self.error is None and "error" in self.model_fields_set:
-            _dict['error'] = None
-
-        # set to None if details (nullable) is None
-        # and model_fields_set contains the field
-        if self.details is None and "details" in self.model_fields_set:
-            _dict['details'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of database
+        if self.database:
+            _dict['database'] = self.database.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of temporal
+        if self.temporal:
+            _dict['temporal'] = self.temporal.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of redis
+        if self.redis:
+            _dict['redis'] = self.redis.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Root200Response from a dict"""
+        """Create an instance of Health200ResponseChecks from a dict"""
         if obj is None:
             return None
 
@@ -102,11 +92,9 @@ class Root200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "success": obj.get("success"),
-            "errno": obj.get("errno"),
-            "error": obj.get("error"),
-            "details": BaseResponseDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
-            "data": Root200ResponseAllOfData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "database": HealthCheckComponent.from_dict(obj["database"]) if obj.get("database") is not None else None,
+            "temporal": HealthCheckComponent.from_dict(obj["temporal"]) if obj.get("temporal") is not None else None,
+            "redis": HealthCheckComponent.from_dict(obj["redis"]) if obj.get("redis") is not None else None
         })
         return _obj
 

@@ -19,6 +19,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
+from cadenza_client.models.delete_market_instrument200_response import DeleteMarketInstrument200Response
 from cadenza_client.models.delete_market_instrument_request import DeleteMarketInstrumentRequest
 from cadenza_client.models.delete_market_security200_response import DeleteMarketSecurity200Response
 from cadenza_client.models.delete_market_security_request import DeleteMarketSecurityRequest
@@ -31,8 +32,8 @@ from cadenza_client.models.list_market_instruments200_response import ListMarket
 from cadenza_client.models.list_market_order_books200_response import ListMarketOrderBooks200Response
 from cadenza_client.models.list_market_securities200_response import ListMarketSecurities200Response
 from cadenza_client.models.list_market_venues200_response import ListMarketVenues200Response
-from cadenza_client.models.root200_response import Root200Response
 from cadenza_client.models.security_type import SecurityType
+from cadenza_client.models.sync_market_instruments200_response import SyncMarketInstruments200Response
 from cadenza_client.models.sync_market_instruments_request import SyncMarketInstrumentsRequest
 from cadenza_client.models.sync_market_securities_request import SyncMarketSecuritiesRequest
 from cadenza_client.models.venue import Venue
@@ -71,7 +72,7 @@ class MarketApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Root200Response:
+    ) -> DeleteMarketInstrument200Response:
         """Delete market instrument
 
         Delete a market instrument
@@ -109,7 +110,7 @@ class MarketApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "DeleteMarketInstrument200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -143,7 +144,7 @@ class MarketApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Root200Response]:
+    ) -> ApiResponse[DeleteMarketInstrument200Response]:
         """Delete market instrument
 
         Delete a market instrument
@@ -181,7 +182,7 @@ class MarketApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "DeleteMarketInstrument200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -253,7 +254,7 @@ class MarketApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "DeleteMarketInstrument200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -2841,7 +2842,7 @@ class MarketApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Root200Response:
+    ) -> SyncMarketInstruments200Response:
         """Sync market instruments
 
         Synchronize market instruments from exchanges
@@ -2879,7 +2880,7 @@ class MarketApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "SyncMarketInstruments200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -2913,7 +2914,7 @@ class MarketApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Root200Response]:
+    ) -> ApiResponse[SyncMarketInstruments200Response]:
         """Sync market instruments
 
         Synchronize market instruments from exchanges
@@ -2951,7 +2952,7 @@ class MarketApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "SyncMarketInstruments200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -3023,7 +3024,7 @@ class MarketApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "SyncMarketInstruments200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -3130,7 +3131,7 @@ class MarketApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Root200Response:
+    ) -> DeleteMarketInstrument200Response:
         """Sync market securities
 
         Synchronize financial securities from exchanges
@@ -3168,7 +3169,7 @@ class MarketApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "DeleteMarketInstrument200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -3202,7 +3203,7 @@ class MarketApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Root200Response]:
+    ) -> ApiResponse[DeleteMarketInstrument200Response]:
         """Sync market securities
 
         Synchronize financial securities from exchanges
@@ -3240,7 +3241,7 @@ class MarketApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "DeleteMarketInstrument200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -3312,7 +3313,7 @@ class MarketApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Root200Response",
+            '200': "DeleteMarketInstrument200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",

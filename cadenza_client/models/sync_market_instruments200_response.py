@@ -20,19 +20,19 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cadenza_client.models.base_response_details import BaseResponseDetails
-from cadenza_client.models.root200_response_all_of_data import Root200ResponseAllOfData
+from cadenza_client.models.sync_market_instruments_response_data import SyncMarketInstrumentsResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Root200Response(BaseModel):
+class SyncMarketInstruments200Response(BaseModel):
     """
-    Root200Response
+    SyncMarketInstruments200Response
     """ # noqa: E501
     success: StrictBool = Field(description="Indicates if the operation was successful")
     errno: StrictInt = Field(description="Error code (0 for success, negative for errors)")
     error: Optional[StrictStr] = Field(description="Error message (null for successful operations)")
     details: Optional[BaseResponseDetails] = None
-    data: Optional[Root200ResponseAllOfData] = None
+    data: Optional[SyncMarketInstrumentsResponseData] = None
     __properties: ClassVar[List[str]] = ["success", "errno", "error", "details", "data"]
 
     model_config = ConfigDict(
@@ -53,7 +53,7 @@ class Root200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Root200Response from a JSON string"""
+        """Create an instance of SyncMarketInstruments200Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -94,7 +94,7 @@ class Root200Response(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Root200Response from a dict"""
+        """Create an instance of SyncMarketInstruments200Response from a dict"""
         if obj is None:
             return None
 
@@ -106,7 +106,7 @@ class Root200Response(BaseModel):
             "errno": obj.get("errno"),
             "error": obj.get("error"),
             "details": BaseResponseDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
-            "data": Root200ResponseAllOfData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": SyncMarketInstrumentsResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 
