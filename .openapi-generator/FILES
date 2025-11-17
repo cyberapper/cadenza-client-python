@@ -29,9 +29,9 @@ cadenza_client/models/cancel_trade_order200_response.py
 cadenza_client/models/cancel_trade_order_command.py
 cadenza_client/models/cancel_trade_order_request.py
 cadenza_client/models/command_metadata.py
-cadenza_client/models/connect_trading_account201_response.py
+cadenza_client/models/connect_trading_account200_response.py
 cadenza_client/models/connect_trading_account_request.py
-cadenza_client/models/create_trading_account_credential201_response.py
+cadenza_client/models/create_trading_account_credential200_response.py
 cadenza_client/models/create_trading_account_credential_request.py
 cadenza_client/models/credential_type.py
 cadenza_client/models/delete_market_instrument200_response.py
@@ -147,9 +147,9 @@ docs/CancelTradeOrder200Response.md
 docs/CancelTradeOrderCommand.md
 docs/CancelTradeOrderRequest.md
 docs/CommandMetadata.md
-docs/ConnectTradingAccount201Response.md
+docs/ConnectTradingAccount200Response.md
 docs/ConnectTradingAccountRequest.md
-docs/CreateTradingAccountCredential201Response.md
+docs/CreateTradingAccountCredential200Response.md
 docs/CreateTradingAccountCredentialRequest.md
 docs/CredentialType.md
 docs/DeleteMarketInstrument200Response.md
@@ -267,4 +267,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_connect_trading_account200_response.py
+test/test_create_trading_account_credential200_response.py
 tox.ini

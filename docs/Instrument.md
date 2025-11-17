@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **status** | [**InstrumentStatus**](InstrumentStatus.md) |  | 
 **base_asset** | **str** |  | 
 **quote_asset** | **str** |  | 
+**base_security_type** | [**SecurityType**](SecurityType.md) |  | 
+**quote_security_type** | [**SecurityType**](SecurityType.md) |  | 
 **base_precision** | **int** | Base asset precision | 
 **quote_precision** | **int** | Quote asset precision | 
 **base_max_significant** | **int** | Maximum significant digits for base asset | 
@@ -30,16 +32,12 @@ Name | Type | Description | Notes
 **order_types** | [**List[OrderType]**](OrderType.md) |  | 
 **time_in_force_options** | [**List[TimeInForce]**](TimeInForce.md) |  | 
 **trading_hours** | **object** | Trading hours and schedule information | [optional] 
-**is_iceberg_allowed** | **bool** | Whether iceberg orders are allowed | 
+**is_iceberg_allowed** | **bool** | Whether iceberg orders are allowed | [optional] 
 **iceberg_min_quantity** | **str** | Decimal value as string to preserve precision | [optional] 
 **delivery_date** | **int** | Unix timestamp in milliseconds | [optional] 
 **delivery_date_time** | **datetime** | Delivery date in ISO 8601 format for derivatives | [optional] 
 **exercise_style** | **str** | Exercise style for options | [optional] 
 **strike_price** | **str** | Decimal value as string to preserve precision | [optional] 
-**created_at** | **int** | Unix timestamp in milliseconds | 
-**created_at_date_time** | **datetime** | Creation timestamp in ISO 8601 format | [optional] 
-**updated_at** | **int** | Unix timestamp in milliseconds | 
-**updated_at_date_time** | **datetime** | Last update timestamp in ISO 8601 format | [optional] 
 
 ## Example
 

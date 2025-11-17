@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**HealthStatus**](HealthStatus.md) |  | 
 **timestamp** | **int** | Health check timestamp in milliseconds | 
-**timestamp_iso** | **datetime** | Health check timestamp in ISO 8601 format | 
+**datetime** | **datetime** | Health check timestamp in ISO 8601 format | [optional] 
 **version** | **str** | API version | 
 **checks** | [**Health200ResponseChecks**](Health200ResponseChecks.md) |  | [optional] 
 

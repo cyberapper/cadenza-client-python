@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.0.2"
+__version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
@@ -46,9 +46,9 @@ __all__ = [
     "CancelTradeOrderCommand",
     "CancelTradeOrderRequest",
     "CommandMetadata",
-    "ConnectTradingAccount201Response",
+    "ConnectTradingAccount200Response",
     "ConnectTradingAccountRequest",
-    "CreateTradingAccountCredential201Response",
+    "CreateTradingAccountCredential200Response",
     "CreateTradingAccountCredentialRequest",
     "CredentialType",
     "DeleteMarketInstrument200Response",
@@ -187,9 +187,9 @@ if __import__("typing").TYPE_CHECKING:
     from cadenza_client.models.cancel_trade_order_command import CancelTradeOrderCommand as CancelTradeOrderCommand
     from cadenza_client.models.cancel_trade_order_request import CancelTradeOrderRequest as CancelTradeOrderRequest
     from cadenza_client.models.command_metadata import CommandMetadata as CommandMetadata
-    from cadenza_client.models.connect_trading_account201_response import ConnectTradingAccount201Response as ConnectTradingAccount201Response
+    from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response as ConnectTradingAccount200Response
     from cadenza_client.models.connect_trading_account_request import ConnectTradingAccountRequest as ConnectTradingAccountRequest
-    from cadenza_client.models.create_trading_account_credential201_response import CreateTradingAccountCredential201Response as CreateTradingAccountCredential201Response
+    from cadenza_client.models.create_trading_account_credential200_response import CreateTradingAccountCredential200Response as CreateTradingAccountCredential200Response
     from cadenza_client.models.create_trading_account_credential_request import CreateTradingAccountCredentialRequest as CreateTradingAccountCredentialRequest
     from cadenza_client.models.credential_type import CredentialType as CredentialType
     from cadenza_client.models.delete_market_instrument200_response import DeleteMarketInstrument200Response as DeleteMarketInstrument200Response
@@ -334,9 +334,9 @@ from cadenza_client.models.cancel_trade_order200_response import CancelTradeOrde
 from cadenza_client.models.cancel_trade_order_command import CancelTradeOrderCommand as CancelTradeOrderCommand
 from cadenza_client.models.cancel_trade_order_request import CancelTradeOrderRequest as CancelTradeOrderRequest
 from cadenza_client.models.command_metadata import CommandMetadata as CommandMetadata
-from cadenza_client.models.connect_trading_account201_response import ConnectTradingAccount201Response as ConnectTradingAccount201Response
+from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response as ConnectTradingAccount200Response
 from cadenza_client.models.connect_trading_account_request import ConnectTradingAccountRequest as ConnectTradingAccountRequest
-from cadenza_client.models.create_trading_account_credential201_response import CreateTradingAccountCredential201Response as CreateTradingAccountCredential201Response
+from cadenza_client.models.create_trading_account_credential200_response import CreateTradingAccountCredential200Response as CreateTradingAccountCredential200Response
 from cadenza_client.models.create_trading_account_credential_request import CreateTradingAccountCredentialRequest as CreateTradingAccountCredentialRequest
 from cadenza_client.models.credential_type import CredentialType as CredentialType
 from cadenza_client.models.delete_market_instrument200_response import DeleteMarketInstrument200Response as DeleteMarketInstrument200Response

@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from cadenza_client.models.instrument_status import InstrumentStatus
 from cadenza_client.models.instrument_type import InstrumentType
 from cadenza_client.models.order_type import OrderType
+from cadenza_client.models.security_type import SecurityType
 from cadenza_client.models.time_in_force import TimeInForce
 from cadenza_client.models.venue import Venue
 from typing import Optional, Set
@@ -42,14 +43,16 @@ class Instrument(BaseModel):
     status: InstrumentStatus
     base_asset: StrictStr = Field(alias="baseAsset")
     quote_asset: StrictStr = Field(alias="quoteAsset")
+    base_security_type: SecurityType = Field(alias="baseSecurityType")
+    quote_security_type: SecurityType = Field(alias="quoteSecurityType")
     base_precision: StrictInt = Field(description="Base asset precision", alias="basePrecision")
     quote_precision: StrictInt = Field(description="Quote asset precision", alias="quotePrecision")
-    base_max_significant: StrictInt = Field(description="Maximum significant digits for base asset", alias="baseMaxSignificant")
-    quote_max_significant: StrictInt = Field(description="Maximum significant digits for quote asset", alias="quoteMaxSignificant")
+    base_max_significant: Optional[StrictInt] = Field(description="Maximum significant digits for base asset", alias="baseMaxSignificant")
+    quote_max_significant: Optional[StrictInt] = Field(description="Maximum significant digits for quote asset", alias="quoteMaxSignificant")
     lot_size: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision", alias="lotSize")
     pip_size: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision", alias="pipSize")
-    base_scale: StrictInt = Field(description="Base asset scale factor", alias="baseScale")
-    quote_scale: StrictInt = Field(description="Quote asset scale factor", alias="quoteScale")
+    base_scale: Optional[StrictInt] = Field(description="Base asset scale factor", alias="baseScale")
+    quote_scale: Optional[StrictInt] = Field(description="Quote asset scale factor", alias="quoteScale")
     min_quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision", alias="minQuantity")
     max_quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision", alias="maxQuantity")
     min_notional: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision", alias="minNotional")
@@ -58,17 +61,13 @@ class Instrument(BaseModel):
     order_types: List[OrderType] = Field(alias="orderTypes")
     time_in_force_options: List[TimeInForce] = Field(alias="timeInForceOptions")
     trading_hours: Optional[Dict[str, Any]] = Field(default=None, description="Trading hours and schedule information", alias="tradingHours")
-    is_iceberg_allowed: StrictBool = Field(description="Whether iceberg orders are allowed", alias="isIcebergAllowed")
+    is_iceberg_allowed: Optional[StrictBool] = Field(default=None, description="Whether iceberg orders are allowed", alias="isIcebergAllowed")
     iceberg_min_quantity: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="icebergMinQuantity")
     delivery_date: Optional[StrictInt] = Field(default=None, description="Unix timestamp in milliseconds", alias="deliveryDate")
     delivery_date_time: Optional[datetime] = Field(default=None, description="Delivery date in ISO 8601 format for derivatives", alias="deliveryDateTime")
     exercise_style: Optional[StrictStr] = Field(default=None, description="Exercise style for options", alias="exerciseStyle")
     strike_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="strikePrice")
-    created_at: StrictInt = Field(description="Unix timestamp in milliseconds", alias="createdAt")
-    created_at_date_time: Optional[datetime] = Field(default=None, description="Creation timestamp in ISO 8601 format", alias="createdAtDateTime")
-    updated_at: StrictInt = Field(description="Unix timestamp in milliseconds", alias="updatedAt")
-    updated_at_date_time: Optional[datetime] = Field(default=None, description="Last update timestamp in ISO 8601 format", alias="updatedAtDateTime")
-    __properties: ClassVar[List[str]] = ["instrumentId", "venue", "symbol", "externalSymbol", "description", "instrumentType", "status", "baseAsset", "quoteAsset", "basePrecision", "quotePrecision", "baseMaxSignificant", "quoteMaxSignificant", "lotSize", "pipSize", "baseScale", "quoteScale", "minQuantity", "maxQuantity", "minNotional", "maxNotional", "orderFilters", "orderTypes", "timeInForceOptions", "tradingHours", "isIcebergAllowed", "icebergMinQuantity", "deliveryDate", "deliveryDateTime", "exerciseStyle", "strikePrice", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime"]
+    __properties: ClassVar[List[str]] = ["instrumentId", "venue", "symbol", "externalSymbol", "description", "instrumentType", "status", "baseAsset", "quoteAsset", "baseSecurityType", "quoteSecurityType", "basePrecision", "quotePrecision", "baseMaxSignificant", "quoteMaxSignificant", "lotSize", "pipSize", "baseScale", "quoteScale", "minQuantity", "maxQuantity", "minNotional", "maxNotional", "orderFilters", "orderTypes", "timeInForceOptions", "tradingHours", "isIcebergAllowed", "icebergMinQuantity", "deliveryDate", "deliveryDateTime", "exerciseStyle", "strikePrice"]
 
     @field_validator('lot_size')
     def lot_size_validate_regular_expression(cls, value):
@@ -184,6 +183,26 @@ class Instrument(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if base_max_significant (nullable) is None
+        # and model_fields_set contains the field
+        if self.base_max_significant is None and "base_max_significant" in self.model_fields_set:
+            _dict['baseMaxSignificant'] = None
+
+        # set to None if quote_max_significant (nullable) is None
+        # and model_fields_set contains the field
+        if self.quote_max_significant is None and "quote_max_significant" in self.model_fields_set:
+            _dict['quoteMaxSignificant'] = None
+
+        # set to None if base_scale (nullable) is None
+        # and model_fields_set contains the field
+        if self.base_scale is None and "base_scale" in self.model_fields_set:
+            _dict['baseScale'] = None
+
+        # set to None if quote_scale (nullable) is None
+        # and model_fields_set contains the field
+        if self.quote_scale is None and "quote_scale" in self.model_fields_set:
+            _dict['quoteScale'] = None
+
         return _dict
 
     @classmethod
@@ -205,6 +224,8 @@ class Instrument(BaseModel):
             "status": obj.get("status"),
             "baseAsset": obj.get("baseAsset"),
             "quoteAsset": obj.get("quoteAsset"),
+            "baseSecurityType": obj.get("baseSecurityType"),
+            "quoteSecurityType": obj.get("quoteSecurityType"),
             "basePrecision": obj.get("basePrecision"),
             "quotePrecision": obj.get("quotePrecision"),
             "baseMaxSignificant": obj.get("baseMaxSignificant"),
@@ -226,11 +247,7 @@ class Instrument(BaseModel):
             "deliveryDate": obj.get("deliveryDate"),
             "deliveryDateTime": obj.get("deliveryDateTime"),
             "exerciseStyle": obj.get("exerciseStyle"),
-            "strikePrice": obj.get("strikePrice"),
-            "createdAt": obj.get("createdAt"),
-            "createdAtDateTime": obj.get("createdAtDateTime"),
-            "updatedAt": obj.get("updatedAt"),
-            "updatedAtDateTime": obj.get("updatedAtDateTime")
+            "strikePrice": obj.get("strikePrice")
         })
         return _obj
 

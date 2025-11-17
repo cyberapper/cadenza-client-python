@@ -11,9 +11,6 @@ Name | Type | Description | Notes
 **position_id** | **str** | UUID string | [optional] 
 **instrument_id** | **str** | Instrument ID. {venue}:{symbol} | 
 **quote_id** | **str** | UUID string | [optional] 
-**symbol** | **str** |  | 
-**base_currency** | **str** | DEPRECATED: Use baseAsset instead. Will be removed in v4.0.0 | [optional] 
-**quote_currency** | **str** | DEPRECATED: Use quoteAsset instead. Will be removed in v4.0.0 | [optional] 
 **base_asset** | **str** | Base asset in the trading pair | 
 **quote_asset** | **str** | Quote asset in the trading pair | 
 **order_side** | [**OrderSide**](OrderSide.md) |  | 
@@ -30,8 +27,6 @@ Name | Type | Description | Notes
 **executed_price** | **str** | Decimal value as string to preserve precision | 
 **executed_quantity** | **str** | Decimal value as string to preserve precision | 
 **executed_cost** | **str** | Decimal value as string to preserve precision | 
-**cost** | [**SecurityQuantity**](SecurityQuantity.md) |  | 
-**filled** | [**SecurityQuantity**](SecurityQuantity.md) |  | 
 **fees** | [**List[SecurityQuantity]**](SecurityQuantity.md) | Aggregated fees across all executions | 
 **executions** | [**List[TradeExecution]**](TradeExecution.md) | Detailed breakdown of executions across different venues | [optional] 
 **created_at** | **int** | Unix timestamp in milliseconds | 

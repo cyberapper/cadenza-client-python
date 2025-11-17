@@ -28,6 +28,7 @@ class SubscriptionStatus(str, Enum):
     """
     ACTIVE = 'ACTIVE'
     INACTIVE = 'INACTIVE'
+    TERMINATED = 'TERMINATED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -19,7 +19,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from cadenza_client.models.create_trading_account_credential201_response import CreateTradingAccountCredential201Response
+from cadenza_client.models.create_trading_account_credential200_response import CreateTradingAccountCredential200Response
 from cadenza_client.models.create_trading_account_credential_request import CreateTradingAccountCredentialRequest
 from cadenza_client.models.credential_type import CredentialType
 from cadenza_client.models.list_trading_account_credentials200_response import ListTradingAccountCredentials200Response
@@ -63,7 +63,7 @@ class TradingAccountCredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateTradingAccountCredential201Response:
+    ) -> CreateTradingAccountCredential200Response:
         """Create trading account credential
 
         Create credentials for a trading account
@@ -101,7 +101,8 @@ class TradingAccountCredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateTradingAccountCredential201Response",
+            '200': "CreateTradingAccountCredential200Response",
+            '201': "CreateTradingAccountCredential200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -135,7 +136,7 @@ class TradingAccountCredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateTradingAccountCredential201Response]:
+    ) -> ApiResponse[CreateTradingAccountCredential200Response]:
         """Create trading account credential
 
         Create credentials for a trading account
@@ -173,7 +174,8 @@ class TradingAccountCredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateTradingAccountCredential201Response",
+            '200': "CreateTradingAccountCredential200Response",
+            '201': "CreateTradingAccountCredential200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -245,7 +247,8 @@ class TradingAccountCredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "CreateTradingAccountCredential201Response",
+            '200': "CreateTradingAccountCredential200Response",
+            '201': "CreateTradingAccountCredential200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -656,7 +659,7 @@ class TradingAccountCredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateTradingAccountCredential201Response:
+    ) -> CreateTradingAccountCredential200Response:
         """Revoke trading account credential
 
         Revoke credentials for a trading account.
@@ -694,7 +697,7 @@ class TradingAccountCredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTradingAccountCredential201Response",
+            '200': "CreateTradingAccountCredential200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -728,7 +731,7 @@ class TradingAccountCredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateTradingAccountCredential201Response]:
+    ) -> ApiResponse[CreateTradingAccountCredential200Response]:
         """Revoke trading account credential
 
         Revoke credentials for a trading account.
@@ -766,7 +769,7 @@ class TradingAccountCredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTradingAccountCredential201Response",
+            '200': "CreateTradingAccountCredential200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -838,7 +841,7 @@ class TradingAccountCredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTradingAccountCredential201Response",
+            '200': "CreateTradingAccountCredential200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -945,7 +948,7 @@ class TradingAccountCredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateTradingAccountCredential201Response:
+    ) -> CreateTradingAccountCredential200Response:
         """Rotate trading account credential
 
         Rotate credentials for a trading account, the credential will be rotated to the new api key, api secret and api passphrase, other fields are not editable.
@@ -983,7 +986,7 @@ class TradingAccountCredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTradingAccountCredential201Response",
+            '200': "CreateTradingAccountCredential200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -1017,7 +1020,7 @@ class TradingAccountCredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateTradingAccountCredential201Response]:
+    ) -> ApiResponse[CreateTradingAccountCredential200Response]:
         """Rotate trading account credential
 
         Rotate credentials for a trading account, the credential will be rotated to the new api key, api secret and api passphrase, other fields are not editable.
@@ -1055,7 +1058,7 @@ class TradingAccountCredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTradingAccountCredential201Response",
+            '200': "CreateTradingAccountCredential200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -1127,7 +1130,7 @@ class TradingAccountCredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTradingAccountCredential201Response",
+            '200': "CreateTradingAccountCredential200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",

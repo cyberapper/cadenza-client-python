@@ -20,7 +20,7 @@ from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 from uuid import UUID
-from cadenza_client.models.connect_trading_account201_response import ConnectTradingAccount201Response
+from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response
 from cadenza_client.models.connect_trading_account_request import ConnectTradingAccountRequest
 from cadenza_client.models.disable_trading_account_request import DisableTradingAccountRequest
 from cadenza_client.models.disconnect_trading_account_request import DisconnectTradingAccountRequest
@@ -66,7 +66,7 @@ class TradingAccountApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ConnectTradingAccount201Response:
+    ) -> ConnectTradingAccount200Response:
         """Connect trading account
 
         Connect to a trading account
@@ -104,7 +104,8 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
+            '201': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -138,7 +139,7 @@ class TradingAccountApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ConnectTradingAccount201Response]:
+    ) -> ApiResponse[ConnectTradingAccount200Response]:
         """Connect trading account
 
         Connect to a trading account
@@ -176,7 +177,8 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
+            '201': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -248,7 +250,8 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
+            '201': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -355,7 +358,7 @@ class TradingAccountApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ConnectTradingAccount201Response:
+    ) -> ConnectTradingAccount200Response:
         """Disable trading account
 
         Disable a trading account, the trading account will be disabled and no longer available for trading.
@@ -393,7 +396,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -427,7 +430,7 @@ class TradingAccountApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ConnectTradingAccount201Response]:
+    ) -> ApiResponse[ConnectTradingAccount200Response]:
         """Disable trading account
 
         Disable a trading account, the trading account will be disabled and no longer available for trading.
@@ -465,7 +468,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -537,7 +540,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -644,7 +647,7 @@ class TradingAccountApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ConnectTradingAccount201Response:
+    ) -> ConnectTradingAccount200Response:
         """Disconnect trading account
 
         Disconnect from a trading account, all trading functions and the event stream notification will be stopped. The trading account will be archived and no longer available for trading. If the same trading account need to be connected again, please use the connect trading account API to create another new trading account.
@@ -682,7 +685,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -716,7 +719,7 @@ class TradingAccountApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ConnectTradingAccount201Response]:
+    ) -> ApiResponse[ConnectTradingAccount200Response]:
         """Disconnect trading account
 
         Disconnect from a trading account, all trading functions and the event stream notification will be stopped. The trading account will be archived and no longer available for trading. If the same trading account need to be connected again, please use the connect trading account API to create another new trading account.
@@ -754,7 +757,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -826,7 +829,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -933,7 +936,7 @@ class TradingAccountApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ConnectTradingAccount201Response:
+    ) -> ConnectTradingAccount200Response:
         """Enable trading account
 
         Enable a trading account, the trading account will be enabled and available for trading.
@@ -971,7 +974,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -1005,7 +1008,7 @@ class TradingAccountApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ConnectTradingAccount201Response]:
+    ) -> ApiResponse[ConnectTradingAccount200Response]:
         """Enable trading account
 
         Enable a trading account, the trading account will be enabled and available for trading.
@@ -1043,7 +1046,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -1115,7 +1118,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -1948,7 +1951,7 @@ class TradingAccountApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ConnectTradingAccount201Response:
+    ) -> ConnectTradingAccount200Response:
         """Update trading account
 
         Update trading account information
@@ -1986,7 +1989,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -2020,7 +2023,7 @@ class TradingAccountApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ConnectTradingAccount201Response]:
+    ) -> ApiResponse[ConnectTradingAccount200Response]:
         """Update trading account
 
         Update trading account information
@@ -2058,7 +2061,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -2130,7 +2133,7 @@ class TradingAccountApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConnectTradingAccount201Response",
+            '200': "ConnectTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_trading_account_credential**
-> CreateTradingAccountCredential201Response create_trading_account_credential(create_trading_account_credential_request=create_trading_account_credential_request)
+> CreateTradingAccountCredential200Response create_trading_account_credential(create_trading_account_credential_request=create_trading_account_credential_request)
 
 Create trading account credential
 
@@ -24,7 +24,7 @@ Create credentials for a trading account
 
 ```python
 import cadenza_client
-from cadenza_client.models.create_trading_account_credential201_response import CreateTradingAccountCredential201Response
+from cadenza_client.models.create_trading_account_credential200_response import CreateTradingAccountCredential200Response
 from cadenza_client.models.create_trading_account_credential_request import CreateTradingAccountCredentialRequest
 from cadenza_client.rest import ApiException
 from pprint import pprint
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTradingAccountCredential201Response**](CreateTradingAccountCredential201Response.md)
+[**CreateTradingAccountCredential200Response**](CreateTradingAccountCredential200Response.md)
 
 ### Authorization
 
@@ -86,6 +86,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Save trading account credential response |  -  |
 **201** | Save trading account credential response |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Authentication required |  -  |
@@ -182,7 +183,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **revoke_trading_account_credential**
-> CreateTradingAccountCredential201Response revoke_trading_account_credential(revoke_trading_account_credential_request=revoke_trading_account_credential_request)
+> CreateTradingAccountCredential200Response revoke_trading_account_credential(revoke_trading_account_credential_request=revoke_trading_account_credential_request)
 
 Revoke trading account credential
 
@@ -194,7 +195,7 @@ Revoke credentials for a trading account.
 
 ```python
 import cadenza_client
-from cadenza_client.models.create_trading_account_credential201_response import CreateTradingAccountCredential201Response
+from cadenza_client.models.create_trading_account_credential200_response import CreateTradingAccountCredential200Response
 from cadenza_client.models.revoke_trading_account_credential_request import RevokeTradingAccountCredentialRequest
 from cadenza_client.rest import ApiException
 from pprint import pprint
@@ -241,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTradingAccountCredential201Response**](CreateTradingAccountCredential201Response.md)
+[**CreateTradingAccountCredential200Response**](CreateTradingAccountCredential200Response.md)
 
 ### Authorization
 
@@ -266,7 +267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **rotate_trading_account_credential**
-> CreateTradingAccountCredential201Response rotate_trading_account_credential(rotate_trading_account_credential_request=rotate_trading_account_credential_request)
+> CreateTradingAccountCredential200Response rotate_trading_account_credential(rotate_trading_account_credential_request=rotate_trading_account_credential_request)
 
 Rotate trading account credential
 
@@ -278,7 +279,7 @@ Rotate credentials for a trading account, the credential will be rotated to the 
 
 ```python
 import cadenza_client
-from cadenza_client.models.create_trading_account_credential201_response import CreateTradingAccountCredential201Response
+from cadenza_client.models.create_trading_account_credential200_response import CreateTradingAccountCredential200Response
 from cadenza_client.models.rotate_trading_account_credential_request import RotateTradingAccountCredentialRequest
 from cadenza_client.rest import ApiException
 from pprint import pprint
@@ -325,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTradingAccountCredential201Response**](CreateTradingAccountCredential201Response.md)
+[**CreateTradingAccountCredential200Response**](CreateTradingAccountCredential200Response.md)
 
 ### Authorization
 

@@ -44,9 +44,6 @@ class TradeOrder(BaseModel):
     position_id: Optional[UUID] = Field(default=None, description="UUID string", alias="positionId")
     instrument_id: StrictStr = Field(description="Instrument ID. {venue}:{symbol}", alias="instrumentId")
     quote_id: Optional[UUID] = Field(default=None, description="UUID string", alias="quoteId")
-    symbol: StrictStr
-    base_currency: Optional[StrictStr] = Field(default=None, description="DEPRECATED: Use baseAsset instead. Will be removed in v4.0.0", alias="baseCurrency")
-    quote_currency: Optional[StrictStr] = Field(default=None, description="DEPRECATED: Use quoteAsset instead. Will be removed in v4.0.0", alias="quoteCurrency")
     base_asset: StrictStr = Field(description="Base asset in the trading pair", alias="baseAsset")
     quote_asset: StrictStr = Field(description="Quote asset in the trading pair", alias="quoteAsset")
     order_side: OrderSide = Field(alias="orderSide")
@@ -63,8 +60,6 @@ class TradeOrder(BaseModel):
     executed_price: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision", alias="executedPrice")
     executed_quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision", alias="executedQuantity")
     executed_cost: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision", alias="executedCost")
-    cost: SecurityQuantity
-    filled: SecurityQuantity
     fees: List[SecurityQuantity] = Field(description="Aggregated fees across all executions")
     executions: Optional[List[TradeExecution]] = Field(default=None, description="Detailed breakdown of executions across different venues")
     created_at: StrictInt = Field(description="Unix timestamp in milliseconds", alias="createdAt")
@@ -75,7 +70,7 @@ class TradeOrder(BaseModel):
     expire_at_date_time: Optional[datetime] = Field(default=None, description="Expiration timestamp in ISO 8601 format", alias="expireAtDateTime")
     canceled_at: Optional[StrictInt] = Field(default=None, description="Unix timestamp in milliseconds", alias="canceledAt")
     canceled_at_date_time: Optional[datetime] = Field(default=None, description="Cancellation timestamp in ISO 8601 format", alias="canceledAtDateTime")
-    __properties: ClassVar[List[str]] = ["tradeOrderId", "tradingAccountId", "venue", "positionId", "instrumentId", "quoteId", "symbol", "baseCurrency", "quoteCurrency", "baseAsset", "quoteAsset", "orderSide", "orderType", "timeInForce", "status", "rejectReason", "cancelReason", "limitPrice", "stopPrice", "quantity", "orderQuantityType", "quantityRounding", "executedPrice", "executedQuantity", "executedCost", "cost", "filled", "fees", "executions", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "expireAt", "expireAtDateTime", "canceledAt", "canceledAtDateTime"]
+    __properties: ClassVar[List[str]] = ["tradeOrderId", "tradingAccountId", "venue", "positionId", "instrumentId", "quoteId", "baseAsset", "quoteAsset", "orderSide", "orderType", "timeInForce", "status", "rejectReason", "cancelReason", "limitPrice", "stopPrice", "quantity", "orderQuantityType", "quantityRounding", "executedPrice", "executedQuantity", "executedCost", "fees", "executions", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "expireAt", "expireAtDateTime", "canceledAt", "canceledAtDateTime"]
 
     @field_validator('limit_price')
     def limit_price_validate_regular_expression(cls, value):
@@ -164,12 +159,6 @@ class TradeOrder(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of cost
-        if self.cost:
-            _dict['cost'] = self.cost.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of filled
-        if self.filled:
-            _dict['filled'] = self.filled.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in fees (list)
         _items = []
         if self.fees:
@@ -202,9 +191,6 @@ class TradeOrder(BaseModel):
             "positionId": obj.get("positionId"),
             "instrumentId": obj.get("instrumentId"),
             "quoteId": obj.get("quoteId"),
-            "symbol": obj.get("symbol"),
-            "baseCurrency": obj.get("baseCurrency"),
-            "quoteCurrency": obj.get("quoteCurrency"),
             "baseAsset": obj.get("baseAsset"),
             "quoteAsset": obj.get("quoteAsset"),
             "orderSide": obj.get("orderSide"),
@@ -221,8 +207,6 @@ class TradeOrder(BaseModel):
             "executedPrice": obj.get("executedPrice"),
             "executedQuantity": obj.get("executedQuantity"),
             "executedCost": obj.get("executedCost"),
-            "cost": SecurityQuantity.from_dict(obj["cost"]) if obj.get("cost") is not None else None,
-            "filled": SecurityQuantity.from_dict(obj["filled"]) if obj.get("filled") is not None else None,
             "fees": [SecurityQuantity.from_dict(_item) for _item in obj["fees"]] if obj.get("fees") is not None else None,
             "executions": [TradeExecution.from_dict(_item) for _item in obj["executions"]] if obj.get("executions") is not None else None,
             "createdAt": obj.get("createdAt"),

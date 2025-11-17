@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **connect_trading_account**
-> ConnectTradingAccount201Response connect_trading_account(connect_trading_account_request=connect_trading_account_request)
+> ConnectTradingAccount200Response connect_trading_account(connect_trading_account_request=connect_trading_account_request)
 
 Connect trading account
 
@@ -26,7 +26,7 @@ Connect to a trading account
 
 ```python
 import cadenza_client
-from cadenza_client.models.connect_trading_account201_response import ConnectTradingAccount201Response
+from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response
 from cadenza_client.models.connect_trading_account_request import ConnectTradingAccountRequest
 from cadenza_client.rest import ApiException
 from pprint import pprint
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConnectTradingAccount201Response**](ConnectTradingAccount201Response.md)
+[**ConnectTradingAccount200Response**](ConnectTradingAccount200Response.md)
 
 ### Authorization
 
@@ -88,6 +88,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Connect trading account response |  -  |
 **201** | Connect trading account response |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Authentication required |  -  |
@@ -98,7 +99,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **disable_trading_account**
-> ConnectTradingAccount201Response disable_trading_account(disable_trading_account_request=disable_trading_account_request)
+> ConnectTradingAccount200Response disable_trading_account(disable_trading_account_request=disable_trading_account_request)
 
 Disable trading account
 
@@ -110,7 +111,7 @@ Disable a trading account, the trading account will be disabled and no longer av
 
 ```python
 import cadenza_client
-from cadenza_client.models.connect_trading_account201_response import ConnectTradingAccount201Response
+from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response
 from cadenza_client.models.disable_trading_account_request import DisableTradingAccountRequest
 from cadenza_client.rest import ApiException
 from pprint import pprint
@@ -157,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConnectTradingAccount201Response**](ConnectTradingAccount201Response.md)
+[**ConnectTradingAccount200Response**](ConnectTradingAccount200Response.md)
 
 ### Authorization
 
@@ -182,7 +183,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **disconnect_trading_account**
-> ConnectTradingAccount201Response disconnect_trading_account(disconnect_trading_account_request=disconnect_trading_account_request)
+> ConnectTradingAccount200Response disconnect_trading_account(disconnect_trading_account_request=disconnect_trading_account_request)
 
 Disconnect trading account
 
@@ -194,7 +195,7 @@ Disconnect from a trading account, all trading functions and the event stream no
 
 ```python
 import cadenza_client
-from cadenza_client.models.connect_trading_account201_response import ConnectTradingAccount201Response
+from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response
 from cadenza_client.models.disconnect_trading_account_request import DisconnectTradingAccountRequest
 from cadenza_client.rest import ApiException
 from pprint import pprint
@@ -241,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConnectTradingAccount201Response**](ConnectTradingAccount201Response.md)
+[**ConnectTradingAccount200Response**](ConnectTradingAccount200Response.md)
 
 ### Authorization
 
@@ -266,7 +267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enable_trading_account**
-> ConnectTradingAccount201Response enable_trading_account(enable_trading_account_request=enable_trading_account_request)
+> ConnectTradingAccount200Response enable_trading_account(enable_trading_account_request=enable_trading_account_request)
 
 Enable trading account
 
@@ -278,7 +279,7 @@ Enable a trading account, the trading account will be enabled and available for 
 
 ```python
 import cadenza_client
-from cadenza_client.models.connect_trading_account201_response import ConnectTradingAccount201Response
+from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response
 from cadenza_client.models.enable_trading_account_request import EnableTradingAccountRequest
 from cadenza_client.rest import ApiException
 from pprint import pprint
@@ -325,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConnectTradingAccount201Response**](ConnectTradingAccount201Response.md)
+[**ConnectTradingAccount200Response**](ConnectTradingAccount200Response.md)
 
 ### Authorization
 
@@ -539,7 +540,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_trading_account**
-> ConnectTradingAccount201Response update_trading_account(update_trading_account_request=update_trading_account_request)
+> ConnectTradingAccount200Response update_trading_account(update_trading_account_request=update_trading_account_request)
 
 Update trading account
 
@@ -551,7 +552,7 @@ Update trading account information
 
 ```python
 import cadenza_client
-from cadenza_client.models.connect_trading_account201_response import ConnectTradingAccount201Response
+from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response
 from cadenza_client.models.update_trading_account_request import UpdateTradingAccountRequest
 from cadenza_client.rest import ApiException
 from pprint import pprint
@@ -598,7 +599,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConnectTradingAccount201Response**](ConnectTradingAccount201Response.md)
+[**ConnectTradingAccount200Response**](ConnectTradingAccount200Response.md)
 
 ### Authorization
 
