@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instrument_id** | **str** | Instrument ID. {venue}:{symbol} | [optional] 
+**instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | [optional] 
 **venue** | [**Venue**](Venue.md) |  | 
 **symbol** | **str** |  | 
 **asks** | **List[List[str]]** |  | 

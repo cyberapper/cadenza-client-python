@@ -26,11 +26,14 @@ class TradingAccountStatus(str, Enum):
     """
     allowed enum values
     """
+    SETUP = 'SETUP'
     ACTIVE = 'ACTIVE'
     INACTIVE = 'INACTIVE'
+    LOCKED = 'LOCKED'
     DISCONNECTED = 'DISCONNECTED'
     SUSPENDED = 'SUSPENDED'
     DELETED = 'DELETED'
+    UNKNOWN = 'UNKNOWN'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

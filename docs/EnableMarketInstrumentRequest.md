@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instrument_id** | **str** | Instrument ID. {venue}:{symbol} | 
+**instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | 
 
 ## Example
 

@@ -1,14 +1,16 @@
 # Pagination
 
+Pagination parameters and metadata
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**offset** | **int** | Current offset | [optional] 
-**limit** | **int** | Current limit | [optional] 
-**total** | **int** | Total number of items | [optional] 
+**offset** | **int** | Number of items to skip | [optional] 
+**limit** | **int** | Maximum number of items to return | [optional] 
+**total** | **int** | Total number of items available | [optional] 
 **cursor** | **str** | Cursor for next page (optional) | [optional] 
+**has_next** | **bool** | Whether there are more items | [optional] 
 
 ## Example
 

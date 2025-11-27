@@ -28,7 +28,7 @@ class Orderbook(BaseModel):
     """
     Orderbook
     """ # noqa: E501
-    instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID. {venue}:{symbol}", alias="instrumentId")
+    instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     venue: Venue
     symbol: StrictStr
     asks: List[Annotated[List[Annotated[str, Field(strict=True)]], Field(min_length=2, max_length=2)]]

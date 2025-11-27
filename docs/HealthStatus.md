@@ -1,6 +1,6 @@
 # HealthStatus
 
-Health status of a component or the overall system
+Health status of a component or system
 
 ## Enum
 

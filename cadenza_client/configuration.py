@@ -522,11 +522,19 @@ class Configuration:
         return [
             {
                 'url': "https://cadenza-api-uat.algo724.com",
-                'description': "UAT server",
+                'description': "UAT REST API server",
             },
             {
                 'url': "https://cadenza-api.algo724.com",
-                'description': "Production server",
+                'description': "Production REST API server",
+            },
+            {
+                'url': "wss://cadenza-ws-uat.algo724.com",
+                'description': "UAT WebSocket server",
+            },
+            {
+                'url': "wss://cadenza-ws.algo724.com",
+                'description': "Production WebSocket server",
             }
         ]
 

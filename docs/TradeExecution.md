@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **execution_id** | **str** | UUID string | 
 **external_trade_id** | **str** | Exchange&#39;s execution identifier | [optional] 
 **venue** | [**Venue**](Venue.md) |  | 
-**instrument_id** | **str** | Instrument ID. {venue}:{symbol} | 
+**instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | 
 **order_side** | [**OrderSide**](OrderSide.md) |  | [optional] 
 **executed_quantity** | **str** | Decimal value as string to preserve precision | 
 **executed_price** | **str** | Decimal value as string to preserve precision | 

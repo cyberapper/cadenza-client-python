@@ -1,26 +1,26 @@
 # TimeInForce
 
-Time in force
+Time in force - specifies how long an order remains active
 
 ## Enum
 
 * `EMPTY` (value: `''`)
 
-* `DAY` (value: `'DAY'`)
-
 * `GTC` (value: `'GTC'`)
-
-* `GTX` (value: `'GTX'`)
-
-* `GTD` (value: `'GTD'`)
-
-* `OPG` (value: `'OPG'`)
-
-* `CLS` (value: `'CLS'`)
 
 * `IOC` (value: `'IOC'`)
 
 * `FOK` (value: `'FOK'`)
+
+* `GTD` (value: `'GTD'`)
+
+* `DAY` (value: `'DAY'`)
+
+* `GTX` (value: `'GTX'`)
+
+* `OPG` (value: `'OPG'`)
+
+* `CLS` (value: `'CLS'`)
 
 * `GFA` (value: `'GFA'`)
 
@@ -33,6 +33,8 @@ Time in force
 * `MOC` (value: `'MOC'`)
 
 * `EXT` (value: `'EXT'`)
+
+* `UNKNOWN` (value: `'UNKNOWN'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

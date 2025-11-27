@@ -375,7 +375,6 @@ class MarketSubscriptionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SubscribeTradingAccount200Response",
-            '201': "SubscribeTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -448,7 +447,6 @@ class MarketSubscriptionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SubscribeTradingAccount200Response",
-            '201': "SubscribeTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -521,7 +519,6 @@ class MarketSubscriptionApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SubscribeTradingAccount200Response",
-            '201': "SubscribeTradingAccount200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",

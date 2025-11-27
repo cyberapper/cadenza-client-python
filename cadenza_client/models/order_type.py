@@ -29,11 +29,15 @@ class OrderType(str, Enum):
     EMPTY = ''
     MARKET = 'MARKET'
     LIMIT = 'LIMIT'
+    STOP = 'STOP'
+    STOP_LIMIT = 'STOP_LIMIT'
     STOP_LOSS = 'STOP_LOSS'
     STOP_LOSS_LIMIT = 'STOP_LOSS_LIMIT'
     TAKE_PROFIT = 'TAKE_PROFIT'
     TAKE_PROFIT_LIMIT = 'TAKE_PROFIT_LIMIT'
+    TRAILING_STOP = 'TRAILING_STOP'
     QUOTED = 'QUOTED'
+    UNKNOWN = 'UNKNOWN'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

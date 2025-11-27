@@ -26,7 +26,7 @@ class EnableMarketInstrumentRequest(BaseModel):
     """
     EnableMarketInstrumentRequest
     """ # noqa: E501
-    instrument_id: StrictStr = Field(description="Instrument ID. {venue}:{symbol}", alias="instrumentId")
+    instrument_id: StrictStr = Field(description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     __properties: ClassVar[List[str]] = ["instrumentId"]
 
     model_config = ConfigDict(

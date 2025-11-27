@@ -20,14 +20,15 @@ from typing_extensions import Self
 
 class SubscriptionStatus(str, Enum):
     """
-    Subscription status
+    Status of a subscription
     """
 
     """
     allowed enum values
     """
-    ACTIVE = 'ACTIVE'
     INACTIVE = 'INACTIVE'
+    ACTIVE = 'ACTIVE'
+    PAUSED = 'PAUSED'
     TERMINATED = 'TERMINATED'
 
     @classmethod

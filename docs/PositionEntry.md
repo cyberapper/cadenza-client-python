@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **security_symbol** | **str** | Security symbol | 
 **external_position_id** | **str** | External position ID from the exchange | [optional] 
 **trading_account_id** | **str** | UUID string | 
-**instrument_id** | **str** | Instrument ID. {venue}:{symbol} | [optional] 
+**instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | [optional] 
 **security_type** | [**SecurityType**](SecurityType.md) |  | 
 **status** | [**PositionStatus**](PositionStatus.md) |  | 
 **quantity** | **str** | Decimal value as string to preserve precision | 

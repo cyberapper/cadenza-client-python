@@ -1,6 +1,6 @@
 # QuantityRounding
 
-Quantity rounding strategy to meet lot size requirements. Empty string means no rounding (rejects orders that don't meet lot size requirements).
+Quantity rounding strategy to meet lot size requirements. Empty string means no rounding.
 
 ## Enum
 

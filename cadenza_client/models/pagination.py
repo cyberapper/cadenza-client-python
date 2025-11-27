@@ -17,20 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
 class Pagination(BaseModel):
     """
-    Pagination
+    Pagination parameters and metadata
     """ # noqa: E501
-    offset: Optional[StrictInt] = Field(default=None, description="Current offset")
-    limit: Optional[StrictInt] = Field(default=None, description="Current limit")
-    total: Optional[StrictInt] = Field(default=None, description="Total number of items")
+    offset: Optional[StrictInt] = Field(default=None, description="Number of items to skip")
+    limit: Optional[StrictInt] = Field(default=None, description="Maximum number of items to return")
+    total: Optional[StrictInt] = Field(default=None, description="Total number of items available")
     cursor: Optional[StrictStr] = Field(default=None, description="Cursor for next page (optional)")
-    __properties: ClassVar[List[str]] = ["offset", "limit", "total", "cursor"]
+    has_next: Optional[StrictBool] = Field(default=None, description="Whether there are more items", alias="hasNext")
+    __properties: ClassVar[List[str]] = ["offset", "limit", "total", "cursor", "hasNext"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,11 +72,6 @@ class Pagination(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if cursor (nullable) is None
-        # and model_fields_set contains the field
-        if self.cursor is None and "cursor" in self.model_fields_set:
-            _dict['cursor'] = None
-
         return _dict
 
     @classmethod
@@ -91,7 +87,8 @@ class Pagination(BaseModel):
             "offset": obj.get("offset"),
             "limit": obj.get("limit"),
             "total": obj.get("total"),
-            "cursor": obj.get("cursor")
+            "cursor": obj.get("cursor"),
+            "hasNext": obj.get("hasNext")
         })
         return _obj
 

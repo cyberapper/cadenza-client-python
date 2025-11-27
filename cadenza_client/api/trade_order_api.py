@@ -820,7 +820,6 @@ class TradeOrderApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SubmitTradeOrder200Response",
-            '201': "SubmitTradeOrder200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -893,7 +892,6 @@ class TradeOrderApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SubmitTradeOrder200Response",
-            '201': "SubmitTradeOrder200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",
@@ -966,7 +964,6 @@ class TradeOrderApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SubmitTradeOrder200Response",
-            '201': "SubmitTradeOrder200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '403': "Root403Response",

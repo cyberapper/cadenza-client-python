@@ -39,6 +39,7 @@ class OrderStatus(str, Enum):
     REJECTED = 'REJECTED'
     EXPIRED = 'EXPIRED'
     REVOKED = 'REVOKED'
+    UNKNOWN = 'UNKNOWN'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

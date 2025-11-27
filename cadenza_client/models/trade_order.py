@@ -42,7 +42,7 @@ class TradeOrder(BaseModel):
     trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
     venue: Venue
     position_id: Optional[UUID] = Field(default=None, description="UUID string", alias="positionId")
-    instrument_id: StrictStr = Field(description="Instrument ID. {venue}:{symbol}", alias="instrumentId")
+    instrument_id: StrictStr = Field(description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     quote_id: Optional[UUID] = Field(default=None, description="UUID string", alias="quoteId")
     base_asset: StrictStr = Field(description="Base asset in the trading pair", alias="baseAsset")
     quote_asset: StrictStr = Field(description="Quote asset in the trading pair", alias="quoteAsset")

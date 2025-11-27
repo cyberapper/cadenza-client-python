@@ -35,7 +35,7 @@ class PositionEntry(BaseModel):
     security_symbol: StrictStr = Field(description="Security symbol", alias="securitySymbol")
     external_position_id: Optional[StrictStr] = Field(default=None, description="External position ID from the exchange", alias="externalPositionId")
     trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
-    instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID. {venue}:{symbol}", alias="instrumentId")
+    instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     security_type: SecurityType = Field(alias="securityType")
     status: PositionStatus
     quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision")

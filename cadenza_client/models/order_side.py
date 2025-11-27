@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class OrderSide(str, Enum):
     """
-    Order side
+    Order side (buy or sell)
     """
 
     """
@@ -28,6 +28,7 @@ class OrderSide(str, Enum):
     """
     BUY = 'BUY'
     SELL = 'SELL'
+    UNKNOWN = 'UNKNOWN'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

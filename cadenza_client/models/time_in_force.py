@@ -20,27 +20,28 @@ from typing_extensions import Self
 
 class TimeInForce(str, Enum):
     """
-    Time in force
+    Time in force - specifies how long an order remains active
     """
 
     """
     allowed enum values
     """
     EMPTY = ''
-    DAY = 'DAY'
     GTC = 'GTC'
-    GTX = 'GTX'
-    GTD = 'GTD'
-    OPG = 'OPG'
-    CLS = 'CLS'
     IOC = 'IOC'
     FOK = 'FOK'
+    GTD = 'GTD'
+    DAY = 'DAY'
+    GTX = 'GTX'
+    OPG = 'OPG'
+    CLS = 'CLS'
     GFA = 'GFA'
     GFS = 'GFS'
     GTM = 'GTM'
     MOO = 'MOO'
     MOC = 'MOC'
     EXT = 'EXT'
+    UNKNOWN = 'UNKNOWN'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

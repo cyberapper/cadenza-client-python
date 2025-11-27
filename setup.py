@@ -42,6 +42,7 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
+    license="Proprietary",
     long_description_content_type='text/markdown',
     long_description="""\
     OpenAPI Specification for Algo724 Cadenza Fermata API  ## API Resources - &lt;a href&#x3D;\&quot;/postman-collection.json\&quot; download&#x3D;\&quot;cadenza-postman-collection.json\&quot;&gt;Download Postman Collection&lt;/a&gt;

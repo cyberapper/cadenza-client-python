@@ -1,6 +1,6 @@
 # AccountType
 
-Type of account
+Type of trading account
 
 ## Enum
 

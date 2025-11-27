@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **subscription_id** | **str** | UUID string | 
 **venue** | [**Venue**](Venue.md) |  | 
 **trading_account_id** | **str** | UUID string | [optional] 
-**instrument_id** | **str** | Instrument ID. {venue}:{symbol} | [optional] 
+**instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | [optional] 
 **subscription_type** | [**SubscriptionType**](SubscriptionType.md) |  | 
 **status** | [**SubscriptionStatus**](SubscriptionStatus.md) |  | 
 **created_at** | **int** | Unix timestamp in milliseconds | 

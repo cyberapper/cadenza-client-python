@@ -171,7 +171,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Subscription response |  -  |
-**201** | Subscription response |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Authentication required |  -  |
 **403** | Forbidden - Insufficient permissions |  -  |

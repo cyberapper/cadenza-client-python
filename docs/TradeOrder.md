@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **trading_account_id** | **str** | UUID string | 
 **venue** | [**Venue**](Venue.md) |  | 
 **position_id** | **str** | UUID string | [optional] 
-**instrument_id** | **str** | Instrument ID. {venue}:{symbol} | 
+**instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | 
 **quote_id** | **str** | UUID string | [optional] 
 **base_asset** | **str** | Base asset in the trading pair | 
 **quote_asset** | **str** | Quote asset in the trading pair | 

@@ -20,13 +20,16 @@ from typing_extensions import Self
 
 class InstrumentType(str, Enum):
     """
-    Instrument type
+    Type of financial instrument
     """
 
     """
     allowed enum values
     """
     SPOT = 'SPOT'
+    FUTURES = 'FUTURES'
+    OPTION = 'OPTION'
+    PERPETUAL = 'PERPETUAL'
     DERIVATIVE = 'DERIVATIVE'
 
     @classmethod

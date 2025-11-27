@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class AccountType(str, Enum):
     """
-    Type of account
+    Type of trading account
     """
 
     """

@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class CredentialType(str, Enum):
     """
-    Credential type
+    Type of API credential
     """
 
     """
@@ -28,7 +28,9 @@ class CredentialType(str, Enum):
     """
     EMPTY = ''
     API_KEY = 'API_KEY'
+    HMAC = 'HMAC'
     OAUTH = 'OAUTH'
+    RSA = 'RSA'
     ED25519 = 'ED25519'
 
     @classmethod

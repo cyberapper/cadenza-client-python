@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class OrderQuantityType(str, Enum):
     """
-    Quantity type
+    How order quantity is specified
     """
 
     """
@@ -29,6 +29,7 @@ class OrderQuantityType(str, Enum):
     BASE = 'BASE'
     QUOTE = 'QUOTE'
     POSITION_RATIO = 'POSITION_RATIO'
+    POSITION_PERCENTAGE = 'POSITION_PERCENTAGE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

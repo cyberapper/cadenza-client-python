@@ -1,12 +1,14 @@
 # SubscriptionStatus
 
-Subscription status
+Status of a subscription
 
 ## Enum
 
+* `INACTIVE` (value: `'INACTIVE'`)
+
 * `ACTIVE` (value: `'ACTIVE'`)
 
-* `INACTIVE` (value: `'INACTIVE'`)
+* `PAUSED` (value: `'PAUSED'`)
 
 * `TERMINATED` (value: `'TERMINATED'`)
 

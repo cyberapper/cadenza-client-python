@@ -89,7 +89,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Connect trading account response |  -  |
-**201** | Connect trading account response |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Authentication required |  -  |
 **403** | Forbidden - Insufficient permissions |  -  |

@@ -1,12 +1,14 @@
 # OrderSide
 
-Order side
+Order side (buy or sell)
 
 ## Enum
 
 * `BUY` (value: `'BUY'`)
 
 * `SELL` (value: `'SELL'`)
+
+* `UNKNOWN` (value: `'UNKNOWN'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

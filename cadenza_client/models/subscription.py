@@ -34,7 +34,7 @@ class Subscription(BaseModel):
     subscription_id: UUID = Field(description="UUID string", alias="subscriptionId")
     venue: Venue
     trading_account_id: Optional[UUID] = Field(default=None, description="UUID string", alias="tradingAccountId")
-    instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID. {venue}:{symbol}", alias="instrumentId")
+    instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     subscription_type: SubscriptionType = Field(alias="subscriptionType")
     status: SubscriptionStatus
     created_at: StrictInt = Field(description="Unix timestamp in milliseconds", alias="createdAt")

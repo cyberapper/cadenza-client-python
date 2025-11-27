@@ -34,7 +34,7 @@ class Instrument(BaseModel):
     """
     Instrument
     """ # noqa: E501
-    instrument_id: StrictStr = Field(description="Instrument ID. {venue}:{symbol}", alias="instrumentId")
+    instrument_id: StrictStr = Field(description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     venue: Venue
     symbol: StrictStr = Field(description="Human-readable symbol format")
     external_symbol: StrictStr = Field(description="Symbol format used by the exchange", alias="externalSymbol")

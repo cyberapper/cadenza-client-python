@@ -35,7 +35,7 @@ class TradeExecution(BaseModel):
     execution_id: UUID = Field(description="UUID string", alias="executionId")
     external_trade_id: Optional[StrictStr] = Field(default=None, description="Exchange's execution identifier", alias="externalTradeId")
     venue: Venue
-    instrument_id: StrictStr = Field(description="Instrument ID. {venue}:{symbol}", alias="instrumentId")
+    instrument_id: StrictStr = Field(description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     order_side: Optional[OrderSide] = Field(default=None, alias="orderSide")
     executed_quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision", alias="executedQuantity")
     executed_price: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision", alias="executedPrice")

@@ -1,0 +1,32 @@
+# RpcListSubscriptionsRequest
+
+Request to list subscriptions
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**instrument_id** | **List[str]** |  | [optional] 
+**subscription_type** | [**SubscriptionType**](SubscriptionType.md) |  | [optional] 
+**venue** | [**Venue**](Venue.md) |  | [optional] 
+
+## Example
+
+```python
+from cadenza_client.models.rpc_list_subscriptions_request import RpcListSubscriptionsRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RpcListSubscriptionsRequest from a JSON string
+rpc_list_subscriptions_request_instance = RpcListSubscriptionsRequest.from_json(json)
+# print the JSON string representation of the object
+print(RpcListSubscriptionsRequest.to_json())
+
+# convert the object into a dict
+rpc_list_subscriptions_request_dict = rpc_list_subscriptions_request_instance.to_dict()
+# create an instance of RpcListSubscriptionsRequest from a dict
+rpc_list_subscriptions_request_from_dict = RpcListSubscriptionsRequest.from_dict(rpc_list_subscriptions_request_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

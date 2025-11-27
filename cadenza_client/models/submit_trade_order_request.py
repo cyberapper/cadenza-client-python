@@ -34,9 +34,9 @@ class SubmitTradeOrderRequest(BaseModel):
     SubmitTradeOrderRequest
     """ # noqa: E501
     trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
-    instrument_id: StrictStr = Field(description="Instrument ID. {venue}:{symbol}", alias="instrumentId")
-    idempotency_key: Optional[StrictStr] = Field(default=None, description="Alias of clientOrderId Idempotency key is used to ensure that the same request is not processed more than once. If the same request is received again, the server will return the same response as the first time.", alias="idempotencyKey")
-    client_order_id: Optional[StrictStr] = Field(default=None, description="Client order ID, will be used as the idempotency key of the request, same of the idempotency key in the header. If not provided, a random string will be generated.", alias="clientOrderId")
+    instrument_id: StrictStr = Field(description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
+    idempotency_key: Optional[StrictStr] = Field(default=None, description="Idempotency key to prevent duplicate request processing", alias="idempotencyKey")
+    client_order_id: Optional[StrictStr] = Field(default=None, description="Client-provided order ID, used as idempotency key", alias="clientOrderId")
     order_side: OrderSide = Field(alias="orderSide")
     order_type: OrderType = Field(alias="orderType")
     limit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="limitPrice")

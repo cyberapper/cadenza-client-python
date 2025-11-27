@@ -10,6 +10,7 @@ if __import__("typing").TYPE_CHECKING:
     from cadenza_client.api.trading_account_portfolio_api import TradingAccountPortfolioApi
     from cadenza_client.api.trading_account_subscription_api import TradingAccountSubscriptionApi
     from cadenza_client.api.utility_api import UtilityApi
+    from cadenza_client.api.web_socket_api import WebSocketApi
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -26,6 +27,7 @@ from cadenza_client.api.trading_account_credential_api import TradingAccountCred
 from cadenza_client.api.trading_account_portfolio_api import TradingAccountPortfolioApi
 from cadenza_client.api.trading_account_subscription_api import TradingAccountSubscriptionApi
 from cadenza_client.api.utility_api import UtilityApi
+from cadenza_client.api.web_socket_api import WebSocketApi
 
 """,
             name=__name__,
