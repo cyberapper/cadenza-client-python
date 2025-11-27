@@ -31,10 +31,10 @@ class Health200Response(BaseModel):
     """ # noqa: E501
     status: HealthStatus
     timestamp: StrictInt = Field(description="Health check timestamp in milliseconds")
-    datetime: Optional[datetime] = Field(default=None, description="Health check timestamp in ISO 8601 format")
+    iso_date_time: Optional[datetime] = Field(default=None, description="Health check timestamp in ISO 8601 format", alias="isoDateTime")
     version: StrictStr = Field(description="API version")
     checks: Optional[Health200ResponseChecks] = None
-    __properties: ClassVar[List[str]] = ["status", "timestamp", "datetime", "version", "checks"]
+    __properties: ClassVar[List[str]] = ["status", "timestamp", "isoDateTime", "version", "checks"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,7 +92,7 @@ class Health200Response(BaseModel):
         _obj = cls.model_validate({
             "status": obj.get("status"),
             "timestamp": obj.get("timestamp"),
-            "datetime": obj.get("datetime"),
+            "isoDateTime": obj.get("isoDateTime"),
             "version": obj.get("version"),
             "checks": Health200ResponseChecks.from_dict(obj["checks"]) if obj.get("checks") is not None else None
         })

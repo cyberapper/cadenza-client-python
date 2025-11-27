@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**HealthStatus**](HealthStatus.md) |  | [optional] 
 **timestamp** | **int** |  | [optional] 
-**datetime** | **datetime** |  | [optional] 
+**iso_date_time** | **datetime** |  | [optional] 
 **version** | **str** |  | [optional] 
 **checks** | [**Dict[str, HealthCheckComponent]**](HealthCheckComponent.md) | Details about failed health checks | [optional] 
 

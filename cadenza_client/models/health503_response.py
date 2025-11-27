@@ -31,10 +31,10 @@ class Health503Response(BaseModel):
     """ # noqa: E501
     status: Optional[HealthStatus] = None
     timestamp: Optional[StrictInt] = None
-    datetime: Optional[datetime] = None
+    iso_date_time: Optional[datetime] = Field(default=None, alias="isoDateTime")
     version: Optional[StrictStr] = None
     checks: Optional[Dict[str, HealthCheckComponent]] = Field(default=None, description="Details about failed health checks")
-    __properties: ClassVar[List[str]] = ["status", "timestamp", "datetime", "version", "checks"]
+    __properties: ClassVar[List[str]] = ["status", "timestamp", "isoDateTime", "version", "checks"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,7 +96,7 @@ class Health503Response(BaseModel):
         _obj = cls.model_validate({
             "status": obj.get("status"),
             "timestamp": obj.get("timestamp"),
-            "datetime": obj.get("datetime"),
+            "isoDateTime": obj.get("isoDateTime"),
             "version": obj.get("version"),
             "checks": dict(
                 (_k, HealthCheckComponent.from_dict(_v))
