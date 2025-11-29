@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.1.0](https://github.com/cyberapper/cadenza-client-python/compare/v3.0.2...v3.1.0) (2025-11-29)
+
+
+### Features
+
+* add websocket api and extensive rpc model support ([526b2c6](https://github.com/cyberapper/cadenza-client-python/commit/526b2c691a7b05e3fe9bbad75f707dc78873f50b))
+
+
+### Bug Fixes
+
+* 201 response ([fdb8e48](https://github.com/cyberapper/cadenza-client-python/commit/fdb8e484a5d3b6a9a3484874c730776d0ec609f9))
+* health check datetime -&gt; isoDateTime ([1372af0](https://github.com/cyberapper/cadenza-client-python/commit/1372af0d72d340a45d93c6b4750dd8e87354ca4b))
+
+
+### Code Refactoring
+
+* rename rpc models from request/response to params/result ([14278bb](https://github.com/cyberapper/cadenza-client-python/commit/14278bb94fb144735844ee153db43a0c46144d83))
+
 ## [3.0.2](https://github.com/cyberapper/cadenza-client-python/compare/v3.0.1...v3.0.2) (2025-11-11)
 
 
