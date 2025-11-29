@@ -40,13 +40,10 @@ __all__ = [
     "AccountType",
     "BalanceEntry",
     "BalanceStatus",
-    "BaseEvent",
     "BaseResponse",
     "BaseResponseDetails",
     "CancelTradeOrder200Response",
-    "CancelTradeOrderCommand",
     "CancelTradeOrderRequest",
-    "CommandMetadata",
     "ConnectTradingAccount200Response",
     "ConnectTradingAccountRequest",
     "CreateTradingAccountCredential200Response",
@@ -63,13 +60,8 @@ __all__ = [
     "EnableMarketInstrument200Response",
     "EnableMarketInstrumentRequest",
     "EnableTradingAccountRequest",
-    "ErrorResponseEvent",
-    "EventMetadata",
     "FinancialSecurity",
     "GetMarketOrderBook200Response",
-    "GetTradeOrderQuery",
-    "GetTradeOrderQueryData",
-    "GetTradeOrderResponseEvent",
     "Health200Response",
     "Health200ResponseChecks",
     "Health503Response",
@@ -95,21 +87,16 @@ __all__ = [
     "OrderQuantityType",
     "OrderSide",
     "OrderStatus",
-    "OrderStatusChangedEvent",
-    "OrderStatusChangedEventData",
     "OrderType",
     "Orderbook",
     "Pagination",
     "Portfolio",
     "PortfolioSummary",
-    "PortfolioUpdatedEvent",
     "PositionEntry",
     "PositionStatus",
     "QuantityRounding",
     "QuantityType",
-    "QueryMetadata",
     "ResponseError",
-    "ResponseMetadata",
     "RevokeTradingAccountCredentialRequest",
     "Root200Response",
     "Root200ResponseAllOfData",
@@ -120,74 +107,74 @@ __all__ = [
     "Root500Response",
     "RotateTradingAccountCredentialRequest",
     "RpcBalanceEntry",
-    "RpcCancelTradeOrderRequest",
-    "RpcCancelTradeOrderResponse",
-    "RpcConnectTradingAccountRequest",
-    "RpcConnectTradingAccountResponse",
-    "RpcCreateCredentialRequest",
-    "RpcCreateCredentialResponse",
-    "RpcCreateSubscriptionRequest",
-    "RpcCreateSubscriptionResponse",
-    "RpcCreateTradingAccountRequest",
-    "RpcCreateTradingAccountResponse",
+    "RpcCancelTradeOrderParams",
+    "RpcCancelTradeOrderResult",
+    "RpcConnectTradingAccountParams",
+    "RpcConnectTradingAccountResult",
+    "RpcCreateCredentialParams",
+    "RpcCreateCredentialResult",
+    "RpcCreateSubscriptionParams",
+    "RpcCreateSubscriptionResult",
+    "RpcCreateTradingAccountParams",
+    "RpcCreateTradingAccountResult",
     "RpcCredentialUpdatedEvent",
-    "RpcDeleteInstrumentRequest",
-    "RpcDeleteInstrumentResponse",
-    "RpcDeleteSecuritiesRequest",
-    "RpcDeleteSecuritiesResponse",
-    "RpcDeleteTradingAccountRequest",
-    "RpcDeleteTradingAccountResponse",
-    "RpcDisableInstrumentRequest",
-    "RpcDisableInstrumentResponse",
-    "RpcDisableTradingAccountRequest",
-    "RpcDisableTradingAccountResponse",
-    "RpcDisconnectTradingAccountRequest",
-    "RpcDisconnectTradingAccountResponse",
-    "RpcEnableInstrumentRequest",
-    "RpcEnableInstrumentResponse",
-    "RpcEnableTradingAccountRequest",
-    "RpcEnableTradingAccountResponse",
+    "RpcDeleteInstrumentParams",
+    "RpcDeleteInstrumentResult",
+    "RpcDeleteSecuritiesParams",
+    "RpcDeleteSecuritiesResult",
+    "RpcDeleteTradingAccountParams",
+    "RpcDeleteTradingAccountResult",
+    "RpcDisableInstrumentParams",
+    "RpcDisableInstrumentResult",
+    "RpcDisableTradingAccountParams",
+    "RpcDisableTradingAccountResult",
+    "RpcDisconnectTradingAccountParams",
+    "RpcDisconnectTradingAccountResult",
+    "RpcEnableInstrumentParams",
+    "RpcEnableInstrumentResult",
+    "RpcEnableTradingAccountParams",
+    "RpcEnableTradingAccountResult",
     "RpcError",
-    "RpcGetOrderBookRequest",
-    "RpcGetOrderBookResponse",
-    "RpcGetPortfolioRequest",
-    "RpcGetPortfolioResponse",
-    "RpcGetSystemInfoResponse",
-    "RpcGetTradeOrderByIdRequest",
-    "RpcGetTradeOrderByIdResponse",
-    "RpcGetTradeOrderRequest",
-    "RpcGetTradeOrderResponse",
-    "RpcHealthCheckResponse",
+    "RpcGetOrderBookParams",
+    "RpcGetOrderBookResult",
+    "RpcGetPortfolioParams",
+    "RpcGetPortfolioResult",
+    "RpcGetSystemInfoResult",
+    "RpcGetTradeOrderByIdParams",
+    "RpcGetTradeOrderByIdResult",
+    "RpcGetTradeOrderParams",
+    "RpcGetTradeOrderResult",
+    "RpcHealthCheckResult",
     "RpcInstrument",
     "RpcInstrumentUpdatedEvent",
     "RpcKline",
-    "RpcListCredentialsRequest",
-    "RpcListCredentialsResponse",
-    "RpcListInstrumentsRequest",
-    "RpcListInstrumentsResponse",
-    "RpcListKlinesRequest",
-    "RpcListKlinesResponse",
-    "RpcListOrderBookSubscriptionsRequest",
-    "RpcListOrderBookSubscriptionsResponse",
-    "RpcListOrderBooksRequest",
-    "RpcListOrderBooksResponse",
-    "RpcListPortfoliosRequest",
-    "RpcListPortfoliosResponse",
-    "RpcListSecuritiesRequest",
-    "RpcListSecuritiesResponse",
-    "RpcListSubscriptionsRequest",
-    "RpcListSubscriptionsResponse",
-    "RpcListTickersRequest",
-    "RpcListTickersResponse",
-    "RpcListTradeOrdersRequest",
-    "RpcListTradeOrdersResponse",
-    "RpcListTradingAccountOperationsRequest",
-    "RpcListTradingAccountOperationsResponse",
-    "RpcListTradingAccountSubscriptionsRequest",
-    "RpcListTradingAccountSubscriptionsResponse",
-    "RpcListTradingAccountsRequest",
-    "RpcListTradingAccountsResponse",
-    "RpcListVenuesResponse",
+    "RpcListCredentialsParams",
+    "RpcListCredentialsResult",
+    "RpcListInstrumentsParams",
+    "RpcListInstrumentsResult",
+    "RpcListKlinesParams",
+    "RpcListKlinesResult",
+    "RpcListOrderBookSubscriptionsParams",
+    "RpcListOrderBookSubscriptionsResult",
+    "RpcListOrderBooksParams",
+    "RpcListOrderBooksResult",
+    "RpcListPortfoliosParams",
+    "RpcListPortfoliosResult",
+    "RpcListSecuritiesParams",
+    "RpcListSecuritiesResult",
+    "RpcListSubscriptionsParams",
+    "RpcListSubscriptionsResult",
+    "RpcListTickersParams",
+    "RpcListTickersResult",
+    "RpcListTradeOrdersParams",
+    "RpcListTradeOrdersResult",
+    "RpcListTradingAccountOperationsParams",
+    "RpcListTradingAccountOperationsResult",
+    "RpcListTradingAccountSubscriptionsParams",
+    "RpcListTradingAccountSubscriptionsResult",
+    "RpcListTradingAccountsParams",
+    "RpcListTradingAccountsResult",
+    "RpcListVenuesResult",
     "RpcMethod",
     "RpcOhlcv",
     "RpcOrderBook",
@@ -198,44 +185,44 @@ __all__ = [
     "RpcPortfolioSummary",
     "RpcPortfolioUpdatedEvent",
     "RpcPositionEntry",
-    "RpcRevokeCredentialRequest",
-    "RpcRevokeCredentialResponse",
-    "RpcRotateCredentialRequest",
-    "RpcRotateCredentialResponse",
-    "RpcSaveCredentialRequest",
-    "RpcSaveCredentialResponse",
-    "RpcSaveInstrumentsRequest",
-    "RpcSaveInstrumentsResponse",
-    "RpcSaveKlinesRequest",
-    "RpcSaveKlinesResponse",
-    "RpcSaveOrderBooksRequest",
-    "RpcSaveOrderBooksResponse",
-    "RpcSavePortfolioRequest",
-    "RpcSavePortfolioResponse",
-    "RpcSaveSecuritiesRequest",
-    "RpcSaveSecuritiesResponse",
-    "RpcSaveTickersRequest",
-    "RpcSaveTickersResponse",
-    "RpcSaveTradeOrderRequest",
-    "RpcSaveTradeOrderResponse",
-    "RpcSaveTradingAccountsRequest",
-    "RpcSaveTradingAccountsResponse",
+    "RpcRevokeCredentialParams",
+    "RpcRevokeCredentialResult",
+    "RpcRotateCredentialParams",
+    "RpcRotateCredentialResult",
+    "RpcSaveCredentialParams",
+    "RpcSaveCredentialResult",
+    "RpcSaveInstrumentsParams",
+    "RpcSaveInstrumentsResult",
+    "RpcSaveKlinesParams",
+    "RpcSaveKlinesResult",
+    "RpcSaveOrderBooksParams",
+    "RpcSaveOrderBooksResult",
+    "RpcSavePortfolioParams",
+    "RpcSavePortfolioResult",
+    "RpcSaveSecuritiesParams",
+    "RpcSaveSecuritiesResult",
+    "RpcSaveTickersParams",
+    "RpcSaveTickersResult",
+    "RpcSaveTradeOrderParams",
+    "RpcSaveTradeOrderResult",
+    "RpcSaveTradingAccountsParams",
+    "RpcSaveTradingAccountsResult",
     "RpcSecurity",
     "RpcSecurityQuantity",
     "RpcSecurityUpdatedEvent",
-    "RpcSubmitTradeOrderRequest",
-    "RpcSubmitTradeOrderResponse",
-    "RpcSubscribeOrderBookRequest",
-    "RpcSubscribeOrderBookResponse",
-    "RpcSubscribeTradingAccountStreamRequest",
-    "RpcSubscribeTradingAccountStreamResponse",
+    "RpcSubmitTradeOrderParams",
+    "RpcSubmitTradeOrderResult",
+    "RpcSubscribeOrderBookParams",
+    "RpcSubscribeOrderBookResult",
+    "RpcSubscribeTradingAccountStreamParams",
+    "RpcSubscribeTradingAccountStreamResult",
     "RpcSubscription",
     "RpcSubscriptionUpdatedEvent",
-    "RpcSyncInstrumentsRequest",
-    "RpcSyncInstrumentsResponse",
-    "RpcSyncInstrumentsResponseData",
-    "RpcSyncSecuritiesRequest",
-    "RpcSyncSecuritiesResponse",
+    "RpcSyncInstrumentsParams",
+    "RpcSyncInstrumentsResult",
+    "RpcSyncInstrumentsResultData",
+    "RpcSyncSecuritiesParams",
+    "RpcSyncSecuritiesResult",
     "RpcTicker",
     "RpcTradeOrder",
     "RpcTradeOrderUpdatedEvent",
@@ -245,25 +232,23 @@ __all__ = [
     "RpcTradingAccountOperationHistory",
     "RpcTradingAccountSubscriptionUpdatedEvent",
     "RpcTradingAccountUpdatedEvent",
-    "RpcUnsubscribeOrderBookRequest",
-    "RpcUnsubscribeOrderBookResponse",
-    "RpcUnsubscribeTradingAccountStreamRequest",
-    "RpcUnsubscribeTradingAccountStreamResponse",
-    "RpcUpdateTradingAccountRequest",
-    "RpcUpdateTradingAccountResponse",
-    "RpcValidateTradingAccountRequest",
-    "RpcValidateTradingAccountResponse",
-    "RpcValidateTradingAccountResponseData",
-    "RpcVerifyCredentialRequest",
-    "RpcVerifyCredentialResponse",
-    "RpcVerifyCredentialResponseData",
+    "RpcUnsubscribeOrderBookParams",
+    "RpcUnsubscribeOrderBookResult",
+    "RpcUnsubscribeTradingAccountStreamParams",
+    "RpcUnsubscribeTradingAccountStreamResult",
+    "RpcUpdateTradingAccountParams",
+    "RpcUpdateTradingAccountResult",
+    "RpcValidateTradingAccountParams",
+    "RpcValidateTradingAccountResult",
+    "RpcValidateTradingAccountResultData",
+    "RpcVerifyCredentialParams",
+    "RpcVerifyCredentialResult",
+    "RpcVerifyCredentialResultData",
     "SecurityQuantity",
     "SecurityType",
     "ServiceName",
     "SubmitTradeOrder200Response",
-    "SubmitTradeOrderCommand",
     "SubmitTradeOrderRequest",
-    "SubmitTradeOrderResponseEvent",
     "SubscribeMarketOrderBookRequest",
     "SubscribeTradingAccount200Response",
     "SubscribeTradingAccountRequest",
@@ -361,13 +346,10 @@ if __import__("typing").TYPE_CHECKING:
     from cadenza_client.models.account_type import AccountType as AccountType
     from cadenza_client.models.balance_entry import BalanceEntry as BalanceEntry
     from cadenza_client.models.balance_status import BalanceStatus as BalanceStatus
-    from cadenza_client.models.base_event import BaseEvent as BaseEvent
     from cadenza_client.models.base_response import BaseResponse as BaseResponse
     from cadenza_client.models.base_response_details import BaseResponseDetails as BaseResponseDetails
     from cadenza_client.models.cancel_trade_order200_response import CancelTradeOrder200Response as CancelTradeOrder200Response
-    from cadenza_client.models.cancel_trade_order_command import CancelTradeOrderCommand as CancelTradeOrderCommand
     from cadenza_client.models.cancel_trade_order_request import CancelTradeOrderRequest as CancelTradeOrderRequest
-    from cadenza_client.models.command_metadata import CommandMetadata as CommandMetadata
     from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response as ConnectTradingAccount200Response
     from cadenza_client.models.connect_trading_account_request import ConnectTradingAccountRequest as ConnectTradingAccountRequest
     from cadenza_client.models.create_trading_account_credential200_response import CreateTradingAccountCredential200Response as CreateTradingAccountCredential200Response
@@ -384,13 +366,8 @@ if __import__("typing").TYPE_CHECKING:
     from cadenza_client.models.enable_market_instrument200_response import EnableMarketInstrument200Response as EnableMarketInstrument200Response
     from cadenza_client.models.enable_market_instrument_request import EnableMarketInstrumentRequest as EnableMarketInstrumentRequest
     from cadenza_client.models.enable_trading_account_request import EnableTradingAccountRequest as EnableTradingAccountRequest
-    from cadenza_client.models.error_response_event import ErrorResponseEvent as ErrorResponseEvent
-    from cadenza_client.models.event_metadata import EventMetadata as EventMetadata
     from cadenza_client.models.financial_security import FinancialSecurity as FinancialSecurity
     from cadenza_client.models.get_market_order_book200_response import GetMarketOrderBook200Response as GetMarketOrderBook200Response
-    from cadenza_client.models.get_trade_order_query import GetTradeOrderQuery as GetTradeOrderQuery
-    from cadenza_client.models.get_trade_order_query_data import GetTradeOrderQueryData as GetTradeOrderQueryData
-    from cadenza_client.models.get_trade_order_response_event import GetTradeOrderResponseEvent as GetTradeOrderResponseEvent
     from cadenza_client.models.health200_response import Health200Response as Health200Response
     from cadenza_client.models.health200_response_checks import Health200ResponseChecks as Health200ResponseChecks
     from cadenza_client.models.health503_response import Health503Response as Health503Response
@@ -416,21 +393,16 @@ if __import__("typing").TYPE_CHECKING:
     from cadenza_client.models.order_quantity_type import OrderQuantityType as OrderQuantityType
     from cadenza_client.models.order_side import OrderSide as OrderSide
     from cadenza_client.models.order_status import OrderStatus as OrderStatus
-    from cadenza_client.models.order_status_changed_event import OrderStatusChangedEvent as OrderStatusChangedEvent
-    from cadenza_client.models.order_status_changed_event_data import OrderStatusChangedEventData as OrderStatusChangedEventData
     from cadenza_client.models.order_type import OrderType as OrderType
     from cadenza_client.models.orderbook import Orderbook as Orderbook
     from cadenza_client.models.pagination import Pagination as Pagination
     from cadenza_client.models.portfolio import Portfolio as Portfolio
     from cadenza_client.models.portfolio_summary import PortfolioSummary as PortfolioSummary
-    from cadenza_client.models.portfolio_updated_event import PortfolioUpdatedEvent as PortfolioUpdatedEvent
     from cadenza_client.models.position_entry import PositionEntry as PositionEntry
     from cadenza_client.models.position_status import PositionStatus as PositionStatus
     from cadenza_client.models.quantity_rounding import QuantityRounding as QuantityRounding
     from cadenza_client.models.quantity_type import QuantityType as QuantityType
-    from cadenza_client.models.query_metadata import QueryMetadata as QueryMetadata
     from cadenza_client.models.response_error import ResponseError as ResponseError
-    from cadenza_client.models.response_metadata import ResponseMetadata as ResponseMetadata
     from cadenza_client.models.revoke_trading_account_credential_request import RevokeTradingAccountCredentialRequest as RevokeTradingAccountCredentialRequest
     from cadenza_client.models.root200_response import Root200Response as Root200Response
     from cadenza_client.models.root200_response_all_of_data import Root200ResponseAllOfData as Root200ResponseAllOfData
@@ -441,74 +413,74 @@ if __import__("typing").TYPE_CHECKING:
     from cadenza_client.models.root500_response import Root500Response as Root500Response
     from cadenza_client.models.rotate_trading_account_credential_request import RotateTradingAccountCredentialRequest as RotateTradingAccountCredentialRequest
     from cadenza_client.models.rpc_balance_entry import RpcBalanceEntry as RpcBalanceEntry
-    from cadenza_client.models.rpc_cancel_trade_order_request import RpcCancelTradeOrderRequest as RpcCancelTradeOrderRequest
-    from cadenza_client.models.rpc_cancel_trade_order_response import RpcCancelTradeOrderResponse as RpcCancelTradeOrderResponse
-    from cadenza_client.models.rpc_connect_trading_account_request import RpcConnectTradingAccountRequest as RpcConnectTradingAccountRequest
-    from cadenza_client.models.rpc_connect_trading_account_response import RpcConnectTradingAccountResponse as RpcConnectTradingAccountResponse
-    from cadenza_client.models.rpc_create_credential_request import RpcCreateCredentialRequest as RpcCreateCredentialRequest
-    from cadenza_client.models.rpc_create_credential_response import RpcCreateCredentialResponse as RpcCreateCredentialResponse
-    from cadenza_client.models.rpc_create_subscription_request import RpcCreateSubscriptionRequest as RpcCreateSubscriptionRequest
-    from cadenza_client.models.rpc_create_subscription_response import RpcCreateSubscriptionResponse as RpcCreateSubscriptionResponse
-    from cadenza_client.models.rpc_create_trading_account_request import RpcCreateTradingAccountRequest as RpcCreateTradingAccountRequest
-    from cadenza_client.models.rpc_create_trading_account_response import RpcCreateTradingAccountResponse as RpcCreateTradingAccountResponse
+    from cadenza_client.models.rpc_cancel_trade_order_params import RpcCancelTradeOrderParams as RpcCancelTradeOrderParams
+    from cadenza_client.models.rpc_cancel_trade_order_result import RpcCancelTradeOrderResult as RpcCancelTradeOrderResult
+    from cadenza_client.models.rpc_connect_trading_account_params import RpcConnectTradingAccountParams as RpcConnectTradingAccountParams
+    from cadenza_client.models.rpc_connect_trading_account_result import RpcConnectTradingAccountResult as RpcConnectTradingAccountResult
+    from cadenza_client.models.rpc_create_credential_params import RpcCreateCredentialParams as RpcCreateCredentialParams
+    from cadenza_client.models.rpc_create_credential_result import RpcCreateCredentialResult as RpcCreateCredentialResult
+    from cadenza_client.models.rpc_create_subscription_params import RpcCreateSubscriptionParams as RpcCreateSubscriptionParams
+    from cadenza_client.models.rpc_create_subscription_result import RpcCreateSubscriptionResult as RpcCreateSubscriptionResult
+    from cadenza_client.models.rpc_create_trading_account_params import RpcCreateTradingAccountParams as RpcCreateTradingAccountParams
+    from cadenza_client.models.rpc_create_trading_account_result import RpcCreateTradingAccountResult as RpcCreateTradingAccountResult
     from cadenza_client.models.rpc_credential_updated_event import RpcCredentialUpdatedEvent as RpcCredentialUpdatedEvent
-    from cadenza_client.models.rpc_delete_instrument_request import RpcDeleteInstrumentRequest as RpcDeleteInstrumentRequest
-    from cadenza_client.models.rpc_delete_instrument_response import RpcDeleteInstrumentResponse as RpcDeleteInstrumentResponse
-    from cadenza_client.models.rpc_delete_securities_request import RpcDeleteSecuritiesRequest as RpcDeleteSecuritiesRequest
-    from cadenza_client.models.rpc_delete_securities_response import RpcDeleteSecuritiesResponse as RpcDeleteSecuritiesResponse
-    from cadenza_client.models.rpc_delete_trading_account_request import RpcDeleteTradingAccountRequest as RpcDeleteTradingAccountRequest
-    from cadenza_client.models.rpc_delete_trading_account_response import RpcDeleteTradingAccountResponse as RpcDeleteTradingAccountResponse
-    from cadenza_client.models.rpc_disable_instrument_request import RpcDisableInstrumentRequest as RpcDisableInstrumentRequest
-    from cadenza_client.models.rpc_disable_instrument_response import RpcDisableInstrumentResponse as RpcDisableInstrumentResponse
-    from cadenza_client.models.rpc_disable_trading_account_request import RpcDisableTradingAccountRequest as RpcDisableTradingAccountRequest
-    from cadenza_client.models.rpc_disable_trading_account_response import RpcDisableTradingAccountResponse as RpcDisableTradingAccountResponse
-    from cadenza_client.models.rpc_disconnect_trading_account_request import RpcDisconnectTradingAccountRequest as RpcDisconnectTradingAccountRequest
-    from cadenza_client.models.rpc_disconnect_trading_account_response import RpcDisconnectTradingAccountResponse as RpcDisconnectTradingAccountResponse
-    from cadenza_client.models.rpc_enable_instrument_request import RpcEnableInstrumentRequest as RpcEnableInstrumentRequest
-    from cadenza_client.models.rpc_enable_instrument_response import RpcEnableInstrumentResponse as RpcEnableInstrumentResponse
-    from cadenza_client.models.rpc_enable_trading_account_request import RpcEnableTradingAccountRequest as RpcEnableTradingAccountRequest
-    from cadenza_client.models.rpc_enable_trading_account_response import RpcEnableTradingAccountResponse as RpcEnableTradingAccountResponse
+    from cadenza_client.models.rpc_delete_instrument_params import RpcDeleteInstrumentParams as RpcDeleteInstrumentParams
+    from cadenza_client.models.rpc_delete_instrument_result import RpcDeleteInstrumentResult as RpcDeleteInstrumentResult
+    from cadenza_client.models.rpc_delete_securities_params import RpcDeleteSecuritiesParams as RpcDeleteSecuritiesParams
+    from cadenza_client.models.rpc_delete_securities_result import RpcDeleteSecuritiesResult as RpcDeleteSecuritiesResult
+    from cadenza_client.models.rpc_delete_trading_account_params import RpcDeleteTradingAccountParams as RpcDeleteTradingAccountParams
+    from cadenza_client.models.rpc_delete_trading_account_result import RpcDeleteTradingAccountResult as RpcDeleteTradingAccountResult
+    from cadenza_client.models.rpc_disable_instrument_params import RpcDisableInstrumentParams as RpcDisableInstrumentParams
+    from cadenza_client.models.rpc_disable_instrument_result import RpcDisableInstrumentResult as RpcDisableInstrumentResult
+    from cadenza_client.models.rpc_disable_trading_account_params import RpcDisableTradingAccountParams as RpcDisableTradingAccountParams
+    from cadenza_client.models.rpc_disable_trading_account_result import RpcDisableTradingAccountResult as RpcDisableTradingAccountResult
+    from cadenza_client.models.rpc_disconnect_trading_account_params import RpcDisconnectTradingAccountParams as RpcDisconnectTradingAccountParams
+    from cadenza_client.models.rpc_disconnect_trading_account_result import RpcDisconnectTradingAccountResult as RpcDisconnectTradingAccountResult
+    from cadenza_client.models.rpc_enable_instrument_params import RpcEnableInstrumentParams as RpcEnableInstrumentParams
+    from cadenza_client.models.rpc_enable_instrument_result import RpcEnableInstrumentResult as RpcEnableInstrumentResult
+    from cadenza_client.models.rpc_enable_trading_account_params import RpcEnableTradingAccountParams as RpcEnableTradingAccountParams
+    from cadenza_client.models.rpc_enable_trading_account_result import RpcEnableTradingAccountResult as RpcEnableTradingAccountResult
     from cadenza_client.models.rpc_error import RpcError as RpcError
-    from cadenza_client.models.rpc_get_order_book_request import RpcGetOrderBookRequest as RpcGetOrderBookRequest
-    from cadenza_client.models.rpc_get_order_book_response import RpcGetOrderBookResponse as RpcGetOrderBookResponse
-    from cadenza_client.models.rpc_get_portfolio_request import RpcGetPortfolioRequest as RpcGetPortfolioRequest
-    from cadenza_client.models.rpc_get_portfolio_response import RpcGetPortfolioResponse as RpcGetPortfolioResponse
-    from cadenza_client.models.rpc_get_system_info_response import RpcGetSystemInfoResponse as RpcGetSystemInfoResponse
-    from cadenza_client.models.rpc_get_trade_order_by_id_request import RpcGetTradeOrderByIdRequest as RpcGetTradeOrderByIdRequest
-    from cadenza_client.models.rpc_get_trade_order_by_id_response import RpcGetTradeOrderByIdResponse as RpcGetTradeOrderByIdResponse
-    from cadenza_client.models.rpc_get_trade_order_request import RpcGetTradeOrderRequest as RpcGetTradeOrderRequest
-    from cadenza_client.models.rpc_get_trade_order_response import RpcGetTradeOrderResponse as RpcGetTradeOrderResponse
-    from cadenza_client.models.rpc_health_check_response import RpcHealthCheckResponse as RpcHealthCheckResponse
+    from cadenza_client.models.rpc_get_order_book_params import RpcGetOrderBookParams as RpcGetOrderBookParams
+    from cadenza_client.models.rpc_get_order_book_result import RpcGetOrderBookResult as RpcGetOrderBookResult
+    from cadenza_client.models.rpc_get_portfolio_params import RpcGetPortfolioParams as RpcGetPortfolioParams
+    from cadenza_client.models.rpc_get_portfolio_result import RpcGetPortfolioResult as RpcGetPortfolioResult
+    from cadenza_client.models.rpc_get_system_info_result import RpcGetSystemInfoResult as RpcGetSystemInfoResult
+    from cadenza_client.models.rpc_get_trade_order_by_id_params import RpcGetTradeOrderByIdParams as RpcGetTradeOrderByIdParams
+    from cadenza_client.models.rpc_get_trade_order_by_id_result import RpcGetTradeOrderByIdResult as RpcGetTradeOrderByIdResult
+    from cadenza_client.models.rpc_get_trade_order_params import RpcGetTradeOrderParams as RpcGetTradeOrderParams
+    from cadenza_client.models.rpc_get_trade_order_result import RpcGetTradeOrderResult as RpcGetTradeOrderResult
+    from cadenza_client.models.rpc_health_check_result import RpcHealthCheckResult as RpcHealthCheckResult
     from cadenza_client.models.rpc_instrument import RpcInstrument as RpcInstrument
     from cadenza_client.models.rpc_instrument_updated_event import RpcInstrumentUpdatedEvent as RpcInstrumentUpdatedEvent
     from cadenza_client.models.rpc_kline import RpcKline as RpcKline
-    from cadenza_client.models.rpc_list_credentials_request import RpcListCredentialsRequest as RpcListCredentialsRequest
-    from cadenza_client.models.rpc_list_credentials_response import RpcListCredentialsResponse as RpcListCredentialsResponse
-    from cadenza_client.models.rpc_list_instruments_request import RpcListInstrumentsRequest as RpcListInstrumentsRequest
-    from cadenza_client.models.rpc_list_instruments_response import RpcListInstrumentsResponse as RpcListInstrumentsResponse
-    from cadenza_client.models.rpc_list_klines_request import RpcListKlinesRequest as RpcListKlinesRequest
-    from cadenza_client.models.rpc_list_klines_response import RpcListKlinesResponse as RpcListKlinesResponse
-    from cadenza_client.models.rpc_list_order_book_subscriptions_request import RpcListOrderBookSubscriptionsRequest as RpcListOrderBookSubscriptionsRequest
-    from cadenza_client.models.rpc_list_order_book_subscriptions_response import RpcListOrderBookSubscriptionsResponse as RpcListOrderBookSubscriptionsResponse
-    from cadenza_client.models.rpc_list_order_books_request import RpcListOrderBooksRequest as RpcListOrderBooksRequest
-    from cadenza_client.models.rpc_list_order_books_response import RpcListOrderBooksResponse as RpcListOrderBooksResponse
-    from cadenza_client.models.rpc_list_portfolios_request import RpcListPortfoliosRequest as RpcListPortfoliosRequest
-    from cadenza_client.models.rpc_list_portfolios_response import RpcListPortfoliosResponse as RpcListPortfoliosResponse
-    from cadenza_client.models.rpc_list_securities_request import RpcListSecuritiesRequest as RpcListSecuritiesRequest
-    from cadenza_client.models.rpc_list_securities_response import RpcListSecuritiesResponse as RpcListSecuritiesResponse
-    from cadenza_client.models.rpc_list_subscriptions_request import RpcListSubscriptionsRequest as RpcListSubscriptionsRequest
-    from cadenza_client.models.rpc_list_subscriptions_response import RpcListSubscriptionsResponse as RpcListSubscriptionsResponse
-    from cadenza_client.models.rpc_list_tickers_request import RpcListTickersRequest as RpcListTickersRequest
-    from cadenza_client.models.rpc_list_tickers_response import RpcListTickersResponse as RpcListTickersResponse
-    from cadenza_client.models.rpc_list_trade_orders_request import RpcListTradeOrdersRequest as RpcListTradeOrdersRequest
-    from cadenza_client.models.rpc_list_trade_orders_response import RpcListTradeOrdersResponse as RpcListTradeOrdersResponse
-    from cadenza_client.models.rpc_list_trading_account_operations_request import RpcListTradingAccountOperationsRequest as RpcListTradingAccountOperationsRequest
-    from cadenza_client.models.rpc_list_trading_account_operations_response import RpcListTradingAccountOperationsResponse as RpcListTradingAccountOperationsResponse
-    from cadenza_client.models.rpc_list_trading_account_subscriptions_request import RpcListTradingAccountSubscriptionsRequest as RpcListTradingAccountSubscriptionsRequest
-    from cadenza_client.models.rpc_list_trading_account_subscriptions_response import RpcListTradingAccountSubscriptionsResponse as RpcListTradingAccountSubscriptionsResponse
-    from cadenza_client.models.rpc_list_trading_accounts_request import RpcListTradingAccountsRequest as RpcListTradingAccountsRequest
-    from cadenza_client.models.rpc_list_trading_accounts_response import RpcListTradingAccountsResponse as RpcListTradingAccountsResponse
-    from cadenza_client.models.rpc_list_venues_response import RpcListVenuesResponse as RpcListVenuesResponse
+    from cadenza_client.models.rpc_list_credentials_params import RpcListCredentialsParams as RpcListCredentialsParams
+    from cadenza_client.models.rpc_list_credentials_result import RpcListCredentialsResult as RpcListCredentialsResult
+    from cadenza_client.models.rpc_list_instruments_params import RpcListInstrumentsParams as RpcListInstrumentsParams
+    from cadenza_client.models.rpc_list_instruments_result import RpcListInstrumentsResult as RpcListInstrumentsResult
+    from cadenza_client.models.rpc_list_klines_params import RpcListKlinesParams as RpcListKlinesParams
+    from cadenza_client.models.rpc_list_klines_result import RpcListKlinesResult as RpcListKlinesResult
+    from cadenza_client.models.rpc_list_order_book_subscriptions_params import RpcListOrderBookSubscriptionsParams as RpcListOrderBookSubscriptionsParams
+    from cadenza_client.models.rpc_list_order_book_subscriptions_result import RpcListOrderBookSubscriptionsResult as RpcListOrderBookSubscriptionsResult
+    from cadenza_client.models.rpc_list_order_books_params import RpcListOrderBooksParams as RpcListOrderBooksParams
+    from cadenza_client.models.rpc_list_order_books_result import RpcListOrderBooksResult as RpcListOrderBooksResult
+    from cadenza_client.models.rpc_list_portfolios_params import RpcListPortfoliosParams as RpcListPortfoliosParams
+    from cadenza_client.models.rpc_list_portfolios_result import RpcListPortfoliosResult as RpcListPortfoliosResult
+    from cadenza_client.models.rpc_list_securities_params import RpcListSecuritiesParams as RpcListSecuritiesParams
+    from cadenza_client.models.rpc_list_securities_result import RpcListSecuritiesResult as RpcListSecuritiesResult
+    from cadenza_client.models.rpc_list_subscriptions_params import RpcListSubscriptionsParams as RpcListSubscriptionsParams
+    from cadenza_client.models.rpc_list_subscriptions_result import RpcListSubscriptionsResult as RpcListSubscriptionsResult
+    from cadenza_client.models.rpc_list_tickers_params import RpcListTickersParams as RpcListTickersParams
+    from cadenza_client.models.rpc_list_tickers_result import RpcListTickersResult as RpcListTickersResult
+    from cadenza_client.models.rpc_list_trade_orders_params import RpcListTradeOrdersParams as RpcListTradeOrdersParams
+    from cadenza_client.models.rpc_list_trade_orders_result import RpcListTradeOrdersResult as RpcListTradeOrdersResult
+    from cadenza_client.models.rpc_list_trading_account_operations_params import RpcListTradingAccountOperationsParams as RpcListTradingAccountOperationsParams
+    from cadenza_client.models.rpc_list_trading_account_operations_result import RpcListTradingAccountOperationsResult as RpcListTradingAccountOperationsResult
+    from cadenza_client.models.rpc_list_trading_account_subscriptions_params import RpcListTradingAccountSubscriptionsParams as RpcListTradingAccountSubscriptionsParams
+    from cadenza_client.models.rpc_list_trading_account_subscriptions_result import RpcListTradingAccountSubscriptionsResult as RpcListTradingAccountSubscriptionsResult
+    from cadenza_client.models.rpc_list_trading_accounts_params import RpcListTradingAccountsParams as RpcListTradingAccountsParams
+    from cadenza_client.models.rpc_list_trading_accounts_result import RpcListTradingAccountsResult as RpcListTradingAccountsResult
+    from cadenza_client.models.rpc_list_venues_result import RpcListVenuesResult as RpcListVenuesResult
     from cadenza_client.models.rpc_method import RpcMethod as RpcMethod
     from cadenza_client.models.rpc_ohlcv import RpcOhlcv as RpcOhlcv
     from cadenza_client.models.rpc_order_book import RpcOrderBook as RpcOrderBook
@@ -519,44 +491,44 @@ if __import__("typing").TYPE_CHECKING:
     from cadenza_client.models.rpc_portfolio_summary import RpcPortfolioSummary as RpcPortfolioSummary
     from cadenza_client.models.rpc_portfolio_updated_event import RpcPortfolioUpdatedEvent as RpcPortfolioUpdatedEvent
     from cadenza_client.models.rpc_position_entry import RpcPositionEntry as RpcPositionEntry
-    from cadenza_client.models.rpc_revoke_credential_request import RpcRevokeCredentialRequest as RpcRevokeCredentialRequest
-    from cadenza_client.models.rpc_revoke_credential_response import RpcRevokeCredentialResponse as RpcRevokeCredentialResponse
-    from cadenza_client.models.rpc_rotate_credential_request import RpcRotateCredentialRequest as RpcRotateCredentialRequest
-    from cadenza_client.models.rpc_rotate_credential_response import RpcRotateCredentialResponse as RpcRotateCredentialResponse
-    from cadenza_client.models.rpc_save_credential_request import RpcSaveCredentialRequest as RpcSaveCredentialRequest
-    from cadenza_client.models.rpc_save_credential_response import RpcSaveCredentialResponse as RpcSaveCredentialResponse
-    from cadenza_client.models.rpc_save_instruments_request import RpcSaveInstrumentsRequest as RpcSaveInstrumentsRequest
-    from cadenza_client.models.rpc_save_instruments_response import RpcSaveInstrumentsResponse as RpcSaveInstrumentsResponse
-    from cadenza_client.models.rpc_save_klines_request import RpcSaveKlinesRequest as RpcSaveKlinesRequest
-    from cadenza_client.models.rpc_save_klines_response import RpcSaveKlinesResponse as RpcSaveKlinesResponse
-    from cadenza_client.models.rpc_save_order_books_request import RpcSaveOrderBooksRequest as RpcSaveOrderBooksRequest
-    from cadenza_client.models.rpc_save_order_books_response import RpcSaveOrderBooksResponse as RpcSaveOrderBooksResponse
-    from cadenza_client.models.rpc_save_portfolio_request import RpcSavePortfolioRequest as RpcSavePortfolioRequest
-    from cadenza_client.models.rpc_save_portfolio_response import RpcSavePortfolioResponse as RpcSavePortfolioResponse
-    from cadenza_client.models.rpc_save_securities_request import RpcSaveSecuritiesRequest as RpcSaveSecuritiesRequest
-    from cadenza_client.models.rpc_save_securities_response import RpcSaveSecuritiesResponse as RpcSaveSecuritiesResponse
-    from cadenza_client.models.rpc_save_tickers_request import RpcSaveTickersRequest as RpcSaveTickersRequest
-    from cadenza_client.models.rpc_save_tickers_response import RpcSaveTickersResponse as RpcSaveTickersResponse
-    from cadenza_client.models.rpc_save_trade_order_request import RpcSaveTradeOrderRequest as RpcSaveTradeOrderRequest
-    from cadenza_client.models.rpc_save_trade_order_response import RpcSaveTradeOrderResponse as RpcSaveTradeOrderResponse
-    from cadenza_client.models.rpc_save_trading_accounts_request import RpcSaveTradingAccountsRequest as RpcSaveTradingAccountsRequest
-    from cadenza_client.models.rpc_save_trading_accounts_response import RpcSaveTradingAccountsResponse as RpcSaveTradingAccountsResponse
+    from cadenza_client.models.rpc_revoke_credential_params import RpcRevokeCredentialParams as RpcRevokeCredentialParams
+    from cadenza_client.models.rpc_revoke_credential_result import RpcRevokeCredentialResult as RpcRevokeCredentialResult
+    from cadenza_client.models.rpc_rotate_credential_params import RpcRotateCredentialParams as RpcRotateCredentialParams
+    from cadenza_client.models.rpc_rotate_credential_result import RpcRotateCredentialResult as RpcRotateCredentialResult
+    from cadenza_client.models.rpc_save_credential_params import RpcSaveCredentialParams as RpcSaveCredentialParams
+    from cadenza_client.models.rpc_save_credential_result import RpcSaveCredentialResult as RpcSaveCredentialResult
+    from cadenza_client.models.rpc_save_instruments_params import RpcSaveInstrumentsParams as RpcSaveInstrumentsParams
+    from cadenza_client.models.rpc_save_instruments_result import RpcSaveInstrumentsResult as RpcSaveInstrumentsResult
+    from cadenza_client.models.rpc_save_klines_params import RpcSaveKlinesParams as RpcSaveKlinesParams
+    from cadenza_client.models.rpc_save_klines_result import RpcSaveKlinesResult as RpcSaveKlinesResult
+    from cadenza_client.models.rpc_save_order_books_params import RpcSaveOrderBooksParams as RpcSaveOrderBooksParams
+    from cadenza_client.models.rpc_save_order_books_result import RpcSaveOrderBooksResult as RpcSaveOrderBooksResult
+    from cadenza_client.models.rpc_save_portfolio_params import RpcSavePortfolioParams as RpcSavePortfolioParams
+    from cadenza_client.models.rpc_save_portfolio_result import RpcSavePortfolioResult as RpcSavePortfolioResult
+    from cadenza_client.models.rpc_save_securities_params import RpcSaveSecuritiesParams as RpcSaveSecuritiesParams
+    from cadenza_client.models.rpc_save_securities_result import RpcSaveSecuritiesResult as RpcSaveSecuritiesResult
+    from cadenza_client.models.rpc_save_tickers_params import RpcSaveTickersParams as RpcSaveTickersParams
+    from cadenza_client.models.rpc_save_tickers_result import RpcSaveTickersResult as RpcSaveTickersResult
+    from cadenza_client.models.rpc_save_trade_order_params import RpcSaveTradeOrderParams as RpcSaveTradeOrderParams
+    from cadenza_client.models.rpc_save_trade_order_result import RpcSaveTradeOrderResult as RpcSaveTradeOrderResult
+    from cadenza_client.models.rpc_save_trading_accounts_params import RpcSaveTradingAccountsParams as RpcSaveTradingAccountsParams
+    from cadenza_client.models.rpc_save_trading_accounts_result import RpcSaveTradingAccountsResult as RpcSaveTradingAccountsResult
     from cadenza_client.models.rpc_security import RpcSecurity as RpcSecurity
     from cadenza_client.models.rpc_security_quantity import RpcSecurityQuantity as RpcSecurityQuantity
     from cadenza_client.models.rpc_security_updated_event import RpcSecurityUpdatedEvent as RpcSecurityUpdatedEvent
-    from cadenza_client.models.rpc_submit_trade_order_request import RpcSubmitTradeOrderRequest as RpcSubmitTradeOrderRequest
-    from cadenza_client.models.rpc_submit_trade_order_response import RpcSubmitTradeOrderResponse as RpcSubmitTradeOrderResponse
-    from cadenza_client.models.rpc_subscribe_order_book_request import RpcSubscribeOrderBookRequest as RpcSubscribeOrderBookRequest
-    from cadenza_client.models.rpc_subscribe_order_book_response import RpcSubscribeOrderBookResponse as RpcSubscribeOrderBookResponse
-    from cadenza_client.models.rpc_subscribe_trading_account_stream_request import RpcSubscribeTradingAccountStreamRequest as RpcSubscribeTradingAccountStreamRequest
-    from cadenza_client.models.rpc_subscribe_trading_account_stream_response import RpcSubscribeTradingAccountStreamResponse as RpcSubscribeTradingAccountStreamResponse
+    from cadenza_client.models.rpc_submit_trade_order_params import RpcSubmitTradeOrderParams as RpcSubmitTradeOrderParams
+    from cadenza_client.models.rpc_submit_trade_order_result import RpcSubmitTradeOrderResult as RpcSubmitTradeOrderResult
+    from cadenza_client.models.rpc_subscribe_order_book_params import RpcSubscribeOrderBookParams as RpcSubscribeOrderBookParams
+    from cadenza_client.models.rpc_subscribe_order_book_result import RpcSubscribeOrderBookResult as RpcSubscribeOrderBookResult
+    from cadenza_client.models.rpc_subscribe_trading_account_stream_params import RpcSubscribeTradingAccountStreamParams as RpcSubscribeTradingAccountStreamParams
+    from cadenza_client.models.rpc_subscribe_trading_account_stream_result import RpcSubscribeTradingAccountStreamResult as RpcSubscribeTradingAccountStreamResult
     from cadenza_client.models.rpc_subscription import RpcSubscription as RpcSubscription
     from cadenza_client.models.rpc_subscription_updated_event import RpcSubscriptionUpdatedEvent as RpcSubscriptionUpdatedEvent
-    from cadenza_client.models.rpc_sync_instruments_request import RpcSyncInstrumentsRequest as RpcSyncInstrumentsRequest
-    from cadenza_client.models.rpc_sync_instruments_response import RpcSyncInstrumentsResponse as RpcSyncInstrumentsResponse
-    from cadenza_client.models.rpc_sync_instruments_response_data import RpcSyncInstrumentsResponseData as RpcSyncInstrumentsResponseData
-    from cadenza_client.models.rpc_sync_securities_request import RpcSyncSecuritiesRequest as RpcSyncSecuritiesRequest
-    from cadenza_client.models.rpc_sync_securities_response import RpcSyncSecuritiesResponse as RpcSyncSecuritiesResponse
+    from cadenza_client.models.rpc_sync_instruments_params import RpcSyncInstrumentsParams as RpcSyncInstrumentsParams
+    from cadenza_client.models.rpc_sync_instruments_result import RpcSyncInstrumentsResult as RpcSyncInstrumentsResult
+    from cadenza_client.models.rpc_sync_instruments_result_data import RpcSyncInstrumentsResultData as RpcSyncInstrumentsResultData
+    from cadenza_client.models.rpc_sync_securities_params import RpcSyncSecuritiesParams as RpcSyncSecuritiesParams
+    from cadenza_client.models.rpc_sync_securities_result import RpcSyncSecuritiesResult as RpcSyncSecuritiesResult
     from cadenza_client.models.rpc_ticker import RpcTicker as RpcTicker
     from cadenza_client.models.rpc_trade_order import RpcTradeOrder as RpcTradeOrder
     from cadenza_client.models.rpc_trade_order_updated_event import RpcTradeOrderUpdatedEvent as RpcTradeOrderUpdatedEvent
@@ -566,25 +538,23 @@ if __import__("typing").TYPE_CHECKING:
     from cadenza_client.models.rpc_trading_account_operation_history import RpcTradingAccountOperationHistory as RpcTradingAccountOperationHistory
     from cadenza_client.models.rpc_trading_account_subscription_updated_event import RpcTradingAccountSubscriptionUpdatedEvent as RpcTradingAccountSubscriptionUpdatedEvent
     from cadenza_client.models.rpc_trading_account_updated_event import RpcTradingAccountUpdatedEvent as RpcTradingAccountUpdatedEvent
-    from cadenza_client.models.rpc_unsubscribe_order_book_request import RpcUnsubscribeOrderBookRequest as RpcUnsubscribeOrderBookRequest
-    from cadenza_client.models.rpc_unsubscribe_order_book_response import RpcUnsubscribeOrderBookResponse as RpcUnsubscribeOrderBookResponse
-    from cadenza_client.models.rpc_unsubscribe_trading_account_stream_request import RpcUnsubscribeTradingAccountStreamRequest as RpcUnsubscribeTradingAccountStreamRequest
-    from cadenza_client.models.rpc_unsubscribe_trading_account_stream_response import RpcUnsubscribeTradingAccountStreamResponse as RpcUnsubscribeTradingAccountStreamResponse
-    from cadenza_client.models.rpc_update_trading_account_request import RpcUpdateTradingAccountRequest as RpcUpdateTradingAccountRequest
-    from cadenza_client.models.rpc_update_trading_account_response import RpcUpdateTradingAccountResponse as RpcUpdateTradingAccountResponse
-    from cadenza_client.models.rpc_validate_trading_account_request import RpcValidateTradingAccountRequest as RpcValidateTradingAccountRequest
-    from cadenza_client.models.rpc_validate_trading_account_response import RpcValidateTradingAccountResponse as RpcValidateTradingAccountResponse
-    from cadenza_client.models.rpc_validate_trading_account_response_data import RpcValidateTradingAccountResponseData as RpcValidateTradingAccountResponseData
-    from cadenza_client.models.rpc_verify_credential_request import RpcVerifyCredentialRequest as RpcVerifyCredentialRequest
-    from cadenza_client.models.rpc_verify_credential_response import RpcVerifyCredentialResponse as RpcVerifyCredentialResponse
-    from cadenza_client.models.rpc_verify_credential_response_data import RpcVerifyCredentialResponseData as RpcVerifyCredentialResponseData
+    from cadenza_client.models.rpc_unsubscribe_order_book_params import RpcUnsubscribeOrderBookParams as RpcUnsubscribeOrderBookParams
+    from cadenza_client.models.rpc_unsubscribe_order_book_result import RpcUnsubscribeOrderBookResult as RpcUnsubscribeOrderBookResult
+    from cadenza_client.models.rpc_unsubscribe_trading_account_stream_params import RpcUnsubscribeTradingAccountStreamParams as RpcUnsubscribeTradingAccountStreamParams
+    from cadenza_client.models.rpc_unsubscribe_trading_account_stream_result import RpcUnsubscribeTradingAccountStreamResult as RpcUnsubscribeTradingAccountStreamResult
+    from cadenza_client.models.rpc_update_trading_account_params import RpcUpdateTradingAccountParams as RpcUpdateTradingAccountParams
+    from cadenza_client.models.rpc_update_trading_account_result import RpcUpdateTradingAccountResult as RpcUpdateTradingAccountResult
+    from cadenza_client.models.rpc_validate_trading_account_params import RpcValidateTradingAccountParams as RpcValidateTradingAccountParams
+    from cadenza_client.models.rpc_validate_trading_account_result import RpcValidateTradingAccountResult as RpcValidateTradingAccountResult
+    from cadenza_client.models.rpc_validate_trading_account_result_data import RpcValidateTradingAccountResultData as RpcValidateTradingAccountResultData
+    from cadenza_client.models.rpc_verify_credential_params import RpcVerifyCredentialParams as RpcVerifyCredentialParams
+    from cadenza_client.models.rpc_verify_credential_result import RpcVerifyCredentialResult as RpcVerifyCredentialResult
+    from cadenza_client.models.rpc_verify_credential_result_data import RpcVerifyCredentialResultData as RpcVerifyCredentialResultData
     from cadenza_client.models.security_quantity import SecurityQuantity as SecurityQuantity
     from cadenza_client.models.security_type import SecurityType as SecurityType
     from cadenza_client.models.service_name import ServiceName as ServiceName
     from cadenza_client.models.submit_trade_order200_response import SubmitTradeOrder200Response as SubmitTradeOrder200Response
-    from cadenza_client.models.submit_trade_order_command import SubmitTradeOrderCommand as SubmitTradeOrderCommand
     from cadenza_client.models.submit_trade_order_request import SubmitTradeOrderRequest as SubmitTradeOrderRequest
-    from cadenza_client.models.submit_trade_order_response_event import SubmitTradeOrderResponseEvent as SubmitTradeOrderResponseEvent
     from cadenza_client.models.subscribe_market_order_book_request import SubscribeMarketOrderBookRequest as SubscribeMarketOrderBookRequest
     from cadenza_client.models.subscribe_trading_account200_response import SubscribeTradingAccount200Response as SubscribeTradingAccount200Response
     from cadenza_client.models.subscribe_trading_account_request import SubscribeTradingAccountRequest as SubscribeTradingAccountRequest
@@ -688,13 +658,10 @@ from cadenza_client.models.account_operation import AccountOperation as AccountO
 from cadenza_client.models.account_type import AccountType as AccountType
 from cadenza_client.models.balance_entry import BalanceEntry as BalanceEntry
 from cadenza_client.models.balance_status import BalanceStatus as BalanceStatus
-from cadenza_client.models.base_event import BaseEvent as BaseEvent
 from cadenza_client.models.base_response import BaseResponse as BaseResponse
 from cadenza_client.models.base_response_details import BaseResponseDetails as BaseResponseDetails
 from cadenza_client.models.cancel_trade_order200_response import CancelTradeOrder200Response as CancelTradeOrder200Response
-from cadenza_client.models.cancel_trade_order_command import CancelTradeOrderCommand as CancelTradeOrderCommand
 from cadenza_client.models.cancel_trade_order_request import CancelTradeOrderRequest as CancelTradeOrderRequest
-from cadenza_client.models.command_metadata import CommandMetadata as CommandMetadata
 from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response as ConnectTradingAccount200Response
 from cadenza_client.models.connect_trading_account_request import ConnectTradingAccountRequest as ConnectTradingAccountRequest
 from cadenza_client.models.create_trading_account_credential200_response import CreateTradingAccountCredential200Response as CreateTradingAccountCredential200Response
@@ -711,13 +678,8 @@ from cadenza_client.models.disconnect_trading_account_request import DisconnectT
 from cadenza_client.models.enable_market_instrument200_response import EnableMarketInstrument200Response as EnableMarketInstrument200Response
 from cadenza_client.models.enable_market_instrument_request import EnableMarketInstrumentRequest as EnableMarketInstrumentRequest
 from cadenza_client.models.enable_trading_account_request import EnableTradingAccountRequest as EnableTradingAccountRequest
-from cadenza_client.models.error_response_event import ErrorResponseEvent as ErrorResponseEvent
-from cadenza_client.models.event_metadata import EventMetadata as EventMetadata
 from cadenza_client.models.financial_security import FinancialSecurity as FinancialSecurity
 from cadenza_client.models.get_market_order_book200_response import GetMarketOrderBook200Response as GetMarketOrderBook200Response
-from cadenza_client.models.get_trade_order_query import GetTradeOrderQuery as GetTradeOrderQuery
-from cadenza_client.models.get_trade_order_query_data import GetTradeOrderQueryData as GetTradeOrderQueryData
-from cadenza_client.models.get_trade_order_response_event import GetTradeOrderResponseEvent as GetTradeOrderResponseEvent
 from cadenza_client.models.health200_response import Health200Response as Health200Response
 from cadenza_client.models.health200_response_checks import Health200ResponseChecks as Health200ResponseChecks
 from cadenza_client.models.health503_response import Health503Response as Health503Response
@@ -743,21 +705,16 @@ from cadenza_client.models.operation_type import OperationType as OperationType
 from cadenza_client.models.order_quantity_type import OrderQuantityType as OrderQuantityType
 from cadenza_client.models.order_side import OrderSide as OrderSide
 from cadenza_client.models.order_status import OrderStatus as OrderStatus
-from cadenza_client.models.order_status_changed_event import OrderStatusChangedEvent as OrderStatusChangedEvent
-from cadenza_client.models.order_status_changed_event_data import OrderStatusChangedEventData as OrderStatusChangedEventData
 from cadenza_client.models.order_type import OrderType as OrderType
 from cadenza_client.models.orderbook import Orderbook as Orderbook
 from cadenza_client.models.pagination import Pagination as Pagination
 from cadenza_client.models.portfolio import Portfolio as Portfolio
 from cadenza_client.models.portfolio_summary import PortfolioSummary as PortfolioSummary
-from cadenza_client.models.portfolio_updated_event import PortfolioUpdatedEvent as PortfolioUpdatedEvent
 from cadenza_client.models.position_entry import PositionEntry as PositionEntry
 from cadenza_client.models.position_status import PositionStatus as PositionStatus
 from cadenza_client.models.quantity_rounding import QuantityRounding as QuantityRounding
 from cadenza_client.models.quantity_type import QuantityType as QuantityType
-from cadenza_client.models.query_metadata import QueryMetadata as QueryMetadata
 from cadenza_client.models.response_error import ResponseError as ResponseError
-from cadenza_client.models.response_metadata import ResponseMetadata as ResponseMetadata
 from cadenza_client.models.revoke_trading_account_credential_request import RevokeTradingAccountCredentialRequest as RevokeTradingAccountCredentialRequest
 from cadenza_client.models.root200_response import Root200Response as Root200Response
 from cadenza_client.models.root200_response_all_of_data import Root200ResponseAllOfData as Root200ResponseAllOfData
@@ -768,74 +725,74 @@ from cadenza_client.models.root404_response import Root404Response as Root404Res
 from cadenza_client.models.root500_response import Root500Response as Root500Response
 from cadenza_client.models.rotate_trading_account_credential_request import RotateTradingAccountCredentialRequest as RotateTradingAccountCredentialRequest
 from cadenza_client.models.rpc_balance_entry import RpcBalanceEntry as RpcBalanceEntry
-from cadenza_client.models.rpc_cancel_trade_order_request import RpcCancelTradeOrderRequest as RpcCancelTradeOrderRequest
-from cadenza_client.models.rpc_cancel_trade_order_response import RpcCancelTradeOrderResponse as RpcCancelTradeOrderResponse
-from cadenza_client.models.rpc_connect_trading_account_request import RpcConnectTradingAccountRequest as RpcConnectTradingAccountRequest
-from cadenza_client.models.rpc_connect_trading_account_response import RpcConnectTradingAccountResponse as RpcConnectTradingAccountResponse
-from cadenza_client.models.rpc_create_credential_request import RpcCreateCredentialRequest as RpcCreateCredentialRequest
-from cadenza_client.models.rpc_create_credential_response import RpcCreateCredentialResponse as RpcCreateCredentialResponse
-from cadenza_client.models.rpc_create_subscription_request import RpcCreateSubscriptionRequest as RpcCreateSubscriptionRequest
-from cadenza_client.models.rpc_create_subscription_response import RpcCreateSubscriptionResponse as RpcCreateSubscriptionResponse
-from cadenza_client.models.rpc_create_trading_account_request import RpcCreateTradingAccountRequest as RpcCreateTradingAccountRequest
-from cadenza_client.models.rpc_create_trading_account_response import RpcCreateTradingAccountResponse as RpcCreateTradingAccountResponse
+from cadenza_client.models.rpc_cancel_trade_order_params import RpcCancelTradeOrderParams as RpcCancelTradeOrderParams
+from cadenza_client.models.rpc_cancel_trade_order_result import RpcCancelTradeOrderResult as RpcCancelTradeOrderResult
+from cadenza_client.models.rpc_connect_trading_account_params import RpcConnectTradingAccountParams as RpcConnectTradingAccountParams
+from cadenza_client.models.rpc_connect_trading_account_result import RpcConnectTradingAccountResult as RpcConnectTradingAccountResult
+from cadenza_client.models.rpc_create_credential_params import RpcCreateCredentialParams as RpcCreateCredentialParams
+from cadenza_client.models.rpc_create_credential_result import RpcCreateCredentialResult as RpcCreateCredentialResult
+from cadenza_client.models.rpc_create_subscription_params import RpcCreateSubscriptionParams as RpcCreateSubscriptionParams
+from cadenza_client.models.rpc_create_subscription_result import RpcCreateSubscriptionResult as RpcCreateSubscriptionResult
+from cadenza_client.models.rpc_create_trading_account_params import RpcCreateTradingAccountParams as RpcCreateTradingAccountParams
+from cadenza_client.models.rpc_create_trading_account_result import RpcCreateTradingAccountResult as RpcCreateTradingAccountResult
 from cadenza_client.models.rpc_credential_updated_event import RpcCredentialUpdatedEvent as RpcCredentialUpdatedEvent
-from cadenza_client.models.rpc_delete_instrument_request import RpcDeleteInstrumentRequest as RpcDeleteInstrumentRequest
-from cadenza_client.models.rpc_delete_instrument_response import RpcDeleteInstrumentResponse as RpcDeleteInstrumentResponse
-from cadenza_client.models.rpc_delete_securities_request import RpcDeleteSecuritiesRequest as RpcDeleteSecuritiesRequest
-from cadenza_client.models.rpc_delete_securities_response import RpcDeleteSecuritiesResponse as RpcDeleteSecuritiesResponse
-from cadenza_client.models.rpc_delete_trading_account_request import RpcDeleteTradingAccountRequest as RpcDeleteTradingAccountRequest
-from cadenza_client.models.rpc_delete_trading_account_response import RpcDeleteTradingAccountResponse as RpcDeleteTradingAccountResponse
-from cadenza_client.models.rpc_disable_instrument_request import RpcDisableInstrumentRequest as RpcDisableInstrumentRequest
-from cadenza_client.models.rpc_disable_instrument_response import RpcDisableInstrumentResponse as RpcDisableInstrumentResponse
-from cadenza_client.models.rpc_disable_trading_account_request import RpcDisableTradingAccountRequest as RpcDisableTradingAccountRequest
-from cadenza_client.models.rpc_disable_trading_account_response import RpcDisableTradingAccountResponse as RpcDisableTradingAccountResponse
-from cadenza_client.models.rpc_disconnect_trading_account_request import RpcDisconnectTradingAccountRequest as RpcDisconnectTradingAccountRequest
-from cadenza_client.models.rpc_disconnect_trading_account_response import RpcDisconnectTradingAccountResponse as RpcDisconnectTradingAccountResponse
-from cadenza_client.models.rpc_enable_instrument_request import RpcEnableInstrumentRequest as RpcEnableInstrumentRequest
-from cadenza_client.models.rpc_enable_instrument_response import RpcEnableInstrumentResponse as RpcEnableInstrumentResponse
-from cadenza_client.models.rpc_enable_trading_account_request import RpcEnableTradingAccountRequest as RpcEnableTradingAccountRequest
-from cadenza_client.models.rpc_enable_trading_account_response import RpcEnableTradingAccountResponse as RpcEnableTradingAccountResponse
+from cadenza_client.models.rpc_delete_instrument_params import RpcDeleteInstrumentParams as RpcDeleteInstrumentParams
+from cadenza_client.models.rpc_delete_instrument_result import RpcDeleteInstrumentResult as RpcDeleteInstrumentResult
+from cadenza_client.models.rpc_delete_securities_params import RpcDeleteSecuritiesParams as RpcDeleteSecuritiesParams
+from cadenza_client.models.rpc_delete_securities_result import RpcDeleteSecuritiesResult as RpcDeleteSecuritiesResult
+from cadenza_client.models.rpc_delete_trading_account_params import RpcDeleteTradingAccountParams as RpcDeleteTradingAccountParams
+from cadenza_client.models.rpc_delete_trading_account_result import RpcDeleteTradingAccountResult as RpcDeleteTradingAccountResult
+from cadenza_client.models.rpc_disable_instrument_params import RpcDisableInstrumentParams as RpcDisableInstrumentParams
+from cadenza_client.models.rpc_disable_instrument_result import RpcDisableInstrumentResult as RpcDisableInstrumentResult
+from cadenza_client.models.rpc_disable_trading_account_params import RpcDisableTradingAccountParams as RpcDisableTradingAccountParams
+from cadenza_client.models.rpc_disable_trading_account_result import RpcDisableTradingAccountResult as RpcDisableTradingAccountResult
+from cadenza_client.models.rpc_disconnect_trading_account_params import RpcDisconnectTradingAccountParams as RpcDisconnectTradingAccountParams
+from cadenza_client.models.rpc_disconnect_trading_account_result import RpcDisconnectTradingAccountResult as RpcDisconnectTradingAccountResult
+from cadenza_client.models.rpc_enable_instrument_params import RpcEnableInstrumentParams as RpcEnableInstrumentParams
+from cadenza_client.models.rpc_enable_instrument_result import RpcEnableInstrumentResult as RpcEnableInstrumentResult
+from cadenza_client.models.rpc_enable_trading_account_params import RpcEnableTradingAccountParams as RpcEnableTradingAccountParams
+from cadenza_client.models.rpc_enable_trading_account_result import RpcEnableTradingAccountResult as RpcEnableTradingAccountResult
 from cadenza_client.models.rpc_error import RpcError as RpcError
-from cadenza_client.models.rpc_get_order_book_request import RpcGetOrderBookRequest as RpcGetOrderBookRequest
-from cadenza_client.models.rpc_get_order_book_response import RpcGetOrderBookResponse as RpcGetOrderBookResponse
-from cadenza_client.models.rpc_get_portfolio_request import RpcGetPortfolioRequest as RpcGetPortfolioRequest
-from cadenza_client.models.rpc_get_portfolio_response import RpcGetPortfolioResponse as RpcGetPortfolioResponse
-from cadenza_client.models.rpc_get_system_info_response import RpcGetSystemInfoResponse as RpcGetSystemInfoResponse
-from cadenza_client.models.rpc_get_trade_order_by_id_request import RpcGetTradeOrderByIdRequest as RpcGetTradeOrderByIdRequest
-from cadenza_client.models.rpc_get_trade_order_by_id_response import RpcGetTradeOrderByIdResponse as RpcGetTradeOrderByIdResponse
-from cadenza_client.models.rpc_get_trade_order_request import RpcGetTradeOrderRequest as RpcGetTradeOrderRequest
-from cadenza_client.models.rpc_get_trade_order_response import RpcGetTradeOrderResponse as RpcGetTradeOrderResponse
-from cadenza_client.models.rpc_health_check_response import RpcHealthCheckResponse as RpcHealthCheckResponse
+from cadenza_client.models.rpc_get_order_book_params import RpcGetOrderBookParams as RpcGetOrderBookParams
+from cadenza_client.models.rpc_get_order_book_result import RpcGetOrderBookResult as RpcGetOrderBookResult
+from cadenza_client.models.rpc_get_portfolio_params import RpcGetPortfolioParams as RpcGetPortfolioParams
+from cadenza_client.models.rpc_get_portfolio_result import RpcGetPortfolioResult as RpcGetPortfolioResult
+from cadenza_client.models.rpc_get_system_info_result import RpcGetSystemInfoResult as RpcGetSystemInfoResult
+from cadenza_client.models.rpc_get_trade_order_by_id_params import RpcGetTradeOrderByIdParams as RpcGetTradeOrderByIdParams
+from cadenza_client.models.rpc_get_trade_order_by_id_result import RpcGetTradeOrderByIdResult as RpcGetTradeOrderByIdResult
+from cadenza_client.models.rpc_get_trade_order_params import RpcGetTradeOrderParams as RpcGetTradeOrderParams
+from cadenza_client.models.rpc_get_trade_order_result import RpcGetTradeOrderResult as RpcGetTradeOrderResult
+from cadenza_client.models.rpc_health_check_result import RpcHealthCheckResult as RpcHealthCheckResult
 from cadenza_client.models.rpc_instrument import RpcInstrument as RpcInstrument
 from cadenza_client.models.rpc_instrument_updated_event import RpcInstrumentUpdatedEvent as RpcInstrumentUpdatedEvent
 from cadenza_client.models.rpc_kline import RpcKline as RpcKline
-from cadenza_client.models.rpc_list_credentials_request import RpcListCredentialsRequest as RpcListCredentialsRequest
-from cadenza_client.models.rpc_list_credentials_response import RpcListCredentialsResponse as RpcListCredentialsResponse
-from cadenza_client.models.rpc_list_instruments_request import RpcListInstrumentsRequest as RpcListInstrumentsRequest
-from cadenza_client.models.rpc_list_instruments_response import RpcListInstrumentsResponse as RpcListInstrumentsResponse
-from cadenza_client.models.rpc_list_klines_request import RpcListKlinesRequest as RpcListKlinesRequest
-from cadenza_client.models.rpc_list_klines_response import RpcListKlinesResponse as RpcListKlinesResponse
-from cadenza_client.models.rpc_list_order_book_subscriptions_request import RpcListOrderBookSubscriptionsRequest as RpcListOrderBookSubscriptionsRequest
-from cadenza_client.models.rpc_list_order_book_subscriptions_response import RpcListOrderBookSubscriptionsResponse as RpcListOrderBookSubscriptionsResponse
-from cadenza_client.models.rpc_list_order_books_request import RpcListOrderBooksRequest as RpcListOrderBooksRequest
-from cadenza_client.models.rpc_list_order_books_response import RpcListOrderBooksResponse as RpcListOrderBooksResponse
-from cadenza_client.models.rpc_list_portfolios_request import RpcListPortfoliosRequest as RpcListPortfoliosRequest
-from cadenza_client.models.rpc_list_portfolios_response import RpcListPortfoliosResponse as RpcListPortfoliosResponse
-from cadenza_client.models.rpc_list_securities_request import RpcListSecuritiesRequest as RpcListSecuritiesRequest
-from cadenza_client.models.rpc_list_securities_response import RpcListSecuritiesResponse as RpcListSecuritiesResponse
-from cadenza_client.models.rpc_list_subscriptions_request import RpcListSubscriptionsRequest as RpcListSubscriptionsRequest
-from cadenza_client.models.rpc_list_subscriptions_response import RpcListSubscriptionsResponse as RpcListSubscriptionsResponse
-from cadenza_client.models.rpc_list_tickers_request import RpcListTickersRequest as RpcListTickersRequest
-from cadenza_client.models.rpc_list_tickers_response import RpcListTickersResponse as RpcListTickersResponse
-from cadenza_client.models.rpc_list_trade_orders_request import RpcListTradeOrdersRequest as RpcListTradeOrdersRequest
-from cadenza_client.models.rpc_list_trade_orders_response import RpcListTradeOrdersResponse as RpcListTradeOrdersResponse
-from cadenza_client.models.rpc_list_trading_account_operations_request import RpcListTradingAccountOperationsRequest as RpcListTradingAccountOperationsRequest
-from cadenza_client.models.rpc_list_trading_account_operations_response import RpcListTradingAccountOperationsResponse as RpcListTradingAccountOperationsResponse
-from cadenza_client.models.rpc_list_trading_account_subscriptions_request import RpcListTradingAccountSubscriptionsRequest as RpcListTradingAccountSubscriptionsRequest
-from cadenza_client.models.rpc_list_trading_account_subscriptions_response import RpcListTradingAccountSubscriptionsResponse as RpcListTradingAccountSubscriptionsResponse
-from cadenza_client.models.rpc_list_trading_accounts_request import RpcListTradingAccountsRequest as RpcListTradingAccountsRequest
-from cadenza_client.models.rpc_list_trading_accounts_response import RpcListTradingAccountsResponse as RpcListTradingAccountsResponse
-from cadenza_client.models.rpc_list_venues_response import RpcListVenuesResponse as RpcListVenuesResponse
+from cadenza_client.models.rpc_list_credentials_params import RpcListCredentialsParams as RpcListCredentialsParams
+from cadenza_client.models.rpc_list_credentials_result import RpcListCredentialsResult as RpcListCredentialsResult
+from cadenza_client.models.rpc_list_instruments_params import RpcListInstrumentsParams as RpcListInstrumentsParams
+from cadenza_client.models.rpc_list_instruments_result import RpcListInstrumentsResult as RpcListInstrumentsResult
+from cadenza_client.models.rpc_list_klines_params import RpcListKlinesParams as RpcListKlinesParams
+from cadenza_client.models.rpc_list_klines_result import RpcListKlinesResult as RpcListKlinesResult
+from cadenza_client.models.rpc_list_order_book_subscriptions_params import RpcListOrderBookSubscriptionsParams as RpcListOrderBookSubscriptionsParams
+from cadenza_client.models.rpc_list_order_book_subscriptions_result import RpcListOrderBookSubscriptionsResult as RpcListOrderBookSubscriptionsResult
+from cadenza_client.models.rpc_list_order_books_params import RpcListOrderBooksParams as RpcListOrderBooksParams
+from cadenza_client.models.rpc_list_order_books_result import RpcListOrderBooksResult as RpcListOrderBooksResult
+from cadenza_client.models.rpc_list_portfolios_params import RpcListPortfoliosParams as RpcListPortfoliosParams
+from cadenza_client.models.rpc_list_portfolios_result import RpcListPortfoliosResult as RpcListPortfoliosResult
+from cadenza_client.models.rpc_list_securities_params import RpcListSecuritiesParams as RpcListSecuritiesParams
+from cadenza_client.models.rpc_list_securities_result import RpcListSecuritiesResult as RpcListSecuritiesResult
+from cadenza_client.models.rpc_list_subscriptions_params import RpcListSubscriptionsParams as RpcListSubscriptionsParams
+from cadenza_client.models.rpc_list_subscriptions_result import RpcListSubscriptionsResult as RpcListSubscriptionsResult
+from cadenza_client.models.rpc_list_tickers_params import RpcListTickersParams as RpcListTickersParams
+from cadenza_client.models.rpc_list_tickers_result import RpcListTickersResult as RpcListTickersResult
+from cadenza_client.models.rpc_list_trade_orders_params import RpcListTradeOrdersParams as RpcListTradeOrdersParams
+from cadenza_client.models.rpc_list_trade_orders_result import RpcListTradeOrdersResult as RpcListTradeOrdersResult
+from cadenza_client.models.rpc_list_trading_account_operations_params import RpcListTradingAccountOperationsParams as RpcListTradingAccountOperationsParams
+from cadenza_client.models.rpc_list_trading_account_operations_result import RpcListTradingAccountOperationsResult as RpcListTradingAccountOperationsResult
+from cadenza_client.models.rpc_list_trading_account_subscriptions_params import RpcListTradingAccountSubscriptionsParams as RpcListTradingAccountSubscriptionsParams
+from cadenza_client.models.rpc_list_trading_account_subscriptions_result import RpcListTradingAccountSubscriptionsResult as RpcListTradingAccountSubscriptionsResult
+from cadenza_client.models.rpc_list_trading_accounts_params import RpcListTradingAccountsParams as RpcListTradingAccountsParams
+from cadenza_client.models.rpc_list_trading_accounts_result import RpcListTradingAccountsResult as RpcListTradingAccountsResult
+from cadenza_client.models.rpc_list_venues_result import RpcListVenuesResult as RpcListVenuesResult
 from cadenza_client.models.rpc_method import RpcMethod as RpcMethod
 from cadenza_client.models.rpc_ohlcv import RpcOhlcv as RpcOhlcv
 from cadenza_client.models.rpc_order_book import RpcOrderBook as RpcOrderBook
@@ -846,44 +803,44 @@ from cadenza_client.models.rpc_portfolio import RpcPortfolio as RpcPortfolio
 from cadenza_client.models.rpc_portfolio_summary import RpcPortfolioSummary as RpcPortfolioSummary
 from cadenza_client.models.rpc_portfolio_updated_event import RpcPortfolioUpdatedEvent as RpcPortfolioUpdatedEvent
 from cadenza_client.models.rpc_position_entry import RpcPositionEntry as RpcPositionEntry
-from cadenza_client.models.rpc_revoke_credential_request import RpcRevokeCredentialRequest as RpcRevokeCredentialRequest
-from cadenza_client.models.rpc_revoke_credential_response import RpcRevokeCredentialResponse as RpcRevokeCredentialResponse
-from cadenza_client.models.rpc_rotate_credential_request import RpcRotateCredentialRequest as RpcRotateCredentialRequest
-from cadenza_client.models.rpc_rotate_credential_response import RpcRotateCredentialResponse as RpcRotateCredentialResponse
-from cadenza_client.models.rpc_save_credential_request import RpcSaveCredentialRequest as RpcSaveCredentialRequest
-from cadenza_client.models.rpc_save_credential_response import RpcSaveCredentialResponse as RpcSaveCredentialResponse
-from cadenza_client.models.rpc_save_instruments_request import RpcSaveInstrumentsRequest as RpcSaveInstrumentsRequest
-from cadenza_client.models.rpc_save_instruments_response import RpcSaveInstrumentsResponse as RpcSaveInstrumentsResponse
-from cadenza_client.models.rpc_save_klines_request import RpcSaveKlinesRequest as RpcSaveKlinesRequest
-from cadenza_client.models.rpc_save_klines_response import RpcSaveKlinesResponse as RpcSaveKlinesResponse
-from cadenza_client.models.rpc_save_order_books_request import RpcSaveOrderBooksRequest as RpcSaveOrderBooksRequest
-from cadenza_client.models.rpc_save_order_books_response import RpcSaveOrderBooksResponse as RpcSaveOrderBooksResponse
-from cadenza_client.models.rpc_save_portfolio_request import RpcSavePortfolioRequest as RpcSavePortfolioRequest
-from cadenza_client.models.rpc_save_portfolio_response import RpcSavePortfolioResponse as RpcSavePortfolioResponse
-from cadenza_client.models.rpc_save_securities_request import RpcSaveSecuritiesRequest as RpcSaveSecuritiesRequest
-from cadenza_client.models.rpc_save_securities_response import RpcSaveSecuritiesResponse as RpcSaveSecuritiesResponse
-from cadenza_client.models.rpc_save_tickers_request import RpcSaveTickersRequest as RpcSaveTickersRequest
-from cadenza_client.models.rpc_save_tickers_response import RpcSaveTickersResponse as RpcSaveTickersResponse
-from cadenza_client.models.rpc_save_trade_order_request import RpcSaveTradeOrderRequest as RpcSaveTradeOrderRequest
-from cadenza_client.models.rpc_save_trade_order_response import RpcSaveTradeOrderResponse as RpcSaveTradeOrderResponse
-from cadenza_client.models.rpc_save_trading_accounts_request import RpcSaveTradingAccountsRequest as RpcSaveTradingAccountsRequest
-from cadenza_client.models.rpc_save_trading_accounts_response import RpcSaveTradingAccountsResponse as RpcSaveTradingAccountsResponse
+from cadenza_client.models.rpc_revoke_credential_params import RpcRevokeCredentialParams as RpcRevokeCredentialParams
+from cadenza_client.models.rpc_revoke_credential_result import RpcRevokeCredentialResult as RpcRevokeCredentialResult
+from cadenza_client.models.rpc_rotate_credential_params import RpcRotateCredentialParams as RpcRotateCredentialParams
+from cadenza_client.models.rpc_rotate_credential_result import RpcRotateCredentialResult as RpcRotateCredentialResult
+from cadenza_client.models.rpc_save_credential_params import RpcSaveCredentialParams as RpcSaveCredentialParams
+from cadenza_client.models.rpc_save_credential_result import RpcSaveCredentialResult as RpcSaveCredentialResult
+from cadenza_client.models.rpc_save_instruments_params import RpcSaveInstrumentsParams as RpcSaveInstrumentsParams
+from cadenza_client.models.rpc_save_instruments_result import RpcSaveInstrumentsResult as RpcSaveInstrumentsResult
+from cadenza_client.models.rpc_save_klines_params import RpcSaveKlinesParams as RpcSaveKlinesParams
+from cadenza_client.models.rpc_save_klines_result import RpcSaveKlinesResult as RpcSaveKlinesResult
+from cadenza_client.models.rpc_save_order_books_params import RpcSaveOrderBooksParams as RpcSaveOrderBooksParams
+from cadenza_client.models.rpc_save_order_books_result import RpcSaveOrderBooksResult as RpcSaveOrderBooksResult
+from cadenza_client.models.rpc_save_portfolio_params import RpcSavePortfolioParams as RpcSavePortfolioParams
+from cadenza_client.models.rpc_save_portfolio_result import RpcSavePortfolioResult as RpcSavePortfolioResult
+from cadenza_client.models.rpc_save_securities_params import RpcSaveSecuritiesParams as RpcSaveSecuritiesParams
+from cadenza_client.models.rpc_save_securities_result import RpcSaveSecuritiesResult as RpcSaveSecuritiesResult
+from cadenza_client.models.rpc_save_tickers_params import RpcSaveTickersParams as RpcSaveTickersParams
+from cadenza_client.models.rpc_save_tickers_result import RpcSaveTickersResult as RpcSaveTickersResult
+from cadenza_client.models.rpc_save_trade_order_params import RpcSaveTradeOrderParams as RpcSaveTradeOrderParams
+from cadenza_client.models.rpc_save_trade_order_result import RpcSaveTradeOrderResult as RpcSaveTradeOrderResult
+from cadenza_client.models.rpc_save_trading_accounts_params import RpcSaveTradingAccountsParams as RpcSaveTradingAccountsParams
+from cadenza_client.models.rpc_save_trading_accounts_result import RpcSaveTradingAccountsResult as RpcSaveTradingAccountsResult
 from cadenza_client.models.rpc_security import RpcSecurity as RpcSecurity
 from cadenza_client.models.rpc_security_quantity import RpcSecurityQuantity as RpcSecurityQuantity
 from cadenza_client.models.rpc_security_updated_event import RpcSecurityUpdatedEvent as RpcSecurityUpdatedEvent
-from cadenza_client.models.rpc_submit_trade_order_request import RpcSubmitTradeOrderRequest as RpcSubmitTradeOrderRequest
-from cadenza_client.models.rpc_submit_trade_order_response import RpcSubmitTradeOrderResponse as RpcSubmitTradeOrderResponse
-from cadenza_client.models.rpc_subscribe_order_book_request import RpcSubscribeOrderBookRequest as RpcSubscribeOrderBookRequest
-from cadenza_client.models.rpc_subscribe_order_book_response import RpcSubscribeOrderBookResponse as RpcSubscribeOrderBookResponse
-from cadenza_client.models.rpc_subscribe_trading_account_stream_request import RpcSubscribeTradingAccountStreamRequest as RpcSubscribeTradingAccountStreamRequest
-from cadenza_client.models.rpc_subscribe_trading_account_stream_response import RpcSubscribeTradingAccountStreamResponse as RpcSubscribeTradingAccountStreamResponse
+from cadenza_client.models.rpc_submit_trade_order_params import RpcSubmitTradeOrderParams as RpcSubmitTradeOrderParams
+from cadenza_client.models.rpc_submit_trade_order_result import RpcSubmitTradeOrderResult as RpcSubmitTradeOrderResult
+from cadenza_client.models.rpc_subscribe_order_book_params import RpcSubscribeOrderBookParams as RpcSubscribeOrderBookParams
+from cadenza_client.models.rpc_subscribe_order_book_result import RpcSubscribeOrderBookResult as RpcSubscribeOrderBookResult
+from cadenza_client.models.rpc_subscribe_trading_account_stream_params import RpcSubscribeTradingAccountStreamParams as RpcSubscribeTradingAccountStreamParams
+from cadenza_client.models.rpc_subscribe_trading_account_stream_result import RpcSubscribeTradingAccountStreamResult as RpcSubscribeTradingAccountStreamResult
 from cadenza_client.models.rpc_subscription import RpcSubscription as RpcSubscription
 from cadenza_client.models.rpc_subscription_updated_event import RpcSubscriptionUpdatedEvent as RpcSubscriptionUpdatedEvent
-from cadenza_client.models.rpc_sync_instruments_request import RpcSyncInstrumentsRequest as RpcSyncInstrumentsRequest
-from cadenza_client.models.rpc_sync_instruments_response import RpcSyncInstrumentsResponse as RpcSyncInstrumentsResponse
-from cadenza_client.models.rpc_sync_instruments_response_data import RpcSyncInstrumentsResponseData as RpcSyncInstrumentsResponseData
-from cadenza_client.models.rpc_sync_securities_request import RpcSyncSecuritiesRequest as RpcSyncSecuritiesRequest
-from cadenza_client.models.rpc_sync_securities_response import RpcSyncSecuritiesResponse as RpcSyncSecuritiesResponse
+from cadenza_client.models.rpc_sync_instruments_params import RpcSyncInstrumentsParams as RpcSyncInstrumentsParams
+from cadenza_client.models.rpc_sync_instruments_result import RpcSyncInstrumentsResult as RpcSyncInstrumentsResult
+from cadenza_client.models.rpc_sync_instruments_result_data import RpcSyncInstrumentsResultData as RpcSyncInstrumentsResultData
+from cadenza_client.models.rpc_sync_securities_params import RpcSyncSecuritiesParams as RpcSyncSecuritiesParams
+from cadenza_client.models.rpc_sync_securities_result import RpcSyncSecuritiesResult as RpcSyncSecuritiesResult
 from cadenza_client.models.rpc_ticker import RpcTicker as RpcTicker
 from cadenza_client.models.rpc_trade_order import RpcTradeOrder as RpcTradeOrder
 from cadenza_client.models.rpc_trade_order_updated_event import RpcTradeOrderUpdatedEvent as RpcTradeOrderUpdatedEvent
@@ -893,25 +850,23 @@ from cadenza_client.models.rpc_trading_account_credential import RpcTradingAccou
 from cadenza_client.models.rpc_trading_account_operation_history import RpcTradingAccountOperationHistory as RpcTradingAccountOperationHistory
 from cadenza_client.models.rpc_trading_account_subscription_updated_event import RpcTradingAccountSubscriptionUpdatedEvent as RpcTradingAccountSubscriptionUpdatedEvent
 from cadenza_client.models.rpc_trading_account_updated_event import RpcTradingAccountUpdatedEvent as RpcTradingAccountUpdatedEvent
-from cadenza_client.models.rpc_unsubscribe_order_book_request import RpcUnsubscribeOrderBookRequest as RpcUnsubscribeOrderBookRequest
-from cadenza_client.models.rpc_unsubscribe_order_book_response import RpcUnsubscribeOrderBookResponse as RpcUnsubscribeOrderBookResponse
-from cadenza_client.models.rpc_unsubscribe_trading_account_stream_request import RpcUnsubscribeTradingAccountStreamRequest as RpcUnsubscribeTradingAccountStreamRequest
-from cadenza_client.models.rpc_unsubscribe_trading_account_stream_response import RpcUnsubscribeTradingAccountStreamResponse as RpcUnsubscribeTradingAccountStreamResponse
-from cadenza_client.models.rpc_update_trading_account_request import RpcUpdateTradingAccountRequest as RpcUpdateTradingAccountRequest
-from cadenza_client.models.rpc_update_trading_account_response import RpcUpdateTradingAccountResponse as RpcUpdateTradingAccountResponse
-from cadenza_client.models.rpc_validate_trading_account_request import RpcValidateTradingAccountRequest as RpcValidateTradingAccountRequest
-from cadenza_client.models.rpc_validate_trading_account_response import RpcValidateTradingAccountResponse as RpcValidateTradingAccountResponse
-from cadenza_client.models.rpc_validate_trading_account_response_data import RpcValidateTradingAccountResponseData as RpcValidateTradingAccountResponseData
-from cadenza_client.models.rpc_verify_credential_request import RpcVerifyCredentialRequest as RpcVerifyCredentialRequest
-from cadenza_client.models.rpc_verify_credential_response import RpcVerifyCredentialResponse as RpcVerifyCredentialResponse
-from cadenza_client.models.rpc_verify_credential_response_data import RpcVerifyCredentialResponseData as RpcVerifyCredentialResponseData
+from cadenza_client.models.rpc_unsubscribe_order_book_params import RpcUnsubscribeOrderBookParams as RpcUnsubscribeOrderBookParams
+from cadenza_client.models.rpc_unsubscribe_order_book_result import RpcUnsubscribeOrderBookResult as RpcUnsubscribeOrderBookResult
+from cadenza_client.models.rpc_unsubscribe_trading_account_stream_params import RpcUnsubscribeTradingAccountStreamParams as RpcUnsubscribeTradingAccountStreamParams
+from cadenza_client.models.rpc_unsubscribe_trading_account_stream_result import RpcUnsubscribeTradingAccountStreamResult as RpcUnsubscribeTradingAccountStreamResult
+from cadenza_client.models.rpc_update_trading_account_params import RpcUpdateTradingAccountParams as RpcUpdateTradingAccountParams
+from cadenza_client.models.rpc_update_trading_account_result import RpcUpdateTradingAccountResult as RpcUpdateTradingAccountResult
+from cadenza_client.models.rpc_validate_trading_account_params import RpcValidateTradingAccountParams as RpcValidateTradingAccountParams
+from cadenza_client.models.rpc_validate_trading_account_result import RpcValidateTradingAccountResult as RpcValidateTradingAccountResult
+from cadenza_client.models.rpc_validate_trading_account_result_data import RpcValidateTradingAccountResultData as RpcValidateTradingAccountResultData
+from cadenza_client.models.rpc_verify_credential_params import RpcVerifyCredentialParams as RpcVerifyCredentialParams
+from cadenza_client.models.rpc_verify_credential_result import RpcVerifyCredentialResult as RpcVerifyCredentialResult
+from cadenza_client.models.rpc_verify_credential_result_data import RpcVerifyCredentialResultData as RpcVerifyCredentialResultData
 from cadenza_client.models.security_quantity import SecurityQuantity as SecurityQuantity
 from cadenza_client.models.security_type import SecurityType as SecurityType
 from cadenza_client.models.service_name import ServiceName as ServiceName
 from cadenza_client.models.submit_trade_order200_response import SubmitTradeOrder200Response as SubmitTradeOrder200Response
-from cadenza_client.models.submit_trade_order_command import SubmitTradeOrderCommand as SubmitTradeOrderCommand
 from cadenza_client.models.submit_trade_order_request import SubmitTradeOrderRequest as SubmitTradeOrderRequest
-from cadenza_client.models.submit_trade_order_response_event import SubmitTradeOrderResponseEvent as SubmitTradeOrderResponseEvent
 from cadenza_client.models.subscribe_market_order_book_request import SubscribeMarketOrderBookRequest as SubscribeMarketOrderBookRequest
 from cadenza_client.models.subscribe_trading_account200_response import SubscribeTradingAccount200Response as SubscribeTradingAccount200Response
 from cadenza_client.models.subscribe_trading_account_request import SubscribeTradingAccountRequest as SubscribeTradingAccountRequest

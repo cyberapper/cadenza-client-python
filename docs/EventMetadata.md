@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **trace_id** | **str** | Distributed tracing ID | [optional] 
 **event_id** | **str** | Unique event identifier | 
 **event_type** | **str** | Event type in format: {category}.{resource}.{action} | 
-**timestamp** | **int** | Unix timestamp in milliseconds | 
+**timestamp** | **datetime** | Timestamp in ISO 8601 format (RFC3339). This is the native format used by Go&#39;s time.Time. | 
 **sender** | [**ServiceName**](ServiceName.md) |  | 
 **receiver** | [**ServiceName**](ServiceName.md) |  | 
 

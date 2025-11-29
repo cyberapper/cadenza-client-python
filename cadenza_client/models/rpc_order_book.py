@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cadenza_client.models.rpc_order_book_level import RpcOrderBookLevel
@@ -32,7 +33,7 @@ class RpcOrderBook(BaseModel):
     symbol: Optional[StrictStr] = Field(default=None, description="Trading pair symbol")
     bids: Optional[List[RpcOrderBookLevel]] = Field(default=None, description="Bid orders (sorted by price descending)")
     asks: Optional[List[RpcOrderBookLevel]] = Field(default=None, description="Ask orders (sorted by price ascending)")
-    timestamp: Optional[StrictInt] = Field(default=None, description="Order book timestamp in milliseconds")
+    timestamp: Optional[datetime] = Field(default=None, description="Timestamp in ISO 8601 format (RFC3339). This is the native format used by Go's time.Time.")
     sequence_number: Optional[StrictInt] = Field(default=None, description="Sequence number for ordering updates", alias="sequenceNumber")
     __properties: ClassVar[List[str]] = ["instrumentId", "venue", "symbol", "bids", "asks", "timestamp", "sequenceNumber"]
 

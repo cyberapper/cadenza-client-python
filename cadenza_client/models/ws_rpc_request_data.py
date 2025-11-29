@@ -17,62 +17,62 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, Dict, List, Optional
-from cadenza_client.models.rpc_cancel_trade_order_request import RpcCancelTradeOrderRequest
-from cadenza_client.models.rpc_connect_trading_account_request import RpcConnectTradingAccountRequest
-from cadenza_client.models.rpc_create_credential_request import RpcCreateCredentialRequest
-from cadenza_client.models.rpc_create_subscription_request import RpcCreateSubscriptionRequest
-from cadenza_client.models.rpc_create_trading_account_request import RpcCreateTradingAccountRequest
-from cadenza_client.models.rpc_delete_instrument_request import RpcDeleteInstrumentRequest
-from cadenza_client.models.rpc_delete_securities_request import RpcDeleteSecuritiesRequest
-from cadenza_client.models.rpc_delete_trading_account_request import RpcDeleteTradingAccountRequest
-from cadenza_client.models.rpc_disable_instrument_request import RpcDisableInstrumentRequest
-from cadenza_client.models.rpc_disable_trading_account_request import RpcDisableTradingAccountRequest
-from cadenza_client.models.rpc_disconnect_trading_account_request import RpcDisconnectTradingAccountRequest
-from cadenza_client.models.rpc_enable_instrument_request import RpcEnableInstrumentRequest
-from cadenza_client.models.rpc_enable_trading_account_request import RpcEnableTradingAccountRequest
-from cadenza_client.models.rpc_get_order_book_request import RpcGetOrderBookRequest
-from cadenza_client.models.rpc_get_portfolio_request import RpcGetPortfolioRequest
-from cadenza_client.models.rpc_get_trade_order_by_id_request import RpcGetTradeOrderByIdRequest
-from cadenza_client.models.rpc_get_trade_order_request import RpcGetTradeOrderRequest
-from cadenza_client.models.rpc_list_credentials_request import RpcListCredentialsRequest
-from cadenza_client.models.rpc_list_instruments_request import RpcListInstrumentsRequest
-from cadenza_client.models.rpc_list_klines_request import RpcListKlinesRequest
-from cadenza_client.models.rpc_list_order_book_subscriptions_request import RpcListOrderBookSubscriptionsRequest
-from cadenza_client.models.rpc_list_order_books_request import RpcListOrderBooksRequest
-from cadenza_client.models.rpc_list_portfolios_request import RpcListPortfoliosRequest
-from cadenza_client.models.rpc_list_securities_request import RpcListSecuritiesRequest
-from cadenza_client.models.rpc_list_subscriptions_request import RpcListSubscriptionsRequest
-from cadenza_client.models.rpc_list_tickers_request import RpcListTickersRequest
-from cadenza_client.models.rpc_list_trade_orders_request import RpcListTradeOrdersRequest
-from cadenza_client.models.rpc_list_trading_account_operations_request import RpcListTradingAccountOperationsRequest
-from cadenza_client.models.rpc_list_trading_account_subscriptions_request import RpcListTradingAccountSubscriptionsRequest
-from cadenza_client.models.rpc_list_trading_accounts_request import RpcListTradingAccountsRequest
-from cadenza_client.models.rpc_revoke_credential_request import RpcRevokeCredentialRequest
-from cadenza_client.models.rpc_rotate_credential_request import RpcRotateCredentialRequest
-from cadenza_client.models.rpc_save_credential_request import RpcSaveCredentialRequest
-from cadenza_client.models.rpc_save_instruments_request import RpcSaveInstrumentsRequest
-from cadenza_client.models.rpc_save_klines_request import RpcSaveKlinesRequest
-from cadenza_client.models.rpc_save_order_books_request import RpcSaveOrderBooksRequest
-from cadenza_client.models.rpc_save_portfolio_request import RpcSavePortfolioRequest
-from cadenza_client.models.rpc_save_securities_request import RpcSaveSecuritiesRequest
-from cadenza_client.models.rpc_save_tickers_request import RpcSaveTickersRequest
-from cadenza_client.models.rpc_save_trade_order_request import RpcSaveTradeOrderRequest
-from cadenza_client.models.rpc_save_trading_accounts_request import RpcSaveTradingAccountsRequest
-from cadenza_client.models.rpc_submit_trade_order_request import RpcSubmitTradeOrderRequest
-from cadenza_client.models.rpc_subscribe_order_book_request import RpcSubscribeOrderBookRequest
-from cadenza_client.models.rpc_subscribe_trading_account_stream_request import RpcSubscribeTradingAccountStreamRequest
-from cadenza_client.models.rpc_sync_instruments_request import RpcSyncInstrumentsRequest
-from cadenza_client.models.rpc_sync_securities_request import RpcSyncSecuritiesRequest
-from cadenza_client.models.rpc_unsubscribe_order_book_request import RpcUnsubscribeOrderBookRequest
-from cadenza_client.models.rpc_unsubscribe_trading_account_stream_request import RpcUnsubscribeTradingAccountStreamRequest
-from cadenza_client.models.rpc_update_trading_account_request import RpcUpdateTradingAccountRequest
-from cadenza_client.models.rpc_validate_trading_account_request import RpcValidateTradingAccountRequest
-from cadenza_client.models.rpc_verify_credential_request import RpcVerifyCredentialRequest
+from cadenza_client.models.rpc_cancel_trade_order_params import RpcCancelTradeOrderParams
+from cadenza_client.models.rpc_connect_trading_account_params import RpcConnectTradingAccountParams
+from cadenza_client.models.rpc_create_credential_params import RpcCreateCredentialParams
+from cadenza_client.models.rpc_create_subscription_params import RpcCreateSubscriptionParams
+from cadenza_client.models.rpc_create_trading_account_params import RpcCreateTradingAccountParams
+from cadenza_client.models.rpc_delete_instrument_params import RpcDeleteInstrumentParams
+from cadenza_client.models.rpc_delete_securities_params import RpcDeleteSecuritiesParams
+from cadenza_client.models.rpc_delete_trading_account_params import RpcDeleteTradingAccountParams
+from cadenza_client.models.rpc_disable_instrument_params import RpcDisableInstrumentParams
+from cadenza_client.models.rpc_disable_trading_account_params import RpcDisableTradingAccountParams
+from cadenza_client.models.rpc_disconnect_trading_account_params import RpcDisconnectTradingAccountParams
+from cadenza_client.models.rpc_enable_instrument_params import RpcEnableInstrumentParams
+from cadenza_client.models.rpc_enable_trading_account_params import RpcEnableTradingAccountParams
+from cadenza_client.models.rpc_get_order_book_params import RpcGetOrderBookParams
+from cadenza_client.models.rpc_get_portfolio_params import RpcGetPortfolioParams
+from cadenza_client.models.rpc_get_trade_order_by_id_params import RpcGetTradeOrderByIdParams
+from cadenza_client.models.rpc_get_trade_order_params import RpcGetTradeOrderParams
+from cadenza_client.models.rpc_list_credentials_params import RpcListCredentialsParams
+from cadenza_client.models.rpc_list_instruments_params import RpcListInstrumentsParams
+from cadenza_client.models.rpc_list_klines_params import RpcListKlinesParams
+from cadenza_client.models.rpc_list_order_book_subscriptions_params import RpcListOrderBookSubscriptionsParams
+from cadenza_client.models.rpc_list_order_books_params import RpcListOrderBooksParams
+from cadenza_client.models.rpc_list_portfolios_params import RpcListPortfoliosParams
+from cadenza_client.models.rpc_list_securities_params import RpcListSecuritiesParams
+from cadenza_client.models.rpc_list_subscriptions_params import RpcListSubscriptionsParams
+from cadenza_client.models.rpc_list_tickers_params import RpcListTickersParams
+from cadenza_client.models.rpc_list_trade_orders_params import RpcListTradeOrdersParams
+from cadenza_client.models.rpc_list_trading_account_operations_params import RpcListTradingAccountOperationsParams
+from cadenza_client.models.rpc_list_trading_account_subscriptions_params import RpcListTradingAccountSubscriptionsParams
+from cadenza_client.models.rpc_list_trading_accounts_params import RpcListTradingAccountsParams
+from cadenza_client.models.rpc_revoke_credential_params import RpcRevokeCredentialParams
+from cadenza_client.models.rpc_rotate_credential_params import RpcRotateCredentialParams
+from cadenza_client.models.rpc_save_credential_params import RpcSaveCredentialParams
+from cadenza_client.models.rpc_save_instruments_params import RpcSaveInstrumentsParams
+from cadenza_client.models.rpc_save_klines_params import RpcSaveKlinesParams
+from cadenza_client.models.rpc_save_order_books_params import RpcSaveOrderBooksParams
+from cadenza_client.models.rpc_save_portfolio_params import RpcSavePortfolioParams
+from cadenza_client.models.rpc_save_securities_params import RpcSaveSecuritiesParams
+from cadenza_client.models.rpc_save_tickers_params import RpcSaveTickersParams
+from cadenza_client.models.rpc_save_trade_order_params import RpcSaveTradeOrderParams
+from cadenza_client.models.rpc_save_trading_accounts_params import RpcSaveTradingAccountsParams
+from cadenza_client.models.rpc_submit_trade_order_params import RpcSubmitTradeOrderParams
+from cadenza_client.models.rpc_subscribe_order_book_params import RpcSubscribeOrderBookParams
+from cadenza_client.models.rpc_subscribe_trading_account_stream_params import RpcSubscribeTradingAccountStreamParams
+from cadenza_client.models.rpc_sync_instruments_params import RpcSyncInstrumentsParams
+from cadenza_client.models.rpc_sync_securities_params import RpcSyncSecuritiesParams
+from cadenza_client.models.rpc_unsubscribe_order_book_params import RpcUnsubscribeOrderBookParams
+from cadenza_client.models.rpc_unsubscribe_trading_account_stream_params import RpcUnsubscribeTradingAccountStreamParams
+from cadenza_client.models.rpc_update_trading_account_params import RpcUpdateTradingAccountParams
+from cadenza_client.models.rpc_validate_trading_account_params import RpcValidateTradingAccountParams
+from cadenza_client.models.rpc_verify_credential_params import RpcVerifyCredentialParams
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-WSRPCREQUESTDATA_ONE_OF_SCHEMAS = ["RpcCancelTradeOrderRequest", "RpcConnectTradingAccountRequest", "RpcCreateCredentialRequest", "RpcCreateSubscriptionRequest", "RpcCreateTradingAccountRequest", "RpcDeleteInstrumentRequest", "RpcDeleteSecuritiesRequest", "RpcDeleteTradingAccountRequest", "RpcDisableInstrumentRequest", "RpcDisableTradingAccountRequest", "RpcDisconnectTradingAccountRequest", "RpcEnableInstrumentRequest", "RpcEnableTradingAccountRequest", "RpcGetOrderBookRequest", "RpcGetPortfolioRequest", "RpcGetTradeOrderByIdRequest", "RpcGetTradeOrderRequest", "RpcListCredentialsRequest", "RpcListInstrumentsRequest", "RpcListKlinesRequest", "RpcListOrderBookSubscriptionsRequest", "RpcListOrderBooksRequest", "RpcListPortfoliosRequest", "RpcListSecuritiesRequest", "RpcListSubscriptionsRequest", "RpcListTickersRequest", "RpcListTradeOrdersRequest", "RpcListTradingAccountOperationsRequest", "RpcListTradingAccountSubscriptionsRequest", "RpcListTradingAccountsRequest", "RpcRevokeCredentialRequest", "RpcRotateCredentialRequest", "RpcSaveCredentialRequest", "RpcSaveInstrumentsRequest", "RpcSaveKlinesRequest", "RpcSaveOrderBooksRequest", "RpcSavePortfolioRequest", "RpcSaveSecuritiesRequest", "RpcSaveTickersRequest", "RpcSaveTradeOrderRequest", "RpcSaveTradingAccountsRequest", "RpcSubmitTradeOrderRequest", "RpcSubscribeOrderBookRequest", "RpcSubscribeTradingAccountStreamRequest", "RpcSyncInstrumentsRequest", "RpcSyncSecuritiesRequest", "RpcUnsubscribeOrderBookRequest", "RpcUnsubscribeTradingAccountStreamRequest", "RpcUpdateTradingAccountRequest", "RpcValidateTradingAccountRequest", "RpcVerifyCredentialRequest", "object"]
+WSRPCREQUESTDATA_ONE_OF_SCHEMAS = ["RpcCancelTradeOrderParams", "RpcConnectTradingAccountParams", "RpcCreateCredentialParams", "RpcCreateSubscriptionParams", "RpcCreateTradingAccountParams", "RpcDeleteInstrumentParams", "RpcDeleteSecuritiesParams", "RpcDeleteTradingAccountParams", "RpcDisableInstrumentParams", "RpcDisableTradingAccountParams", "RpcDisconnectTradingAccountParams", "RpcEnableInstrumentParams", "RpcEnableTradingAccountParams", "RpcGetOrderBookParams", "RpcGetPortfolioParams", "RpcGetTradeOrderByIdParams", "RpcGetTradeOrderParams", "RpcListCredentialsParams", "RpcListInstrumentsParams", "RpcListKlinesParams", "RpcListOrderBookSubscriptionsParams", "RpcListOrderBooksParams", "RpcListPortfoliosParams", "RpcListSecuritiesParams", "RpcListSubscriptionsParams", "RpcListTickersParams", "RpcListTradeOrdersParams", "RpcListTradingAccountOperationsParams", "RpcListTradingAccountSubscriptionsParams", "RpcListTradingAccountsParams", "RpcRevokeCredentialParams", "RpcRotateCredentialParams", "RpcSaveCredentialParams", "RpcSaveInstrumentsParams", "RpcSaveKlinesParams", "RpcSaveOrderBooksParams", "RpcSavePortfolioParams", "RpcSaveSecuritiesParams", "RpcSaveTickersParams", "RpcSaveTradeOrderParams", "RpcSaveTradingAccountsParams", "RpcSubmitTradeOrderParams", "RpcSubscribeOrderBookParams", "RpcSubscribeTradingAccountStreamParams", "RpcSyncInstrumentsParams", "RpcSyncSecuritiesParams", "RpcUnsubscribeOrderBookParams", "RpcUnsubscribeTradingAccountStreamParams", "RpcUpdateTradingAccountParams", "RpcValidateTradingAccountParams", "RpcVerifyCredentialParams", "object"]
 
 class WsRPCRequestData(BaseModel):
     """
@@ -82,112 +82,112 @@ class WsRPCRequestData(BaseModel):
     oneof_schema_1_validator: Optional[Dict[str, Any]] = Field(default=None, description="Request to get system information")
     # data type: object
     oneof_schema_2_validator: Optional[Dict[str, Any]] = Field(default=None, description="Request to check system health")
-    # data type: RpcSubmitTradeOrderRequest
-    oneof_schema_3_validator: Optional[RpcSubmitTradeOrderRequest] = None
-    # data type: RpcCancelTradeOrderRequest
-    oneof_schema_4_validator: Optional[RpcCancelTradeOrderRequest] = None
-    # data type: RpcGetTradeOrderRequest
-    oneof_schema_5_validator: Optional[RpcGetTradeOrderRequest] = None
-    # data type: RpcGetTradeOrderByIdRequest
-    oneof_schema_6_validator: Optional[RpcGetTradeOrderByIdRequest] = None
-    # data type: RpcListTradeOrdersRequest
-    oneof_schema_7_validator: Optional[RpcListTradeOrdersRequest] = None
-    # data type: RpcSaveTradeOrderRequest
-    oneof_schema_8_validator: Optional[RpcSaveTradeOrderRequest] = None
-    # data type: RpcCreateTradingAccountRequest
-    oneof_schema_9_validator: Optional[RpcCreateTradingAccountRequest] = None
-    # data type: RpcSaveTradingAccountsRequest
-    oneof_schema_10_validator: Optional[RpcSaveTradingAccountsRequest] = None
-    # data type: RpcUpdateTradingAccountRequest
-    oneof_schema_11_validator: Optional[RpcUpdateTradingAccountRequest] = None
-    # data type: RpcDeleteTradingAccountRequest
-    oneof_schema_12_validator: Optional[RpcDeleteTradingAccountRequest] = None
-    # data type: RpcValidateTradingAccountRequest
-    oneof_schema_13_validator: Optional[RpcValidateTradingAccountRequest] = None
-    # data type: RpcConnectTradingAccountRequest
-    oneof_schema_14_validator: Optional[RpcConnectTradingAccountRequest] = None
-    # data type: RpcDisconnectTradingAccountRequest
-    oneof_schema_15_validator: Optional[RpcDisconnectTradingAccountRequest] = None
-    # data type: RpcEnableTradingAccountRequest
-    oneof_schema_16_validator: Optional[RpcEnableTradingAccountRequest] = None
-    # data type: RpcDisableTradingAccountRequest
-    oneof_schema_17_validator: Optional[RpcDisableTradingAccountRequest] = None
-    # data type: RpcListTradingAccountsRequest
-    oneof_schema_18_validator: Optional[RpcListTradingAccountsRequest] = None
-    # data type: RpcListTradingAccountOperationsRequest
-    oneof_schema_19_validator: Optional[RpcListTradingAccountOperationsRequest] = None
-    # data type: RpcSubscribeTradingAccountStreamRequest
-    oneof_schema_20_validator: Optional[RpcSubscribeTradingAccountStreamRequest] = None
-    # data type: RpcUnsubscribeTradingAccountStreamRequest
-    oneof_schema_21_validator: Optional[RpcUnsubscribeTradingAccountStreamRequest] = None
-    # data type: RpcListTradingAccountSubscriptionsRequest
-    oneof_schema_22_validator: Optional[RpcListTradingAccountSubscriptionsRequest] = None
-    # data type: RpcCreateCredentialRequest
-    oneof_schema_23_validator: Optional[RpcCreateCredentialRequest] = None
-    # data type: RpcSaveCredentialRequest
-    oneof_schema_24_validator: Optional[RpcSaveCredentialRequest] = None
-    # data type: RpcListCredentialsRequest
-    oneof_schema_25_validator: Optional[RpcListCredentialsRequest] = None
-    # data type: RpcVerifyCredentialRequest
-    oneof_schema_26_validator: Optional[RpcVerifyCredentialRequest] = None
-    # data type: RpcRevokeCredentialRequest
-    oneof_schema_27_validator: Optional[RpcRevokeCredentialRequest] = None
-    # data type: RpcRotateCredentialRequest
-    oneof_schema_28_validator: Optional[RpcRotateCredentialRequest] = None
-    # data type: RpcGetPortfolioRequest
-    oneof_schema_29_validator: Optional[RpcGetPortfolioRequest] = None
-    # data type: RpcListPortfoliosRequest
-    oneof_schema_30_validator: Optional[RpcListPortfoliosRequest] = None
-    # data type: RpcSavePortfolioRequest
-    oneof_schema_31_validator: Optional[RpcSavePortfolioRequest] = None
-    # data type: RpcSyncInstrumentsRequest
-    oneof_schema_32_validator: Optional[RpcSyncInstrumentsRequest] = None
-    # data type: RpcSaveInstrumentsRequest
-    oneof_schema_33_validator: Optional[RpcSaveInstrumentsRequest] = None
-    # data type: RpcListInstrumentsRequest
-    oneof_schema_34_validator: Optional[RpcListInstrumentsRequest] = None
-    # data type: RpcDeleteInstrumentRequest
-    oneof_schema_35_validator: Optional[RpcDeleteInstrumentRequest] = None
-    # data type: RpcEnableInstrumentRequest
-    oneof_schema_36_validator: Optional[RpcEnableInstrumentRequest] = None
-    # data type: RpcDisableInstrumentRequest
-    oneof_schema_37_validator: Optional[RpcDisableInstrumentRequest] = None
-    # data type: RpcSyncSecuritiesRequest
-    oneof_schema_38_validator: Optional[RpcSyncSecuritiesRequest] = None
-    # data type: RpcSaveSecuritiesRequest
-    oneof_schema_39_validator: Optional[RpcSaveSecuritiesRequest] = None
-    # data type: RpcDeleteSecuritiesRequest
-    oneof_schema_40_validator: Optional[RpcDeleteSecuritiesRequest] = None
-    # data type: RpcListSecuritiesRequest
-    oneof_schema_41_validator: Optional[RpcListSecuritiesRequest] = None
+    # data type: RpcSubmitTradeOrderParams
+    oneof_schema_3_validator: Optional[RpcSubmitTradeOrderParams] = None
+    # data type: RpcCancelTradeOrderParams
+    oneof_schema_4_validator: Optional[RpcCancelTradeOrderParams] = None
+    # data type: RpcGetTradeOrderParams
+    oneof_schema_5_validator: Optional[RpcGetTradeOrderParams] = None
+    # data type: RpcGetTradeOrderByIdParams
+    oneof_schema_6_validator: Optional[RpcGetTradeOrderByIdParams] = None
+    # data type: RpcListTradeOrdersParams
+    oneof_schema_7_validator: Optional[RpcListTradeOrdersParams] = None
+    # data type: RpcSaveTradeOrderParams
+    oneof_schema_8_validator: Optional[RpcSaveTradeOrderParams] = None
+    # data type: RpcCreateTradingAccountParams
+    oneof_schema_9_validator: Optional[RpcCreateTradingAccountParams] = None
+    # data type: RpcSaveTradingAccountsParams
+    oneof_schema_10_validator: Optional[RpcSaveTradingAccountsParams] = None
+    # data type: RpcUpdateTradingAccountParams
+    oneof_schema_11_validator: Optional[RpcUpdateTradingAccountParams] = None
+    # data type: RpcDeleteTradingAccountParams
+    oneof_schema_12_validator: Optional[RpcDeleteTradingAccountParams] = None
+    # data type: RpcValidateTradingAccountParams
+    oneof_schema_13_validator: Optional[RpcValidateTradingAccountParams] = None
+    # data type: RpcConnectTradingAccountParams
+    oneof_schema_14_validator: Optional[RpcConnectTradingAccountParams] = None
+    # data type: RpcDisconnectTradingAccountParams
+    oneof_schema_15_validator: Optional[RpcDisconnectTradingAccountParams] = None
+    # data type: RpcEnableTradingAccountParams
+    oneof_schema_16_validator: Optional[RpcEnableTradingAccountParams] = None
+    # data type: RpcDisableTradingAccountParams
+    oneof_schema_17_validator: Optional[RpcDisableTradingAccountParams] = None
+    # data type: RpcListTradingAccountsParams
+    oneof_schema_18_validator: Optional[RpcListTradingAccountsParams] = None
+    # data type: RpcListTradingAccountOperationsParams
+    oneof_schema_19_validator: Optional[RpcListTradingAccountOperationsParams] = None
+    # data type: RpcSubscribeTradingAccountStreamParams
+    oneof_schema_20_validator: Optional[RpcSubscribeTradingAccountStreamParams] = None
+    # data type: RpcUnsubscribeTradingAccountStreamParams
+    oneof_schema_21_validator: Optional[RpcUnsubscribeTradingAccountStreamParams] = None
+    # data type: RpcListTradingAccountSubscriptionsParams
+    oneof_schema_22_validator: Optional[RpcListTradingAccountSubscriptionsParams] = None
+    # data type: RpcCreateCredentialParams
+    oneof_schema_23_validator: Optional[RpcCreateCredentialParams] = None
+    # data type: RpcSaveCredentialParams
+    oneof_schema_24_validator: Optional[RpcSaveCredentialParams] = None
+    # data type: RpcListCredentialsParams
+    oneof_schema_25_validator: Optional[RpcListCredentialsParams] = None
+    # data type: RpcVerifyCredentialParams
+    oneof_schema_26_validator: Optional[RpcVerifyCredentialParams] = None
+    # data type: RpcRevokeCredentialParams
+    oneof_schema_27_validator: Optional[RpcRevokeCredentialParams] = None
+    # data type: RpcRotateCredentialParams
+    oneof_schema_28_validator: Optional[RpcRotateCredentialParams] = None
+    # data type: RpcGetPortfolioParams
+    oneof_schema_29_validator: Optional[RpcGetPortfolioParams] = None
+    # data type: RpcListPortfoliosParams
+    oneof_schema_30_validator: Optional[RpcListPortfoliosParams] = None
+    # data type: RpcSavePortfolioParams
+    oneof_schema_31_validator: Optional[RpcSavePortfolioParams] = None
+    # data type: RpcSyncInstrumentsParams
+    oneof_schema_32_validator: Optional[RpcSyncInstrumentsParams] = None
+    # data type: RpcSaveInstrumentsParams
+    oneof_schema_33_validator: Optional[RpcSaveInstrumentsParams] = None
+    # data type: RpcListInstrumentsParams
+    oneof_schema_34_validator: Optional[RpcListInstrumentsParams] = None
+    # data type: RpcDeleteInstrumentParams
+    oneof_schema_35_validator: Optional[RpcDeleteInstrumentParams] = None
+    # data type: RpcEnableInstrumentParams
+    oneof_schema_36_validator: Optional[RpcEnableInstrumentParams] = None
+    # data type: RpcDisableInstrumentParams
+    oneof_schema_37_validator: Optional[RpcDisableInstrumentParams] = None
+    # data type: RpcSyncSecuritiesParams
+    oneof_schema_38_validator: Optional[RpcSyncSecuritiesParams] = None
+    # data type: RpcSaveSecuritiesParams
+    oneof_schema_39_validator: Optional[RpcSaveSecuritiesParams] = None
+    # data type: RpcDeleteSecuritiesParams
+    oneof_schema_40_validator: Optional[RpcDeleteSecuritiesParams] = None
+    # data type: RpcListSecuritiesParams
+    oneof_schema_41_validator: Optional[RpcListSecuritiesParams] = None
     # data type: object
     oneof_schema_42_validator: Optional[Dict[str, Any]] = Field(default=None, description="Request to list available venues")
-    # data type: RpcGetOrderBookRequest
-    oneof_schema_43_validator: Optional[RpcGetOrderBookRequest] = None
-    # data type: RpcListOrderBooksRequest
-    oneof_schema_44_validator: Optional[RpcListOrderBooksRequest] = None
-    # data type: RpcSaveOrderBooksRequest
-    oneof_schema_45_validator: Optional[RpcSaveOrderBooksRequest] = None
-    # data type: RpcSubscribeOrderBookRequest
-    oneof_schema_46_validator: Optional[RpcSubscribeOrderBookRequest] = None
-    # data type: RpcUnsubscribeOrderBookRequest
-    oneof_schema_47_validator: Optional[RpcUnsubscribeOrderBookRequest] = None
-    # data type: RpcListOrderBookSubscriptionsRequest
-    oneof_schema_48_validator: Optional[RpcListOrderBookSubscriptionsRequest] = None
-    # data type: RpcSaveKlinesRequest
-    oneof_schema_49_validator: Optional[RpcSaveKlinesRequest] = None
-    # data type: RpcListKlinesRequest
-    oneof_schema_50_validator: Optional[RpcListKlinesRequest] = None
-    # data type: RpcSaveTickersRequest
-    oneof_schema_51_validator: Optional[RpcSaveTickersRequest] = None
-    # data type: RpcListTickersRequest
-    oneof_schema_52_validator: Optional[RpcListTickersRequest] = None
-    # data type: RpcCreateSubscriptionRequest
-    oneof_schema_53_validator: Optional[RpcCreateSubscriptionRequest] = None
-    # data type: RpcListSubscriptionsRequest
-    oneof_schema_54_validator: Optional[RpcListSubscriptionsRequest] = None
-    actual_instance: Optional[Union[RpcCancelTradeOrderRequest, RpcConnectTradingAccountRequest, RpcCreateCredentialRequest, RpcCreateSubscriptionRequest, RpcCreateTradingAccountRequest, RpcDeleteInstrumentRequest, RpcDeleteSecuritiesRequest, RpcDeleteTradingAccountRequest, RpcDisableInstrumentRequest, RpcDisableTradingAccountRequest, RpcDisconnectTradingAccountRequest, RpcEnableInstrumentRequest, RpcEnableTradingAccountRequest, RpcGetOrderBookRequest, RpcGetPortfolioRequest, RpcGetTradeOrderByIdRequest, RpcGetTradeOrderRequest, RpcListCredentialsRequest, RpcListInstrumentsRequest, RpcListKlinesRequest, RpcListOrderBookSubscriptionsRequest, RpcListOrderBooksRequest, RpcListPortfoliosRequest, RpcListSecuritiesRequest, RpcListSubscriptionsRequest, RpcListTickersRequest, RpcListTradeOrdersRequest, RpcListTradingAccountOperationsRequest, RpcListTradingAccountSubscriptionsRequest, RpcListTradingAccountsRequest, RpcRevokeCredentialRequest, RpcRotateCredentialRequest, RpcSaveCredentialRequest, RpcSaveInstrumentsRequest, RpcSaveKlinesRequest, RpcSaveOrderBooksRequest, RpcSavePortfolioRequest, RpcSaveSecuritiesRequest, RpcSaveTickersRequest, RpcSaveTradeOrderRequest, RpcSaveTradingAccountsRequest, RpcSubmitTradeOrderRequest, RpcSubscribeOrderBookRequest, RpcSubscribeTradingAccountStreamRequest, RpcSyncInstrumentsRequest, RpcSyncSecuritiesRequest, RpcUnsubscribeOrderBookRequest, RpcUnsubscribeTradingAccountStreamRequest, RpcUpdateTradingAccountRequest, RpcValidateTradingAccountRequest, RpcVerifyCredentialRequest, object]] = None
-    one_of_schemas: Set[str] = { "RpcCancelTradeOrderRequest", "RpcConnectTradingAccountRequest", "RpcCreateCredentialRequest", "RpcCreateSubscriptionRequest", "RpcCreateTradingAccountRequest", "RpcDeleteInstrumentRequest", "RpcDeleteSecuritiesRequest", "RpcDeleteTradingAccountRequest", "RpcDisableInstrumentRequest", "RpcDisableTradingAccountRequest", "RpcDisconnectTradingAccountRequest", "RpcEnableInstrumentRequest", "RpcEnableTradingAccountRequest", "RpcGetOrderBookRequest", "RpcGetPortfolioRequest", "RpcGetTradeOrderByIdRequest", "RpcGetTradeOrderRequest", "RpcListCredentialsRequest", "RpcListInstrumentsRequest", "RpcListKlinesRequest", "RpcListOrderBookSubscriptionsRequest", "RpcListOrderBooksRequest", "RpcListPortfoliosRequest", "RpcListSecuritiesRequest", "RpcListSubscriptionsRequest", "RpcListTickersRequest", "RpcListTradeOrdersRequest", "RpcListTradingAccountOperationsRequest", "RpcListTradingAccountSubscriptionsRequest", "RpcListTradingAccountsRequest", "RpcRevokeCredentialRequest", "RpcRotateCredentialRequest", "RpcSaveCredentialRequest", "RpcSaveInstrumentsRequest", "RpcSaveKlinesRequest", "RpcSaveOrderBooksRequest", "RpcSavePortfolioRequest", "RpcSaveSecuritiesRequest", "RpcSaveTickersRequest", "RpcSaveTradeOrderRequest", "RpcSaveTradingAccountsRequest", "RpcSubmitTradeOrderRequest", "RpcSubscribeOrderBookRequest", "RpcSubscribeTradingAccountStreamRequest", "RpcSyncInstrumentsRequest", "RpcSyncSecuritiesRequest", "RpcUnsubscribeOrderBookRequest", "RpcUnsubscribeTradingAccountStreamRequest", "RpcUpdateTradingAccountRequest", "RpcValidateTradingAccountRequest", "RpcVerifyCredentialRequest", "object" }
+    # data type: RpcGetOrderBookParams
+    oneof_schema_43_validator: Optional[RpcGetOrderBookParams] = None
+    # data type: RpcListOrderBooksParams
+    oneof_schema_44_validator: Optional[RpcListOrderBooksParams] = None
+    # data type: RpcSaveOrderBooksParams
+    oneof_schema_45_validator: Optional[RpcSaveOrderBooksParams] = None
+    # data type: RpcSubscribeOrderBookParams
+    oneof_schema_46_validator: Optional[RpcSubscribeOrderBookParams] = None
+    # data type: RpcUnsubscribeOrderBookParams
+    oneof_schema_47_validator: Optional[RpcUnsubscribeOrderBookParams] = None
+    # data type: RpcListOrderBookSubscriptionsParams
+    oneof_schema_48_validator: Optional[RpcListOrderBookSubscriptionsParams] = None
+    # data type: RpcSaveKlinesParams
+    oneof_schema_49_validator: Optional[RpcSaveKlinesParams] = None
+    # data type: RpcListKlinesParams
+    oneof_schema_50_validator: Optional[RpcListKlinesParams] = None
+    # data type: RpcSaveTickersParams
+    oneof_schema_51_validator: Optional[RpcSaveTickersParams] = None
+    # data type: RpcListTickersParams
+    oneof_schema_52_validator: Optional[RpcListTickersParams] = None
+    # data type: RpcCreateSubscriptionParams
+    oneof_schema_53_validator: Optional[RpcCreateSubscriptionParams] = None
+    # data type: RpcListSubscriptionsParams
+    oneof_schema_54_validator: Optional[RpcListSubscriptionsParams] = None
+    actual_instance: Optional[Union[RpcCancelTradeOrderParams, RpcConnectTradingAccountParams, RpcCreateCredentialParams, RpcCreateSubscriptionParams, RpcCreateTradingAccountParams, RpcDeleteInstrumentParams, RpcDeleteSecuritiesParams, RpcDeleteTradingAccountParams, RpcDisableInstrumentParams, RpcDisableTradingAccountParams, RpcDisconnectTradingAccountParams, RpcEnableInstrumentParams, RpcEnableTradingAccountParams, RpcGetOrderBookParams, RpcGetPortfolioParams, RpcGetTradeOrderByIdParams, RpcGetTradeOrderParams, RpcListCredentialsParams, RpcListInstrumentsParams, RpcListKlinesParams, RpcListOrderBookSubscriptionsParams, RpcListOrderBooksParams, RpcListPortfoliosParams, RpcListSecuritiesParams, RpcListSubscriptionsParams, RpcListTickersParams, RpcListTradeOrdersParams, RpcListTradingAccountOperationsParams, RpcListTradingAccountSubscriptionsParams, RpcListTradingAccountsParams, RpcRevokeCredentialParams, RpcRotateCredentialParams, RpcSaveCredentialParams, RpcSaveInstrumentsParams, RpcSaveKlinesParams, RpcSaveOrderBooksParams, RpcSavePortfolioParams, RpcSaveSecuritiesParams, RpcSaveTickersParams, RpcSaveTradeOrderParams, RpcSaveTradingAccountsParams, RpcSubmitTradeOrderParams, RpcSubscribeOrderBookParams, RpcSubscribeTradingAccountStreamParams, RpcSyncInstrumentsParams, RpcSyncSecuritiesParams, RpcUnsubscribeOrderBookParams, RpcUnsubscribeTradingAccountStreamParams, RpcUpdateTradingAccountParams, RpcValidateTradingAccountParams, RpcVerifyCredentialParams, object]] = None
+    one_of_schemas: Set[str] = { "RpcCancelTradeOrderParams", "RpcConnectTradingAccountParams", "RpcCreateCredentialParams", "RpcCreateSubscriptionParams", "RpcCreateTradingAccountParams", "RpcDeleteInstrumentParams", "RpcDeleteSecuritiesParams", "RpcDeleteTradingAccountParams", "RpcDisableInstrumentParams", "RpcDisableTradingAccountParams", "RpcDisconnectTradingAccountParams", "RpcEnableInstrumentParams", "RpcEnableTradingAccountParams", "RpcGetOrderBookParams", "RpcGetPortfolioParams", "RpcGetTradeOrderByIdParams", "RpcGetTradeOrderParams", "RpcListCredentialsParams", "RpcListInstrumentsParams", "RpcListKlinesParams", "RpcListOrderBookSubscriptionsParams", "RpcListOrderBooksParams", "RpcListPortfoliosParams", "RpcListSecuritiesParams", "RpcListSubscriptionsParams", "RpcListTickersParams", "RpcListTradeOrdersParams", "RpcListTradingAccountOperationsParams", "RpcListTradingAccountSubscriptionsParams", "RpcListTradingAccountsParams", "RpcRevokeCredentialParams", "RpcRotateCredentialParams", "RpcSaveCredentialParams", "RpcSaveInstrumentsParams", "RpcSaveKlinesParams", "RpcSaveOrderBooksParams", "RpcSavePortfolioParams", "RpcSaveSecuritiesParams", "RpcSaveTickersParams", "RpcSaveTradeOrderParams", "RpcSaveTradingAccountsParams", "RpcSubmitTradeOrderParams", "RpcSubscribeOrderBookParams", "RpcSubscribeTradingAccountStreamParams", "RpcSyncInstrumentsParams", "RpcSyncSecuritiesParams", "RpcUnsubscribeOrderBookParams", "RpcUnsubscribeTradingAccountStreamParams", "RpcUpdateTradingAccountParams", "RpcValidateTradingAccountParams", "RpcVerifyCredentialParams", "object" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -222,199 +222,199 @@ class WsRPCRequestData(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # validate data type: RpcSubmitTradeOrderRequest
-        if not isinstance(v, RpcSubmitTradeOrderRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSubmitTradeOrderRequest`")
+        # validate data type: RpcSubmitTradeOrderParams
+        if not isinstance(v, RpcSubmitTradeOrderParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSubmitTradeOrderParams`")
         else:
             match += 1
-        # validate data type: RpcCancelTradeOrderRequest
-        if not isinstance(v, RpcCancelTradeOrderRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcCancelTradeOrderRequest`")
+        # validate data type: RpcCancelTradeOrderParams
+        if not isinstance(v, RpcCancelTradeOrderParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcCancelTradeOrderParams`")
         else:
             match += 1
-        # validate data type: RpcGetTradeOrderRequest
-        if not isinstance(v, RpcGetTradeOrderRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcGetTradeOrderRequest`")
+        # validate data type: RpcGetTradeOrderParams
+        if not isinstance(v, RpcGetTradeOrderParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcGetTradeOrderParams`")
         else:
             match += 1
-        # validate data type: RpcGetTradeOrderByIdRequest
-        if not isinstance(v, RpcGetTradeOrderByIdRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcGetTradeOrderByIdRequest`")
+        # validate data type: RpcGetTradeOrderByIdParams
+        if not isinstance(v, RpcGetTradeOrderByIdParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcGetTradeOrderByIdParams`")
         else:
             match += 1
-        # validate data type: RpcListTradeOrdersRequest
-        if not isinstance(v, RpcListTradeOrdersRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListTradeOrdersRequest`")
+        # validate data type: RpcListTradeOrdersParams
+        if not isinstance(v, RpcListTradeOrdersParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListTradeOrdersParams`")
         else:
             match += 1
-        # validate data type: RpcSaveTradeOrderRequest
-        if not isinstance(v, RpcSaveTradeOrderRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveTradeOrderRequest`")
+        # validate data type: RpcSaveTradeOrderParams
+        if not isinstance(v, RpcSaveTradeOrderParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveTradeOrderParams`")
         else:
             match += 1
-        # validate data type: RpcCreateTradingAccountRequest
-        if not isinstance(v, RpcCreateTradingAccountRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcCreateTradingAccountRequest`")
+        # validate data type: RpcCreateTradingAccountParams
+        if not isinstance(v, RpcCreateTradingAccountParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcCreateTradingAccountParams`")
         else:
             match += 1
-        # validate data type: RpcSaveTradingAccountsRequest
-        if not isinstance(v, RpcSaveTradingAccountsRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveTradingAccountsRequest`")
+        # validate data type: RpcSaveTradingAccountsParams
+        if not isinstance(v, RpcSaveTradingAccountsParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveTradingAccountsParams`")
         else:
             match += 1
-        # validate data type: RpcUpdateTradingAccountRequest
-        if not isinstance(v, RpcUpdateTradingAccountRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcUpdateTradingAccountRequest`")
+        # validate data type: RpcUpdateTradingAccountParams
+        if not isinstance(v, RpcUpdateTradingAccountParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcUpdateTradingAccountParams`")
         else:
             match += 1
-        # validate data type: RpcDeleteTradingAccountRequest
-        if not isinstance(v, RpcDeleteTradingAccountRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDeleteTradingAccountRequest`")
+        # validate data type: RpcDeleteTradingAccountParams
+        if not isinstance(v, RpcDeleteTradingAccountParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDeleteTradingAccountParams`")
         else:
             match += 1
-        # validate data type: RpcValidateTradingAccountRequest
-        if not isinstance(v, RpcValidateTradingAccountRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcValidateTradingAccountRequest`")
+        # validate data type: RpcValidateTradingAccountParams
+        if not isinstance(v, RpcValidateTradingAccountParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcValidateTradingAccountParams`")
         else:
             match += 1
-        # validate data type: RpcConnectTradingAccountRequest
-        if not isinstance(v, RpcConnectTradingAccountRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcConnectTradingAccountRequest`")
+        # validate data type: RpcConnectTradingAccountParams
+        if not isinstance(v, RpcConnectTradingAccountParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcConnectTradingAccountParams`")
         else:
             match += 1
-        # validate data type: RpcDisconnectTradingAccountRequest
-        if not isinstance(v, RpcDisconnectTradingAccountRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDisconnectTradingAccountRequest`")
+        # validate data type: RpcDisconnectTradingAccountParams
+        if not isinstance(v, RpcDisconnectTradingAccountParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDisconnectTradingAccountParams`")
         else:
             match += 1
-        # validate data type: RpcEnableTradingAccountRequest
-        if not isinstance(v, RpcEnableTradingAccountRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcEnableTradingAccountRequest`")
+        # validate data type: RpcEnableTradingAccountParams
+        if not isinstance(v, RpcEnableTradingAccountParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcEnableTradingAccountParams`")
         else:
             match += 1
-        # validate data type: RpcDisableTradingAccountRequest
-        if not isinstance(v, RpcDisableTradingAccountRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDisableTradingAccountRequest`")
+        # validate data type: RpcDisableTradingAccountParams
+        if not isinstance(v, RpcDisableTradingAccountParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDisableTradingAccountParams`")
         else:
             match += 1
-        # validate data type: RpcListTradingAccountsRequest
-        if not isinstance(v, RpcListTradingAccountsRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListTradingAccountsRequest`")
+        # validate data type: RpcListTradingAccountsParams
+        if not isinstance(v, RpcListTradingAccountsParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListTradingAccountsParams`")
         else:
             match += 1
-        # validate data type: RpcListTradingAccountOperationsRequest
-        if not isinstance(v, RpcListTradingAccountOperationsRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListTradingAccountOperationsRequest`")
+        # validate data type: RpcListTradingAccountOperationsParams
+        if not isinstance(v, RpcListTradingAccountOperationsParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListTradingAccountOperationsParams`")
         else:
             match += 1
-        # validate data type: RpcSubscribeTradingAccountStreamRequest
-        if not isinstance(v, RpcSubscribeTradingAccountStreamRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSubscribeTradingAccountStreamRequest`")
+        # validate data type: RpcSubscribeTradingAccountStreamParams
+        if not isinstance(v, RpcSubscribeTradingAccountStreamParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSubscribeTradingAccountStreamParams`")
         else:
             match += 1
-        # validate data type: RpcUnsubscribeTradingAccountStreamRequest
-        if not isinstance(v, RpcUnsubscribeTradingAccountStreamRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcUnsubscribeTradingAccountStreamRequest`")
+        # validate data type: RpcUnsubscribeTradingAccountStreamParams
+        if not isinstance(v, RpcUnsubscribeTradingAccountStreamParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcUnsubscribeTradingAccountStreamParams`")
         else:
             match += 1
-        # validate data type: RpcListTradingAccountSubscriptionsRequest
-        if not isinstance(v, RpcListTradingAccountSubscriptionsRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListTradingAccountSubscriptionsRequest`")
+        # validate data type: RpcListTradingAccountSubscriptionsParams
+        if not isinstance(v, RpcListTradingAccountSubscriptionsParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListTradingAccountSubscriptionsParams`")
         else:
             match += 1
-        # validate data type: RpcCreateCredentialRequest
-        if not isinstance(v, RpcCreateCredentialRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcCreateCredentialRequest`")
+        # validate data type: RpcCreateCredentialParams
+        if not isinstance(v, RpcCreateCredentialParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcCreateCredentialParams`")
         else:
             match += 1
-        # validate data type: RpcSaveCredentialRequest
-        if not isinstance(v, RpcSaveCredentialRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveCredentialRequest`")
+        # validate data type: RpcSaveCredentialParams
+        if not isinstance(v, RpcSaveCredentialParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveCredentialParams`")
         else:
             match += 1
-        # validate data type: RpcListCredentialsRequest
-        if not isinstance(v, RpcListCredentialsRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListCredentialsRequest`")
+        # validate data type: RpcListCredentialsParams
+        if not isinstance(v, RpcListCredentialsParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListCredentialsParams`")
         else:
             match += 1
-        # validate data type: RpcVerifyCredentialRequest
-        if not isinstance(v, RpcVerifyCredentialRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcVerifyCredentialRequest`")
+        # validate data type: RpcVerifyCredentialParams
+        if not isinstance(v, RpcVerifyCredentialParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcVerifyCredentialParams`")
         else:
             match += 1
-        # validate data type: RpcRevokeCredentialRequest
-        if not isinstance(v, RpcRevokeCredentialRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcRevokeCredentialRequest`")
+        # validate data type: RpcRevokeCredentialParams
+        if not isinstance(v, RpcRevokeCredentialParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcRevokeCredentialParams`")
         else:
             match += 1
-        # validate data type: RpcRotateCredentialRequest
-        if not isinstance(v, RpcRotateCredentialRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcRotateCredentialRequest`")
+        # validate data type: RpcRotateCredentialParams
+        if not isinstance(v, RpcRotateCredentialParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcRotateCredentialParams`")
         else:
             match += 1
-        # validate data type: RpcGetPortfolioRequest
-        if not isinstance(v, RpcGetPortfolioRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcGetPortfolioRequest`")
+        # validate data type: RpcGetPortfolioParams
+        if not isinstance(v, RpcGetPortfolioParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcGetPortfolioParams`")
         else:
             match += 1
-        # validate data type: RpcListPortfoliosRequest
-        if not isinstance(v, RpcListPortfoliosRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListPortfoliosRequest`")
+        # validate data type: RpcListPortfoliosParams
+        if not isinstance(v, RpcListPortfoliosParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListPortfoliosParams`")
         else:
             match += 1
-        # validate data type: RpcSavePortfolioRequest
-        if not isinstance(v, RpcSavePortfolioRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSavePortfolioRequest`")
+        # validate data type: RpcSavePortfolioParams
+        if not isinstance(v, RpcSavePortfolioParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSavePortfolioParams`")
         else:
             match += 1
-        # validate data type: RpcSyncInstrumentsRequest
-        if not isinstance(v, RpcSyncInstrumentsRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSyncInstrumentsRequest`")
+        # validate data type: RpcSyncInstrumentsParams
+        if not isinstance(v, RpcSyncInstrumentsParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSyncInstrumentsParams`")
         else:
             match += 1
-        # validate data type: RpcSaveInstrumentsRequest
-        if not isinstance(v, RpcSaveInstrumentsRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveInstrumentsRequest`")
+        # validate data type: RpcSaveInstrumentsParams
+        if not isinstance(v, RpcSaveInstrumentsParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveInstrumentsParams`")
         else:
             match += 1
-        # validate data type: RpcListInstrumentsRequest
-        if not isinstance(v, RpcListInstrumentsRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListInstrumentsRequest`")
+        # validate data type: RpcListInstrumentsParams
+        if not isinstance(v, RpcListInstrumentsParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListInstrumentsParams`")
         else:
             match += 1
-        # validate data type: RpcDeleteInstrumentRequest
-        if not isinstance(v, RpcDeleteInstrumentRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDeleteInstrumentRequest`")
+        # validate data type: RpcDeleteInstrumentParams
+        if not isinstance(v, RpcDeleteInstrumentParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDeleteInstrumentParams`")
         else:
             match += 1
-        # validate data type: RpcEnableInstrumentRequest
-        if not isinstance(v, RpcEnableInstrumentRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcEnableInstrumentRequest`")
+        # validate data type: RpcEnableInstrumentParams
+        if not isinstance(v, RpcEnableInstrumentParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcEnableInstrumentParams`")
         else:
             match += 1
-        # validate data type: RpcDisableInstrumentRequest
-        if not isinstance(v, RpcDisableInstrumentRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDisableInstrumentRequest`")
+        # validate data type: RpcDisableInstrumentParams
+        if not isinstance(v, RpcDisableInstrumentParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDisableInstrumentParams`")
         else:
             match += 1
-        # validate data type: RpcSyncSecuritiesRequest
-        if not isinstance(v, RpcSyncSecuritiesRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSyncSecuritiesRequest`")
+        # validate data type: RpcSyncSecuritiesParams
+        if not isinstance(v, RpcSyncSecuritiesParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSyncSecuritiesParams`")
         else:
             match += 1
-        # validate data type: RpcSaveSecuritiesRequest
-        if not isinstance(v, RpcSaveSecuritiesRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveSecuritiesRequest`")
+        # validate data type: RpcSaveSecuritiesParams
+        if not isinstance(v, RpcSaveSecuritiesParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveSecuritiesParams`")
         else:
             match += 1
-        # validate data type: RpcDeleteSecuritiesRequest
-        if not isinstance(v, RpcDeleteSecuritiesRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDeleteSecuritiesRequest`")
+        # validate data type: RpcDeleteSecuritiesParams
+        if not isinstance(v, RpcDeleteSecuritiesParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcDeleteSecuritiesParams`")
         else:
             match += 1
-        # validate data type: RpcListSecuritiesRequest
-        if not isinstance(v, RpcListSecuritiesRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListSecuritiesRequest`")
+        # validate data type: RpcListSecuritiesParams
+        if not isinstance(v, RpcListSecuritiesParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListSecuritiesParams`")
         else:
             match += 1
         # validate data type: object
@@ -423,72 +423,72 @@ class WsRPCRequestData(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # validate data type: RpcGetOrderBookRequest
-        if not isinstance(v, RpcGetOrderBookRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcGetOrderBookRequest`")
+        # validate data type: RpcGetOrderBookParams
+        if not isinstance(v, RpcGetOrderBookParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcGetOrderBookParams`")
         else:
             match += 1
-        # validate data type: RpcListOrderBooksRequest
-        if not isinstance(v, RpcListOrderBooksRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListOrderBooksRequest`")
+        # validate data type: RpcListOrderBooksParams
+        if not isinstance(v, RpcListOrderBooksParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListOrderBooksParams`")
         else:
             match += 1
-        # validate data type: RpcSaveOrderBooksRequest
-        if not isinstance(v, RpcSaveOrderBooksRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveOrderBooksRequest`")
+        # validate data type: RpcSaveOrderBooksParams
+        if not isinstance(v, RpcSaveOrderBooksParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveOrderBooksParams`")
         else:
             match += 1
-        # validate data type: RpcSubscribeOrderBookRequest
-        if not isinstance(v, RpcSubscribeOrderBookRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSubscribeOrderBookRequest`")
+        # validate data type: RpcSubscribeOrderBookParams
+        if not isinstance(v, RpcSubscribeOrderBookParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSubscribeOrderBookParams`")
         else:
             match += 1
-        # validate data type: RpcUnsubscribeOrderBookRequest
-        if not isinstance(v, RpcUnsubscribeOrderBookRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcUnsubscribeOrderBookRequest`")
+        # validate data type: RpcUnsubscribeOrderBookParams
+        if not isinstance(v, RpcUnsubscribeOrderBookParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcUnsubscribeOrderBookParams`")
         else:
             match += 1
-        # validate data type: RpcListOrderBookSubscriptionsRequest
-        if not isinstance(v, RpcListOrderBookSubscriptionsRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListOrderBookSubscriptionsRequest`")
+        # validate data type: RpcListOrderBookSubscriptionsParams
+        if not isinstance(v, RpcListOrderBookSubscriptionsParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListOrderBookSubscriptionsParams`")
         else:
             match += 1
-        # validate data type: RpcSaveKlinesRequest
-        if not isinstance(v, RpcSaveKlinesRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveKlinesRequest`")
+        # validate data type: RpcSaveKlinesParams
+        if not isinstance(v, RpcSaveKlinesParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveKlinesParams`")
         else:
             match += 1
-        # validate data type: RpcListKlinesRequest
-        if not isinstance(v, RpcListKlinesRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListKlinesRequest`")
+        # validate data type: RpcListKlinesParams
+        if not isinstance(v, RpcListKlinesParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListKlinesParams`")
         else:
             match += 1
-        # validate data type: RpcSaveTickersRequest
-        if not isinstance(v, RpcSaveTickersRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveTickersRequest`")
+        # validate data type: RpcSaveTickersParams
+        if not isinstance(v, RpcSaveTickersParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcSaveTickersParams`")
         else:
             match += 1
-        # validate data type: RpcListTickersRequest
-        if not isinstance(v, RpcListTickersRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListTickersRequest`")
+        # validate data type: RpcListTickersParams
+        if not isinstance(v, RpcListTickersParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListTickersParams`")
         else:
             match += 1
-        # validate data type: RpcCreateSubscriptionRequest
-        if not isinstance(v, RpcCreateSubscriptionRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcCreateSubscriptionRequest`")
+        # validate data type: RpcCreateSubscriptionParams
+        if not isinstance(v, RpcCreateSubscriptionParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcCreateSubscriptionParams`")
         else:
             match += 1
-        # validate data type: RpcListSubscriptionsRequest
-        if not isinstance(v, RpcListSubscriptionsRequest):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListSubscriptionsRequest`")
+        # validate data type: RpcListSubscriptionsParams
+        if not isinstance(v, RpcListSubscriptionsParams):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RpcListSubscriptionsParams`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in WsRPCRequestData with oneOf schemas: RpcCancelTradeOrderRequest, RpcConnectTradingAccountRequest, RpcCreateCredentialRequest, RpcCreateSubscriptionRequest, RpcCreateTradingAccountRequest, RpcDeleteInstrumentRequest, RpcDeleteSecuritiesRequest, RpcDeleteTradingAccountRequest, RpcDisableInstrumentRequest, RpcDisableTradingAccountRequest, RpcDisconnectTradingAccountRequest, RpcEnableInstrumentRequest, RpcEnableTradingAccountRequest, RpcGetOrderBookRequest, RpcGetPortfolioRequest, RpcGetTradeOrderByIdRequest, RpcGetTradeOrderRequest, RpcListCredentialsRequest, RpcListInstrumentsRequest, RpcListKlinesRequest, RpcListOrderBookSubscriptionsRequest, RpcListOrderBooksRequest, RpcListPortfoliosRequest, RpcListSecuritiesRequest, RpcListSubscriptionsRequest, RpcListTickersRequest, RpcListTradeOrdersRequest, RpcListTradingAccountOperationsRequest, RpcListTradingAccountSubscriptionsRequest, RpcListTradingAccountsRequest, RpcRevokeCredentialRequest, RpcRotateCredentialRequest, RpcSaveCredentialRequest, RpcSaveInstrumentsRequest, RpcSaveKlinesRequest, RpcSaveOrderBooksRequest, RpcSavePortfolioRequest, RpcSaveSecuritiesRequest, RpcSaveTickersRequest, RpcSaveTradeOrderRequest, RpcSaveTradingAccountsRequest, RpcSubmitTradeOrderRequest, RpcSubscribeOrderBookRequest, RpcSubscribeTradingAccountStreamRequest, RpcSyncInstrumentsRequest, RpcSyncSecuritiesRequest, RpcUnsubscribeOrderBookRequest, RpcUnsubscribeTradingAccountStreamRequest, RpcUpdateTradingAccountRequest, RpcValidateTradingAccountRequest, RpcVerifyCredentialRequest, object. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in WsRPCRequestData with oneOf schemas: RpcCancelTradeOrderParams, RpcConnectTradingAccountParams, RpcCreateCredentialParams, RpcCreateSubscriptionParams, RpcCreateTradingAccountParams, RpcDeleteInstrumentParams, RpcDeleteSecuritiesParams, RpcDeleteTradingAccountParams, RpcDisableInstrumentParams, RpcDisableTradingAccountParams, RpcDisconnectTradingAccountParams, RpcEnableInstrumentParams, RpcEnableTradingAccountParams, RpcGetOrderBookParams, RpcGetPortfolioParams, RpcGetTradeOrderByIdParams, RpcGetTradeOrderParams, RpcListCredentialsParams, RpcListInstrumentsParams, RpcListKlinesParams, RpcListOrderBookSubscriptionsParams, RpcListOrderBooksParams, RpcListPortfoliosParams, RpcListSecuritiesParams, RpcListSubscriptionsParams, RpcListTickersParams, RpcListTradeOrdersParams, RpcListTradingAccountOperationsParams, RpcListTradingAccountSubscriptionsParams, RpcListTradingAccountsParams, RpcRevokeCredentialParams, RpcRotateCredentialParams, RpcSaveCredentialParams, RpcSaveInstrumentsParams, RpcSaveKlinesParams, RpcSaveOrderBooksParams, RpcSavePortfolioParams, RpcSaveSecuritiesParams, RpcSaveTickersParams, RpcSaveTradeOrderParams, RpcSaveTradingAccountsParams, RpcSubmitTradeOrderParams, RpcSubscribeOrderBookParams, RpcSubscribeTradingAccountStreamParams, RpcSyncInstrumentsParams, RpcSyncSecuritiesParams, RpcUnsubscribeOrderBookParams, RpcUnsubscribeTradingAccountStreamParams, RpcUpdateTradingAccountParams, RpcValidateTradingAccountParams, RpcVerifyCredentialParams, object. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in WsRPCRequestData with oneOf schemas: RpcCancelTradeOrderRequest, RpcConnectTradingAccountRequest, RpcCreateCredentialRequest, RpcCreateSubscriptionRequest, RpcCreateTradingAccountRequest, RpcDeleteInstrumentRequest, RpcDeleteSecuritiesRequest, RpcDeleteTradingAccountRequest, RpcDisableInstrumentRequest, RpcDisableTradingAccountRequest, RpcDisconnectTradingAccountRequest, RpcEnableInstrumentRequest, RpcEnableTradingAccountRequest, RpcGetOrderBookRequest, RpcGetPortfolioRequest, RpcGetTradeOrderByIdRequest, RpcGetTradeOrderRequest, RpcListCredentialsRequest, RpcListInstrumentsRequest, RpcListKlinesRequest, RpcListOrderBookSubscriptionsRequest, RpcListOrderBooksRequest, RpcListPortfoliosRequest, RpcListSecuritiesRequest, RpcListSubscriptionsRequest, RpcListTickersRequest, RpcListTradeOrdersRequest, RpcListTradingAccountOperationsRequest, RpcListTradingAccountSubscriptionsRequest, RpcListTradingAccountsRequest, RpcRevokeCredentialRequest, RpcRotateCredentialRequest, RpcSaveCredentialRequest, RpcSaveInstrumentsRequest, RpcSaveKlinesRequest, RpcSaveOrderBooksRequest, RpcSavePortfolioRequest, RpcSaveSecuritiesRequest, RpcSaveTickersRequest, RpcSaveTradeOrderRequest, RpcSaveTradingAccountsRequest, RpcSubmitTradeOrderRequest, RpcSubscribeOrderBookRequest, RpcSubscribeTradingAccountStreamRequest, RpcSyncInstrumentsRequest, RpcSyncSecuritiesRequest, RpcUnsubscribeOrderBookRequest, RpcUnsubscribeTradingAccountStreamRequest, RpcUpdateTradingAccountRequest, RpcValidateTradingAccountRequest, RpcVerifyCredentialRequest, object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in WsRPCRequestData with oneOf schemas: RpcCancelTradeOrderParams, RpcConnectTradingAccountParams, RpcCreateCredentialParams, RpcCreateSubscriptionParams, RpcCreateTradingAccountParams, RpcDeleteInstrumentParams, RpcDeleteSecuritiesParams, RpcDeleteTradingAccountParams, RpcDisableInstrumentParams, RpcDisableTradingAccountParams, RpcDisconnectTradingAccountParams, RpcEnableInstrumentParams, RpcEnableTradingAccountParams, RpcGetOrderBookParams, RpcGetPortfolioParams, RpcGetTradeOrderByIdParams, RpcGetTradeOrderParams, RpcListCredentialsParams, RpcListInstrumentsParams, RpcListKlinesParams, RpcListOrderBookSubscriptionsParams, RpcListOrderBooksParams, RpcListPortfoliosParams, RpcListSecuritiesParams, RpcListSubscriptionsParams, RpcListTickersParams, RpcListTradeOrdersParams, RpcListTradingAccountOperationsParams, RpcListTradingAccountSubscriptionsParams, RpcListTradingAccountsParams, RpcRevokeCredentialParams, RpcRotateCredentialParams, RpcSaveCredentialParams, RpcSaveInstrumentsParams, RpcSaveKlinesParams, RpcSaveOrderBooksParams, RpcSavePortfolioParams, RpcSaveSecuritiesParams, RpcSaveTickersParams, RpcSaveTradeOrderParams, RpcSaveTradingAccountsParams, RpcSubmitTradeOrderParams, RpcSubscribeOrderBookParams, RpcSubscribeTradingAccountStreamParams, RpcSyncInstrumentsParams, RpcSyncSecuritiesParams, RpcUnsubscribeOrderBookParams, RpcUnsubscribeTradingAccountStreamParams, RpcUpdateTradingAccountParams, RpcValidateTradingAccountParams, RpcVerifyCredentialParams, object. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -521,237 +521,237 @@ class WsRPCRequestData(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSubmitTradeOrderRequest
+        # deserialize data into RpcSubmitTradeOrderParams
         try:
-            instance.actual_instance = RpcSubmitTradeOrderRequest.from_json(json_str)
+            instance.actual_instance = RpcSubmitTradeOrderParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcCancelTradeOrderRequest
+        # deserialize data into RpcCancelTradeOrderParams
         try:
-            instance.actual_instance = RpcCancelTradeOrderRequest.from_json(json_str)
+            instance.actual_instance = RpcCancelTradeOrderParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcGetTradeOrderRequest
+        # deserialize data into RpcGetTradeOrderParams
         try:
-            instance.actual_instance = RpcGetTradeOrderRequest.from_json(json_str)
+            instance.actual_instance = RpcGetTradeOrderParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcGetTradeOrderByIdRequest
+        # deserialize data into RpcGetTradeOrderByIdParams
         try:
-            instance.actual_instance = RpcGetTradeOrderByIdRequest.from_json(json_str)
+            instance.actual_instance = RpcGetTradeOrderByIdParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListTradeOrdersRequest
+        # deserialize data into RpcListTradeOrdersParams
         try:
-            instance.actual_instance = RpcListTradeOrdersRequest.from_json(json_str)
+            instance.actual_instance = RpcListTradeOrdersParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSaveTradeOrderRequest
+        # deserialize data into RpcSaveTradeOrderParams
         try:
-            instance.actual_instance = RpcSaveTradeOrderRequest.from_json(json_str)
+            instance.actual_instance = RpcSaveTradeOrderParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcCreateTradingAccountRequest
+        # deserialize data into RpcCreateTradingAccountParams
         try:
-            instance.actual_instance = RpcCreateTradingAccountRequest.from_json(json_str)
+            instance.actual_instance = RpcCreateTradingAccountParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSaveTradingAccountsRequest
+        # deserialize data into RpcSaveTradingAccountsParams
         try:
-            instance.actual_instance = RpcSaveTradingAccountsRequest.from_json(json_str)
+            instance.actual_instance = RpcSaveTradingAccountsParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcUpdateTradingAccountRequest
+        # deserialize data into RpcUpdateTradingAccountParams
         try:
-            instance.actual_instance = RpcUpdateTradingAccountRequest.from_json(json_str)
+            instance.actual_instance = RpcUpdateTradingAccountParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcDeleteTradingAccountRequest
+        # deserialize data into RpcDeleteTradingAccountParams
         try:
-            instance.actual_instance = RpcDeleteTradingAccountRequest.from_json(json_str)
+            instance.actual_instance = RpcDeleteTradingAccountParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcValidateTradingAccountRequest
+        # deserialize data into RpcValidateTradingAccountParams
         try:
-            instance.actual_instance = RpcValidateTradingAccountRequest.from_json(json_str)
+            instance.actual_instance = RpcValidateTradingAccountParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcConnectTradingAccountRequest
+        # deserialize data into RpcConnectTradingAccountParams
         try:
-            instance.actual_instance = RpcConnectTradingAccountRequest.from_json(json_str)
+            instance.actual_instance = RpcConnectTradingAccountParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcDisconnectTradingAccountRequest
+        # deserialize data into RpcDisconnectTradingAccountParams
         try:
-            instance.actual_instance = RpcDisconnectTradingAccountRequest.from_json(json_str)
+            instance.actual_instance = RpcDisconnectTradingAccountParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcEnableTradingAccountRequest
+        # deserialize data into RpcEnableTradingAccountParams
         try:
-            instance.actual_instance = RpcEnableTradingAccountRequest.from_json(json_str)
+            instance.actual_instance = RpcEnableTradingAccountParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcDisableTradingAccountRequest
+        # deserialize data into RpcDisableTradingAccountParams
         try:
-            instance.actual_instance = RpcDisableTradingAccountRequest.from_json(json_str)
+            instance.actual_instance = RpcDisableTradingAccountParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListTradingAccountsRequest
+        # deserialize data into RpcListTradingAccountsParams
         try:
-            instance.actual_instance = RpcListTradingAccountsRequest.from_json(json_str)
+            instance.actual_instance = RpcListTradingAccountsParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListTradingAccountOperationsRequest
+        # deserialize data into RpcListTradingAccountOperationsParams
         try:
-            instance.actual_instance = RpcListTradingAccountOperationsRequest.from_json(json_str)
+            instance.actual_instance = RpcListTradingAccountOperationsParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSubscribeTradingAccountStreamRequest
+        # deserialize data into RpcSubscribeTradingAccountStreamParams
         try:
-            instance.actual_instance = RpcSubscribeTradingAccountStreamRequest.from_json(json_str)
+            instance.actual_instance = RpcSubscribeTradingAccountStreamParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcUnsubscribeTradingAccountStreamRequest
+        # deserialize data into RpcUnsubscribeTradingAccountStreamParams
         try:
-            instance.actual_instance = RpcUnsubscribeTradingAccountStreamRequest.from_json(json_str)
+            instance.actual_instance = RpcUnsubscribeTradingAccountStreamParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListTradingAccountSubscriptionsRequest
+        # deserialize data into RpcListTradingAccountSubscriptionsParams
         try:
-            instance.actual_instance = RpcListTradingAccountSubscriptionsRequest.from_json(json_str)
+            instance.actual_instance = RpcListTradingAccountSubscriptionsParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcCreateCredentialRequest
+        # deserialize data into RpcCreateCredentialParams
         try:
-            instance.actual_instance = RpcCreateCredentialRequest.from_json(json_str)
+            instance.actual_instance = RpcCreateCredentialParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSaveCredentialRequest
+        # deserialize data into RpcSaveCredentialParams
         try:
-            instance.actual_instance = RpcSaveCredentialRequest.from_json(json_str)
+            instance.actual_instance = RpcSaveCredentialParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListCredentialsRequest
+        # deserialize data into RpcListCredentialsParams
         try:
-            instance.actual_instance = RpcListCredentialsRequest.from_json(json_str)
+            instance.actual_instance = RpcListCredentialsParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcVerifyCredentialRequest
+        # deserialize data into RpcVerifyCredentialParams
         try:
-            instance.actual_instance = RpcVerifyCredentialRequest.from_json(json_str)
+            instance.actual_instance = RpcVerifyCredentialParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcRevokeCredentialRequest
+        # deserialize data into RpcRevokeCredentialParams
         try:
-            instance.actual_instance = RpcRevokeCredentialRequest.from_json(json_str)
+            instance.actual_instance = RpcRevokeCredentialParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcRotateCredentialRequest
+        # deserialize data into RpcRotateCredentialParams
         try:
-            instance.actual_instance = RpcRotateCredentialRequest.from_json(json_str)
+            instance.actual_instance = RpcRotateCredentialParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcGetPortfolioRequest
+        # deserialize data into RpcGetPortfolioParams
         try:
-            instance.actual_instance = RpcGetPortfolioRequest.from_json(json_str)
+            instance.actual_instance = RpcGetPortfolioParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListPortfoliosRequest
+        # deserialize data into RpcListPortfoliosParams
         try:
-            instance.actual_instance = RpcListPortfoliosRequest.from_json(json_str)
+            instance.actual_instance = RpcListPortfoliosParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSavePortfolioRequest
+        # deserialize data into RpcSavePortfolioParams
         try:
-            instance.actual_instance = RpcSavePortfolioRequest.from_json(json_str)
+            instance.actual_instance = RpcSavePortfolioParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSyncInstrumentsRequest
+        # deserialize data into RpcSyncInstrumentsParams
         try:
-            instance.actual_instance = RpcSyncInstrumentsRequest.from_json(json_str)
+            instance.actual_instance = RpcSyncInstrumentsParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSaveInstrumentsRequest
+        # deserialize data into RpcSaveInstrumentsParams
         try:
-            instance.actual_instance = RpcSaveInstrumentsRequest.from_json(json_str)
+            instance.actual_instance = RpcSaveInstrumentsParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListInstrumentsRequest
+        # deserialize data into RpcListInstrumentsParams
         try:
-            instance.actual_instance = RpcListInstrumentsRequest.from_json(json_str)
+            instance.actual_instance = RpcListInstrumentsParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcDeleteInstrumentRequest
+        # deserialize data into RpcDeleteInstrumentParams
         try:
-            instance.actual_instance = RpcDeleteInstrumentRequest.from_json(json_str)
+            instance.actual_instance = RpcDeleteInstrumentParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcEnableInstrumentRequest
+        # deserialize data into RpcEnableInstrumentParams
         try:
-            instance.actual_instance = RpcEnableInstrumentRequest.from_json(json_str)
+            instance.actual_instance = RpcEnableInstrumentParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcDisableInstrumentRequest
+        # deserialize data into RpcDisableInstrumentParams
         try:
-            instance.actual_instance = RpcDisableInstrumentRequest.from_json(json_str)
+            instance.actual_instance = RpcDisableInstrumentParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSyncSecuritiesRequest
+        # deserialize data into RpcSyncSecuritiesParams
         try:
-            instance.actual_instance = RpcSyncSecuritiesRequest.from_json(json_str)
+            instance.actual_instance = RpcSyncSecuritiesParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSaveSecuritiesRequest
+        # deserialize data into RpcSaveSecuritiesParams
         try:
-            instance.actual_instance = RpcSaveSecuritiesRequest.from_json(json_str)
+            instance.actual_instance = RpcSaveSecuritiesParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcDeleteSecuritiesRequest
+        # deserialize data into RpcDeleteSecuritiesParams
         try:
-            instance.actual_instance = RpcDeleteSecuritiesRequest.from_json(json_str)
+            instance.actual_instance = RpcDeleteSecuritiesParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListSecuritiesRequest
+        # deserialize data into RpcListSecuritiesParams
         try:
-            instance.actual_instance = RpcListSecuritiesRequest.from_json(json_str)
+            instance.actual_instance = RpcListSecuritiesParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -764,85 +764,85 @@ class WsRPCRequestData(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcGetOrderBookRequest
+        # deserialize data into RpcGetOrderBookParams
         try:
-            instance.actual_instance = RpcGetOrderBookRequest.from_json(json_str)
+            instance.actual_instance = RpcGetOrderBookParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListOrderBooksRequest
+        # deserialize data into RpcListOrderBooksParams
         try:
-            instance.actual_instance = RpcListOrderBooksRequest.from_json(json_str)
+            instance.actual_instance = RpcListOrderBooksParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSaveOrderBooksRequest
+        # deserialize data into RpcSaveOrderBooksParams
         try:
-            instance.actual_instance = RpcSaveOrderBooksRequest.from_json(json_str)
+            instance.actual_instance = RpcSaveOrderBooksParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSubscribeOrderBookRequest
+        # deserialize data into RpcSubscribeOrderBookParams
         try:
-            instance.actual_instance = RpcSubscribeOrderBookRequest.from_json(json_str)
+            instance.actual_instance = RpcSubscribeOrderBookParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcUnsubscribeOrderBookRequest
+        # deserialize data into RpcUnsubscribeOrderBookParams
         try:
-            instance.actual_instance = RpcUnsubscribeOrderBookRequest.from_json(json_str)
+            instance.actual_instance = RpcUnsubscribeOrderBookParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListOrderBookSubscriptionsRequest
+        # deserialize data into RpcListOrderBookSubscriptionsParams
         try:
-            instance.actual_instance = RpcListOrderBookSubscriptionsRequest.from_json(json_str)
+            instance.actual_instance = RpcListOrderBookSubscriptionsParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSaveKlinesRequest
+        # deserialize data into RpcSaveKlinesParams
         try:
-            instance.actual_instance = RpcSaveKlinesRequest.from_json(json_str)
+            instance.actual_instance = RpcSaveKlinesParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListKlinesRequest
+        # deserialize data into RpcListKlinesParams
         try:
-            instance.actual_instance = RpcListKlinesRequest.from_json(json_str)
+            instance.actual_instance = RpcListKlinesParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcSaveTickersRequest
+        # deserialize data into RpcSaveTickersParams
         try:
-            instance.actual_instance = RpcSaveTickersRequest.from_json(json_str)
+            instance.actual_instance = RpcSaveTickersParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListTickersRequest
+        # deserialize data into RpcListTickersParams
         try:
-            instance.actual_instance = RpcListTickersRequest.from_json(json_str)
+            instance.actual_instance = RpcListTickersParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcCreateSubscriptionRequest
+        # deserialize data into RpcCreateSubscriptionParams
         try:
-            instance.actual_instance = RpcCreateSubscriptionRequest.from_json(json_str)
+            instance.actual_instance = RpcCreateSubscriptionParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RpcListSubscriptionsRequest
+        # deserialize data into RpcListSubscriptionsParams
         try:
-            instance.actual_instance = RpcListSubscriptionsRequest.from_json(json_str)
+            instance.actual_instance = RpcListSubscriptionsParams.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into WsRPCRequestData with oneOf schemas: RpcCancelTradeOrderRequest, RpcConnectTradingAccountRequest, RpcCreateCredentialRequest, RpcCreateSubscriptionRequest, RpcCreateTradingAccountRequest, RpcDeleteInstrumentRequest, RpcDeleteSecuritiesRequest, RpcDeleteTradingAccountRequest, RpcDisableInstrumentRequest, RpcDisableTradingAccountRequest, RpcDisconnectTradingAccountRequest, RpcEnableInstrumentRequest, RpcEnableTradingAccountRequest, RpcGetOrderBookRequest, RpcGetPortfolioRequest, RpcGetTradeOrderByIdRequest, RpcGetTradeOrderRequest, RpcListCredentialsRequest, RpcListInstrumentsRequest, RpcListKlinesRequest, RpcListOrderBookSubscriptionsRequest, RpcListOrderBooksRequest, RpcListPortfoliosRequest, RpcListSecuritiesRequest, RpcListSubscriptionsRequest, RpcListTickersRequest, RpcListTradeOrdersRequest, RpcListTradingAccountOperationsRequest, RpcListTradingAccountSubscriptionsRequest, RpcListTradingAccountsRequest, RpcRevokeCredentialRequest, RpcRotateCredentialRequest, RpcSaveCredentialRequest, RpcSaveInstrumentsRequest, RpcSaveKlinesRequest, RpcSaveOrderBooksRequest, RpcSavePortfolioRequest, RpcSaveSecuritiesRequest, RpcSaveTickersRequest, RpcSaveTradeOrderRequest, RpcSaveTradingAccountsRequest, RpcSubmitTradeOrderRequest, RpcSubscribeOrderBookRequest, RpcSubscribeTradingAccountStreamRequest, RpcSyncInstrumentsRequest, RpcSyncSecuritiesRequest, RpcUnsubscribeOrderBookRequest, RpcUnsubscribeTradingAccountStreamRequest, RpcUpdateTradingAccountRequest, RpcValidateTradingAccountRequest, RpcVerifyCredentialRequest, object. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into WsRPCRequestData with oneOf schemas: RpcCancelTradeOrderParams, RpcConnectTradingAccountParams, RpcCreateCredentialParams, RpcCreateSubscriptionParams, RpcCreateTradingAccountParams, RpcDeleteInstrumentParams, RpcDeleteSecuritiesParams, RpcDeleteTradingAccountParams, RpcDisableInstrumentParams, RpcDisableTradingAccountParams, RpcDisconnectTradingAccountParams, RpcEnableInstrumentParams, RpcEnableTradingAccountParams, RpcGetOrderBookParams, RpcGetPortfolioParams, RpcGetTradeOrderByIdParams, RpcGetTradeOrderParams, RpcListCredentialsParams, RpcListInstrumentsParams, RpcListKlinesParams, RpcListOrderBookSubscriptionsParams, RpcListOrderBooksParams, RpcListPortfoliosParams, RpcListSecuritiesParams, RpcListSubscriptionsParams, RpcListTickersParams, RpcListTradeOrdersParams, RpcListTradingAccountOperationsParams, RpcListTradingAccountSubscriptionsParams, RpcListTradingAccountsParams, RpcRevokeCredentialParams, RpcRotateCredentialParams, RpcSaveCredentialParams, RpcSaveInstrumentsParams, RpcSaveKlinesParams, RpcSaveOrderBooksParams, RpcSavePortfolioParams, RpcSaveSecuritiesParams, RpcSaveTickersParams, RpcSaveTradeOrderParams, RpcSaveTradingAccountsParams, RpcSubmitTradeOrderParams, RpcSubscribeOrderBookParams, RpcSubscribeTradingAccountStreamParams, RpcSyncInstrumentsParams, RpcSyncSecuritiesParams, RpcUnsubscribeOrderBookParams, RpcUnsubscribeTradingAccountStreamParams, RpcUpdateTradingAccountParams, RpcValidateTradingAccountParams, RpcVerifyCredentialParams, object. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into WsRPCRequestData with oneOf schemas: RpcCancelTradeOrderRequest, RpcConnectTradingAccountRequest, RpcCreateCredentialRequest, RpcCreateSubscriptionRequest, RpcCreateTradingAccountRequest, RpcDeleteInstrumentRequest, RpcDeleteSecuritiesRequest, RpcDeleteTradingAccountRequest, RpcDisableInstrumentRequest, RpcDisableTradingAccountRequest, RpcDisconnectTradingAccountRequest, RpcEnableInstrumentRequest, RpcEnableTradingAccountRequest, RpcGetOrderBookRequest, RpcGetPortfolioRequest, RpcGetTradeOrderByIdRequest, RpcGetTradeOrderRequest, RpcListCredentialsRequest, RpcListInstrumentsRequest, RpcListKlinesRequest, RpcListOrderBookSubscriptionsRequest, RpcListOrderBooksRequest, RpcListPortfoliosRequest, RpcListSecuritiesRequest, RpcListSubscriptionsRequest, RpcListTickersRequest, RpcListTradeOrdersRequest, RpcListTradingAccountOperationsRequest, RpcListTradingAccountSubscriptionsRequest, RpcListTradingAccountsRequest, RpcRevokeCredentialRequest, RpcRotateCredentialRequest, RpcSaveCredentialRequest, RpcSaveInstrumentsRequest, RpcSaveKlinesRequest, RpcSaveOrderBooksRequest, RpcSavePortfolioRequest, RpcSaveSecuritiesRequest, RpcSaveTickersRequest, RpcSaveTradeOrderRequest, RpcSaveTradingAccountsRequest, RpcSubmitTradeOrderRequest, RpcSubscribeOrderBookRequest, RpcSubscribeTradingAccountStreamRequest, RpcSyncInstrumentsRequest, RpcSyncSecuritiesRequest, RpcUnsubscribeOrderBookRequest, RpcUnsubscribeTradingAccountStreamRequest, RpcUpdateTradingAccountRequest, RpcValidateTradingAccountRequest, RpcVerifyCredentialRequest, object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into WsRPCRequestData with oneOf schemas: RpcCancelTradeOrderParams, RpcConnectTradingAccountParams, RpcCreateCredentialParams, RpcCreateSubscriptionParams, RpcCreateTradingAccountParams, RpcDeleteInstrumentParams, RpcDeleteSecuritiesParams, RpcDeleteTradingAccountParams, RpcDisableInstrumentParams, RpcDisableTradingAccountParams, RpcDisconnectTradingAccountParams, RpcEnableInstrumentParams, RpcEnableTradingAccountParams, RpcGetOrderBookParams, RpcGetPortfolioParams, RpcGetTradeOrderByIdParams, RpcGetTradeOrderParams, RpcListCredentialsParams, RpcListInstrumentsParams, RpcListKlinesParams, RpcListOrderBookSubscriptionsParams, RpcListOrderBooksParams, RpcListPortfoliosParams, RpcListSecuritiesParams, RpcListSubscriptionsParams, RpcListTickersParams, RpcListTradeOrdersParams, RpcListTradingAccountOperationsParams, RpcListTradingAccountSubscriptionsParams, RpcListTradingAccountsParams, RpcRevokeCredentialParams, RpcRotateCredentialParams, RpcSaveCredentialParams, RpcSaveInstrumentsParams, RpcSaveKlinesParams, RpcSaveOrderBooksParams, RpcSavePortfolioParams, RpcSaveSecuritiesParams, RpcSaveTickersParams, RpcSaveTradeOrderParams, RpcSaveTradingAccountsParams, RpcSubmitTradeOrderParams, RpcSubscribeOrderBookParams, RpcSubscribeTradingAccountStreamParams, RpcSyncInstrumentsParams, RpcSyncSecuritiesParams, RpcUnsubscribeOrderBookParams, RpcUnsubscribeTradingAccountStreamParams, RpcUpdateTradingAccountParams, RpcValidateTradingAccountParams, RpcVerifyCredentialParams, object. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -856,7 +856,7 @@ class WsRPCRequestData(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], RpcCancelTradeOrderRequest, RpcConnectTradingAccountRequest, RpcCreateCredentialRequest, RpcCreateSubscriptionRequest, RpcCreateTradingAccountRequest, RpcDeleteInstrumentRequest, RpcDeleteSecuritiesRequest, RpcDeleteTradingAccountRequest, RpcDisableInstrumentRequest, RpcDisableTradingAccountRequest, RpcDisconnectTradingAccountRequest, RpcEnableInstrumentRequest, RpcEnableTradingAccountRequest, RpcGetOrderBookRequest, RpcGetPortfolioRequest, RpcGetTradeOrderByIdRequest, RpcGetTradeOrderRequest, RpcListCredentialsRequest, RpcListInstrumentsRequest, RpcListKlinesRequest, RpcListOrderBookSubscriptionsRequest, RpcListOrderBooksRequest, RpcListPortfoliosRequest, RpcListSecuritiesRequest, RpcListSubscriptionsRequest, RpcListTickersRequest, RpcListTradeOrdersRequest, RpcListTradingAccountOperationsRequest, RpcListTradingAccountSubscriptionsRequest, RpcListTradingAccountsRequest, RpcRevokeCredentialRequest, RpcRotateCredentialRequest, RpcSaveCredentialRequest, RpcSaveInstrumentsRequest, RpcSaveKlinesRequest, RpcSaveOrderBooksRequest, RpcSavePortfolioRequest, RpcSaveSecuritiesRequest, RpcSaveTickersRequest, RpcSaveTradeOrderRequest, RpcSaveTradingAccountsRequest, RpcSubmitTradeOrderRequest, RpcSubscribeOrderBookRequest, RpcSubscribeTradingAccountStreamRequest, RpcSyncInstrumentsRequest, RpcSyncSecuritiesRequest, RpcUnsubscribeOrderBookRequest, RpcUnsubscribeTradingAccountStreamRequest, RpcUpdateTradingAccountRequest, RpcValidateTradingAccountRequest, RpcVerifyCredentialRequest, object]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], RpcCancelTradeOrderParams, RpcConnectTradingAccountParams, RpcCreateCredentialParams, RpcCreateSubscriptionParams, RpcCreateTradingAccountParams, RpcDeleteInstrumentParams, RpcDeleteSecuritiesParams, RpcDeleteTradingAccountParams, RpcDisableInstrumentParams, RpcDisableTradingAccountParams, RpcDisconnectTradingAccountParams, RpcEnableInstrumentParams, RpcEnableTradingAccountParams, RpcGetOrderBookParams, RpcGetPortfolioParams, RpcGetTradeOrderByIdParams, RpcGetTradeOrderParams, RpcListCredentialsParams, RpcListInstrumentsParams, RpcListKlinesParams, RpcListOrderBookSubscriptionsParams, RpcListOrderBooksParams, RpcListPortfoliosParams, RpcListSecuritiesParams, RpcListSubscriptionsParams, RpcListTickersParams, RpcListTradeOrdersParams, RpcListTradingAccountOperationsParams, RpcListTradingAccountSubscriptionsParams, RpcListTradingAccountsParams, RpcRevokeCredentialParams, RpcRotateCredentialParams, RpcSaveCredentialParams, RpcSaveInstrumentsParams, RpcSaveKlinesParams, RpcSaveOrderBooksParams, RpcSavePortfolioParams, RpcSaveSecuritiesParams, RpcSaveTickersParams, RpcSaveTradeOrderParams, RpcSaveTradingAccountsParams, RpcSubmitTradeOrderParams, RpcSubscribeOrderBookParams, RpcSubscribeTradingAccountStreamParams, RpcSyncInstrumentsParams, RpcSyncSecuritiesParams, RpcUnsubscribeOrderBookParams, RpcUnsubscribeTradingAccountStreamParams, RpcUpdateTradingAccountParams, RpcValidateTradingAccountParams, RpcVerifyCredentialParams, object]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

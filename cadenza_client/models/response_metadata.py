@@ -17,7 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from uuid import UUID
@@ -32,7 +33,7 @@ class ResponseMetadata(BaseModel):
     trace_id: Optional[StrictStr] = Field(default=None, description="Distributed tracing ID", alias="traceId")
     event_id: UUID = Field(description="Unique response identifier", alias="eventId")
     event_type: Annotated[str, Field(strict=True)] = Field(description="Event type in format: {category}.{resource}.{action}", alias="eventType")
-    timestamp: StrictInt = Field(description="Unix timestamp in milliseconds")
+    timestamp: datetime = Field(description="Timestamp in ISO 8601 format (RFC3339). This is the native format used by Go's time.Time.")
     sender: ServiceName
     receiver: ServiceName
     request_id: UUID = Field(description="ID of the original request this response is for", alias="requestId")

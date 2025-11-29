@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **symbol** | **str** | Trading pair symbol | [optional] 
 **bids** | [**List[RpcOrderBookLevel]**](RpcOrderBookLevel.md) | Bid orders (sorted by price descending) | [optional] 
 **asks** | [**List[RpcOrderBookLevel]**](RpcOrderBookLevel.md) | Ask orders (sorted by price ascending) | [optional] 
-**timestamp** | **int** | Order book timestamp in milliseconds | [optional] 
+**timestamp** | **datetime** | Timestamp in ISO 8601 format (RFC3339). This is the native format used by Go&#39;s time.Time. | [optional] 
 **sequence_number** | **int** | Sequence number for ordering updates | [optional] 
 
 ## Example
