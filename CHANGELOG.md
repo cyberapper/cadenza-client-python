@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/cyberapper/cadenza-client-python/compare/v3.1.0...v3.1.1) (2025-12-04)
+
+
+### Bug Fixes
+
+* pyproject license ([1c56d2b](https://github.com/cyberapper/cadenza-client-python/commit/1c56d2bd7163b042f5c6ef85bc9466b81ea0c852))
+
 ## [3.1.0](https://github.com/cyberapper/cadenza-client-python/compare/v3.0.2...v3.1.0) (2025-11-29)
 
 
