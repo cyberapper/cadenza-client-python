@@ -28,7 +28,7 @@ REQUIRES = [
     "python-dateutil >= 2.8.2",
     "pydantic >= 2",
     "typing-extensions >= 4.7.1",
-    "centrifuge >= 0.4.0",
+    "centrifuge >= 0.8.0",
 ]
 
 setup(
