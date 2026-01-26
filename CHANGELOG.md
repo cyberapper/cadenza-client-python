@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.2.0](https://github.com/cyberapper/cadenza-client-python/compare/v3.1.1...v3.2.0) (2026-01-26)
+
+
+### Features
+
+* regenerate SDK and add ws package with centrifuge-python ([9487857](https://github.com/cyberapper/cadenza-client-python/commit/9487857b1033132eb694e0a28808664eb9bd037f))
+
+
+### Miscellaneous
+
+* protect .gitignore, add .vscode to ignore, update ws example URL ([4117597](https://github.com/cyberapper/cadenza-client-python/commit/4117597534081d35787c77fcfde1dd601602ebf3))
+
 ## [3.1.1](https://github.com/cyberapper/cadenza-client-python/compare/v3.1.0...v3.1.1) (2025-12-04)
 
 
