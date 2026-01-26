@@ -1,6 +1,12 @@
 name: Python
 
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - 'release-please--**'
+  pull_request:
+    branches-ignore:
+      - 'release-please--**'
 
 permissions:
   contents: read
