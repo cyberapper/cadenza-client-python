@@ -62,13 +62,5 @@ docs/_build/
 # PyBuilder
 target/
 
-#Ipython Notebook
+# Ipython Notebook
 .ipynb_checkpoints
-
-
-# Dev
-.vscode/
-.env*
-example*
-CLAUDE.md
-supabase

@@ -7,7 +7,7 @@ Request to submit a new trade order
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **trade_order** | [**RpcTradeOrder**](RpcTradeOrder.md) |  | 
-**trading_account_id** | **str** | Trading account ID to place order on | 
+**trading_account_id** | **UUID** | Trading account ID to place order on | 
 **idempotency_key** | **str** | Idempotency key to prevent duplicate orders | [optional] 
 **await_closed** | **bool** | Wait for order to reach terminal state before responding | [optional] [default to False]
 

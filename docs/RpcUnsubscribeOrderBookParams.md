@@ -6,7 +6,7 @@ Request to unsubscribe from order book updates
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subscription_id** | **str** | Subscription ID to cancel | [optional] 
+**subscription_id** | **UUID** | Subscription ID to cancel | [optional] 
 **instrument_id** | **str** | Instrument ID to unsubscribe | [optional] 
 
 ## Example

@@ -6,7 +6,7 @@ Request to get a trade order by ID
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trade_order_id** | **str** |  | 
+**trade_order_id** | **UUID** |  | 
 
 ## Example
 

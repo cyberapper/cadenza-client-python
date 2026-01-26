@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**position_id** | **str** | UUID string | 
+**position_id** | **UUID** | UUID string | 
 **security_symbol** | **str** | Security symbol | 
 **external_position_id** | **str** | External position ID from the exchange | [optional] 
-**trading_account_id** | **str** | UUID string | 
+**trading_account_id** | **UUID** | UUID string | 
 **instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | [optional] 
 **security_type** | [**SecurityType**](SecurityType.md) |  | 
 **status** | [**PositionStatus**](PositionStatus.md) |  | 

@@ -46,7 +46,7 @@ configuration = cadenza_client.Configuration(
 with cadenza_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cadenza_client.TradingAccountSubscriptionApi(api_client)
-    trading_account_id = 'trading_account_id_example' # str | Trading account ID (optional)
+    trading_account_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Trading account ID (optional)
     limit = 50 # int | Limit the number of returned results (optional) (default to 50)
     offset = 0 # int | Offset of the returned results (optional) (default to 0)
     cursor = 'cursor_example' # str |  (optional)
@@ -67,7 +67,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trading_account_id** | **str**| Trading account ID | [optional] 
+ **trading_account_id** | **UUID**| Trading account ID | [optional] 
  **limit** | **int**| Limit the number of returned results | [optional] [default to 50]
  **offset** | **int**| Offset of the returned results | [optional] [default to 0]
  **cursor** | **str**|  | [optional] 

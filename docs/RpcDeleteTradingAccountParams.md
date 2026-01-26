@@ -6,7 +6,7 @@ Request to delete a trading account
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **str** |  | 
+**trading_account_id** | **UUID** |  | 
 
 ## Example
 

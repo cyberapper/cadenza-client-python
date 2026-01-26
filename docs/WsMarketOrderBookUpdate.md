@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **channel** | **str** |  | 
 **data** | [**Orderbook**](Orderbook.md) |  | 
-**subscription_id** | **str** | UUID string | 
+**subscription_id** | **UUID** | UUID string | 
 **timestamp** | **int** | Unix timestamp in milliseconds | 
 
 ## Example

@@ -70,7 +70,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Health check response with system status (200 &#x3D; healthy, 503 &#x3D; unhealthy) |  -  |
 **400** | Bad request |  -  |
-**503** | Service unavailable - system is unhealthy |  -  |
+**503** | Health check response with system status (200 &#x3D; healthy, 503 &#x3D; unhealthy) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

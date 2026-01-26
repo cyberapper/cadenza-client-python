@@ -6,8 +6,8 @@ System information response
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version** | **str** |  | [optional] 
-**environment** | **str** |  | [optional] 
+**data** | [**RpcSystemInfo**](RpcSystemInfo.md) |  | [optional] 
+**error** | [**RpcError**](RpcError.md) |  | [optional] 
 
 ## Example
 

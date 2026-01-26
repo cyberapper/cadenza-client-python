@@ -6,10 +6,6 @@ RPC response payload. Schema depends on the method that was called.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version** | **str** |  | [optional] 
-**environment** | **str** |  | [optional] 
-**healthy** | **bool** |  | [optional] 
-**services** | **Dict[str, str]** |  | [optional] 
 **data** | [**List[RpcSubscription]**](RpcSubscription.md) |  | [optional] 
 **error** | [**RpcError**](RpcError.md) |  | [optional] 
 **pagination** | [**RpcPagination**](RpcPagination.md) |  | [optional] 

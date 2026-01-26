@@ -5,11 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **str** | UUID string | 
+**trading_account_id** | **UUID** | UUID string | 
 **external_trading_account_id** | **str** | External trading account ID | 
 **venue** | [**Venue**](Venue.md) |  | 
 **nickname** | **str** | Nickname of the trading account | 
 **account_type** | [**AccountType**](AccountType.md) |  | 
+**external_account_type** | **str** | Type of account on the exchange (set by market connector) | 
+**position_mode** | [**PositionMode**](PositionMode.md) |  | [optional] 
+**collateral_mode** | [**CollateralMode**](CollateralMode.md) |  | [optional] 
+**margin_mode** | [**MarginMode**](MarginMode.md) |  | [optional] 
 **credentials** | [**List[TradingAccountCredential]**](TradingAccountCredential.md) |  | 
 **status** | [**TradingAccountStatus**](TradingAccountStatus.md) |  | 
 **created_at** | **int** | Unix timestamp in milliseconds | 

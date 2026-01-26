@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class Venue(str, Enum):
     """
-    Trading venue identifier. Sandbox environments are treated as separate venues.
+    Trading venue identifier. UAT/sandbox environments are treated as separate venues. Note: _SANDBOX and _PAPER suffixes are deprecated. Use _UAT suffix for new integrations. 
     """
 
     """
@@ -37,16 +37,21 @@ class Venue(str, Enum):
     DERIBIT = 'DERIBIT'
     BITFINEX = 'BITFINEX'
     OKX = 'OKX'
-    BINANCE_SANDBOX = 'BINANCE_SANDBOX'
+    BINANCE_UAT = 'BINANCE_UAT'
     B2_C2_UAT = 'B2C2_UAT'
     WINTERMUTE_UAT = 'WINTERMUTE_UAT'
     BLOCKFILLS_UAT = 'BLOCKFILLS_UAT'
     STONEX_UAT = 'STONEX_UAT'
     CUMBERLAND_UAT = 'CUMBERLAND_UAT'
-    IBKR_PAPER = 'IBKR_PAPER'
+    IBKR_UAT = 'IBKR_UAT'
     DERIBIT_UAT = 'DERIBIT_UAT'
     BITFINEX_UAT = 'BITFINEX_UAT'
     OKX_UAT = 'OKX_UAT'
+    BINANCE_SANDBOX = 'BINANCE_SANDBOX'
+    B2_C2_SANDBOX = 'B2C2_SANDBOX'
+    IBKR_PAPER = 'IBKR_PAPER'
+    MOCK = 'MOCK'
+    PAPER = 'PAPER'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

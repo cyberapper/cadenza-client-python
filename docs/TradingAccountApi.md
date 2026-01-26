@@ -387,7 +387,7 @@ configuration = cadenza_client.Configuration(
 with cadenza_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cadenza_client.TradingAccountApi(api_client)
-    trading_account_id = 'trading_account_id_example' # str | Trading account ID (optional)
+    trading_account_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Trading account ID (optional)
     operation_type = cadenza_client.OperationType() # OperationType | Operation type (optional)
     start_time = 1622505600000 # int | Start time (in unix milliseconds), of the created at field (optional)
     end_time = 56 # int | End time (in unix milliseconds), of the created at field (optional)
@@ -411,7 +411,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trading_account_id** | **str**| Trading account ID | [optional] 
+ **trading_account_id** | **UUID**| Trading account ID | [optional] 
  **operation_type** | [**OperationType**](.md)| Operation type | [optional] 
  **start_time** | **int**| Start time (in unix milliseconds), of the created at field | [optional] 
  **end_time** | **int**| End time (in unix milliseconds), of the created at field | [optional] 
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_trading_accounts**
-> ListTradingAccounts200Response list_trading_accounts(trading_account_id=trading_account_id, venue=venue, account_status=account_status, limit=limit, offset=offset)
+> ListTradingAccounts200Response list_trading_accounts(trading_account_id=trading_account_id, venue=venue, account_status=account_status, user_id=user_id, tenant_id=tenant_id, limit=limit, offset=offset)
 
 List trading accounts
 
@@ -484,15 +484,17 @@ configuration = cadenza_client.Configuration(
 with cadenza_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cadenza_client.TradingAccountApi(api_client)
-    trading_account_id = 'trading_account_id_example' # str | Trading account ID (optional)
+    trading_account_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Trading account ID (optional)
     venue = cadenza_client.Venue() # Venue | Exchange type (optional)
     account_status = cadenza_client.TradingAccountStatus() # TradingAccountStatus | Account status (optional)
+    user_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Filter by user ID (optional)
+    tenant_id = 'tenant_id_example' # str | Filter by tenant ID (optional)
     limit = 50 # int | Limit the number of returned results (optional) (default to 50)
     offset = 0 # int | Offset of the returned results (optional) (default to 0)
 
     try:
         # List trading accounts
-        api_response = api_instance.list_trading_accounts(trading_account_id=trading_account_id, venue=venue, account_status=account_status, limit=limit, offset=offset)
+        api_response = api_instance.list_trading_accounts(trading_account_id=trading_account_id, venue=venue, account_status=account_status, user_id=user_id, tenant_id=tenant_id, limit=limit, offset=offset)
         print("The response of TradingAccountApi->list_trading_accounts:\n")
         pprint(api_response)
     except Exception as e:
@@ -506,9 +508,11 @@ with cadenza_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trading_account_id** | **str**| Trading account ID | [optional] 
+ **trading_account_id** | **UUID**| Trading account ID | [optional] 
  **venue** | [**Venue**](.md)| Exchange type | [optional] 
  **account_status** | [**TradingAccountStatus**](.md)| Account status | [optional] 
+ **user_id** | **UUID**| Filter by user ID | [optional] 
+ **tenant_id** | **str**| Filter by tenant ID | [optional] 
  **limit** | **int**| Limit the number of returned results | [optional] [default to 50]
  **offset** | **int**| Offset of the returned results | [optional] [default to 0]
 

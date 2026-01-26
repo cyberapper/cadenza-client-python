@@ -365,11 +365,11 @@ class TradeOrderApi:
         List trade orders with filtering options
 
         :param trade_order_id: Trade order ID
-        :type trade_order_id: str
+        :type trade_order_id: UUID
         :param order_status: Order status
         :type order_status: OrderStatus
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param instrument_id: Instrument ID
         :type instrument_id: str
         :param start_time: Start time (in unix milliseconds), of the created at field
@@ -473,11 +473,11 @@ class TradeOrderApi:
         List trade orders with filtering options
 
         :param trade_order_id: Trade order ID
-        :type trade_order_id: str
+        :type trade_order_id: UUID
         :param order_status: Order status
         :type order_status: OrderStatus
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param instrument_id: Instrument ID
         :type instrument_id: str
         :param start_time: Start time (in unix milliseconds), of the created at field
@@ -581,11 +581,11 @@ class TradeOrderApi:
         List trade orders with filtering options
 
         :param trade_order_id: Trade order ID
-        :type trade_order_id: str
+        :type trade_order_id: UUID
         :param order_status: Order status
         :type order_status: OrderStatus
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param instrument_id: Instrument ID
         :type instrument_id: str
         :param start_time: Start time (in unix milliseconds), of the created at field

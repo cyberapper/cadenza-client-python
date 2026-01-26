@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from cadenza_client.models.rpc_error import RpcError
+from cadenza_client.models.rpc_system_info import RpcSystemInfo
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,9 +28,9 @@ class RpcGetSystemInfoResult(BaseModel):
     """
     System information response
     """ # noqa: E501
-    version: Optional[StrictStr] = None
-    environment: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["version", "environment"]
+    data: Optional[RpcSystemInfo] = None
+    error: Optional[RpcError] = None
+    __properties: ClassVar[List[str]] = ["data", "error"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,6 +71,12 @@ class RpcGetSystemInfoResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of error
+        if self.error:
+            _dict['error'] = self.error.to_dict()
         return _dict
 
     @classmethod
@@ -81,8 +89,8 @@ class RpcGetSystemInfoResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "version": obj.get("version"),
-            "environment": obj.get("environment")
+            "data": RpcSystemInfo.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "error": RpcError.from_dict(obj["error"]) if obj.get("error") is not None else None
         })
         return _obj
 

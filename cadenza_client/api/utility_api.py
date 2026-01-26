@@ -89,7 +89,7 @@ class UtilityApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Health200Response",
             '400': "Root400Response",
-            '503': "Health503Response",
+            '503': "Health200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -154,7 +154,7 @@ class UtilityApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Health200Response",
             '400': "Root400Response",
-            '503': "Health503Response",
+            '503': "Health200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -219,7 +219,7 @@ class UtilityApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Health200Response",
             '400': "Root400Response",
-            '503': "Health503Response",
+            '503': "Health200Response",
         }
         response_data = self.api_client.call_api(
             *_param,

@@ -6,8 +6,8 @@ Request to get a specific trade order
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trade_order_id** | **str** | Trade order ID | [optional] 
-**trading_account_id** | **str** | Trading account ID | [optional] 
+**trade_order_id** | **UUID** | Trade order ID | [optional] 
+**trading_account_id** | **UUID** | Trading account ID | [optional] 
 **client_order_id** | **str** | Client order ID | [optional] 
 **external_order_id** | **str** | External order ID | [optional] 
 

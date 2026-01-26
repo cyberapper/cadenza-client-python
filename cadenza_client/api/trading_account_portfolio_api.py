@@ -67,7 +67,7 @@ class TradingAccountPortfolioApi:
         List portfolios across all trading accounts
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param venue: Exchange type
         :type venue: Venue
         :param currency: Currency
@@ -155,7 +155,7 @@ class TradingAccountPortfolioApi:
         List portfolios across all trading accounts
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param venue: Exchange type
         :type venue: Venue
         :param currency: Currency
@@ -243,7 +243,7 @@ class TradingAccountPortfolioApi:
         List portfolios across all trading accounts
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param venue: Exchange type
         :type venue: Venue
         :param currency: Currency

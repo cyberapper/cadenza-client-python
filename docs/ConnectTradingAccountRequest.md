@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential_ids** | **List[str]** | A list of credential IDs to be used to connect the trading account | 
+**credential_ids** | **List[UUID]** | A list of credential IDs to be used to connect the trading account | 
 **external_trading_account_id** | **str** | External trading account ID | 
 **nickname** | **str** | Nickname of the trading account | [optional] 
 

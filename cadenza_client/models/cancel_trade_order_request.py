@@ -27,8 +27,9 @@ class CancelTradeOrderRequest(BaseModel):
     """
     CancelTradeOrderRequest
     """ # noqa: E501
+    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
     trade_order_id: UUID = Field(description="UUID string", alias="tradeOrderId")
-    __properties: ClassVar[List[str]] = ["tradeOrderId"]
+    __properties: ClassVar[List[str]] = ["tradingAccountId", "tradeOrderId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +82,7 @@ class CancelTradeOrderRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "tradingAccountId": obj.get("tradingAccountId"),
             "tradeOrderId": obj.get("tradeOrderId")
         })
         return _obj

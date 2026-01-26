@@ -22,6 +22,9 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uuid import UUID
 from cadenza_client.models.account_type import AccountType
+from cadenza_client.models.collateral_mode import CollateralMode
+from cadenza_client.models.margin_mode import MarginMode
+from cadenza_client.models.position_mode import PositionMode
 from cadenza_client.models.trading_account_credential import TradingAccountCredential
 from cadenza_client.models.trading_account_status import TradingAccountStatus
 from cadenza_client.models.venue import Venue
@@ -37,13 +40,17 @@ class TradingAccount(BaseModel):
     venue: Venue
     nickname: StrictStr = Field(description="Nickname of the trading account")
     account_type: AccountType = Field(alias="accountType")
+    external_account_type: StrictStr = Field(description="Type of account on the exchange (set by market connector)", alias="externalAccountType")
+    position_mode: Optional[PositionMode] = Field(default=None, alias="positionMode")
+    collateral_mode: Optional[CollateralMode] = Field(default=None, alias="collateralMode")
+    margin_mode: Optional[MarginMode] = Field(default=None, alias="marginMode")
     credentials: List[TradingAccountCredential]
     status: TradingAccountStatus
     created_at: StrictInt = Field(description="Unix timestamp in milliseconds", alias="createdAt")
     created_at_date_time: Optional[datetime] = Field(default=None, description="Creation timestamp in ISO 8601 format", alias="createdAtDateTime")
     updated_at: StrictInt = Field(description="Unix timestamp in milliseconds", alias="updatedAt")
     updated_at_date_time: Optional[datetime] = Field(default=None, description="Last update timestamp in ISO 8601 format", alias="updatedAtDateTime")
-    __properties: ClassVar[List[str]] = ["tradingAccountId", "externalTradingAccountId", "venue", "nickname", "accountType", "credentials", "status", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime"]
+    __properties: ClassVar[List[str]] = ["tradingAccountId", "externalTradingAccountId", "venue", "nickname", "accountType", "externalAccountType", "positionMode", "collateralMode", "marginMode", "credentials", "status", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -108,6 +115,10 @@ class TradingAccount(BaseModel):
             "venue": obj.get("venue"),
             "nickname": obj.get("nickname"),
             "accountType": obj.get("accountType"),
+            "externalAccountType": obj.get("externalAccountType"),
+            "positionMode": obj.get("positionMode"),
+            "collateralMode": obj.get("collateralMode"),
+            "marginMode": obj.get("marginMode"),
             "credentials": [TradingAccountCredential.from_dict(_item) for _item in obj["credentials"]] if obj.get("credentials") is not None else None,
             "status": obj.get("status"),
             "createdAt": obj.get("createdAt"),

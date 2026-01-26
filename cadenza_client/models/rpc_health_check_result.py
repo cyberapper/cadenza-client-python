@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from cadenza_client.models.rpc_error import RpcError
+from cadenza_client.models.rpc_health_check import RpcHealthCheck
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,9 +28,9 @@ class RpcHealthCheckResult(BaseModel):
     """
     Health check response
     """ # noqa: E501
-    healthy: Optional[StrictBool] = None
-    services: Optional[Dict[str, StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["healthy", "services"]
+    data: Optional[RpcHealthCheck] = None
+    error: Optional[RpcError] = None
+    __properties: ClassVar[List[str]] = ["data", "error"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,6 +71,12 @@ class RpcHealthCheckResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of error
+        if self.error:
+            _dict['error'] = self.error.to_dict()
         return _dict
 
     @classmethod
@@ -81,8 +89,8 @@ class RpcHealthCheckResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "healthy": obj.get("healthy"),
-            "services": obj.get("services")
+            "data": RpcHealthCheck.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "error": RpcError.from_dict(obj["error"]) if obj.get("error") is not None else None
         })
         return _obj
 

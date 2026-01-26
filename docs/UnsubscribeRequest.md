@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subscription_id** | **str** | UUID string | [optional] 
-**trading_account_id** | **str** | UUID string | [optional] 
+**subscription_id** | **UUID** | UUID string | [optional] 
+**trading_account_id** | **UUID** | UUID string | [optional] 
 **instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | [optional] 
 
 ## Example

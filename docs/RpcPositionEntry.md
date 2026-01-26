@@ -6,9 +6,9 @@ Position entry for an instrument
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**position_id** | **str** |  | [optional] 
+**position_id** | **UUID** |  | [optional] 
 **external_position_id** | **str** |  | [optional] 
-**trading_account_id** | **str** |  | [optional] 
+**trading_account_id** | **UUID** |  | [optional] 
 **security_symbol** | **str** |  | [optional] 
 **instrument_id** | **str** | Instrument ID | [optional] 
 **security_type** | [**SecurityType**](SecurityType.md) |  | [optional] 

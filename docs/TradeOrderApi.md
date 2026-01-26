@@ -131,9 +131,9 @@ configuration = cadenza_client.Configuration(
 with cadenza_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cadenza_client.TradeOrderApi(api_client)
-    trade_order_id = 'trade_order_id_example' # str | Trade order ID (optional)
+    trade_order_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Trade order ID (optional)
     order_status = cadenza_client.OrderStatus() # OrderStatus | Order status (optional)
-    trading_account_id = 'trading_account_id_example' # str | Trading account ID (optional)
+    trading_account_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Trading account ID (optional)
     instrument_id = 'instrument_id_example' # str | Instrument ID (optional)
     start_time = 1622505600000 # int | Start time (in unix milliseconds), of the created at field (optional)
     end_time = 56 # int | End time (in unix milliseconds), of the created at field (optional)
@@ -158,9 +158,9 @@ with cadenza_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trade_order_id** | **str**| Trade order ID | [optional] 
+ **trade_order_id** | **UUID**| Trade order ID | [optional] 
  **order_status** | [**OrderStatus**](.md)| Order status | [optional] 
- **trading_account_id** | **str**| Trading account ID | [optional] 
+ **trading_account_id** | **UUID**| Trading account ID | [optional] 
  **instrument_id** | **str**| Instrument ID | [optional] 
  **start_time** | **int**| Start time (in unix milliseconds), of the created at field | [optional] 
  **end_time** | **int**| End time (in unix milliseconds), of the created at field | [optional] 

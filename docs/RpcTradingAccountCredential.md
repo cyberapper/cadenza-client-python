@@ -6,7 +6,7 @@ Trading account credential
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential_id** | **str** |  | [optional] 
+**credential_id** | **UUID** |  | [optional] 
 **nickname** | **str** |  | [optional] 
 **credential_type** | [**CredentialType**](CredentialType.md) |  | [optional] 
 **status** | [**CredentialStatus**](CredentialStatus.md) |  | [optional] 

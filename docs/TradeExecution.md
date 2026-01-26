@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**execution_id** | **str** | UUID string | 
+**execution_id** | **UUID** | UUID string | 
 **external_trade_id** | **str** | Exchange&#39;s execution identifier | [optional] 
 **venue** | [**Venue**](Venue.md) |  | 
 **instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | 

@@ -68,7 +68,7 @@ class TradingAccountSubscriptionApi:
         List active trading account subscriptions
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param limit: Limit the number of returned results
         :type limit: int
         :param offset: Offset of the returned results
@@ -149,7 +149,7 @@ class TradingAccountSubscriptionApi:
         List active trading account subscriptions
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param limit: Limit the number of returned results
         :type limit: int
         :param offset: Offset of the returned results
@@ -230,7 +230,7 @@ class TradingAccountSubscriptionApi:
         List active trading account subscriptions
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param limit: Limit the number of returned results
         :type limit: int
         :param offset: Offset of the returned results

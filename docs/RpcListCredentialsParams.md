@@ -6,7 +6,7 @@ Request to list credentials
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential_ids** | **List[str]** |  | [optional] 
+**credential_ids** | **List[UUID]** |  | [optional] 
 **venue** | [**Venue**](Venue.md) |  | [optional] 
 **credential_type** | [**CredentialType**](CredentialType.md) |  | [optional] 
 **status** | [**CredentialStatus**](CredentialStatus.md) |  | [optional] 

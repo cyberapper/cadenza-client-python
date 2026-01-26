@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**operation_id** | **str** | UUID string | 
-**trading_account_id** | **str** | UUID string | 
+**operation_id** | **UUID** | UUID string | 
+**trading_account_id** | **UUID** | UUID string | 
 **operation_type** | [**OperationType**](OperationType.md) |  | 
 **status** | [**OperationStatus**](OperationStatus.md) |  | 
 **created_at** | **int** | Unix timestamp in milliseconds | 

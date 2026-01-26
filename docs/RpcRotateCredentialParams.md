@@ -6,7 +6,7 @@ Request to rotate a credential
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential_id** | **str** |  | 
+**credential_id** | **UUID** |  | 
 **credential_type** | [**CredentialType**](CredentialType.md) |  | 
 **api_key** | **str** |  | [optional] 
 **secret_key** | **str** |  | [optional] 

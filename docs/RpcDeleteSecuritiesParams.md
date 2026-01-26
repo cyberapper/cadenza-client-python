@@ -6,7 +6,7 @@ Request to delete securities
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**security_ids** | **List[str]** |  | 
+**security_ids** | **List[UUID]** |  | 
 
 ## Example
 

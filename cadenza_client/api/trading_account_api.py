@@ -1234,7 +1234,7 @@ class TradingAccountApi:
         List operations history for trading accounts
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param operation_type: Operation type
         :type operation_type: OperationType
         :param start_time: Start time (in unix milliseconds), of the created at field
@@ -1330,7 +1330,7 @@ class TradingAccountApi:
         List operations history for trading accounts
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param operation_type: Operation type
         :type operation_type: OperationType
         :param start_time: Start time (in unix milliseconds), of the created at field
@@ -1426,7 +1426,7 @@ class TradingAccountApi:
         List operations history for trading accounts
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param operation_type: Operation type
         :type operation_type: OperationType
         :param start_time: Start time (in unix milliseconds), of the created at field
@@ -1592,6 +1592,8 @@ class TradingAccountApi:
         trading_account_id: Annotated[Optional[UUID], Field(description="Trading account ID")] = None,
         venue: Annotated[Optional[Venue], Field(description="Exchange type")] = None,
         account_status: Annotated[Optional[TradingAccountStatus], Field(description="Account status")] = None,
+        user_id: Annotated[Optional[UUID], Field(description="Filter by user ID")] = None,
+        tenant_id: Annotated[Optional[StrictStr], Field(description="Filter by tenant ID")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Limit the number of returned results")] = None,
         offset: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Offset of the returned results")] = None,
         _request_timeout: Union[
@@ -1612,11 +1614,15 @@ class TradingAccountApi:
         List all trading accounts
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param venue: Exchange type
         :type venue: Venue
         :param account_status: Account status
         :type account_status: TradingAccountStatus
+        :param user_id: Filter by user ID
+        :type user_id: UUID
+        :param tenant_id: Filter by tenant ID
+        :type tenant_id: str
         :param limit: Limit the number of returned results
         :type limit: int
         :param offset: Offset of the returned results
@@ -1647,6 +1653,8 @@ class TradingAccountApi:
             trading_account_id=trading_account_id,
             venue=venue,
             account_status=account_status,
+            user_id=user_id,
+            tenant_id=tenant_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -1680,6 +1688,8 @@ class TradingAccountApi:
         trading_account_id: Annotated[Optional[UUID], Field(description="Trading account ID")] = None,
         venue: Annotated[Optional[Venue], Field(description="Exchange type")] = None,
         account_status: Annotated[Optional[TradingAccountStatus], Field(description="Account status")] = None,
+        user_id: Annotated[Optional[UUID], Field(description="Filter by user ID")] = None,
+        tenant_id: Annotated[Optional[StrictStr], Field(description="Filter by tenant ID")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Limit the number of returned results")] = None,
         offset: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Offset of the returned results")] = None,
         _request_timeout: Union[
@@ -1700,11 +1710,15 @@ class TradingAccountApi:
         List all trading accounts
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param venue: Exchange type
         :type venue: Venue
         :param account_status: Account status
         :type account_status: TradingAccountStatus
+        :param user_id: Filter by user ID
+        :type user_id: UUID
+        :param tenant_id: Filter by tenant ID
+        :type tenant_id: str
         :param limit: Limit the number of returned results
         :type limit: int
         :param offset: Offset of the returned results
@@ -1735,6 +1749,8 @@ class TradingAccountApi:
             trading_account_id=trading_account_id,
             venue=venue,
             account_status=account_status,
+            user_id=user_id,
+            tenant_id=tenant_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -1768,6 +1784,8 @@ class TradingAccountApi:
         trading_account_id: Annotated[Optional[UUID], Field(description="Trading account ID")] = None,
         venue: Annotated[Optional[Venue], Field(description="Exchange type")] = None,
         account_status: Annotated[Optional[TradingAccountStatus], Field(description="Account status")] = None,
+        user_id: Annotated[Optional[UUID], Field(description="Filter by user ID")] = None,
+        tenant_id: Annotated[Optional[StrictStr], Field(description="Filter by tenant ID")] = None,
         limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Limit the number of returned results")] = None,
         offset: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Offset of the returned results")] = None,
         _request_timeout: Union[
@@ -1788,11 +1806,15 @@ class TradingAccountApi:
         List all trading accounts
 
         :param trading_account_id: Trading account ID
-        :type trading_account_id: str
+        :type trading_account_id: UUID
         :param venue: Exchange type
         :type venue: Venue
         :param account_status: Account status
         :type account_status: TradingAccountStatus
+        :param user_id: Filter by user ID
+        :type user_id: UUID
+        :param tenant_id: Filter by tenant ID
+        :type tenant_id: str
         :param limit: Limit the number of returned results
         :type limit: int
         :param offset: Offset of the returned results
@@ -1823,6 +1845,8 @@ class TradingAccountApi:
             trading_account_id=trading_account_id,
             venue=venue,
             account_status=account_status,
+            user_id=user_id,
+            tenant_id=tenant_id,
             limit=limit,
             offset=offset,
             _request_auth=_request_auth,
@@ -1851,6 +1875,8 @@ class TradingAccountApi:
         trading_account_id,
         venue,
         account_status,
+        user_id,
+        tenant_id,
         limit,
         offset,
         _request_auth,
@@ -1886,6 +1912,14 @@ class TradingAccountApi:
         if account_status is not None:
             
             _query_params.append(('accountStatus', account_status.value))
+            
+        if user_id is not None:
+            
+            _query_params.append(('userId', user_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if limit is not None:
             

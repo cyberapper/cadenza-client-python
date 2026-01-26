@@ -6,8 +6,8 @@ Portfolio summary with aggregated metrics
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**portfolio_summary_id** | **str** |  | [optional] 
-**trading_account_id** | **str** |  | [optional] 
+**portfolio_summary_id** | **UUID** |  | [optional] 
+**trading_account_id** | **UUID** |  | [optional] 
 **currency** | **str** | Summary currency | [optional] 
 **leverage** | **int** |  | [optional] 
 **equity** | **str** | Total equity | [optional] 

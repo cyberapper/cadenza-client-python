@@ -6,7 +6,7 @@ Portfolio model containing balances and positions
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **str** |  | [optional] 
+**trading_account_id** | **UUID** |  | [optional] 
 **account_info** | [**RpcTradingAccount**](RpcTradingAccount.md) |  | [optional] 
 **balances** | [**List[RpcBalanceEntry]**](RpcBalanceEntry.md) |  | [optional] 
 **positions** | [**List[RpcPositionEntry]**](RpcPositionEntry.md) |  | [optional] 

@@ -6,13 +6,13 @@ Trade order model
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trade_order_id** | **str** | Unique trade order ID | [optional] 
+**trade_order_id** | **UUID** | Unique trade order ID | [optional] 
 **client_order_id** | **str** | Client-assigned order ID | [optional] 
 **original_client_order_id** | **str** | Original client order ID (for cancel/replace) | [optional] 
 **external_order_id** | **str** | Order ID from external venue | [optional] 
 **idempotency_key** | **str** | Idempotency key | [optional] 
 **venue** | **str** | Trading venue | [optional] 
-**trading_account_id** | **str** | Trading account ID | [optional] 
+**trading_account_id** | **UUID** | Trading account ID | [optional] 
 **external_trading_account_id** | **str** | External account ID at venue | [optional] 
 **instrument_id** | **str** | Instrument ID (VENUE:BASE/QUOTE) | [optional] 
 **external_symbol** | **str** | Symbol at external venue | [optional] 

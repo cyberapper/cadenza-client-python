@@ -6,8 +6,8 @@ Health check response
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**healthy** | **bool** |  | [optional] 
-**services** | **Dict[str, str]** |  | [optional] 
+**data** | [**RpcHealthCheck**](RpcHealthCheck.md) |  | [optional] 
+**error** | [**RpcError**](RpcError.md) |  | [optional] 
 
 ## Example
 

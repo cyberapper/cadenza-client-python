@@ -45,7 +45,7 @@ configuration = cadenza_client.Configuration(
 with cadenza_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cadenza_client.TradingAccountPortfolioApi(api_client)
-    trading_account_id = 'trading_account_id_example' # str | Trading account ID (optional)
+    trading_account_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Trading account ID (optional)
     venue = cadenza_client.Venue() # Venue | Exchange type (optional)
     currency = 'USDT' # str | Currency (optional)
     limit = 50 # int | Limit the number of returned results (optional) (default to 50)
@@ -67,7 +67,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trading_account_id** | **str**| Trading account ID | [optional] 
+ **trading_account_id** | **UUID**| Trading account ID | [optional] 
  **venue** | [**Venue**](.md)| Exchange type | [optional] 
  **currency** | **str**| Currency | [optional] 
  **limit** | **int**| Limit the number of returned results | [optional] [default to 50]

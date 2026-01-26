@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential_id** | **str** | UUID string | 
+**credential_id** | **UUID** | UUID string | 
 **venue** | [**Venue**](Venue.md) |  | 
 **credential_type** | [**CredentialType**](CredentialType.md) |  | 
 **nickname** | **str** |  | [optional] 

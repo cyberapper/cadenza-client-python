@@ -6,7 +6,7 @@ Request to list trading accounts
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **str** | Filter by specific account ID | [optional] 
+**trading_account_id** | **UUID** | Filter by specific account ID | [optional] 
 **venue** | **str** | Filter by venue | [optional] 
 **status** | [**TradingAccountStatus**](TradingAccountStatus.md) |  | [optional] 
 **pagination** | [**RpcPagination**](RpcPagination.md) |  | [optional] 

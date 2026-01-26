@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential_ids** | **List[str]** |  | 
+**credential_ids** | **List[UUID]** |  | 
 
 ## Example
 

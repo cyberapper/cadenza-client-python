@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trade_order_id** | **str** | UUID string | 
-**trading_account_id** | **str** | UUID string | 
+**trade_order_id** | **UUID** | UUID string | 
+**trading_account_id** | **UUID** | UUID string | 
 **venue** | [**Venue**](Venue.md) |  | 
-**position_id** | **str** | UUID string | [optional] 
+**position_id** | **UUID** | UUID string | [optional] 
 **instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | 
-**quote_id** | **str** | UUID string | [optional] 
+**quote_id** | **UUID** | UUID string | [optional] 
 **base_asset** | **str** | Base asset in the trading pair | 
 **quote_asset** | **str** | Quote asset in the trading pair | 
 **order_side** | [**OrderSide**](OrderSide.md) |  | 

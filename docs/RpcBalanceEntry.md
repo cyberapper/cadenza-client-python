@@ -6,9 +6,9 @@ Balance entry for an asset
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**balance_id** | **str** |  | [optional] 
+**balance_id** | **UUID** |  | [optional] 
 **external_balance_id** | **str** |  | [optional] 
-**trading_account_id** | **str** |  | [optional] 
+**trading_account_id** | **UUID** |  | [optional] 
 **security_symbol** | **str** | Asset symbol | [optional] 
 **security_type** | [**SecurityType**](SecurityType.md) |  | [optional] 
 **status** | [**BalanceStatus**](BalanceStatus.md) |  | [optional] 

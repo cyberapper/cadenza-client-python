@@ -6,7 +6,7 @@ Request to create a credential
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **str** |  | 
+**trading_account_id** | **UUID** |  | 
 **venue** | [**Venue**](Venue.md) |  | 
 **credential_type** | [**CredentialType**](CredentialType.md) |  | 
 **api_key** | **str** |  | [optional] 

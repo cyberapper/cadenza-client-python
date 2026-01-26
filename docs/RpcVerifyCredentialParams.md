@@ -6,7 +6,7 @@ Request to verify credentials
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential_ids** | **List[str]** |  | [optional] 
+**credential_ids** | **List[UUID]** |  | [optional] 
 **credentials** | [**List[RpcTradingAccountCredential]**](RpcTradingAccountCredential.md) |  | [optional] 
 
 ## Example

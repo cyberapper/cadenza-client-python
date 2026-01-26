@@ -6,7 +6,7 @@ Subscription model
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subscription_id** | **str** |  | [optional] 
+**subscription_id** | **UUID** |  | [optional] 
 **instrument_id** | **str** |  | [optional] 
 **venue** | [**Venue**](Venue.md) |  | [optional] 
 **subscription_type** | [**SubscriptionType**](SubscriptionType.md) |  | [optional] 

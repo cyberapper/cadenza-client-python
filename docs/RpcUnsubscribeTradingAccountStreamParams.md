@@ -6,8 +6,8 @@ Request to unsubscribe from trading account stream
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subscription_id** | **str** |  | [optional] 
-**trading_account_id** | **str** |  | 
+**subscription_id** | **UUID** |  | [optional] 
+**trading_account_id** | **UUID** |  | 
 
 ## Example
 

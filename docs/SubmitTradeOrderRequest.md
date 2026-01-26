@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **str** | UUID string | 
+**trading_account_id** | **UUID** | UUID string | 
 **instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | 
 **idempotency_key** | **str** | Idempotency key to prevent duplicate request processing | [optional] 
 **client_order_id** | **str** | Client-provided order ID, used as idempotency key | [optional] 
@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **quantity** | **str** | Decimal value as string to preserve precision | 
 **quantity_type** | [**OrderQuantityType**](OrderQuantityType.md) |  | [optional] 
 **quantity_rounding** | [**QuantityRounding**](QuantityRounding.md) |  | [optional] [default to QuantityRounding.EMPTY]
-**position_id** | **str** | UUID string | [optional] 
+**position_id** | **UUID** | UUID string | [optional] 
 **time_in_force** | [**TimeInForce**](TimeInForce.md) |  | [optional] 
 **expire_at** | **int** | Unix timestamp in milliseconds | [optional] 
-**quote_id** | **str** | UUID string | [optional] 
+**quote_id** | **UUID** | UUID string | [optional] 
 **leverage** | **int** | Leverage | [optional] 
 **await_closed** | **bool** | If true, the API will wait up to 1 second for the order to reach a closed/finalized state (FILLED, REJECTED, EXPIRED, CANCELLED) before responding. If false or omitted, returns immediately with the initial order state. Useful for market orders that typically fill immediately.  | [optional] [default to False]
 

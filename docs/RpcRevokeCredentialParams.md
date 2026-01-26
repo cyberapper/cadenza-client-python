@@ -6,7 +6,7 @@ Request to revoke a credential
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential_id** | **str** |  | 
+**credential_id** | **UUID** |  | 
 
 ## Example
 

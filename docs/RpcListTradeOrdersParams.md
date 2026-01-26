@@ -6,8 +6,8 @@ Request to list trade orders with filters
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trade_order_id** | **str** | Filter by specific trade order ID | [optional] 
-**trading_account_id** | **str** | Filter by trading account ID | [optional] 
+**trade_order_id** | **UUID** | Filter by specific trade order ID | [optional] 
+**trading_account_id** | **UUID** | Filter by trading account ID | [optional] 
 **instrument_id** | **str** | Filter by instrument ID (e.g., BINANCE:BTC/USDT) | [optional] 
 **side** | [**OrderSide**](OrderSide.md) |  | [optional] 
 **order_type** | [**OrderType**](OrderType.md) |  | [optional] 

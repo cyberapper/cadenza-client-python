@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **security_symbol** | **str** | Security symbol | 
 **security_type** | [**SecurityType**](SecurityType.md) |  | 
 **external_balance_id** | **str** | External balance ID from the exchange | [optional] 
-**trading_account_id** | **str** | UUID string | 
+**trading_account_id** | **UUID** | UUID string | 
 **status** | [**BalanceStatus**](BalanceStatus.md) |  | 
-**position_id** | **str** | UUID string | [optional] 
+**position_id** | **UUID** | UUID string | [optional] 
 **free** | **str** | Decimal value as string to preserve precision | 
 **locked** | **str** | Decimal value as string to preserve precision | 
 **borrowed** | **str** | Decimal value as string to preserve precision | 

@@ -6,53 +6,30 @@ on:
       - master
   workflow_dispatch:
 
-# Ensure only one release workflow runs at a time
 concurrency:
   group: release
   cancel-in-progress: true
 
 permissions:
-  contents: write      # Create releases
-  pull-requests: write # Create PRs
-  issues: write        # Create labels
-
+  contents: write
+  pull-requests: write
 
 jobs:
   release-please:
     runs-on: ubuntu-latest
-    outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      pr: ${{ steps.release.outputs.pr }}
-      pr_number: ${{ steps.get-pr-number.outputs.pr_number }}
     steps:
       - id: release
         uses: googleapis/release-please-action@v4
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
-          token: ${{ secrets.RELEASE_GITHUB_TOKEN }}
-      
-      - id: get-pr-number
-        if: ${{ steps.release.outputs.pr }}
-        run: |
-          PR_JSON='${{ steps.release.outputs.pr }}'
-          PR_NUMBER=$(echo "$PR_JSON" | jq -r '.number')
-          echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
-  
-  approve-and-auto-merge:
-    needs: release-please
-    if: ${{ needs.release-please.outputs.pr_number }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Approve Pull Request
-        uses: hmarr/auto-approve-action@v3
-        with:
-          pull-request-number: ${{ needs.release-please.outputs.pr_number }}
-      
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          target-branch: master
+
       - name: Enable Auto-Merge
+        if: ${{ steps.release.outputs.pr }}
         env:
-          GH_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}
-          PR_NUMBER: ${{ needs.release-please.outputs.pr_number }}
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
-          # Enable auto-merge using GitHub API directly (no git checkout needed)
+          PR_NUMBER=$(echo '${{ steps.release.outputs.pr }}' | jq -r '.number')
           gh pr merge $PR_NUMBER --auto --squash --repo ${{ github.repository }}

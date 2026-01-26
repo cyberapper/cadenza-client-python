@@ -21,6 +21,9 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uuid import UUID
+from cadenza_client.models.collateral_mode import CollateralMode
+from cadenza_client.models.margin_mode import MarginMode
+from cadenza_client.models.position_mode import PositionMode
 from cadenza_client.models.rpc_trading_account_config import RpcTradingAccountConfig
 from cadenza_client.models.rpc_trading_account_credential import RpcTradingAccountCredential
 from cadenza_client.models.trading_account_status import TradingAccountStatus
@@ -34,17 +37,22 @@ class RpcTradingAccount(BaseModel):
     Trading account model
     """ # noqa: E501
     trading_account_id: Optional[UUID] = Field(default=None, description="Unique trading account ID", alias="tradingAccountId")
-    client_id: Optional[UUID] = Field(default=None, description="Client/user ID", alias="clientId")
+    user_id: Optional[UUID] = Field(default=None, description="User ID", alias="userId")
+    tenant_id: Optional[StrictStr] = Field(default=None, description="Tenant identifier for multi-tenancy", alias="tenantId")
     nickname: Optional[StrictStr] = Field(default=None, description="Account nickname")
     external_account_id: Optional[StrictStr] = Field(default=None, description="External account ID at venue", alias="externalAccountId")
     venue: Optional[Venue] = None
     status: Optional[TradingAccountStatus] = None
     account_type: Optional[TradingAccountType] = Field(default=None, alias="accountType")
+    external_account_type: Optional[StrictStr] = Field(default=None, description="Type of account on the exchange (set by market connector)", alias="externalAccountType")
+    position_mode: Optional[PositionMode] = Field(default=None, alias="positionMode")
+    collateral_mode: Optional[CollateralMode] = Field(default=None, alias="collateralMode")
+    margin_mode: Optional[MarginMode] = Field(default=None, alias="marginMode")
     credentials: Optional[List[RpcTradingAccountCredential]] = Field(default=None, description="Account credentials")
     config: Optional[RpcTradingAccountConfig] = None
     created_at: Optional[datetime] = Field(default=None, alias="createdAt")
     updated_at: Optional[datetime] = Field(default=None, alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["tradingAccountId", "clientId", "nickname", "externalAccountId", "venue", "status", "accountType", "credentials", "config", "createdAt", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["tradingAccountId", "userId", "tenantId", "nickname", "externalAccountId", "venue", "status", "accountType", "externalAccountType", "positionMode", "collateralMode", "marginMode", "credentials", "config", "createdAt", "updatedAt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -108,12 +116,17 @@ class RpcTradingAccount(BaseModel):
 
         _obj = cls.model_validate({
             "tradingAccountId": obj.get("tradingAccountId"),
-            "clientId": obj.get("clientId"),
+            "userId": obj.get("userId"),
+            "tenantId": obj.get("tenantId"),
             "nickname": obj.get("nickname"),
             "externalAccountId": obj.get("externalAccountId"),
             "venue": obj.get("venue"),
             "status": obj.get("status"),
             "accountType": obj.get("accountType"),
+            "externalAccountType": obj.get("externalAccountType"),
+            "positionMode": obj.get("positionMode"),
+            "collateralMode": obj.get("collateralMode"),
+            "marginMode": obj.get("marginMode"),
             "credentials": [RpcTradingAccountCredential.from_dict(_item) for _item in obj["credentials"]] if obj.get("credentials") is not None else None,
             "config": RpcTradingAccountConfig.from_dict(obj["config"]) if obj.get("config") is not None else None,
             "createdAt": obj.get("createdAt"),
