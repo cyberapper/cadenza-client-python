@@ -7,7 +7,7 @@ Re-exports the [centrifuge-python](https://github.com/centrifugal/centrifuge-pyt
 ```python
 from cadenza_client.ws import Client, Subscription
 
-client = Client("ws://localhost:8000/connection/websocket", token="your-token")
+client = Client("wss://cadenza-ws.algo724.com", token="your-token")
 await client.connect()
 
 sub = client.new_subscription("channel")
