@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.3](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.2...v3.2.3) (2026-01-26)
+
+
+### Bug Fixes
+
+* use correct package centrifuge-python &gt;= 0.4.0 ([4987a82](https://github.com/cyberapper/cadenza-client-python/commit/4987a82f890d2519d6b7e3dd4e85aa6c502f0bb8))
+
 ## [3.2.2](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.1...v3.2.2) (2026-01-26)
 
 
