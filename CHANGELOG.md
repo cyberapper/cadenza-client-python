@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.5](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.4...v3.2.5) (2026-01-26)
+
+
+### Miscellaneous
+
+* ignore local Claude Code files ([#12](https://github.com/cyberapper/cadenza-client-python/issues/12)) ([4cf7dde](https://github.com/cyberapper/cadenza-client-python/commit/4cf7dde6381450d65820e69b86b7f69a92257729))
+
 ## [3.2.4](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.3...v3.2.4) (2026-01-26)
 
 
