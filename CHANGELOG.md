@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.4](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.3...v3.2.4) (2026-01-26)
+
+
+### Continuous Integration
+
+* ignore release-please branches in workflow trigger ([#10](https://github.com/cyberapper/cadenza-client-python/issues/10)) ([5f51021](https://github.com/cyberapper/cadenza-client-python/commit/5f510215154de25544ba9df1cc5f5365bf094db7))
+
 ## [3.2.3](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.2...v3.2.3) (2026-01-26)
 
 
