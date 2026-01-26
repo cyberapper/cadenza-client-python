@@ -1,6 +1,6 @@
 [project]
 name = "cadenza_client"
-version = "3.2.0"
+version = "3.2.1"
 description = "Algo724 Cadenza Fermata API"
 authors = [
   {name = "OpenAPI Generator Community",email = "team@openapitools.org"},
