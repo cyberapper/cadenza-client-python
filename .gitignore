@@ -67,3 +67,8 @@ target/
 
 # IDE
 .vscode/
+
+# Claude Code (local)
+.claude/
+CLAUDE.md
+CLAUDE.local.md
