@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.6](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.5...v3.2.6) (2026-01-27)
+
+
+### Miscellaneous
+
+* protect pyproject.toml from openapi-generator overwrite ([#14](https://github.com/cyberapper/cadenza-client-python/issues/14)) ([d7f33ae](https://github.com/cyberapper/cadenza-client-python/commit/d7f33ae5ce4ab1c7cbf1c02190bd69a7a49d6f71))
+
 ## [3.2.5](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.4...v3.2.5) (2026-01-26)
 
 
