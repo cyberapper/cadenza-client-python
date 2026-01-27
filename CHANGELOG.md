@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.6...v3.3.0) (2026-01-27)
+
+
+### Features
+
+* **auth:** add authentication API endpoints ([#16](https://github.com/cyberapper/cadenza-client-python/issues/16)) ([5c8b22b](https://github.com/cyberapper/cadenza-client-python/commit/5c8b22b8cdc0b4255e3d523d1879556794b8d409))
+
 ## [3.2.6](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.5...v3.2.6) (2026-01-27)
 
 
