@@ -17,3 +17,8 @@ CHANGELOG.md
 
 # Protect git config
 .gitignore
+
+# Protect package manifest (version managed by release-please)
+pyproject.toml
+setup.py
+requirements.txt
