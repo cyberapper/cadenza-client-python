@@ -78,16 +78,15 @@ configuration = cadenza_client.Configuration(
 # Enter a context with an instance of the API client
 with cadenza_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cadenza_client.MarketApi(api_client)
-    delete_market_instrument_request = cadenza_client.DeleteMarketInstrumentRequest() # DeleteMarketInstrumentRequest |  (optional)
+    api_instance = cadenza_client.AuthenticationApi(api_client)
 
     try:
-        # Delete market instrument
-        api_response = api_instance.delete_market_instrument(delete_market_instrument_request=delete_market_instrument_request)
-        print("The response of MarketApi->delete_market_instrument:\n")
+        # Get current user
+        api_response = api_instance.auth_get_user()
+        print("The response of AuthenticationApi->auth_get_user:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling MarketApi->delete_market_instrument: %s\n" % e)
+        print("Exception when calling AuthenticationApi->auth_get_user: %s\n" % e)
 
 ```
 
@@ -97,6 +96,13 @@ All URIs are relative to *https://cadenza-api-uat.algo724.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AuthenticationApi* | [**auth_get_user**](docs/AuthenticationApi.md#auth_get_user) | **GET** /api/v3/auth/user | Get current user
+*AuthenticationApi* | [**auth_login**](docs/AuthenticationApi.md#auth_login) | **POST** /api/v3/auth/login | Login with email and password
+*AuthenticationApi* | [**auth_logout**](docs/AuthenticationApi.md#auth_logout) | **POST** /api/v3/auth/logout | Logout user
+*AuthenticationApi* | [**auth_recover**](docs/AuthenticationApi.md#auth_recover) | **POST** /api/v3/auth/recover | Request password recovery
+*AuthenticationApi* | [**auth_refresh_token**](docs/AuthenticationApi.md#auth_refresh_token) | **POST** /api/v3/auth/token/refresh | Refresh access token
+*AuthenticationApi* | [**auth_signup**](docs/AuthenticationApi.md#auth_signup) | **POST** /api/v3/auth/signup | Sign up new user
+*AuthenticationApi* | [**auth_update_user**](docs/AuthenticationApi.md#auth_update_user) | **PUT** /api/v3/auth/user | Update current user
 *MarketApi* | [**delete_market_instrument**](docs/MarketApi.md#delete_market_instrument) | **DELETE** /api/v3/market/instrument/delete | Delete market instrument
 *MarketApi* | [**delete_market_security**](docs/MarketApi.md#delete_market_security) | **DELETE** /api/v3/market/security/delete | Delete market security
 *MarketApi* | [**disable_market_instrument**](docs/MarketApi.md#disable_market_instrument) | **POST** /api/v3/market/instrument/disable | Disable market instrument
@@ -139,6 +145,18 @@ Class | Method | HTTP request | Description
 
  - [AccountOperation](docs/AccountOperation.md)
  - [AccountType](docs/AccountType.md)
+ - [AuthLogin200Response](docs/AuthLogin200Response.md)
+ - [AuthLoginRequest](docs/AuthLoginRequest.md)
+ - [AuthLogout200Response](docs/AuthLogout200Response.md)
+ - [AuthRecoverRequest](docs/AuthRecoverRequest.md)
+ - [AuthRefreshTokenRequest](docs/AuthRefreshTokenRequest.md)
+ - [AuthSession](docs/AuthSession.md)
+ - [AuthSignup200Response](docs/AuthSignup200Response.md)
+ - [AuthSignup429Response](docs/AuthSignup429Response.md)
+ - [AuthSignupRequest](docs/AuthSignupRequest.md)
+ - [AuthUpdateUserRequest](docs/AuthUpdateUserRequest.md)
+ - [AuthUser](docs/AuthUser.md)
+ - [AuthUserAppMetadata](docs/AuthUserAppMetadata.md)
  - [BalanceEntry](docs/BalanceEntry.md)
  - [BalanceStatus](docs/BalanceStatus.md)
  - [BaseResponse](docs/BaseResponse.md)

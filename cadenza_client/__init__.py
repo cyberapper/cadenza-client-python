@@ -14,10 +14,11 @@
 """  # noqa: E501
 
 
-__version__ = "3.2.6"
+__version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
+    "AuthenticationApi",
     "MarketApi",
     "MarketSubscriptionApi",
     "TradeOrderApi",
@@ -38,6 +39,18 @@ __all__ = [
     "ApiException",
     "AccountOperation",
     "AccountType",
+    "AuthLogin200Response",
+    "AuthLoginRequest",
+    "AuthLogout200Response",
+    "AuthRecoverRequest",
+    "AuthRefreshTokenRequest",
+    "AuthSession",
+    "AuthSignup200Response",
+    "AuthSignup429Response",
+    "AuthSignupRequest",
+    "AuthUpdateUserRequest",
+    "AuthUser",
+    "AuthUserAppMetadata",
     "BalanceEntry",
     "BalanceStatus",
     "BaseResponse",
@@ -323,6 +336,7 @@ __all__ = [
 ]
 
 # import apis into sdk package
+from cadenza_client.api.authentication_api import AuthenticationApi as AuthenticationApi
 from cadenza_client.api.market_api import MarketApi as MarketApi
 from cadenza_client.api.market_subscription_api import MarketSubscriptionApi as MarketSubscriptionApi
 from cadenza_client.api.trade_order_api import TradeOrderApi as TradeOrderApi
@@ -347,6 +361,18 @@ from cadenza_client.exceptions import ApiException as ApiException
 # import models into sdk package
 from cadenza_client.models.account_operation import AccountOperation as AccountOperation
 from cadenza_client.models.account_type import AccountType as AccountType
+from cadenza_client.models.auth_login200_response import AuthLogin200Response as AuthLogin200Response
+from cadenza_client.models.auth_login_request import AuthLoginRequest as AuthLoginRequest
+from cadenza_client.models.auth_logout200_response import AuthLogout200Response as AuthLogout200Response
+from cadenza_client.models.auth_recover_request import AuthRecoverRequest as AuthRecoverRequest
+from cadenza_client.models.auth_refresh_token_request import AuthRefreshTokenRequest as AuthRefreshTokenRequest
+from cadenza_client.models.auth_session import AuthSession as AuthSession
+from cadenza_client.models.auth_signup200_response import AuthSignup200Response as AuthSignup200Response
+from cadenza_client.models.auth_signup429_response import AuthSignup429Response as AuthSignup429Response
+from cadenza_client.models.auth_signup_request import AuthSignupRequest as AuthSignupRequest
+from cadenza_client.models.auth_update_user_request import AuthUpdateUserRequest as AuthUpdateUserRequest
+from cadenza_client.models.auth_user import AuthUser as AuthUser
+from cadenza_client.models.auth_user_app_metadata import AuthUserAppMetadata as AuthUserAppMetadata
 from cadenza_client.models.balance_entry import BalanceEntry as BalanceEntry
 from cadenza_client.models.balance_status import BalanceStatus as BalanceStatus
 from cadenza_client.models.base_response import BaseResponse as BaseResponse
