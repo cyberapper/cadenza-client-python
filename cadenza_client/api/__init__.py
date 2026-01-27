@@ -1,6 +1,7 @@
 # flake8: noqa
 
 # import apis into api package
+from cadenza_client.api.authentication_api import AuthenticationApi
 from cadenza_client.api.market_api import MarketApi
 from cadenza_client.api.market_subscription_api import MarketSubscriptionApi
 from cadenza_client.api.trade_order_api import TradeOrderApi
