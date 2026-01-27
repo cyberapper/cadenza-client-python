@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.0...v3.3.1) (2026-01-27)
+
+
+### Continuous Integration
+
+* skip workflow for release-please PRs ([#18](https://github.com/cyberapper/cadenza-client-python/issues/18)) ([38fd58b](https://github.com/cyberapper/cadenza-client-python/commit/38fd58bb32838f9205a760fdbdb554fe4cf85017))
+
 ## [3.3.0](https://github.com/cyberapper/cadenza-client-python/compare/v3.2.6...v3.3.0) (2026-01-27)
 
 
