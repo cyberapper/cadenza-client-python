@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.2](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.1...v3.3.2) (2026-01-30)
+
+
+### Miscellaneous
+
+* add .worktrees/ to gitignore ([#20](https://github.com/cyberapper/cadenza-client-python/issues/20)) ([84b3e9b](https://github.com/cyberapper/cadenza-client-python/commit/84b3e9b96011eb0de29e9890b1c02ba61118368a))
+
 ## [3.3.1](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.0...v3.3.1) (2026-01-27)
 
 
