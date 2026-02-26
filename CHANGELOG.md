@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.4](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.3...v3.3.4) (2026-02-26)
+
+
+### Miscellaneous
+
+* regenerate Python client with relaxed unknown field handling ([#24](https://github.com/cyberapper/cadenza-client-python/issues/24)) ([d120261](https://github.com/cyberapper/cadenza-client-python/commit/d1202610c7bc2873b92e44f8912df3c1ca69b7c2))
+
 ## [3.3.3](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.2...v3.3.3) (2026-02-26)
 
 
