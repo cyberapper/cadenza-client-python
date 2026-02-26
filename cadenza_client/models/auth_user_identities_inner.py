@@ -17,23 +17,25 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cadenza_client.models.base_response_details import BaseResponseDetails
-from cadenza_client.models.trading_account import TradingAccount
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 
-class VerifyTradingAccountCredential200Response(BaseModel):
+class AuthUserIdentitiesInner(BaseModel):
     """
-    VerifyTradingAccountCredential200Response
+    AuthUserIdentitiesInner
     """ # noqa: E501
-    success: Optional[StrictBool] = Field(default=None, description="Indicates if the operation was successful")
-    errno: StrictInt = Field(description="Error code (0 for success, non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code")
-    error: Optional[StrictStr] = Field(default=None, description="Error message (null for successful operations)")
-    details: Optional[BaseResponseDetails] = None
-    data: Optional[List[TradingAccount]] = None
-    __properties: ClassVar[List[str]] = ["success", "errno", "error", "details", "data"]
+    id: Optional[StrictStr] = Field(default=None, description="Identity ID")
+    user_id: Optional[UUID] = Field(default=None, description="User ID", alias="userId")
+    identity_data: Optional[Dict[str, Any]] = Field(default=None, description="Identity provider data", alias="identityData")
+    provider: Optional[StrictStr] = Field(default=None, description="Identity provider name (email, google, etc.)")
+    last_sign_in_at: Optional[datetime] = Field(default=None, description="Last sign in timestamp for this identity", alias="lastSignInAt")
+    created_at: Optional[datetime] = Field(default=None, description="Identity creation timestamp", alias="createdAt")
+    updated_at: Optional[datetime] = Field(default=None, description="Identity last update timestamp", alias="updatedAt")
+    __properties: ClassVar[List[str]] = ["id", "userId", "identityData", "provider", "lastSignInAt", "createdAt", "updatedAt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +55,7 @@ class VerifyTradingAccountCredential200Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of VerifyTradingAccountCredential200Response from a JSON string"""
+        """Create an instance of AuthUserIdentitiesInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,31 +76,16 @@ class VerifyTradingAccountCredential200Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of details
-        if self.details:
-            _dict['details'] = self.details.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
-        _items = []
-        if self.data:
-            for _item_data in self.data:
-                if _item_data:
-                    _items.append(_item_data.to_dict())
-            _dict['data'] = _items
-        # set to None if error (nullable) is None
+        # set to None if last_sign_in_at (nullable) is None
         # and model_fields_set contains the field
-        if self.error is None and "error" in self.model_fields_set:
-            _dict['error'] = None
-
-        # set to None if details (nullable) is None
-        # and model_fields_set contains the field
-        if self.details is None and "details" in self.model_fields_set:
-            _dict['details'] = None
+        if self.last_sign_in_at is None and "last_sign_in_at" in self.model_fields_set:
+            _dict['lastSignInAt'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of VerifyTradingAccountCredential200Response from a dict"""
+        """Create an instance of AuthUserIdentitiesInner from a dict"""
         if obj is None:
             return None
 
@@ -106,11 +93,13 @@ class VerifyTradingAccountCredential200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "success": obj.get("success"),
-            "errno": obj.get("errno"),
-            "error": obj.get("error"),
-            "details": BaseResponseDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
-            "data": [TradingAccount.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "id": obj.get("id"),
+            "userId": obj.get("userId"),
+            "identityData": obj.get("identityData"),
+            "provider": obj.get("provider"),
+            "lastSignInAt": obj.get("lastSignInAt"),
+            "createdAt": obj.get("createdAt"),
+            "updatedAt": obj.get("updatedAt")
         })
         return _obj
 

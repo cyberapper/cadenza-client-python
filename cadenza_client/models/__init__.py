@@ -15,7 +15,7 @@
 # import models into model package
 from cadenza_client.models.account_operation import AccountOperation
 from cadenza_client.models.account_type import AccountType
-from cadenza_client.models.auth_login200_response import AuthLogin200Response
+from cadenza_client.models.auth_get_user200_response import AuthGetUser200Response
 from cadenza_client.models.auth_login_request import AuthLoginRequest
 from cadenza_client.models.auth_logout200_response import AuthLogout200Response
 from cadenza_client.models.auth_recover_request import AuthRecoverRequest
@@ -27,6 +27,7 @@ from cadenza_client.models.auth_signup_request import AuthSignupRequest
 from cadenza_client.models.auth_update_user_request import AuthUpdateUserRequest
 from cadenza_client.models.auth_user import AuthUser
 from cadenza_client.models.auth_user_app_metadata import AuthUserAppMetadata
+from cadenza_client.models.auth_user_identities_inner import AuthUserIdentitiesInner
 from cadenza_client.models.balance_entry import BalanceEntry
 from cadenza_client.models.balance_status import BalanceStatus
 from cadenza_client.models.base_response import BaseResponse
@@ -91,11 +92,6 @@ from cadenza_client.models.response_error import ResponseError
 from cadenza_client.models.revoke_trading_account_credential_request import RevokeTradingAccountCredentialRequest
 from cadenza_client.models.root200_response import Root200Response
 from cadenza_client.models.root200_response_all_of_data import Root200ResponseAllOfData
-from cadenza_client.models.root400_response import Root400Response
-from cadenza_client.models.root401_response import Root401Response
-from cadenza_client.models.root403_response import Root403Response
-from cadenza_client.models.root404_response import Root404Response
-from cadenza_client.models.root500_response import Root500Response
 from cadenza_client.models.rotate_trading_account_credential_request import RotateTradingAccountCredentialRequest
 from cadenza_client.models.rpc_balance_entry import RpcBalanceEntry
 from cadenza_client.models.rpc_cancel_trade_order_params import RpcCancelTradeOrderParams

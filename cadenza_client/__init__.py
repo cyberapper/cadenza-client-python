@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.3.2"
+__version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
@@ -39,7 +39,7 @@ __all__ = [
     "ApiException",
     "AccountOperation",
     "AccountType",
-    "AuthLogin200Response",
+    "AuthGetUser200Response",
     "AuthLoginRequest",
     "AuthLogout200Response",
     "AuthRecoverRequest",
@@ -51,6 +51,7 @@ __all__ = [
     "AuthUpdateUserRequest",
     "AuthUser",
     "AuthUserAppMetadata",
+    "AuthUserIdentitiesInner",
     "BalanceEntry",
     "BalanceStatus",
     "BaseResponse",
@@ -115,11 +116,6 @@ __all__ = [
     "RevokeTradingAccountCredentialRequest",
     "Root200Response",
     "Root200ResponseAllOfData",
-    "Root400Response",
-    "Root401Response",
-    "Root403Response",
-    "Root404Response",
-    "Root500Response",
     "RotateTradingAccountCredentialRequest",
     "RpcBalanceEntry",
     "RpcCancelTradeOrderParams",
@@ -361,7 +357,7 @@ from cadenza_client.exceptions import ApiException as ApiException
 # import models into sdk package
 from cadenza_client.models.account_operation import AccountOperation as AccountOperation
 from cadenza_client.models.account_type import AccountType as AccountType
-from cadenza_client.models.auth_login200_response import AuthLogin200Response as AuthLogin200Response
+from cadenza_client.models.auth_get_user200_response import AuthGetUser200Response as AuthGetUser200Response
 from cadenza_client.models.auth_login_request import AuthLoginRequest as AuthLoginRequest
 from cadenza_client.models.auth_logout200_response import AuthLogout200Response as AuthLogout200Response
 from cadenza_client.models.auth_recover_request import AuthRecoverRequest as AuthRecoverRequest
@@ -373,6 +369,7 @@ from cadenza_client.models.auth_signup_request import AuthSignupRequest as AuthS
 from cadenza_client.models.auth_update_user_request import AuthUpdateUserRequest as AuthUpdateUserRequest
 from cadenza_client.models.auth_user import AuthUser as AuthUser
 from cadenza_client.models.auth_user_app_metadata import AuthUserAppMetadata as AuthUserAppMetadata
+from cadenza_client.models.auth_user_identities_inner import AuthUserIdentitiesInner as AuthUserIdentitiesInner
 from cadenza_client.models.balance_entry import BalanceEntry as BalanceEntry
 from cadenza_client.models.balance_status import BalanceStatus as BalanceStatus
 from cadenza_client.models.base_response import BaseResponse as BaseResponse
@@ -437,11 +434,6 @@ from cadenza_client.models.response_error import ResponseError as ResponseError
 from cadenza_client.models.revoke_trading_account_credential_request import RevokeTradingAccountCredentialRequest as RevokeTradingAccountCredentialRequest
 from cadenza_client.models.root200_response import Root200Response as Root200Response
 from cadenza_client.models.root200_response_all_of_data import Root200ResponseAllOfData as Root200ResponseAllOfData
-from cadenza_client.models.root400_response import Root400Response as Root400Response
-from cadenza_client.models.root401_response import Root401Response as Root401Response
-from cadenza_client.models.root403_response import Root403Response as Root403Response
-from cadenza_client.models.root404_response import Root404Response as Root404Response
-from cadenza_client.models.root500_response import Root500Response as Root500Response
 from cadenza_client.models.rotate_trading_account_credential_request import RotateTradingAccountCredentialRequest as RotateTradingAccountCredentialRequest
 from cadenza_client.models.rpc_balance_entry import RpcBalanceEntry as RpcBalanceEntry
 from cadenza_client.models.rpc_cancel_trade_order_params import RpcCancelTradeOrderParams as RpcCancelTradeOrderParams

@@ -29,9 +29,9 @@ class ListMarketInstruments200Response(BaseModel):
     """
     ListMarketInstruments200Response
     """ # noqa: E501
-    success: StrictBool = Field(description="Indicates if the operation was successful")
-    errno: StrictInt = Field(description="Error code (0 for success, negative for errors)")
-    error: Optional[StrictStr] = Field(description="Error message (null for successful operations)")
+    success: Optional[StrictBool] = Field(default=None, description="Indicates if the operation was successful")
+    errno: StrictInt = Field(description="Error code (0 for success, non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code")
+    error: Optional[StrictStr] = Field(default=None, description="Error message (null for successful operations)")
     details: Optional[BaseResponseDetails] = None
     data: Optional[List[Instrument]] = None
     pagination: Optional[Pagination] = None

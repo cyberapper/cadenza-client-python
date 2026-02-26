@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Algo724 Cadenza Fermata API
 
@@ -10,6 +8,7 @@
 
     Do not edit the class manually.
 """  # noqa: E501
+
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
@@ -112,11 +111,11 @@ class TradingAccountPortfolioApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListTradingAccountPortfolios200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -200,11 +199,11 @@ class TradingAccountPortfolioApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListTradingAccountPortfolios200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -288,11 +287,11 @@ class TradingAccountPortfolioApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListTradingAccountPortfolios200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

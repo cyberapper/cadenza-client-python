@@ -1,4 +1,4 @@
-# Root200Response
+# AuthGetUser200Response
 
 
 ## Properties
@@ -9,24 +9,24 @@ Name | Type | Description | Notes
 **errno** | **int** | Error code (0 for success, non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code | 
 **error** | **str** | Error message (null for successful operations) | [optional] 
 **details** | [**BaseResponseDetails**](BaseResponseDetails.md) |  | [optional] 
-**data** | [**Root200ResponseAllOfData**](Root200ResponseAllOfData.md) |  | [optional] 
+**data** | [**AuthUser**](AuthUser.md) |  | [optional] 
 
 ## Example
 
 ```python
-from cadenza_client.models.root200_response import Root200Response
+from cadenza_client.models.auth_get_user200_response import AuthGetUser200Response
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of Root200Response from a JSON string
-root200_response_instance = Root200Response.from_json(json)
+# create an instance of AuthGetUser200Response from a JSON string
+auth_get_user200_response_instance = AuthGetUser200Response.from_json(json)
 # print the JSON string representation of the object
-print(Root200Response.to_json())
+print(AuthGetUser200Response.to_json())
 
 # convert the object into a dict
-root200_response_dict = root200_response_instance.to_dict()
-# create an instance of Root200Response from a dict
-root200_response_from_dict = Root200Response.from_dict(root200_response_dict)
+auth_get_user200_response_dict = auth_get_user200_response_instance.to_dict()
+# create an instance of AuthGetUser200Response from a dict
+auth_get_user200_response_from_dict = AuthGetUser200Response.from_dict(auth_get_user200_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from cadenza_client.models.auth_user import AuthUser
+from cadenza_client.models.auth_session import AuthSession
 from cadenza_client.models.base_response_details import BaseResponseDetails
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,11 +28,11 @@ class AuthSignup200Response(BaseModel):
     """
     AuthSignup200Response
     """ # noqa: E501
-    success: StrictBool = Field(description="Indicates if the operation was successful")
-    errno: StrictInt = Field(description="Error code (0 for success, negative for errors)")
-    error: Optional[StrictStr] = Field(description="Error message (null for successful operations)")
+    success: Optional[StrictBool] = Field(default=None, description="Indicates if the operation was successful")
+    errno: StrictInt = Field(description="Error code (0 for success, non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code")
+    error: Optional[StrictStr] = Field(default=None, description="Error message (null for successful operations)")
     details: Optional[BaseResponseDetails] = None
-    data: Optional[AuthUser] = None
+    data: Optional[AuthSession] = None
     __properties: ClassVar[List[str]] = ["success", "errno", "error", "details", "data"]
 
     model_config = ConfigDict(
@@ -106,7 +106,7 @@ class AuthSignup200Response(BaseModel):
             "errno": obj.get("errno"),
             "error": obj.get("error"),
             "details": BaseResponseDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
-            "data": AuthUser.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": AuthSession.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

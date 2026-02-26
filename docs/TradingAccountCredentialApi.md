@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 Verify trading account credential
 
-Verify credentials and list all supported trading accounts that the credential have permissions to access
+Verify credentials and list all supported trading accounts that the credential have permissions to access. Each returned account includes a status indicating its state relative to Cadenza: NEW (not yet connected), ACTIVE or current status (connected by the current user), or UNAVAILABLE (connected by another user).
 
 ### Example
 
