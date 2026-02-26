@@ -29,6 +29,7 @@ class RpcSubscribeOrderBookParams(BaseModel):
     instrument_ids: Optional[List[StrictStr]] = Field(default=None, description="List of instrument IDs to subscribe", alias="instrumentIds")
     venue: Optional[StrictStr] = Field(default=None, description="Venue for symbols")
     symbols: Optional[List[StrictStr]] = Field(default=None, description="List of symbols to subscribe")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["instrumentIds", "venue", "symbols"]
 
     model_config = ConfigDict(
@@ -61,8 +62,10 @@ class RpcSubscribeOrderBookParams(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -70,6 +73,11 @@ class RpcSubscribeOrderBookParams(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -86,6 +94,11 @@ class RpcSubscribeOrderBookParams(BaseModel):
             "venue": obj.get("venue"),
             "symbols": obj.get("symbols")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

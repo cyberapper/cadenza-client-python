@@ -70,6 +70,7 @@ class RpcTradeOrder(BaseModel):
     expire_at: Optional[datetime] = Field(default=None, description="Order expiration time (for GTD)", alias="expireAt")
     last_execution_at: Optional[datetime] = Field(default=None, description="Time of last execution", alias="lastExecutionAt")
     canceled_at: Optional[datetime] = Field(default=None, description="Time of cancellation", alias="canceledAt")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradeOrderId", "clientOrderId", "originalClientOrderId", "externalOrderId", "idempotencyKey", "venue", "tradingAccountId", "externalTradingAccountId", "instrumentId", "externalSymbol", "baseAsset", "quoteAsset", "orderType", "orderSide", "quantityType", "quantity", "quoteCurrencyQuantity", "positionPercentage", "quantityRounding", "limitPrice", "stopPrice", "timeInForce", "status", "executedPrice", "executedPercentage", "executedQuantity", "executedCost", "fees", "cancelReason", "rejectReason", "createdAt", "updatedAt", "expireAt", "lastExecutionAt", "canceledAt"]
 
     model_config = ConfigDict(
@@ -102,8 +103,10 @@ class RpcTradeOrder(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -118,6 +121,11 @@ class RpcTradeOrder(BaseModel):
                 if _item_fees:
                     _items.append(_item_fees.to_dict())
             _dict['fees'] = _items
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -166,6 +174,11 @@ class RpcTradeOrder(BaseModel):
             "lastExecutionAt": obj.get("lastExecutionAt"),
             "canceledAt": obj.get("canceledAt")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

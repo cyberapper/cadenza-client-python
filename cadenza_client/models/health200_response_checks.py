@@ -30,6 +30,7 @@ class Health200ResponseChecks(BaseModel):
     database: Optional[HealthCheckComponent] = None
     temporal: Optional[HealthCheckComponent] = None
     redis: Optional[HealthCheckComponent] = None
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["database", "temporal", "redis"]
 
     model_config = ConfigDict(
@@ -62,8 +63,10 @@ class Health200ResponseChecks(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -80,6 +83,11 @@ class Health200ResponseChecks(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of redis
         if self.redis:
             _dict['redis'] = self.redis.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -96,6 +104,11 @@ class Health200ResponseChecks(BaseModel):
             "temporal": HealthCheckComponent.from_dict(obj["temporal"]) if obj.get("temporal") is not None else None,
             "redis": HealthCheckComponent.from_dict(obj["redis"]) if obj.get("redis") is not None else None
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

@@ -34,6 +34,7 @@ class Health200Response(BaseModel):
     iso_date_time: Optional[datetime] = Field(default=None, description="Health check timestamp in ISO 8601 format", alias="isoDateTime")
     version: StrictStr = Field(description="API version")
     checks: Optional[Health200ResponseChecks] = None
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["status", "timestamp", "isoDateTime", "version", "checks"]
 
     model_config = ConfigDict(
@@ -66,8 +67,10 @@ class Health200Response(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -78,6 +81,11 @@ class Health200Response(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of checks
         if self.checks:
             _dict['checks'] = self.checks.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -96,6 +104,11 @@ class Health200Response(BaseModel):
             "version": obj.get("version"),
             "checks": Health200ResponseChecks.from_dict(obj["checks"]) if obj.get("checks") is not None else None
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

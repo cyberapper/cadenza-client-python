@@ -37,6 +37,7 @@ class WsSubscribeResult(BaseModel):
     positioned: Optional[StrictBool] = Field(default=None, description="Whether position info is enabled")
     data: Optional[Dict[str, Any]] = Field(default=None, description="Custom data from server")
     delta: Optional[StrictBool] = Field(default=None, description="Whether delta compression is enabled")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["expires", "ttl", "recoverable", "epoch", "publications", "recovered", "offset", "positioned", "data", "delta"]
 
     model_config = ConfigDict(
@@ -69,8 +70,10 @@ class WsSubscribeResult(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -85,6 +88,11 @@ class WsSubscribeResult(BaseModel):
                 if _item_publications:
                     _items.append(_item_publications.to_dict())
             _dict['publications'] = _items
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -108,6 +116,11 @@ class WsSubscribeResult(BaseModel):
             "data": obj.get("data"),
             "delta": obj.get("delta")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

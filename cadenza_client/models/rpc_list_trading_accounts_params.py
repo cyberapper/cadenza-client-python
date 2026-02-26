@@ -33,6 +33,7 @@ class RpcListTradingAccountsParams(BaseModel):
     venue: Optional[StrictStr] = Field(default=None, description="Filter by venue")
     status: Optional[TradingAccountStatus] = None
     pagination: Optional[RpcPagination] = None
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradingAccountId", "venue", "status", "pagination"]
 
     model_config = ConfigDict(
@@ -65,8 +66,10 @@ class RpcListTradingAccountsParams(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -77,6 +80,11 @@ class RpcListTradingAccountsParams(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of pagination
         if self.pagination:
             _dict['pagination'] = self.pagination.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -94,6 +102,11 @@ class RpcListTradingAccountsParams(BaseModel):
             "status": obj.get("status"),
             "pagination": RpcPagination.from_dict(obj["pagination"]) if obj.get("pagination") is not None else None
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

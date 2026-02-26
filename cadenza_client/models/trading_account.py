@@ -50,6 +50,7 @@ class TradingAccount(BaseModel):
     created_at_date_time: Optional[datetime] = Field(default=None, description="Creation timestamp in ISO 8601 format", alias="createdAtDateTime")
     updated_at: StrictInt = Field(description="Unix timestamp in milliseconds", alias="updatedAt")
     updated_at_date_time: Optional[datetime] = Field(default=None, description="Last update timestamp in ISO 8601 format", alias="updatedAtDateTime")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradingAccountId", "externalTradingAccountId", "venue", "nickname", "accountType", "externalAccountType", "positionMode", "collateralMode", "marginMode", "credentials", "status", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime"]
 
     model_config = ConfigDict(
@@ -82,8 +83,10 @@ class TradingAccount(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -98,6 +101,11 @@ class TradingAccount(BaseModel):
                 if _item_credentials:
                     _items.append(_item_credentials.to_dict())
             _dict['credentials'] = _items
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -126,6 +134,11 @@ class TradingAccount(BaseModel):
             "updatedAt": obj.get("updatedAt"),
             "updatedAtDateTime": obj.get("updatedAtDateTime")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

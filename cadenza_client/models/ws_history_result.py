@@ -30,6 +30,7 @@ class WsHistoryResult(BaseModel):
     publications: Optional[List[WsPublication]] = None
     epoch: Optional[StrictStr] = Field(default=None, description="Stream epoch")
     offset: Optional[StrictInt] = Field(default=None, description="Current stream offset")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["publications", "epoch", "offset"]
 
     model_config = ConfigDict(
@@ -62,8 +63,10 @@ class WsHistoryResult(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -78,6 +81,11 @@ class WsHistoryResult(BaseModel):
                 if _item_publications:
                     _items.append(_item_publications.to_dict())
             _dict['publications'] = _items
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -94,6 +102,11 @@ class WsHistoryResult(BaseModel):
             "epoch": obj.get("epoch"),
             "offset": obj.get("offset")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

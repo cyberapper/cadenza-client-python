@@ -33,6 +33,7 @@ class AuthSession(BaseModel):
     expires_in: Optional[StrictInt] = Field(default=None, description="Token expiry in seconds", alias="expiresIn")
     expires_at: Optional[StrictInt] = Field(default=None, description="Token expiry timestamp (Unix seconds)", alias="expiresAt")
     user: Optional[AuthUser] = None
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["accessToken", "refreshToken", "tokenType", "expiresIn", "expiresAt", "user"]
 
     model_config = ConfigDict(
@@ -65,8 +66,10 @@ class AuthSession(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -77,6 +80,11 @@ class AuthSession(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of user
         if self.user:
             _dict['user'] = self.user.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -96,6 +104,11 @@ class AuthSession(BaseModel):
             "expiresAt": obj.get("expiresAt"),
             "user": AuthUser.from_dict(obj["user"]) if obj.get("user") is not None else None
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

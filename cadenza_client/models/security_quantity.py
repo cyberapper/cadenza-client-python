@@ -32,6 +32,7 @@ class SecurityQuantity(BaseModel):
     asset: StrictStr = Field(description="Asset symbol (e.g., BTC, USDT, BNB)")
     venue: Venue
     quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["security", "asset", "venue", "quantity"]
 
     @field_validator('quantity')
@@ -71,8 +72,10 @@ class SecurityQuantity(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -80,6 +83,11 @@ class SecurityQuantity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -97,6 +105,11 @@ class SecurityQuantity(BaseModel):
             "venue": obj.get("venue"),
             "quantity": obj.get("quantity")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

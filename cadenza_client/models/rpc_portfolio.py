@@ -40,6 +40,7 @@ class RpcPortfolio(BaseModel):
     summary: Optional[RpcPortfolioSummary] = None
     update_mode: Optional[UpdateMode] = Field(default=None, alias="updateMode")
     updated_at: Optional[datetime] = Field(default=None, alias="updatedAt")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradingAccountId", "accountInfo", "balances", "positions", "summary", "updateMode", "updatedAt"]
 
     model_config = ConfigDict(
@@ -72,8 +73,10 @@ class RpcPortfolio(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -101,6 +104,11 @@ class RpcPortfolio(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of summary
         if self.summary:
             _dict['summary'] = self.summary.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -121,6 +129,11 @@ class RpcPortfolio(BaseModel):
             "updateMode": obj.get("updateMode"),
             "updatedAt": obj.get("updatedAt")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

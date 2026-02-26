@@ -35,6 +35,7 @@ class AuthUserIdentitiesInner(BaseModel):
     last_sign_in_at: Optional[datetime] = Field(default=None, description="Last sign in timestamp for this identity", alias="lastSignInAt")
     created_at: Optional[datetime] = Field(default=None, description="Identity creation timestamp", alias="createdAt")
     updated_at: Optional[datetime] = Field(default=None, description="Identity last update timestamp", alias="updatedAt")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["id", "userId", "identityData", "provider", "lastSignInAt", "createdAt", "updatedAt"]
 
     model_config = ConfigDict(
@@ -67,8 +68,10 @@ class AuthUserIdentitiesInner(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -76,6 +79,11 @@ class AuthUserIdentitiesInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         # set to None if last_sign_in_at (nullable) is None
         # and model_fields_set contains the field
         if self.last_sign_in_at is None and "last_sign_in_at" in self.model_fields_set:
@@ -101,6 +109,11 @@ class AuthUserIdentitiesInner(BaseModel):
             "createdAt": obj.get("createdAt"),
             "updatedAt": obj.get("updatedAt")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

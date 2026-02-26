@@ -32,6 +32,7 @@ class WsConnectRequest(BaseModel):
     subs: Optional[Dict[str, WsSubscribeRequest]] = Field(default=None, description="Initial subscriptions to establish on connect")
     name: Optional[StrictStr] = Field(default=None, description="Client name for identification")
     version: Optional[StrictStr] = Field(default=None, description="Client version")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["token", "data", "subs", "name", "version"]
 
     model_config = ConfigDict(
@@ -64,8 +65,10 @@ class WsConnectRequest(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -80,6 +83,11 @@ class WsConnectRequest(BaseModel):
                 if self.subs[_key_subs]:
                     _field_dict[_key_subs] = self.subs[_key_subs].to_dict()
             _dict['subs'] = _field_dict
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -103,6 +111,11 @@ class WsConnectRequest(BaseModel):
             "name": obj.get("name"),
             "version": obj.get("version")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

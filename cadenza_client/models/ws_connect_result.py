@@ -38,6 +38,7 @@ class WsConnectResult(BaseModel):
     session: Optional[StrictStr] = Field(default=None, description="Session ID")
     node: Optional[StrictStr] = Field(default=None, description="Server node ID")
     time: Optional[StrictInt] = Field(default=None, description="Server time in milliseconds")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["client", "version", "expires", "ttl", "data", "subs", "ping", "pong", "session", "node", "time"]
 
     model_config = ConfigDict(
@@ -70,8 +71,10 @@ class WsConnectResult(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -86,6 +89,11 @@ class WsConnectResult(BaseModel):
                 if self.subs[_key_subs]:
                     _field_dict[_key_subs] = self.subs[_key_subs].to_dict()
             _dict['subs'] = _field_dict
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -115,6 +123,11 @@ class WsConnectResult(BaseModel):
             "node": obj.get("node"),
             "time": obj.get("time")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

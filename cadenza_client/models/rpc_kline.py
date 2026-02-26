@@ -31,6 +31,7 @@ class RpcKline(BaseModel):
     symbol: Optional[StrictStr] = None
     interval: Optional[StrictStr] = None
     candles: Optional[List[RpcOhlcv]] = None
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["instrumentId", "symbol", "interval", "candles"]
 
     model_config = ConfigDict(
@@ -63,8 +64,10 @@ class RpcKline(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -79,6 +82,11 @@ class RpcKline(BaseModel):
                 if _item_candles:
                     _items.append(_item_candles.to_dict())
             _dict['candles'] = _items
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -96,6 +104,11 @@ class RpcKline(BaseModel):
             "interval": obj.get("interval"),
             "candles": [RpcOhlcv.from_dict(_item) for _item in obj["candles"]] if obj.get("candles") is not None else None
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

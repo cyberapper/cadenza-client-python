@@ -50,6 +50,7 @@ class SubmitTradeOrderRequest(BaseModel):
     quote_id: Optional[UUID] = Field(default=None, description="UUID string", alias="quoteId")
     leverage: Optional[StrictInt] = Field(default=None, description="Leverage")
     await_closed: Optional[StrictBool] = Field(default=False, description="If true, the API will wait up to 1 second for the order to reach a closed/finalized state (FILLED, REJECTED, EXPIRED, CANCELLED) before responding. If false or omitted, returns immediately with the initial order state. Useful for market orders that typically fill immediately. ", alias="awaitClosed")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradingAccountId", "instrumentId", "idempotencyKey", "clientOrderId", "orderSide", "orderType", "limitPrice", "stopPrice", "quantity", "quantityType", "quantityRounding", "positionId", "timeInForce", "expireAt", "quoteId", "leverage", "awaitClosed"]
 
     @field_validator('limit_price')
@@ -109,8 +110,10 @@ class SubmitTradeOrderRequest(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -118,6 +121,11 @@ class SubmitTradeOrderRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -148,6 +156,11 @@ class SubmitTradeOrderRequest(BaseModel):
             "leverage": obj.get("leverage"),
             "awaitClosed": obj.get("awaitClosed") if obj.get("awaitClosed") is not None else False
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 
