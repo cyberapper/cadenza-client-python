@@ -33,6 +33,7 @@ class RpcRotateCredentialParams(BaseModel):
     api_key: Optional[StrictStr] = Field(default=None, alias="apiKey")
     secret_key: Optional[StrictStr] = Field(default=None, alias="secretKey")
     secret_passphrase: Optional[StrictStr] = Field(default=None, alias="secretPassphrase")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["credentialId", "credentialType", "apiKey", "secretKey", "secretPassphrase"]
 
     model_config = ConfigDict(
@@ -65,8 +66,10 @@ class RpcRotateCredentialParams(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -74,6 +77,11 @@ class RpcRotateCredentialParams(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -92,6 +100,11 @@ class RpcRotateCredentialParams(BaseModel):
             "secretKey": obj.get("secretKey"),
             "secretPassphrase": obj.get("secretPassphrase")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

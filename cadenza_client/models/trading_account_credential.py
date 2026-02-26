@@ -42,6 +42,7 @@ class TradingAccountCredential(BaseModel):
     updated_at_date_time: Optional[datetime] = Field(default=None, description="Last update timestamp in ISO 8601 format", alias="updatedAtDateTime")
     revoked_at: Optional[StrictInt] = Field(default=None, description="Unix timestamp in milliseconds", alias="revokedAt")
     revoked_at_date_time: Optional[datetime] = Field(default=None, description="Revocation timestamp in ISO 8601 format", alias="revokedAtDateTime")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["credentialId", "venue", "credentialType", "nickname", "status", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "revokedAt", "revokedAtDateTime"]
 
     model_config = ConfigDict(
@@ -74,8 +75,10 @@ class TradingAccountCredential(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -83,6 +86,11 @@ class TradingAccountCredential(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -107,6 +115,11 @@ class TradingAccountCredential(BaseModel):
             "revokedAt": obj.get("revokedAt"),
             "revokedAtDateTime": obj.get("revokedAtDateTime")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

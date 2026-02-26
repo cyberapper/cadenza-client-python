@@ -28,6 +28,7 @@ class RpcSaveTradeOrderParams(BaseModel):
     Request to save a trade order
     """ # noqa: E501
     trade_order: RpcTradeOrder = Field(alias="tradeOrder")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradeOrder"]
 
     model_config = ConfigDict(
@@ -60,8 +61,10 @@ class RpcSaveTradeOrderParams(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -72,6 +75,11 @@ class RpcSaveTradeOrderParams(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of trade_order
         if self.trade_order:
             _dict['tradeOrder'] = self.trade_order.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -86,6 +94,11 @@ class RpcSaveTradeOrderParams(BaseModel):
         _obj = cls.model_validate({
             "tradeOrder": RpcTradeOrder.from_dict(obj["tradeOrder"]) if obj.get("tradeOrder") is not None else None
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

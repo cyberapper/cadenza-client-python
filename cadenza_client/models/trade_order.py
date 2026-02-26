@@ -70,6 +70,7 @@ class TradeOrder(BaseModel):
     expire_at_date_time: Optional[datetime] = Field(default=None, description="Expiration timestamp in ISO 8601 format", alias="expireAtDateTime")
     canceled_at: Optional[StrictInt] = Field(default=None, description="Unix timestamp in milliseconds", alias="canceledAt")
     canceled_at_date_time: Optional[datetime] = Field(default=None, description="Cancellation timestamp in ISO 8601 format", alias="canceledAtDateTime")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradeOrderId", "tradingAccountId", "venue", "positionId", "instrumentId", "quoteId", "baseAsset", "quoteAsset", "orderSide", "orderType", "timeInForce", "status", "rejectReason", "cancelReason", "limitPrice", "stopPrice", "quantity", "orderQuantityType", "quantityRounding", "executedPrice", "executedQuantity", "executedCost", "fees", "executions", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "expireAt", "expireAtDateTime", "canceledAt", "canceledAtDateTime"]
 
     @field_validator('limit_price')
@@ -150,8 +151,10 @@ class TradeOrder(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -173,6 +176,11 @@ class TradeOrder(BaseModel):
                 if _item_executions:
                     _items.append(_item_executions.to_dict())
             _dict['executions'] = _items
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -218,6 +226,11 @@ class TradeOrder(BaseModel):
             "canceledAt": obj.get("canceledAt"),
             "canceledAtDateTime": obj.get("canceledAtDateTime")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

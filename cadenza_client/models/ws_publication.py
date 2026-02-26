@@ -34,6 +34,7 @@ class WsPublication(BaseModel):
     delta: Optional[StrictBool] = Field(default=None, description="Whether this is a delta update")
     time: Optional[StrictInt] = Field(default=None, description="Publication time in milliseconds")
     channel: Optional[StrictStr] = Field(default=None, description="Channel name (for wildcard subscriptions)")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["data", "info", "offset", "tags", "delta", "time", "channel"]
 
     model_config = ConfigDict(
@@ -66,8 +67,10 @@ class WsPublication(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -78,6 +81,11 @@ class WsPublication(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of info
         if self.info:
             _dict['info'] = self.info.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -98,6 +106,11 @@ class WsPublication(BaseModel):
             "time": obj.get("time"),
             "channel": obj.get("channel")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

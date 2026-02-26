@@ -32,6 +32,7 @@ class RpcSubmitTradeOrderParams(BaseModel):
     trading_account_id: UUID = Field(description="Trading account ID to place order on", alias="tradingAccountId")
     idempotency_key: Optional[StrictStr] = Field(default=None, description="Idempotency key to prevent duplicate orders", alias="idempotencyKey")
     await_closed: Optional[StrictBool] = Field(default=False, description="Wait for order to reach terminal state before responding", alias="awaitClosed")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradeOrder", "tradingAccountId", "idempotencyKey", "awaitClosed"]
 
     model_config = ConfigDict(
@@ -64,8 +65,10 @@ class RpcSubmitTradeOrderParams(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -76,6 +79,11 @@ class RpcSubmitTradeOrderParams(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of trade_order
         if self.trade_order:
             _dict['tradeOrder'] = self.trade_order.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -93,6 +101,11 @@ class RpcSubmitTradeOrderParams(BaseModel):
             "idempotencyKey": obj.get("idempotencyKey"),
             "awaitClosed": obj.get("awaitClosed") if obj.get("awaitClosed") is not None else False
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

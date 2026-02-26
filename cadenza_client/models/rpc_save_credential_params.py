@@ -28,6 +28,7 @@ class RpcSaveCredentialParams(BaseModel):
     Request to save a credential
     """ # noqa: E501
     credential: RpcTradingAccountCredential
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["credential"]
 
     model_config = ConfigDict(
@@ -60,8 +61,10 @@ class RpcSaveCredentialParams(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -72,6 +75,11 @@ class RpcSaveCredentialParams(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of credential
         if self.credential:
             _dict['credential'] = self.credential.to_dict()
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -86,6 +94,11 @@ class RpcSaveCredentialParams(BaseModel):
         _obj = cls.model_validate({
             "credential": RpcTradingAccountCredential.from_dict(obj["credential"]) if obj.get("credential") is not None else None
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 

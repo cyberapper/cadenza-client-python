@@ -35,6 +35,7 @@ class RpcOrderBook(BaseModel):
     asks: Optional[List[RpcOrderBookLevel]] = Field(default=None, description="Ask orders (sorted by price ascending)")
     timestamp: Optional[datetime] = Field(default=None, description="Timestamp in ISO 8601 format (RFC3339). This is the native format used by Go's time.Time.")
     sequence_number: Optional[StrictInt] = Field(default=None, description="Sequence number for ordering updates", alias="sequenceNumber")
+    additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["instrumentId", "venue", "symbol", "bids", "asks", "timestamp", "sequenceNumber"]
 
     model_config = ConfigDict(
@@ -67,8 +68,10 @@ class RpcOrderBook(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
+            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -90,6 +93,11 @@ class RpcOrderBook(BaseModel):
                 if _item_asks:
                     _items.append(_item_asks.to_dict())
             _dict['asks'] = _items
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
         return _dict
 
     @classmethod
@@ -110,6 +118,11 @@ class RpcOrderBook(BaseModel):
             "timestamp": obj.get("timestamp"),
             "sequenceNumber": obj.get("sequenceNumber")
         })
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
         return _obj
 
 
