@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.3](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.2...v3.3.3) (2026-02-26)
+
+
+### Miscellaneous
+
+* regenerate Python client for CDZ-400 ([#22](https://github.com/cyberapper/cadenza-client-python/issues/22)) ([5203398](https://github.com/cyberapper/cadenza-client-python/commit/520339877f2bb8752d0843525385602e44db8d41))
+
 ## [3.3.2](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.1...v3.3.2) (2026-01-30)
 
 
