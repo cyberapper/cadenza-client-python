@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uuid import UUID
 from cadenza_client.models.auth_user_app_metadata import AuthUserAppMetadata
+from cadenza_client.models.auth_user_identities_inner import AuthUserIdentitiesInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -40,7 +41,8 @@ class AuthUser(BaseModel):
     updated_at: Optional[datetime] = Field(default=None, description="Account last update timestamp", alias="updatedAt")
     app_metadata: Optional[AuthUserAppMetadata] = Field(default=None, alias="appMetadata")
     user_metadata: Optional[Dict[str, Any]] = Field(default=None, description="User-defined metadata", alias="userMetadata")
-    __properties: ClassVar[List[str]] = ["id", "email", "phone", "emailConfirmedAt", "phoneConfirmedAt", "lastSignInAt", "role", "createdAt", "updatedAt", "appMetadata", "userMetadata"]
+    identities: Optional[List[AuthUserIdentitiesInner]] = Field(default=None, description="User identity providers (Supabase specific)")
+    __properties: ClassVar[List[str]] = ["id", "email", "phone", "emailConfirmedAt", "phoneConfirmedAt", "lastSignInAt", "role", "createdAt", "updatedAt", "appMetadata", "userMetadata", "identities"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +86,13 @@ class AuthUser(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of app_metadata
         if self.app_metadata:
             _dict['appMetadata'] = self.app_metadata.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in identities (list)
+        _items = []
+        if self.identities:
+            for _item_identities in self.identities:
+                if _item_identities:
+                    _items.append(_item_identities.to_dict())
+            _dict['identities'] = _items
         # set to None if phone (nullable) is None
         # and model_fields_set contains the field
         if self.phone is None and "phone" in self.model_fields_set:
@@ -103,6 +112,11 @@ class AuthUser(BaseModel):
         # and model_fields_set contains the field
         if self.last_sign_in_at is None and "last_sign_in_at" in self.model_fields_set:
             _dict['lastSignInAt'] = None
+
+        # set to None if identities (nullable) is None
+        # and model_fields_set contains the field
+        if self.identities is None and "identities" in self.model_fields_set:
+            _dict['identities'] = None
 
         return _dict
 
@@ -126,7 +140,8 @@ class AuthUser(BaseModel):
             "createdAt": obj.get("createdAt"),
             "updatedAt": obj.get("updatedAt"),
             "appMetadata": AuthUserAppMetadata.from_dict(obj["appMetadata"]) if obj.get("appMetadata") is not None else None,
-            "userMetadata": obj.get("userMetadata")
+            "userMetadata": obj.get("userMetadata"),
+            "identities": [AuthUserIdentitiesInner.from_dict(_item) for _item in obj["identities"]] if obj.get("identities") is not None else None
         })
         return _obj
 

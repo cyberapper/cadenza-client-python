@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     Algo724 Cadenza Fermata API
 
@@ -11,12 +9,13 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from cadenza_client.models.auth_login200_response import AuthLogin200Response
+from cadenza_client.models.auth_get_user200_response import AuthGetUser200Response
 from cadenza_client.models.auth_login_request import AuthLoginRequest
 from cadenza_client.models.auth_logout200_response import AuthLogout200Response
 from cadenza_client.models.auth_recover_request import AuthRecoverRequest
@@ -58,7 +57,7 @@ class AuthenticationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AuthSignup200Response:
+    ) -> AuthGetUser200Response:
         """Get current user
 
         Get the currently authenticated user's information
@@ -93,7 +92,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthSignup200Response",
+            '200': "AuthGetUser200Response",
             '401': "Root401Response",
             '500': "Root500Response",
         }
@@ -123,7 +122,7 @@ class AuthenticationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AuthSignup200Response]:
+    ) -> ApiResponse[AuthGetUser200Response]:
         """Get current user
 
         Get the currently authenticated user's information
@@ -158,7 +157,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthSignup200Response",
+            '200': "AuthGetUser200Response",
             '401': "Root401Response",
             '500': "Root500Response",
         }
@@ -223,7 +222,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthSignup200Response",
+            '200': "AuthGetUser200Response",
             '401': "Root401Response",
             '500': "Root500Response",
         }
@@ -311,7 +310,7 @@ class AuthenticationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AuthLogin200Response:
+    ) -> AuthSignup200Response:
         """Login with email and password
 
         Authenticate user and return access/refresh tokens
@@ -349,7 +348,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthLogin200Response",
+            '200': "AuthSignup200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '429': "AuthSignup429Response",
@@ -382,7 +381,7 @@ class AuthenticationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AuthLogin200Response]:
+    ) -> ApiResponse[AuthSignup200Response]:
         """Login with email and password
 
         Authenticate user and return access/refresh tokens
@@ -420,7 +419,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthLogin200Response",
+            '200': "AuthSignup200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '429': "AuthSignup429Response",
@@ -491,7 +490,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthLogin200Response",
+            '200': "AuthSignup200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '429': "AuthSignup429Response",
@@ -1130,7 +1129,7 @@ class AuthenticationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AuthLogin200Response:
+    ) -> AuthSignup200Response:
         """Refresh access token
 
         Get new access token using refresh token
@@ -1168,7 +1167,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthLogin200Response",
+            '200': "AuthSignup200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '500': "Root500Response",
@@ -1200,7 +1199,7 @@ class AuthenticationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AuthLogin200Response]:
+    ) -> ApiResponse[AuthSignup200Response]:
         """Refresh access token
 
         Get new access token using refresh token
@@ -1238,7 +1237,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthLogin200Response",
+            '200': "AuthSignup200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '500': "Root500Response",
@@ -1308,7 +1307,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthLogin200Response",
+            '200': "AuthSignup200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '500': "Root500Response",
@@ -1694,7 +1693,7 @@ class AuthenticationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AuthSignup200Response:
+    ) -> AuthGetUser200Response:
         """Update current user
 
         Update the currently authenticated user's information
@@ -1732,7 +1731,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthSignup200Response",
+            '200': "AuthGetUser200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '500': "Root500Response",
@@ -1764,7 +1763,7 @@ class AuthenticationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AuthSignup200Response]:
+    ) -> ApiResponse[AuthGetUser200Response]:
         """Update current user
 
         Update the currently authenticated user's information
@@ -1802,7 +1801,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthSignup200Response",
+            '200': "AuthGetUser200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '500': "Root500Response",
@@ -1872,7 +1871,7 @@ class AuthenticationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AuthSignup200Response",
+            '200': "AuthGetUser200Response",
             '400': "Root400Response",
             '401': "Root401Response",
             '500': "Root500Response",

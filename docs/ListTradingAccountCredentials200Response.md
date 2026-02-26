@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **success** | **bool** | Indicates if the operation was successful | 
 **errno** | **int** | Error code (0 for success, negative for errors) | 
-**error** | **str** | Error message (null for successful operations) | 
+**error** | **str** | Error message (null for successful operations) | [optional] 
 **details** | [**BaseResponseDetails**](BaseResponseDetails.md) |  | [optional] 
 **data** | [**List[TradingAccountCredential]**](TradingAccountCredential.md) |  | [optional] 
 **pagination** | [**Pagination**](Pagination.md) |  | [optional] 

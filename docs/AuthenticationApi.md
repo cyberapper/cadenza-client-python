@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **auth_get_user**
-> AuthSignup200Response auth_get_user()
+> AuthGetUser200Response auth_get_user()
 
 Get current user
 
@@ -26,7 +26,7 @@ Get the currently authenticated user's information
 
 ```python
 import cadenza_client
-from cadenza_client.models.auth_signup200_response import AuthSignup200Response
+from cadenza_client.models.auth_get_user200_response import AuthGetUser200Response
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
@@ -68,7 +68,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AuthSignup200Response**](AuthSignup200Response.md)
+[**AuthGetUser200Response**](AuthGetUser200Response.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **auth_login**
-> AuthLogin200Response auth_login(auth_login_request)
+> AuthSignup200Response auth_login(auth_login_request)
 
 Login with email and password
 
@@ -101,8 +101,8 @@ Authenticate user and return access/refresh tokens
 
 ```python
 import cadenza_client
-from cadenza_client.models.auth_login200_response import AuthLogin200Response
 from cadenza_client.models.auth_login_request import AuthLoginRequest
+from cadenza_client.models.auth_signup200_response import AuthSignup200Response
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthLogin200Response**](AuthLogin200Response.md)
+[**AuthSignup200Response**](AuthSignup200Response.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **auth_refresh_token**
-> AuthLogin200Response auth_refresh_token(auth_refresh_token_request)
+> AuthSignup200Response auth_refresh_token(auth_refresh_token_request)
 
 Refresh access token
 
@@ -322,8 +322,8 @@ Get new access token using refresh token
 
 ```python
 import cadenza_client
-from cadenza_client.models.auth_login200_response import AuthLogin200Response
 from cadenza_client.models.auth_refresh_token_request import AuthRefreshTokenRequest
+from cadenza_client.models.auth_signup200_response import AuthSignup200Response
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthLogin200Response**](AuthLogin200Response.md)
+[**AuthSignup200Response**](AuthSignup200Response.md)
 
 ### Authorization
 
@@ -447,7 +447,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Authentication user response |  -  |
+**200** | Authentication session response with tokens |  -  |
 **400** | Bad request |  -  |
 **429** | Too many requests - Rate limited |  -  |
 **500** | Internal server error |  -  |
@@ -455,7 +455,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **auth_update_user**
-> AuthSignup200Response auth_update_user(auth_update_user_request)
+> AuthGetUser200Response auth_update_user(auth_update_user_request)
 
 Update current user
 
@@ -467,7 +467,7 @@ Update the currently authenticated user's information
 
 ```python
 import cadenza_client
-from cadenza_client.models.auth_signup200_response import AuthSignup200Response
+from cadenza_client.models.auth_get_user200_response import AuthGetUser200Response
 from cadenza_client.models.auth_update_user_request import AuthUpdateUserRequest
 from cadenza_client.rest import ApiException
 from pprint import pprint
@@ -514,7 +514,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthSignup200Response**](AuthSignup200Response.md)
+[**AuthGetUser200Response**](AuthGetUser200Response.md)
 
 ### Authorization
 

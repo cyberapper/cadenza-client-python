@@ -1,4 +1,4 @@
-# Root404Response
+# AuthGetUser200Response
 
 
 ## Properties
@@ -9,24 +9,24 @@ Name | Type | Description | Notes
 **errno** | **int** | Error code (0 for success, negative for errors) | 
 **error** | **str** | Error message (null for successful operations) | [optional] 
 **details** | [**BaseResponseDetails**](BaseResponseDetails.md) |  | [optional] 
-**data** | **str** |  | [optional] 
+**data** | [**AuthUser**](AuthUser.md) |  | [optional] 
 
 ## Example
 
 ```python
-from cadenza_client.models.root404_response import Root404Response
+from cadenza_client.models.auth_get_user200_response import AuthGetUser200Response
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of Root404Response from a JSON string
-root404_response_instance = Root404Response.from_json(json)
+# create an instance of AuthGetUser200Response from a JSON string
+auth_get_user200_response_instance = AuthGetUser200Response.from_json(json)
 # print the JSON string representation of the object
-print(Root404Response.to_json())
+print(AuthGetUser200Response.to_json())
 
 # convert the object into a dict
-root404_response_dict = root404_response_instance.to_dict()
-# create an instance of Root404Response from a dict
-root404_response_from_dict = Root404Response.from_dict(root404_response_dict)
+auth_get_user200_response_dict = auth_get_user200_response_instance.to_dict()
+# create an instance of AuthGetUser200Response from a dict
+auth_get_user200_response_from_dict = AuthGetUser200Response.from_dict(auth_get_user200_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

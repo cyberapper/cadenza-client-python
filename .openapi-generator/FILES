@@ -20,7 +20,7 @@ cadenza_client/exceptions.py
 cadenza_client/models/__init__.py
 cadenza_client/models/account_operation.py
 cadenza_client/models/account_type.py
-cadenza_client/models/auth_login200_response.py
+cadenza_client/models/auth_get_user200_response.py
 cadenza_client/models/auth_login_request.py
 cadenza_client/models/auth_logout200_response.py
 cadenza_client/models/auth_recover_request.py
@@ -32,6 +32,7 @@ cadenza_client/models/auth_signup_request.py
 cadenza_client/models/auth_update_user_request.py
 cadenza_client/models/auth_user.py
 cadenza_client/models/auth_user_app_metadata.py
+cadenza_client/models/auth_user_identities_inner.py
 cadenza_client/models/balance_entry.py
 cadenza_client/models/balance_status.py
 cadenza_client/models/base_response.py
@@ -318,7 +319,7 @@ cadenza_client/py.typed
 cadenza_client/rest.py
 docs/AccountOperation.md
 docs/AccountType.md
-docs/AuthLogin200Response.md
+docs/AuthGetUser200Response.md
 docs/AuthLoginRequest.md
 docs/AuthLogout200Response.md
 docs/AuthRecoverRequest.md
@@ -330,6 +331,7 @@ docs/AuthSignupRequest.md
 docs/AuthUpdateUserRequest.md
 docs/AuthUser.md
 docs/AuthUserAppMetadata.md
+docs/AuthUserIdentitiesInner.md
 docs/AuthenticationApi.md
 docs/BalanceEntry.md
 docs/BalanceStatus.md
@@ -626,17 +628,6 @@ git_push.sh
 setup.cfg
 test-requirements.txt
 test/__init__.py
-test/test_auth_login200_response.py
-test/test_auth_login_request.py
-test/test_auth_logout200_response.py
-test/test_auth_recover_request.py
-test/test_auth_refresh_token_request.py
-test/test_auth_session.py
-test/test_auth_signup200_response.py
-test/test_auth_signup429_response.py
-test/test_auth_signup_request.py
-test/test_auth_update_user_request.py
-test/test_auth_user.py
-test/test_auth_user_app_metadata.py
-test/test_authentication_api.py
+test/test_auth_get_user200_response.py
+test/test_auth_user_identities_inner.py
 tox.ini

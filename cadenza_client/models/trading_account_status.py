@@ -26,6 +26,7 @@ class TradingAccountStatus(str, Enum):
     """
     allowed enum values
     """
+    NEW = 'NEW'
     SETUP = 'SETUP'
     ACTIVE = 'ACTIVE'
     INACTIVE = 'INACTIVE'
@@ -33,6 +34,7 @@ class TradingAccountStatus(str, Enum):
     DISCONNECTED = 'DISCONNECTED'
     SUSPENDED = 'SUSPENDED'
     DELETED = 'DELETED'
+    UNAVAILABLE = 'UNAVAILABLE'
     UNKNOWN = 'UNKNOWN'
 
     @classmethod

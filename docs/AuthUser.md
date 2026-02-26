@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **updated_at** | **datetime** | Account last update timestamp | [optional] 
 **app_metadata** | [**AuthUserAppMetadata**](AuthUserAppMetadata.md) |  | [optional] 
 **user_metadata** | **Dict[str, object]** | User-defined metadata | [optional] 
+**identities** | [**List[AuthUserIdentitiesInner]**](AuthUserIdentitiesInner.md) | User identity providers (Supabase specific) | [optional] 
 
 ## Example
 

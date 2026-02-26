@@ -28,7 +28,7 @@ class DeleteMarketInstrument200Response(BaseModel):
     """ # noqa: E501
     success: StrictBool = Field(description="Indicates if the operation was successful")
     errno: StrictInt = Field(description="Error code (0 for success, negative for errors)")
-    error: Optional[StrictStr] = Field(description="Error message (null for successful operations)")
+    error: Optional[StrictStr] = Field(default=None, description="Error message (null for successful operations)")
     data: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["success", "errno", "error", "data"]
 
