@@ -6,7 +6,7 @@ RPC error response
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **int** | Error code | 
+**code** | **int** | Error code (non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code | 
 **message** | **str** | Error message | 
 **temporary** | **bool** | Whether the error is temporary and retryable | [optional] 
 

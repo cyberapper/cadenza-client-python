@@ -87,7 +87,7 @@ class UtilityApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Health200Response",
-            '400': "Root400Response",
+            '400': "BaseResponse",
             '503': "Health200Response",
         }
         response_data = self.api_client.call_api(
@@ -152,7 +152,7 @@ class UtilityApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Health200Response",
-            '400': "Root400Response",
+            '400': "BaseResponse",
             '503': "Health200Response",
         }
         response_data = self.api_client.call_api(
@@ -217,7 +217,7 @@ class UtilityApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Health200Response",
-            '400': "Root400Response",
+            '400': "BaseResponse",
             '503': "Health200Response",
         }
         response_data = self.api_client.call_api(
@@ -338,11 +338,11 @@ class UtilityApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Root200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -406,11 +406,11 @@ class UtilityApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Root200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -474,11 +474,11 @@ class UtilityApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Root200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

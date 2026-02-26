@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**success** | **bool** | Indicates if the operation was successful | 
-**errno** | **int** | Error code (0 for success, negative for errors) | 
+**success** | **bool** | Indicates if the operation was successful | [optional] 
+**errno** | **int** | Error code (0 for success, non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code | 
 **error** | **str** | Error message (null for successful operations) | [optional] 
 **details** | [**BaseResponseDetails**](BaseResponseDetails.md) |  | [optional] 
 **data** | [**FinancialSecurity**](FinancialSecurity.md) |  | [optional] 

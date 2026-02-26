@@ -101,11 +101,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -173,11 +173,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -245,11 +245,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -398,8 +398,8 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListTradingAccountCredentials200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -475,8 +475,8 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListTradingAccountCredentials200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -552,8 +552,8 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListTradingAccountCredentials200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -694,11 +694,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -766,11 +766,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -838,11 +838,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -983,11 +983,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1055,11 +1055,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1127,11 +1127,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CreateTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1236,7 +1236,7 @@ class TradingAccountCredentialApi:
     ) -> VerifyTradingAccountCredential200Response:
         """Verify trading account credential
 
-        Verify credentials and list all supported trading accounts that the credential have permissions to access
+        Verify credentials and list all supported trading accounts that the credential have permissions to access. Each returned account includes a status indicating its state relative to Cadenza: NEW (not yet connected), ACTIVE or current status (connected by the current user), or UNAVAILABLE (connected by another user).
 
         :param verify_trading_account_credential_request:
         :type verify_trading_account_credential_request: VerifyTradingAccountCredentialRequest
@@ -1272,11 +1272,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "VerifyTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1308,7 +1308,7 @@ class TradingAccountCredentialApi:
     ) -> ApiResponse[VerifyTradingAccountCredential200Response]:
         """Verify trading account credential
 
-        Verify credentials and list all supported trading accounts that the credential have permissions to access
+        Verify credentials and list all supported trading accounts that the credential have permissions to access. Each returned account includes a status indicating its state relative to Cadenza: NEW (not yet connected), ACTIVE or current status (connected by the current user), or UNAVAILABLE (connected by another user).
 
         :param verify_trading_account_credential_request:
         :type verify_trading_account_credential_request: VerifyTradingAccountCredentialRequest
@@ -1344,11 +1344,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "VerifyTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1380,7 +1380,7 @@ class TradingAccountCredentialApi:
     ) -> RESTResponseType:
         """Verify trading account credential
 
-        Verify credentials and list all supported trading accounts that the credential have permissions to access
+        Verify credentials and list all supported trading accounts that the credential have permissions to access. Each returned account includes a status indicating its state relative to Cadenza: NEW (not yet connected), ACTIVE or current status (connected by the current user), or UNAVAILABLE (connected by another user).
 
         :param verify_trading_account_credential_request:
         :type verify_trading_account_credential_request: VerifyTradingAccountCredentialRequest
@@ -1416,11 +1416,11 @@ class TradingAccountCredentialApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "VerifyTradingAccountCredential200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

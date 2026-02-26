@@ -93,8 +93,8 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthGetUser200Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -158,8 +158,8 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthGetUser200Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -223,8 +223,8 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthGetUser200Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -349,10 +349,10 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthSignup200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
             '429': "AuthSignup429Response",
-            '500': "Root500Response",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -420,10 +420,10 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthSignup200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
             '429': "AuthSignup429Response",
-            '500': "Root500Response",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -491,10 +491,10 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthSignup200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
             '429': "AuthSignup429Response",
-            '500': "Root500Response",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -630,8 +630,8 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthLogout200Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -695,8 +695,8 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthLogout200Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -760,8 +760,8 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthLogout200Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -886,9 +886,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthLogout200Response",
-            '400': "Root400Response",
+            '400': "BaseResponse",
             '429': "AuthSignup429Response",
-            '500': "Root500Response",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -956,9 +956,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthLogout200Response",
-            '400': "Root400Response",
+            '400': "BaseResponse",
             '429': "AuthSignup429Response",
-            '500': "Root500Response",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1026,9 +1026,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthLogout200Response",
-            '400': "Root400Response",
+            '400': "BaseResponse",
             '429': "AuthSignup429Response",
-            '500': "Root500Response",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1168,9 +1168,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthSignup200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1238,9 +1238,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthSignup200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1308,9 +1308,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthSignup200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1450,9 +1450,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthSignup200Response",
-            '400': "Root400Response",
+            '400': "BaseResponse",
             '429': "AuthSignup429Response",
-            '500': "Root500Response",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1520,9 +1520,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthSignup200Response",
-            '400': "Root400Response",
+            '400': "BaseResponse",
             '429': "AuthSignup429Response",
-            '500': "Root500Response",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1590,9 +1590,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthSignup200Response",
-            '400': "Root400Response",
+            '400': "BaseResponse",
             '429': "AuthSignup429Response",
-            '500': "Root500Response",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1732,9 +1732,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthGetUser200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1802,9 +1802,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthGetUser200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1872,9 +1872,9 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "AuthGetUser200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

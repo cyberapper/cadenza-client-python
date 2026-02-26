@@ -97,11 +97,6 @@ cadenza_client/models/response_error.py
 cadenza_client/models/revoke_trading_account_credential_request.py
 cadenza_client/models/root200_response.py
 cadenza_client/models/root200_response_all_of_data.py
-cadenza_client/models/root400_response.py
-cadenza_client/models/root401_response.py
-cadenza_client/models/root403_response.py
-cadenza_client/models/root404_response.py
-cadenza_client/models/root500_response.py
 cadenza_client/models/rotate_trading_account_credential_request.py
 cadenza_client/models/rpc_balance_entry.py
 cadenza_client/models/rpc_cancel_trade_order_params.py
@@ -399,11 +394,6 @@ docs/ResponseError.md
 docs/RevokeTradingAccountCredentialRequest.md
 docs/Root200Response.md
 docs/Root200ResponseAllOfData.md
-docs/Root400Response.md
-docs/Root401Response.md
-docs/Root403Response.md
-docs/Root404Response.md
-docs/Root500Response.md
 docs/RotateTradingAccountCredentialRequest.md
 docs/RpcBalanceEntry.md
 docs/RpcCancelTradeOrderParams.md
@@ -628,6 +618,4 @@ git_push.sh
 setup.cfg
 test-requirements.txt
 test/__init__.py
-test/test_auth_get_user200_response.py
-test/test_auth_user_identities_inner.py
 tox.ini

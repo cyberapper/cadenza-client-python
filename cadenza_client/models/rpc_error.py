@@ -26,7 +26,7 @@ class RpcError(BaseModel):
     """
     RPC error response
     """ # noqa: E501
-    code: StrictInt = Field(description="Error code")
+    code: StrictInt = Field(description="Error code (non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code")
     message: StrictStr = Field(description="Error message")
     temporary: Optional[StrictBool] = Field(default=None, description="Whether the error is temporary and retryable")
     __properties: ClassVar[List[str]] = ["code", "message", "temporary"]

@@ -93,8 +93,8 @@ class WebSocketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '101': "WsReply",
-            '400': "Root400Response",
-            '401': "Root401Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -162,8 +162,8 @@ class WebSocketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '101': "WsReply",
-            '400': "Root400Response",
-            '401': "Root401Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -231,8 +231,8 @@ class WebSocketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '101': "WsReply",
-            '400': "Root400Response",
-            '401': "Root401Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

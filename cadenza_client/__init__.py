@@ -116,11 +116,6 @@ __all__ = [
     "RevokeTradingAccountCredentialRequest",
     "Root200Response",
     "Root200ResponseAllOfData",
-    "Root400Response",
-    "Root401Response",
-    "Root403Response",
-    "Root404Response",
-    "Root500Response",
     "RotateTradingAccountCredentialRequest",
     "RpcBalanceEntry",
     "RpcCancelTradeOrderParams",
@@ -439,11 +434,6 @@ from cadenza_client.models.response_error import ResponseError as ResponseError
 from cadenza_client.models.revoke_trading_account_credential_request import RevokeTradingAccountCredentialRequest as RevokeTradingAccountCredentialRequest
 from cadenza_client.models.root200_response import Root200Response as Root200Response
 from cadenza_client.models.root200_response_all_of_data import Root200ResponseAllOfData as Root200ResponseAllOfData
-from cadenza_client.models.root400_response import Root400Response as Root400Response
-from cadenza_client.models.root401_response import Root401Response as Root401Response
-from cadenza_client.models.root403_response import Root403Response as Root403Response
-from cadenza_client.models.root404_response import Root404Response as Root404Response
-from cadenza_client.models.root500_response import Root500Response as Root500Response
 from cadenza_client.models.rotate_trading_account_credential_request import RotateTradingAccountCredentialRequest as RotateTradingAccountCredentialRequest
 from cadenza_client.models.rpc_balance_entry import RpcBalanceEntry as RpcBalanceEntry
 from cadenza_client.models.rpc_cancel_trade_order_params import RpcCancelTradeOrderParams as RpcCancelTradeOrderParams

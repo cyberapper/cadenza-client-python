@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,11 +26,10 @@ class DeleteMarketInstrument200Response(BaseModel):
     """
     DeleteMarketInstrument200Response
     """ # noqa: E501
-    success: StrictBool = Field(description="Indicates if the operation was successful")
-    errno: StrictInt = Field(description="Error code (0 for success, negative for errors)")
+    errno: StrictInt = Field(description="Error code (0 for success, non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code")
     error: Optional[StrictStr] = Field(default=None, description="Error message (null for successful operations)")
     data: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["success", "errno", "error", "data"]
+    __properties: ClassVar[List[str]] = ["errno", "error", "data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,7 +87,6 @@ class DeleteMarketInstrument200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "success": obj.get("success"),
             "errno": obj.get("errno"),
             "error": obj.get("error"),
             "data": obj.get("data")

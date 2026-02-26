@@ -27,8 +27,8 @@ class BaseResponse(BaseModel):
     """
     BaseResponse
     """ # noqa: E501
-    success: StrictBool = Field(description="Indicates if the operation was successful")
-    errno: StrictInt = Field(description="Error code (0 for success, negative for errors)")
+    success: Optional[StrictBool] = Field(default=None, description="Indicates if the operation was successful")
+    errno: StrictInt = Field(description="Error code (0 for success, non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code")
     error: Optional[StrictStr] = Field(default=None, description="Error message (null for successful operations)")
     details: Optional[BaseResponseDetails] = None
     __properties: ClassVar[List[str]] = ["success", "errno", "error", "details"]

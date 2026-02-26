@@ -110,11 +110,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -182,11 +182,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -254,11 +254,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -399,11 +399,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteMarketSecurity200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -471,11 +471,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteMarketSecurity200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -543,11 +543,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteMarketSecurity200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -688,11 +688,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EnableMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -760,11 +760,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EnableMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -832,11 +832,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EnableMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -977,11 +977,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EnableMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1049,11 +1049,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EnableMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1121,11 +1121,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EnableMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1278,11 +1278,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMarketOrderBook200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1362,11 +1362,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMarketOrderBook200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1446,11 +1446,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "GetMarketOrderBook200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1615,11 +1615,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketInstruments200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1707,11 +1707,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketInstruments200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1799,11 +1799,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketInstruments200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1971,11 +1971,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketOrderBooks200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2055,11 +2055,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketOrderBooks200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2139,11 +2139,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketOrderBooks200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2302,11 +2302,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketSecurities200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2386,11 +2386,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketSecurities200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2470,11 +2470,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketSecurities200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2615,11 +2615,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketVenues200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2683,11 +2683,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketVenues200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2751,11 +2751,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ListMarketVenues200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2880,11 +2880,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SyncMarketInstruments200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2952,11 +2952,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SyncMarketInstruments200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3024,11 +3024,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "SyncMarketInstruments200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3169,11 +3169,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3241,11 +3241,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3313,11 +3313,11 @@ class MarketApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "DeleteMarketInstrument200Response",
-            '400': "Root400Response",
-            '401': "Root401Response",
-            '403': "Root403Response",
-            '404': "Root404Response",
-            '500': "Root500Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
