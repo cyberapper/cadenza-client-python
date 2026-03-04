@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_v
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from uuid import UUID
+from cadenza_client.models.position_side import PositionSide
 from cadenza_client.models.position_status import PositionStatus
 from cadenza_client.models.security_type import SecurityType
 from typing import Optional, Set
@@ -38,6 +39,7 @@ class PositionEntry(BaseModel):
     instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     security_type: SecurityType = Field(alias="securityType")
     status: PositionStatus
+    position_side: PositionSide = Field(alias="positionSide")
     quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision")
     entry_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="entryPrice")
     exit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="exitPrice")
@@ -51,7 +53,7 @@ class PositionEntry(BaseModel):
     closed_at: Optional[StrictInt] = Field(default=None, description="Unix timestamp in milliseconds", alias="closedAt")
     closed_at_date_time: Optional[datetime] = Field(default=None, description="Position closure timestamp in ISO 8601 format", alias="closedAtDateTime")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["positionId", "securitySymbol", "externalPositionId", "tradingAccountId", "instrumentId", "securityType", "status", "quantity", "entryPrice", "exitPrice", "currentPrice", "unrealizedPnl", "realizedPnl", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "closedAt", "closedAtDateTime"]
+    __properties: ClassVar[List[str]] = ["positionId", "securitySymbol", "externalPositionId", "tradingAccountId", "instrumentId", "securityType", "status", "positionSide", "quantity", "entryPrice", "exitPrice", "currentPrice", "unrealizedPnl", "realizedPnl", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "closedAt", "closedAtDateTime"]
 
     @field_validator('quantity')
     def quantity_validate_regular_expression(cls, value):
@@ -185,6 +187,7 @@ class PositionEntry(BaseModel):
             "instrumentId": obj.get("instrumentId"),
             "securityType": obj.get("securityType"),
             "status": obj.get("status"),
+            "positionSide": obj.get("positionSide"),
             "quantity": obj.get("quantity"),
             "entryPrice": obj.get("entryPrice"),
             "exitPrice": obj.get("exitPrice"),

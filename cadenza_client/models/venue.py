@@ -26,7 +26,6 @@ class Venue(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
     BINANCE = 'BINANCE'
     B2C2 = 'B2C2'
     WINTERMUTE = 'WINTERMUTE'

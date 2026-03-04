@@ -106,6 +106,21 @@ class TradingAccount(BaseModel):
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
+        # set to None if position_mode (nullable) is None
+        # and model_fields_set contains the field
+        if self.position_mode is None and "position_mode" in self.model_fields_set:
+            _dict['positionMode'] = None
+
+        # set to None if collateral_mode (nullable) is None
+        # and model_fields_set contains the field
+        if self.collateral_mode is None and "collateral_mode" in self.model_fields_set:
+            _dict['collateralMode'] = None
+
+        # set to None if margin_mode (nullable) is None
+        # and model_fields_set contains the field
+        if self.margin_mode is None and "margin_mode" in self.model_fields_set:
+            _dict['marginMode'] = None
+
         return _dict
 
     @classmethod

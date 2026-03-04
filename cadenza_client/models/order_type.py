@@ -26,7 +26,6 @@ class OrderType(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
     MARKET = 'MARKET'
     LIMIT = 'LIMIT'
     STOP = 'STOP'

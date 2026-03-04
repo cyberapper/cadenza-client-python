@@ -38,7 +38,7 @@ class SubmitTradeOrderRequest(BaseModel):
     idempotency_key: Optional[StrictStr] = Field(default=None, description="Idempotency key to prevent duplicate request processing", alias="idempotencyKey")
     client_order_id: Optional[StrictStr] = Field(default=None, description="Client-provided order ID, used as idempotency key", alias="clientOrderId")
     order_side: OrderSide = Field(alias="orderSide")
-    order_type: OrderType = Field(alias="orderType")
+    order_type: Optional[OrderType] = Field(alias="orderType")
     limit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="limitPrice")
     stop_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="stopPrice")
     quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision")
@@ -125,6 +125,16 @@ class SubmitTradeOrderRequest(BaseModel):
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
+
+        # set to None if order_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.order_type is None and "order_type" in self.model_fields_set:
+            _dict['orderType'] = None
+
+        # set to None if time_in_force (nullable) is None
+        # and model_fields_set contains the field
+        if self.time_in_force is None and "time_in_force" in self.model_fields_set:
+            _dict['timeInForce'] = None
 
         return _dict
 

@@ -85,6 +85,7 @@ from cadenza_client.models.portfolio import Portfolio
 from cadenza_client.models.portfolio_summary import PortfolioSummary
 from cadenza_client.models.position_entry import PositionEntry
 from cadenza_client.models.position_mode import PositionMode
+from cadenza_client.models.position_side import PositionSide
 from cadenza_client.models.position_status import PositionStatus
 from cadenza_client.models.quantity_rounding import QuantityRounding
 from cadenza_client.models.quantity_type import QuantityType

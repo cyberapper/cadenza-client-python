@@ -26,7 +26,6 @@ class PositionMode(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
     HEDGE = 'HEDGE'
     NETTING = 'NETTING'
 

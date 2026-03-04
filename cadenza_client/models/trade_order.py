@@ -47,9 +47,9 @@ class TradeOrder(BaseModel):
     base_asset: StrictStr = Field(description="Base asset in the trading pair", alias="baseAsset")
     quote_asset: StrictStr = Field(description="Quote asset in the trading pair", alias="quoteAsset")
     order_side: OrderSide = Field(alias="orderSide")
-    order_type: OrderType = Field(alias="orderType")
-    time_in_force: TimeInForce = Field(alias="timeInForce")
-    status: OrderStatus
+    order_type: Optional[OrderType] = Field(alias="orderType")
+    time_in_force: Optional[TimeInForce] = Field(alias="timeInForce")
+    status: Optional[OrderStatus]
     reject_reason: Optional[StrictStr] = Field(default=None, description="Reason for order rejection", alias="rejectReason")
     cancel_reason: Optional[StrictStr] = Field(default=None, description="Reason for order cancellation", alias="cancelReason")
     limit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="limitPrice")
@@ -180,6 +180,21 @@ class TradeOrder(BaseModel):
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
+
+        # set to None if order_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.order_type is None and "order_type" in self.model_fields_set:
+            _dict['orderType'] = None
+
+        # set to None if time_in_force (nullable) is None
+        # and model_fields_set contains the field
+        if self.time_in_force is None and "time_in_force" in self.model_fields_set:
+            _dict['timeInForce'] = None
+
+        # set to None if status (nullable) is None
+        # and model_fields_set contains the field
+        if self.status is None and "status" in self.model_fields_set:
+            _dict['status'] = None
 
         return _dict
 

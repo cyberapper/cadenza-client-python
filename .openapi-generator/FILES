@@ -90,6 +90,7 @@ cadenza_client/models/portfolio.py
 cadenza_client/models/portfolio_summary.py
 cadenza_client/models/position_entry.py
 cadenza_client/models/position_mode.py
+cadenza_client/models/position_side.py
 cadenza_client/models/position_status.py
 cadenza_client/models/quantity_rounding.py
 cadenza_client/models/quantity_type.py
@@ -387,6 +388,7 @@ docs/Portfolio.md
 docs/PortfolioSummary.md
 docs/PositionEntry.md
 docs/PositionMode.md
+docs/PositionSide.md
 docs/PositionStatus.md
 docs/QuantityRounding.md
 docs/QuantityType.md
@@ -618,4 +620,5 @@ git_push.sh
 setup.cfg
 test-requirements.txt
 test/__init__.py
+test/test_position_side.py
 tox.ini

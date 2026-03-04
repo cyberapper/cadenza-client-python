@@ -18,26 +18,20 @@ from enum import Enum
 from typing_extensions import Self
 
 
-class SubscriptionType(str, Enum):
+class PositionSide(str, Enum):
     """
-    Type of data subscription
+    Side of a position
     """
 
     """
     allowed enum values
     """
-    ORDERBOOK = 'ORDERBOOK'
-    TRADE = 'TRADE'
-    TICKER = 'TICKER'
-    KLINE = 'KLINE'
-    USER_DATA = 'USER_DATA'
-    PORTFOLIO = 'PORTFOLIO'
-    EXECUTION_REPORT = 'EXECUTION_REPORT'
-    TRADING_ACCOUNT = 'TRADING_ACCOUNT'
+    LONG = 'LONG'
+    SHORT = 'SHORT'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of SubscriptionType from a JSON string"""
+        """Create an instance of PositionSide from a JSON string"""
         return cls(json.loads(json_str))
 
 

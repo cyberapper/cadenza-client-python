@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | [optional] 
 **security_type** | [**SecurityType**](SecurityType.md) |  | 
 **status** | [**PositionStatus**](PositionStatus.md) |  | 
+**position_side** | [**PositionSide**](PositionSide.md) |  | 
 **quantity** | **str** | Decimal value as string to preserve precision | 
 **entry_price** | **str** | Decimal value as string to preserve precision | [optional] 
 **exit_price** | **str** | Decimal value as string to preserve precision | [optional] 
