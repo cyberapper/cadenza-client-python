@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class PositionStatus(str, Enum):
     """
-    Position entry status
+    Status of a position
     """
 
     """
@@ -28,7 +28,6 @@ class PositionStatus(str, Enum):
     """
     OPEN = 'OPEN'
     CLOSED = 'CLOSED'
-    LIQUIDATED = 'LIQUIDATED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

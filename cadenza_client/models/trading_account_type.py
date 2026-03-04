@@ -28,8 +28,7 @@ class TradingAccountType(str, Enum):
     """
     SPOT = 'SPOT'
     MARGIN = 'MARGIN'
-    FUTURES = 'FUTURES'
-    OPTIONS = 'OPTIONS'
+    CREDIT = 'CREDIT'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

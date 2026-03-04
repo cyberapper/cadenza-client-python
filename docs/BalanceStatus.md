@@ -1,14 +1,12 @@
 # BalanceStatus
 
-Balance entry status
+Status of a balance entry
 
 ## Enum
 
 * `ACTIVE` (value: `'ACTIVE'`)
 
-* `INACTIVE` (value: `'INACTIVE'`)
-
-* `FROZEN` (value: `'FROZEN'`)
+* `LOCKED` (value: `'LOCKED'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

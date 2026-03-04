@@ -26,7 +26,6 @@ class CollateralMode(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
     CROSS = 'CROSS'
     ISOLATED = 'ISOLATED'
 

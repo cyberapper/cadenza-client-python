@@ -1,12 +1,12 @@
-# CollateralMode
+# PositionSide
 
-Collateral mode - how margin is shared across positions
+Side of a position
 
 ## Enum
 
-* `CROSS` (value: `'CROSS'`)
+* `LONG` (value: `'LONG'`)
 
-* `ISOLATED` (value: `'ISOLATED'`)
+* `SHORT` (value: `'SHORT'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

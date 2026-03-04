@@ -4,8 +4,6 @@ Order status
 
 ## Enum
 
-* `EMPTY` (value: `''`)
-
 * `CREATED` (value: `'CREATED'`)
 
 * `SUBMITTED` (value: `'SUBMITTED'`)

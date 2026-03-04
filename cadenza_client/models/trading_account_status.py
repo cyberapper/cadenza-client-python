@@ -27,6 +27,7 @@ class TradingAccountStatus(str, Enum):
     allowed enum values
     """
     NEW = 'NEW'
+    CREATED = 'CREATED'
     ACTIVE = 'ACTIVE'
     INACTIVE = 'INACTIVE'
     LOCKED = 'LOCKED'

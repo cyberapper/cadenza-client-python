@@ -4,8 +4,6 @@ Order type
 
 ## Enum
 
-* `EMPTY` (value: `''`)
-
 * `MARKET` (value: `'MARKET'`)
 
 * `LIMIT` (value: `'LIMIT'`)

@@ -26,9 +26,8 @@ class MarginMode(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
-    STANDARD = 'STANDARD'
-    PORTFOLIO = 'PORTFOLIO'
+    ISOLATED = 'ISOLATED'
+    CROSS = 'CROSS'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

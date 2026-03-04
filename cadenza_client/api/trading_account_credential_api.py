@@ -20,11 +20,11 @@ from typing import List, Optional
 from typing_extensions import Annotated
 from cadenza_client.models.create_trading_account_credential200_response import CreateTradingAccountCredential200Response
 from cadenza_client.models.create_trading_account_credential_request import CreateTradingAccountCredentialRequest
+from cadenza_client.models.credential_status import CredentialStatus
 from cadenza_client.models.credential_type import CredentialType
 from cadenza_client.models.list_trading_account_credentials200_response import ListTradingAccountCredentials200Response
 from cadenza_client.models.revoke_trading_account_credential_request import RevokeTradingAccountCredentialRequest
 from cadenza_client.models.rotate_trading_account_credential_request import RotateTradingAccountCredentialRequest
-from cadenza_client.models.trading_account_status import TradingAccountStatus
 from cadenza_client.models.verify_trading_account_credential200_response import VerifyTradingAccountCredential200Response
 from cadenza_client.models.verify_trading_account_credential_request import VerifyTradingAccountCredentialRequest
 
@@ -339,7 +339,7 @@ class TradingAccountCredentialApi:
     def list_trading_account_credentials(
         self,
         credential_type: Annotated[Optional[CredentialType], Field(description="Credential type")] = None,
-        credential_status: Annotated[Optional[TradingAccountStatus], Field(description="Credential status")] = None,
+        credential_status: Annotated[Optional[CredentialStatus], Field(description="Credential status")] = None,
         credential_ids: Annotated[Optional[List[StrictStr]], Field(description="credentialId array")] = None,
         _request_timeout: Union[
             None,
@@ -361,7 +361,7 @@ class TradingAccountCredentialApi:
         :param credential_type: Credential type
         :type credential_type: CredentialType
         :param credential_status: Credential status
-        :type credential_status: TradingAccountStatus
+        :type credential_status: CredentialStatus
         :param credential_ids: credentialId array
         :type credential_ids: List[str]
         :param _request_timeout: timeout setting for this request. If one
@@ -416,7 +416,7 @@ class TradingAccountCredentialApi:
     def list_trading_account_credentials_with_http_info(
         self,
         credential_type: Annotated[Optional[CredentialType], Field(description="Credential type")] = None,
-        credential_status: Annotated[Optional[TradingAccountStatus], Field(description="Credential status")] = None,
+        credential_status: Annotated[Optional[CredentialStatus], Field(description="Credential status")] = None,
         credential_ids: Annotated[Optional[List[StrictStr]], Field(description="credentialId array")] = None,
         _request_timeout: Union[
             None,
@@ -438,7 +438,7 @@ class TradingAccountCredentialApi:
         :param credential_type: Credential type
         :type credential_type: CredentialType
         :param credential_status: Credential status
-        :type credential_status: TradingAccountStatus
+        :type credential_status: CredentialStatus
         :param credential_ids: credentialId array
         :type credential_ids: List[str]
         :param _request_timeout: timeout setting for this request. If one
@@ -493,7 +493,7 @@ class TradingAccountCredentialApi:
     def list_trading_account_credentials_without_preload_content(
         self,
         credential_type: Annotated[Optional[CredentialType], Field(description="Credential type")] = None,
-        credential_status: Annotated[Optional[TradingAccountStatus], Field(description="Credential status")] = None,
+        credential_status: Annotated[Optional[CredentialStatus], Field(description="Credential status")] = None,
         credential_ids: Annotated[Optional[List[StrictStr]], Field(description="credentialId array")] = None,
         _request_timeout: Union[
             None,
@@ -515,7 +515,7 @@ class TradingAccountCredentialApi:
         :param credential_type: Credential type
         :type credential_type: CredentialType
         :param credential_status: Credential status
-        :type credential_status: TradingAccountStatus
+        :type credential_status: CredentialStatus
         :param credential_ids: credentialId array
         :type credential_ids: List[str]
         :param _request_timeout: timeout setting for this request. If one

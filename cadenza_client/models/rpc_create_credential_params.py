@@ -31,7 +31,7 @@ class RpcCreateCredentialParams(BaseModel):
     """ # noqa: E501
     trading_account_id: UUID = Field(alias="tradingAccountId")
     venue: Venue
-    credential_type: CredentialType = Field(alias="credentialType")
+    credential_type: Optional[CredentialType] = Field(alias="credentialType")
     api_key: Optional[StrictStr] = Field(default=None, alias="apiKey")
     secret_key: Optional[StrictStr] = Field(default=None, alias="secretKey")
     secret_passphrase: Optional[StrictStr] = Field(default=None, alias="secretPassphrase")
@@ -84,6 +84,11 @@ class RpcCreateCredentialParams(BaseModel):
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
+
+        # set to None if credential_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.credential_type is None and "credential_type" in self.model_fields_set:
+            _dict['credentialType'] = None
 
         return _dict
 

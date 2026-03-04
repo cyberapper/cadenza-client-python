@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **instrument_id** | **str** | Instrument ID | [optional] 
 **security_type** | [**SecurityType**](SecurityType.md) |  | [optional] 
 **status** | [**PositionStatus**](PositionStatus.md) |  | [optional] 
+**position_side** | [**PositionSide**](PositionSide.md) |  | [optional] 
 **quantity** | **str** | Position quantity | [optional] 
 **entry_price** | **str** |  | [optional] 
 **exit_price** | **str** |  | [optional] 

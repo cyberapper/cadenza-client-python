@@ -215,6 +215,7 @@ Class | Method | HTTP request | Description
  - [PortfolioSummary](docs/PortfolioSummary.md)
  - [PositionEntry](docs/PositionEntry.md)
  - [PositionMode](docs/PositionMode.md)
+ - [PositionSide](docs/PositionSide.md)
  - [PositionStatus](docs/PositionStatus.md)
  - [QuantityRounding](docs/QuantityRounding.md)
  - [QuantityType](docs/QuantityType.md)
