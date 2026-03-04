@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.6](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.5...v3.3.6) (2026-03-04)
+
+
+### Miscellaneous
+
+* regenerate client SDK from updated OpenAPI spec ([#28](https://github.com/cyberapper/cadenza-client-python/issues/28)) ([4975ef0](https://github.com/cyberapper/cadenza-client-python/commit/4975ef03ba59d0658c76be787d1cf1a5bcac407c))
+
 ## [3.3.5](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.4...v3.3.5) (2026-03-03)
 
 
