@@ -620,5 +620,4 @@ git_push.sh
 setup.cfg
 test-requirements.txt
 test/__init__.py
-test/test_position_side.py
 tox.ini
