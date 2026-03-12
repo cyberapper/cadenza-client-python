@@ -28,7 +28,7 @@ class RotateTradingAccountCredentialRequest(BaseModel):
     RotateTradingAccountCredentialRequest
     """ # noqa: E501
     credential_id: UUID = Field(description="UUID string", alias="credentialId")
-    api_key: StrictStr = Field(alias="apiKey")
+    api_key: Optional[StrictStr] = Field(default=None, alias="apiKey")
     api_secret: Optional[StrictStr] = Field(default=None, alias="apiSecret")
     api_passphrase: Optional[StrictStr] = Field(default=None, alias="apiPassphrase")
     additional_properties: Dict[str, Any] = {}
