@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **trade_order_id** | **UUID** | UUID string | 
+**order_list_id** | **str** | Exchange order list ID linking OCO/OTO/OTOCO legs. For OCO parents, externalOrderId uses &#39;ol_&#39; prefix. | [optional] 
 **trading_account_id** | **UUID** | UUID string | 
 **venue** | [**Venue**](Venue.md) |  | 
 **position_id** | **UUID** | UUID string | [optional] 
@@ -21,6 +22,12 @@ Name | Type | Description | Notes
 **cancel_reason** | **str** | Reason for order cancellation | [optional] 
 **limit_price** | **str** | Decimal value as string to preserve precision | [optional] 
 **stop_price** | **str** | Decimal value as string to preserve precision | [optional] 
+**take_profit_price** | **str** | Decimal value as string to preserve precision | [optional] 
+**take_profit_limit_price** | **str** | Decimal value as string to preserve precision | [optional] 
+**stop_loss_price** | **str** | Decimal value as string to preserve precision | [optional] 
+**stop_loss_limit_price** | **str** | Decimal value as string to preserve precision | [optional] 
+**take_profit_time_in_force** | [**TimeInForce**](TimeInForce.md) |  | [optional] 
+**stop_loss_time_in_force** | [**TimeInForce**](TimeInForce.md) |  | [optional] 
 **quantity** | **str** | Decimal value as string to preserve precision | 
 **order_quantity_type** | [**OrderQuantityType**](OrderQuantityType.md) |  | 
 **quantity_rounding** | [**QuantityRounding**](QuantityRounding.md) |  | [optional] [default to QuantityRounding.EMPTY]

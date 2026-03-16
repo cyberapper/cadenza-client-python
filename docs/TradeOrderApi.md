@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_trade_orders**
-> ListTradeOrders200Response list_trade_orders(trade_order_id=trade_order_id, order_status=order_status, trading_account_id=trading_account_id, instrument_id=instrument_id, start_time=start_time, end_time=end_time, limit=limit, offset=offset, cursor=cursor, ascending=ascending)
+> ListTradeOrders200Response list_trade_orders(trade_order_id=trade_order_id, order_list_id=order_list_id, order_status=order_status, trading_account_id=trading_account_id, instrument_id=instrument_id, start_time=start_time, end_time=end_time, limit=limit, offset=offset, cursor=cursor, ascending=ascending)
 
 List trade orders
 
@@ -132,6 +132,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cadenza_client.TradeOrderApi(api_client)
     trade_order_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Trade order ID (optional)
+    order_list_id = 'order_list_id_example' # str | Filter by order list ID to retrieve child orders of an OCO/OTO/OTOCO parent (optional)
     order_status = cadenza_client.OrderStatus() # OrderStatus | Order status (optional)
     trading_account_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Trading account ID (optional)
     instrument_id = 'instrument_id_example' # str | Instrument ID (optional)
@@ -144,7 +145,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
 
     try:
         # List trade orders
-        api_response = api_instance.list_trade_orders(trade_order_id=trade_order_id, order_status=order_status, trading_account_id=trading_account_id, instrument_id=instrument_id, start_time=start_time, end_time=end_time, limit=limit, offset=offset, cursor=cursor, ascending=ascending)
+        api_response = api_instance.list_trade_orders(trade_order_id=trade_order_id, order_list_id=order_list_id, order_status=order_status, trading_account_id=trading_account_id, instrument_id=instrument_id, start_time=start_time, end_time=end_time, limit=limit, offset=offset, cursor=cursor, ascending=ascending)
         print("The response of TradeOrderApi->list_trade_orders:\n")
         pprint(api_response)
     except Exception as e:
@@ -159,6 +160,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **trade_order_id** | **UUID**| Trade order ID | [optional] 
+ **order_list_id** | **str**| Filter by order list ID to retrieve child orders of an OCO/OTO/OTOCO parent | [optional] 
  **order_status** | [**OrderStatus**](.md)| Order status | [optional] 
  **trading_account_id** | **UUID**| Trading account ID | [optional] 
  **instrument_id** | **str**| Instrument ID | [optional] 
