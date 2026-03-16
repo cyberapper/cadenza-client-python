@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.3.7"
+__version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
@@ -109,7 +109,6 @@ __all__ = [
     "PortfolioSummary",
     "PositionEntry",
     "PositionMode",
-    "PositionSide",
     "PositionStatus",
     "QuantityRounding",
     "QuantityType",
@@ -428,7 +427,6 @@ from cadenza_client.models.portfolio import Portfolio as Portfolio
 from cadenza_client.models.portfolio_summary import PortfolioSummary as PortfolioSummary
 from cadenza_client.models.position_entry import PositionEntry as PositionEntry
 from cadenza_client.models.position_mode import PositionMode as PositionMode
-from cadenza_client.models.position_side import PositionSide as PositionSide
 from cadenza_client.models.position_status import PositionStatus as PositionStatus
 from cadenza_client.models.quantity_rounding import QuantityRounding as QuantityRounding
 from cadenza_client.models.quantity_type import QuantityType as QuantityType

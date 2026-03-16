@@ -27,7 +27,10 @@ class InstrumentType(str, Enum):
     allowed enum values
     """
     SPOT = 'SPOT'
-    CONTRACT = 'CONTRACT'
+    FUTURES = 'FUTURES'
+    OPTION = 'OPTION'
+    PERPETUAL = 'PERPETUAL'
+    DERIVATIVE = 'DERIVATIVE'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

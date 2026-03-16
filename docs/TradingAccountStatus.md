@@ -6,8 +6,6 @@ Status of the trading account
 
 * `NEW` (value: `'NEW'`)
 
-* `CREATED` (value: `'CREATED'`)
-
 * `ACTIVE` (value: `'ACTIVE'`)
 
 * `INACTIVE` (value: `'INACTIVE'`)

@@ -26,6 +26,7 @@ class OrderStatus(str, Enum):
     """
     allowed enum values
     """
+    EMPTY = ''
     CREATED = 'CREATED'
     SUBMITTED = 'SUBMITTED'
     ACCEPTED = 'ACCEPTED'

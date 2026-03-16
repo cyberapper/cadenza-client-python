@@ -108,9 +108,9 @@ List all credentials for a trading account
 
 ```python
 import cadenza_client
-from cadenza_client.models.credential_status import CredentialStatus
 from cadenza_client.models.credential_type import CredentialType
 from cadenza_client.models.list_trading_account_credentials200_response import ListTradingAccountCredentials200Response
+from cadenza_client.models.trading_account_status import TradingAccountStatus
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
@@ -135,7 +135,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cadenza_client.TradingAccountCredentialApi(api_client)
     credential_type = cadenza_client.CredentialType() # CredentialType | Credential type (optional)
-    credential_status = cadenza_client.CredentialStatus() # CredentialStatus | Credential status (optional)
+    credential_status = cadenza_client.TradingAccountStatus() # TradingAccountStatus | Credential status (optional)
     credential_ids = ['credential_ids_example'] # List[str] | credentialId array (optional)
 
     try:
@@ -155,7 +155,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **credential_type** | [**CredentialType**](.md)| Credential type | [optional] 
- **credential_status** | [**CredentialStatus**](.md)| Credential status | [optional] 
+ **credential_status** | [**TradingAccountStatus**](.md)| Credential status | [optional] 
  **credential_ids** | [**List[str]**](str.md)| credentialId array | [optional] 
 
 ### Return type

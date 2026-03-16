@@ -39,6 +39,7 @@ class TradeOrder(BaseModel):
     TradeOrder
     """ # noqa: E501
     trade_order_id: UUID = Field(description="UUID string", alias="tradeOrderId")
+    order_list_id: Optional[StrictStr] = Field(default=None, description="Exchange order list ID linking OCO/OTO/OTOCO legs. For OCO parents, externalOrderId uses 'ol_' prefix.", alias="orderListId")
     trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
     venue: Venue
     position_id: Optional[UUID] = Field(default=None, description="UUID string", alias="positionId")
@@ -47,13 +48,19 @@ class TradeOrder(BaseModel):
     base_asset: StrictStr = Field(description="Base asset in the trading pair", alias="baseAsset")
     quote_asset: StrictStr = Field(description="Quote asset in the trading pair", alias="quoteAsset")
     order_side: OrderSide = Field(alias="orderSide")
-    order_type: Optional[OrderType] = Field(alias="orderType")
-    time_in_force: Optional[TimeInForce] = Field(alias="timeInForce")
-    status: Optional[OrderStatus]
+    order_type: OrderType = Field(alias="orderType")
+    time_in_force: TimeInForce = Field(alias="timeInForce")
+    status: OrderStatus
     reject_reason: Optional[StrictStr] = Field(default=None, description="Reason for order rejection", alias="rejectReason")
     cancel_reason: Optional[StrictStr] = Field(default=None, description="Reason for order cancellation", alias="cancelReason")
     limit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="limitPrice")
     stop_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="stopPrice")
+    take_profit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="takeProfitPrice")
+    take_profit_limit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="takeProfitLimitPrice")
+    stop_loss_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="stopLossPrice")
+    stop_loss_limit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="stopLossLimitPrice")
+    take_profit_time_in_force: Optional[TimeInForce] = Field(default=None, alias="takeProfitTimeInForce")
+    stop_loss_time_in_force: Optional[TimeInForce] = Field(default=None, alias="stopLossTimeInForce")
     quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision")
     order_quantity_type: OrderQuantityType = Field(alias="orderQuantityType")
     quantity_rounding: Optional[QuantityRounding] = Field(default=QuantityRounding.EMPTY, alias="quantityRounding")
@@ -71,7 +78,7 @@ class TradeOrder(BaseModel):
     canceled_at: Optional[StrictInt] = Field(default=None, description="Unix timestamp in milliseconds", alias="canceledAt")
     canceled_at_date_time: Optional[datetime] = Field(default=None, description="Cancellation timestamp in ISO 8601 format", alias="canceledAtDateTime")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["tradeOrderId", "tradingAccountId", "venue", "positionId", "instrumentId", "quoteId", "baseAsset", "quoteAsset", "orderSide", "orderType", "timeInForce", "status", "rejectReason", "cancelReason", "limitPrice", "stopPrice", "quantity", "orderQuantityType", "quantityRounding", "executedPrice", "executedQuantity", "executedCost", "fees", "executions", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "expireAt", "expireAtDateTime", "canceledAt", "canceledAtDateTime"]
+    __properties: ClassVar[List[str]] = ["tradeOrderId", "orderListId", "tradingAccountId", "venue", "positionId", "instrumentId", "quoteId", "baseAsset", "quoteAsset", "orderSide", "orderType", "timeInForce", "status", "rejectReason", "cancelReason", "limitPrice", "stopPrice", "takeProfitPrice", "takeProfitLimitPrice", "stopLossPrice", "stopLossLimitPrice", "takeProfitTimeInForce", "stopLossTimeInForce", "quantity", "orderQuantityType", "quantityRounding", "executedPrice", "executedQuantity", "executedCost", "fees", "executions", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "expireAt", "expireAtDateTime", "canceledAt", "canceledAtDateTime"]
 
     @field_validator('limit_price')
     def limit_price_validate_regular_expression(cls, value):
@@ -85,6 +92,46 @@ class TradeOrder(BaseModel):
 
     @field_validator('stop_price')
     def stop_price_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^-?\d+(\.\d+)?$", value):
+            raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
+        return value
+
+    @field_validator('take_profit_price')
+    def take_profit_price_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^-?\d+(\.\d+)?$", value):
+            raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
+        return value
+
+    @field_validator('take_profit_limit_price')
+    def take_profit_limit_price_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^-?\d+(\.\d+)?$", value):
+            raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
+        return value
+
+    @field_validator('stop_loss_price')
+    def stop_loss_price_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^-?\d+(\.\d+)?$", value):
+            raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
+        return value
+
+    @field_validator('stop_loss_limit_price')
+    def stop_loss_limit_price_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
@@ -181,21 +228,6 @@ class TradeOrder(BaseModel):
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
-        # set to None if order_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.order_type is None and "order_type" in self.model_fields_set:
-            _dict['orderType'] = None
-
-        # set to None if time_in_force (nullable) is None
-        # and model_fields_set contains the field
-        if self.time_in_force is None and "time_in_force" in self.model_fields_set:
-            _dict['timeInForce'] = None
-
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict['status'] = None
-
         return _dict
 
     @classmethod
@@ -209,6 +241,7 @@ class TradeOrder(BaseModel):
 
         _obj = cls.model_validate({
             "tradeOrderId": obj.get("tradeOrderId"),
+            "orderListId": obj.get("orderListId"),
             "tradingAccountId": obj.get("tradingAccountId"),
             "venue": obj.get("venue"),
             "positionId": obj.get("positionId"),
@@ -224,6 +257,12 @@ class TradeOrder(BaseModel):
             "cancelReason": obj.get("cancelReason"),
             "limitPrice": obj.get("limitPrice"),
             "stopPrice": obj.get("stopPrice"),
+            "takeProfitPrice": obj.get("takeProfitPrice"),
+            "takeProfitLimitPrice": obj.get("takeProfitLimitPrice"),
+            "stopLossPrice": obj.get("stopLossPrice"),
+            "stopLossLimitPrice": obj.get("stopLossLimitPrice"),
+            "takeProfitTimeInForce": obj.get("takeProfitTimeInForce"),
+            "stopLossTimeInForce": obj.get("stopLossTimeInForce"),
             "quantity": obj.get("quantity"),
             "orderQuantityType": obj.get("orderQuantityType"),
             "quantityRounding": obj.get("quantityRounding") if obj.get("quantityRounding") is not None else QuantityRounding.EMPTY,

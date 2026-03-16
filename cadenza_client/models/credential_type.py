@@ -26,8 +26,8 @@ class CredentialType(str, Enum):
     """
     allowed enum values
     """
+    EMPTY = ''
     API_KEY = 'API_KEY'
-    TOKEN = 'TOKEN'
     HMAC = 'HMAC'
     OAUTH = 'OAUTH'
     RSA = 'RSA'

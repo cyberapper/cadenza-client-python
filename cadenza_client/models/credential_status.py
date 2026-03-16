@@ -27,9 +27,11 @@ class CredentialStatus(str, Enum):
     allowed enum values
     """
     CREATED = 'CREATED'
-    ACTIVE = 'ACTIVE'
-    EXPIRED = 'EXPIRED'
+    VALIDATED = 'VALIDATED'
+    INACTIVE = 'INACTIVE'
     REVOKED = 'REVOKED'
+    ERROR = 'ERROR'
+    UNKNOWN = 'UNKNOWN'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

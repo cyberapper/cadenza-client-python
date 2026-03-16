@@ -27,8 +27,6 @@ class TradingAccountCredentialStatus(str, Enum):
     allowed enum values
     """
     CREATED = 'CREATED'
-    ACTIVE = 'ACTIVE'
-    EXPIRED = 'EXPIRED'
     REVOKED = 'REVOKED'
 
     @classmethod

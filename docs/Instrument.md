@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **status** | [**InstrumentStatus**](InstrumentStatus.md) |  | 
 **base_asset** | **str** |  | 
 **quote_asset** | **str** |  | 
-**base_security_type** | [**SecurityType**](SecurityType.md) |  | [optional] 
-**quote_security_type** | [**SecurityType**](SecurityType.md) |  | [optional] 
+**base_security_type** | [**SecurityType**](SecurityType.md) |  | 
+**quote_security_type** | [**SecurityType**](SecurityType.md) |  | 
 **base_precision** | **int** | Base asset precision | 
 **quote_precision** | **int** | Quote asset precision | 
 **base_max_significant** | **int** | Maximum significant digits for base asset | 

@@ -28,7 +28,8 @@ class AccountType(str, Enum):
     """
     SPOT = 'SPOT'
     MARGIN = 'MARGIN'
-    CREDIT = 'CREDIT'
+    FUTURES = 'FUTURES'
+    OPTIONS = 'OPTIONS'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

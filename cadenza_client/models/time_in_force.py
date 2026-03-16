@@ -26,6 +26,7 @@ class TimeInForce(str, Enum):
     """
     allowed enum values
     """
+    EMPTY = ''
     GTC = 'GTC'
     IOC = 'IOC'
     FOK = 'FOK'

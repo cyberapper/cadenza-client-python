@@ -20,21 +20,26 @@ from typing_extensions import Self
 
 class SecurityType(str, Enum):
     """
-    Type of financial instrument
+    Type of security (base asset)
     """
 
     """
     allowed enum values
     """
+    EMPTY = ''
+    CASH = 'CASH'
     STOCK = 'STOCK'
     CRYPTO = 'CRYPTO'
     CURRENCY = 'CURRENCY'
     COMMODITY = 'COMMODITY'
     INDEX = 'INDEX'
     BOND = 'BOND'
+    DERIVATIVE = 'DERIVATIVE'
     OPTION = 'OPTION'
+    FUTURE = 'FUTURE'
     FUTURES = 'FUTURES'
     PERPETUAL = 'PERPETUAL'
+    FOREX = 'FOREX'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

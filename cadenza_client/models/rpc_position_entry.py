@@ -21,7 +21,6 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uuid import UUID
-from cadenza_client.models.position_side import PositionSide
 from cadenza_client.models.position_status import PositionStatus
 from cadenza_client.models.security_type import SecurityType
 from typing import Optional, Set
@@ -38,7 +37,6 @@ class RpcPositionEntry(BaseModel):
     instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID", alias="instrumentId")
     security_type: Optional[SecurityType] = Field(default=None, alias="securityType")
     status: Optional[PositionStatus] = None
-    position_side: Optional[PositionSide] = Field(default=None, alias="positionSide")
     quantity: Optional[StrictStr] = Field(default=None, description="Position quantity")
     entry_price: Optional[StrictStr] = Field(default=None, alias="entryPrice")
     exit_price: Optional[StrictStr] = Field(default=None, alias="exitPrice")
@@ -48,7 +46,7 @@ class RpcPositionEntry(BaseModel):
     created_at: Optional[datetime] = Field(default=None, alias="createdAt")
     updated_at: Optional[datetime] = Field(default=None, alias="updatedAt")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["positionId", "externalPositionId", "tradingAccountId", "securitySymbol", "instrumentId", "securityType", "status", "positionSide", "quantity", "entryPrice", "exitPrice", "currentPrice", "unrealizedPnl", "realizedPnl", "createdAt", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["positionId", "externalPositionId", "tradingAccountId", "securitySymbol", "instrumentId", "securityType", "status", "quantity", "entryPrice", "exitPrice", "currentPrice", "unrealizedPnl", "realizedPnl", "createdAt", "updatedAt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -115,7 +113,6 @@ class RpcPositionEntry(BaseModel):
             "instrumentId": obj.get("instrumentId"),
             "securityType": obj.get("securityType"),
             "status": obj.get("status"),
-            "positionSide": obj.get("positionSide"),
             "quantity": obj.get("quantity"),
             "entryPrice": obj.get("entryPrice"),
             "exitPrice": obj.get("exitPrice"),

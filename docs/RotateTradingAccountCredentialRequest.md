@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **credential_id** | **UUID** | UUID string | 
-**api_key** | **str** |  | [optional] 
+**api_key** | **str** |  | 
 **api_secret** | **str** |  | [optional] 
 **api_passphrase** | **str** |  | [optional] 
 

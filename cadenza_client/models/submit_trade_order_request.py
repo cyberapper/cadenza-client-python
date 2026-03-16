@@ -38,7 +38,7 @@ class SubmitTradeOrderRequest(BaseModel):
     idempotency_key: Optional[StrictStr] = Field(default=None, description="Idempotency key to prevent duplicate request processing", alias="idempotencyKey")
     client_order_id: Optional[StrictStr] = Field(default=None, description="Client-provided order ID, used as idempotency key", alias="clientOrderId")
     order_side: OrderSide = Field(alias="orderSide")
-    order_type: Optional[OrderType] = Field(alias="orderType")
+    order_type: OrderType = Field(alias="orderType")
     limit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="limitPrice")
     stop_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="stopPrice")
     quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision")
@@ -50,8 +50,14 @@ class SubmitTradeOrderRequest(BaseModel):
     quote_id: Optional[UUID] = Field(default=None, description="UUID string", alias="quoteId")
     leverage: Optional[StrictInt] = Field(default=None, description="Leverage")
     await_closed: Optional[StrictBool] = Field(default=False, description="If true, the API will wait up to 1 second for the order to reach a closed/finalized state (FILLED, REJECTED, EXPIRED, CANCELLED) before responding. If false or omitted, returns immediately with the initial order state. Useful for market orders that typically fill immediately. ", alias="awaitClosed")
+    take_profit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="takeProfitPrice")
+    take_profit_limit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="takeProfitLimitPrice")
+    stop_loss_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="stopLossPrice")
+    stop_loss_limit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="stopLossLimitPrice")
+    take_profit_time_in_force: Optional[TimeInForce] = Field(default=None, alias="takeProfitTimeInForce")
+    stop_loss_time_in_force: Optional[TimeInForce] = Field(default=None, alias="stopLossTimeInForce")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["tradingAccountId", "instrumentId", "idempotencyKey", "clientOrderId", "orderSide", "orderType", "limitPrice", "stopPrice", "quantity", "quantityType", "quantityRounding", "positionId", "timeInForce", "expireAt", "quoteId", "leverage", "awaitClosed"]
+    __properties: ClassVar[List[str]] = ["tradingAccountId", "instrumentId", "idempotencyKey", "clientOrderId", "orderSide", "orderType", "limitPrice", "stopPrice", "quantity", "quantityType", "quantityRounding", "positionId", "timeInForce", "expireAt", "quoteId", "leverage", "awaitClosed", "takeProfitPrice", "takeProfitLimitPrice", "stopLossPrice", "stopLossLimitPrice", "takeProfitTimeInForce", "stopLossTimeInForce"]
 
     @field_validator('limit_price')
     def limit_price_validate_regular_expression(cls, value):
@@ -76,6 +82,46 @@ class SubmitTradeOrderRequest(BaseModel):
     @field_validator('quantity')
     def quantity_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not re.match(r"^-?\d+(\.\d+)?$", value):
+            raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
+        return value
+
+    @field_validator('take_profit_price')
+    def take_profit_price_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^-?\d+(\.\d+)?$", value):
+            raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
+        return value
+
+    @field_validator('take_profit_limit_price')
+    def take_profit_limit_price_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^-?\d+(\.\d+)?$", value):
+            raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
+        return value
+
+    @field_validator('stop_loss_price')
+    def stop_loss_price_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^-?\d+(\.\d+)?$", value):
+            raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
+        return value
+
+    @field_validator('stop_loss_limit_price')
+    def stop_loss_limit_price_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -126,16 +172,6 @@ class SubmitTradeOrderRequest(BaseModel):
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
-        # set to None if order_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.order_type is None and "order_type" in self.model_fields_set:
-            _dict['orderType'] = None
-
-        # set to None if time_in_force (nullable) is None
-        # and model_fields_set contains the field
-        if self.time_in_force is None and "time_in_force" in self.model_fields_set:
-            _dict['timeInForce'] = None
-
         return _dict
 
     @classmethod
@@ -164,7 +200,13 @@ class SubmitTradeOrderRequest(BaseModel):
             "expireAt": obj.get("expireAt"),
             "quoteId": obj.get("quoteId"),
             "leverage": obj.get("leverage"),
-            "awaitClosed": obj.get("awaitClosed") if obj.get("awaitClosed") is not None else False
+            "awaitClosed": obj.get("awaitClosed") if obj.get("awaitClosed") is not None else False,
+            "takeProfitPrice": obj.get("takeProfitPrice"),
+            "takeProfitLimitPrice": obj.get("takeProfitLimitPrice"),
+            "stopLossPrice": obj.get("stopLossPrice"),
+            "stopLossLimitPrice": obj.get("stopLossLimitPrice"),
+            "takeProfitTimeInForce": obj.get("takeProfitTimeInForce"),
+            "stopLossTimeInForce": obj.get("stopLossTimeInForce")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

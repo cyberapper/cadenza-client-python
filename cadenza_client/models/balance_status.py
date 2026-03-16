@@ -20,14 +20,15 @@ from typing_extensions import Self
 
 class BalanceStatus(str, Enum):
     """
-    Status of a balance entry
+    Balance entry status
     """
 
     """
     allowed enum values
     """
     ACTIVE = 'ACTIVE'
-    LOCKED = 'LOCKED'
+    INACTIVE = 'INACTIVE'
+    FROZEN = 'FROZEN'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
