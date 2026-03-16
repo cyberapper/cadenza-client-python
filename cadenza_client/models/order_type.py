@@ -28,6 +28,7 @@ class OrderType(str, Enum):
     """
     MARKET = 'MARKET'
     LIMIT = 'LIMIT'
+    LIMIT_MAKER = 'LIMIT_MAKER'
     STOP = 'STOP'
     STOP_LIMIT = 'STOP_LIMIT'
     STOP_LOSS = 'STOP_LOSS'
@@ -36,6 +37,7 @@ class OrderType(str, Enum):
     TAKE_PROFIT_LIMIT = 'TAKE_PROFIT_LIMIT'
     TRAILING_STOP = 'TRAILING_STOP'
     QUOTED = 'QUOTED'
+    OCO = 'OCO'
     UNKNOWN = 'UNKNOWN'
 
     @classmethod

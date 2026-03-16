@@ -22,6 +22,12 @@ Name | Type | Description | Notes
 **quote_id** | **UUID** | UUID string | [optional] 
 **leverage** | **int** | Leverage | [optional] 
 **await_closed** | **bool** | If true, the API will wait up to 1 second for the order to reach a closed/finalized state (FILLED, REJECTED, EXPIRED, CANCELLED) before responding. If false or omitted, returns immediately with the initial order state. Useful for market orders that typically fill immediately.  | [optional] [default to False]
+**take_profit_price** | **str** | Decimal value as string to preserve precision | [optional] 
+**take_profit_limit_price** | **str** | Decimal value as string to preserve precision | [optional] 
+**stop_loss_price** | **str** | Decimal value as string to preserve precision | [optional] 
+**stop_loss_limit_price** | **str** | Decimal value as string to preserve precision | [optional] 
+**take_profit_time_in_force** | [**TimeInForce**](TimeInForce.md) |  | [optional] 
+**stop_loss_time_in_force** | [**TimeInForce**](TimeInForce.md) |  | [optional] 
 
 ## Example
 
