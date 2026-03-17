@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.10](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.9...v3.3.10) (2026-03-17)
+
+
+### Miscellaneous
+
+* standardize repo configuration ([#37](https://github.com/cyberapper/cadenza-client-python/issues/37)) ([5f96c8f](https://github.com/cyberapper/cadenza-client-python/commit/5f96c8ffe30a2746d415c97f8db5dd0cce968f08))
+
 ## [3.3.9](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.8...v3.3.9) (2026-03-17)
 
 
