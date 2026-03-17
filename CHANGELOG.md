@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.9](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.8...v3.3.9) (2026-03-17)
+
+
+### Bug Fixes
+
+* regenerate Python client SDK with contingencyType field and updated orderListId description ([#35](https://github.com/cyberapper/cadenza-client-python/issues/35)) ([ec9a9b8](https://github.com/cyberapper/cadenza-client-python/commit/ec9a9b87d6b6790590d06be7647dbe0844936c0f))
+
 ## [3.3.8](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.7...v3.3.8) (2026-03-16)
 
 
