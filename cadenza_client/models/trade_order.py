@@ -39,7 +39,8 @@ class TradeOrder(BaseModel):
     TradeOrder
     """ # noqa: E501
     trade_order_id: UUID = Field(description="UUID string", alias="tradeOrderId")
-    order_list_id: Optional[StrictStr] = Field(default=None, description="Exchange order list ID linking OCO/OTO/OTOCO legs. For OCO parents, externalOrderId uses 'ol_' prefix.", alias="orderListId")
+    order_list_id: Optional[StrictStr] = Field(default=None, description="Exchange order list ID linking sibling orders in OCO/OTO/OTOCO order lists. Present on all orders in a list.", alias="orderListId")
+    contingency_type: Optional[StrictStr] = Field(default=None, description="Order list contingency type. Present on all orders in a list.", alias="contingencyType")
     trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
     venue: Venue
     position_id: Optional[UUID] = Field(default=None, description="UUID string", alias="positionId")
@@ -78,7 +79,17 @@ class TradeOrder(BaseModel):
     canceled_at: Optional[StrictInt] = Field(default=None, description="Unix timestamp in milliseconds", alias="canceledAt")
     canceled_at_date_time: Optional[datetime] = Field(default=None, description="Cancellation timestamp in ISO 8601 format", alias="canceledAtDateTime")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["tradeOrderId", "orderListId", "tradingAccountId", "venue", "positionId", "instrumentId", "quoteId", "baseAsset", "quoteAsset", "orderSide", "orderType", "timeInForce", "status", "rejectReason", "cancelReason", "limitPrice", "stopPrice", "takeProfitPrice", "takeProfitLimitPrice", "stopLossPrice", "stopLossLimitPrice", "takeProfitTimeInForce", "stopLossTimeInForce", "quantity", "orderQuantityType", "quantityRounding", "executedPrice", "executedQuantity", "executedCost", "fees", "executions", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "expireAt", "expireAtDateTime", "canceledAt", "canceledAtDateTime"]
+    __properties: ClassVar[List[str]] = ["tradeOrderId", "orderListId", "contingencyType", "tradingAccountId", "venue", "positionId", "instrumentId", "quoteId", "baseAsset", "quoteAsset", "orderSide", "orderType", "timeInForce", "status", "rejectReason", "cancelReason", "limitPrice", "stopPrice", "takeProfitPrice", "takeProfitLimitPrice", "stopLossPrice", "stopLossLimitPrice", "takeProfitTimeInForce", "stopLossTimeInForce", "quantity", "orderQuantityType", "quantityRounding", "executedPrice", "executedQuantity", "executedCost", "fees", "executions", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "expireAt", "expireAtDateTime", "canceledAt", "canceledAtDateTime"]
+
+    @field_validator('contingency_type')
+    def contingency_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['OCO', 'OTO', 'OTOCO']):
+            raise ValueError("must be one of enum values ('OCO', 'OTO', 'OTOCO')")
+        return value
 
     @field_validator('limit_price')
     def limit_price_validate_regular_expression(cls, value):
@@ -267,6 +278,7 @@ class TradeOrder(BaseModel):
         _obj = cls.model_validate({
             "tradeOrderId": obj.get("tradeOrderId"),
             "orderListId": obj.get("orderListId"),
+            "contingencyType": obj.get("contingencyType"),
             "tradingAccountId": obj.get("tradingAccountId"),
             "venue": obj.get("venue"),
             "positionId": obj.get("positionId"),

@@ -6,7 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **trade_order_id** | **UUID** | UUID string | 
-**order_list_id** | **str** | Exchange order list ID linking OCO/OTO/OTOCO legs. For OCO parents, externalOrderId uses &#39;ol_&#39; prefix. | [optional] 
+**order_list_id** | **str** | Exchange order list ID linking sibling orders in OCO/OTO/OTOCO order lists. Present on all orders in a list. | [optional] 
+**contingency_type** | **str** | Order list contingency type. Present on all orders in a list. | [optional] 
 **trading_account_id** | **UUID** | UUID string | 
 **venue** | [**Venue**](Venue.md) |  | 
 **position_id** | **UUID** | UUID string | [optional] 

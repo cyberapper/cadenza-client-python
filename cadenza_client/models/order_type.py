@@ -37,7 +37,6 @@ class OrderType(str, Enum):
     TAKE_PROFIT_LIMIT = 'TAKE_PROFIT_LIMIT'
     TRAILING_STOP = 'TRAILING_STOP'
     QUOTED = 'QUOTED'
-    OCO = 'OCO'
     UNKNOWN = 'UNKNOWN'
 
     @classmethod
