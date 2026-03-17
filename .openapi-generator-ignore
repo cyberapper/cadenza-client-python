@@ -18,6 +18,15 @@ CHANGELOG.md
 # Protect git config
 .gitignore
 
+# Protect justfile
+justfile
+
+# Protect CLAUDE.md
+CLAUDE.md
+
+# Protect CodeRabbit config
+.coderabbit.yaml
+
 # Protect package manifest (version managed by release-please)
 pyproject.toml
 setup.py
