@@ -65,12 +65,14 @@ target/
 # Ipython Notebook
 .ipynb_checkpoints
 
+# OS
+.DS_Store
+
 # IDE
 .vscode/
 
 # Claude Code (local)
 .claude/
-CLAUDE.md
 CLAUDE.local.md
 
 # Git worktrees
