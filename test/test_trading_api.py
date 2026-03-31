@@ -14,14 +14,14 @@
 
 import unittest
 
-from cadenza_client.api.trade_order_api import TradeOrderApi
+from cadenza_client.api.trading_api import TradingApi
 
 
-class TestTradeOrderApi(unittest.TestCase):
-    """TradeOrderApi unit test stubs"""
+class TestTradingApi(unittest.TestCase):
+    """TradingApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = TradeOrderApi()
+        self.api = TradingApi()
 
     def tearDown(self) -> None:
         pass
@@ -37,6 +37,13 @@ class TestTradeOrderApi(unittest.TestCase):
         """Test case for list_trade_orders
 
         List trade orders
+        """
+        pass
+
+    def test_quote_rfq(self) -> None:
+        """Test case for quote_rfq
+
+        Request for Quote
         """
         pass
 

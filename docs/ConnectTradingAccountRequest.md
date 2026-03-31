@@ -1,12 +1,15 @@
 # ConnectTradingAccountRequest
 
+Connect a trading account. For exchange venues, credentialIds and externalTradingAccountId are required. For Fermata venue, only venue is required (no credentials).
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential_ids** | **List[UUID]** | A list of credential IDs to be used to connect the trading account | 
-**external_trading_account_id** | **str** | External trading account ID | 
+**venue** | [**Venue**](Venue.md) |  | [optional] 
+**credential_ids** | **List[UUID]** | Credential IDs for exchange venues. Not required for Fermata. | [optional] 
+**external_trading_account_id** | **str** | External trading account ID. Not required for Fermata. | [optional] 
+**dealer_account_id** | **UUID** | UUID string | [optional] 
 **nickname** | **str** | Nickname of the trading account | [optional] 
 
 ## Example

@@ -31,10 +31,10 @@ from typing_extensions import Self
 
 class SubmitTradeOrderRequest(BaseModel):
     """
-    SubmitTradeOrderRequest
+    Submit a trade order. For exchange venues, instrumentId is required. For Fermata venue, quoteId is required instead (the quote already contains all trade parameters).
     """ # noqa: E501
     trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
-    instrument_id: StrictStr = Field(description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
+    instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     idempotency_key: Optional[StrictStr] = Field(default=None, description="Idempotency key to prevent duplicate request processing", alias="idempotencyKey")
     client_order_id: Optional[StrictStr] = Field(default=None, description="Client-provided order ID, used as idempotency key", alias="clientOrderId")
     order_side: OrderSide = Field(alias="orderSide")
