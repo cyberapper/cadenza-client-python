@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.10...v3.4.0) (2026-03-31)
+
+
+### Features
+
+* regenerate Python client SDK with RFQ broker APIs ([#39](https://github.com/cyberapper/cadenza-client-python/issues/39)) ([15ee83f](https://github.com/cyberapper/cadenza-client-python/commit/15ee83f994c80dd9059d3d2612cdce6779d63435))
+
 ## [3.3.10](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.9...v3.3.10) (2026-03-17)
 
 
