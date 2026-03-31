@@ -17,24 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
 from uuid import UUID
-from cadenza_client.models.venue import Venue
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ConnectTradingAccountRequest(BaseModel):
+class FermataLinkDealerRequest(BaseModel):
     """
-    Connect a trading account. For exchange venues, credentialIds and externalTradingAccountId are required. For Fermata venue, only venue is required (no credentials).
+    Link an exchange trading account to a dealer as a liquidity provider
     """ # noqa: E501
-    venue: Optional[Venue] = None
-    credential_ids: Optional[List[UUID]] = Field(default=None, description="Credential IDs for exchange venues. Not required for Fermata.", alias="credentialIds")
-    external_trading_account_id: Optional[StrictStr] = Field(default=None, description="External trading account ID. Not required for Fermata.", alias="externalTradingAccountId")
-    dealer_account_id: Optional[UUID] = Field(default=None, description="UUID string", alias="dealerAccountId")
-    nickname: Optional[StrictStr] = Field(default=None, description="Nickname of the trading account")
+    dealer_account_id: UUID = Field(description="UUID string", alias="dealerAccountId")
+    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["venue", "credentialIds", "externalTradingAccountId", "dealerAccountId", "nickname"]
+    __properties: ClassVar[List[str]] = ["dealerAccountId", "tradingAccountId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +50,7 @@ class ConnectTradingAccountRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ConnectTradingAccountRequest from a JSON string"""
+        """Create an instance of FermataLinkDealerRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -86,7 +82,7 @@ class ConnectTradingAccountRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ConnectTradingAccountRequest from a dict"""
+        """Create an instance of FermataLinkDealerRequest from a dict"""
         if obj is None:
             return None
 
@@ -94,11 +90,8 @@ class ConnectTradingAccountRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "venue": obj.get("venue"),
-            "credentialIds": obj.get("credentialIds"),
-            "externalTradingAccountId": obj.get("externalTradingAccountId"),
             "dealerAccountId": obj.get("dealerAccountId"),
-            "nickname": obj.get("nickname")
+            "tradingAccountId": obj.get("tradingAccountId")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

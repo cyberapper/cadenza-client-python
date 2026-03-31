@@ -103,6 +103,14 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**auth_refresh_token**](docs/AuthenticationApi.md#auth_refresh_token) | **POST** /api/v3/auth/token/refresh | Refresh access token
 *AuthenticationApi* | [**auth_signup**](docs/AuthenticationApi.md#auth_signup) | **POST** /api/v3/auth/signup | Sign up new user
 *AuthenticationApi* | [**auth_update_user**](docs/AuthenticationApi.md#auth_update_user) | **PUT** /api/v3/auth/user | Update current user
+*FermataApi* | [**fermata_close_wallet**](docs/FermataApi.md#fermata_close_wallet) | **POST** /api/v3/fermata/wallet/close | Close wallet
+*FermataApi* | [**fermata_create_wallet**](docs/FermataApi.md#fermata_create_wallet) | **POST** /api/v3/fermata/wallet/create | Create wallet
+*FermataApi* | [**fermata_freeze_wallet**](docs/FermataApi.md#fermata_freeze_wallet) | **POST** /api/v3/fermata/wallet/freeze | Freeze wallet
+*FermataApi* | [**fermata_link_dealer**](docs/FermataApi.md#fermata_link_dealer) | **POST** /api/v3/fermata/dealer/link | Link exchange account to dealer
+*FermataApi* | [**fermata_list_wallets**](docs/FermataApi.md#fermata_list_wallets) | **GET** /api/v3/fermata/wallet/list | List wallets
+*FermataApi* | [**fermata_transfer_wallet**](docs/FermataApi.md#fermata_transfer_wallet) | **POST** /api/v3/fermata/wallet/transfer | Transfer between wallets
+*FermataApi* | [**fermata_unfreeze_wallet**](docs/FermataApi.md#fermata_unfreeze_wallet) | **POST** /api/v3/fermata/wallet/unfreeze | Unfreeze wallet
+*FermataApi* | [**fermata_unlink_dealer**](docs/FermataApi.md#fermata_unlink_dealer) | **POST** /api/v3/fermata/dealer/unlink | Unlink exchange account from dealer
 *MarketApi* | [**delete_market_instrument**](docs/MarketApi.md#delete_market_instrument) | **DELETE** /api/v3/market/instrument/delete | Delete market instrument
 *MarketApi* | [**delete_market_security**](docs/MarketApi.md#delete_market_security) | **DELETE** /api/v3/market/security/delete | Delete market security
 *MarketApi* | [**disable_market_instrument**](docs/MarketApi.md#disable_market_instrument) | **POST** /api/v3/market/instrument/disable | Disable market instrument
@@ -117,9 +125,10 @@ Class | Method | HTTP request | Description
 *MarketSubscriptionApi* | [**list_market_order_book_subscriptions**](docs/MarketSubscriptionApi.md#list_market_order_book_subscriptions) | **GET** /api/v3/market/subscription/orderBook/list | List order book subscriptions
 *MarketSubscriptionApi* | [**subscribe_market_order_book**](docs/MarketSubscriptionApi.md#subscribe_market_order_book) | **POST** /api/v3/market/subscription/orderBook/subscribe | Subscribe to order book updates
 *MarketSubscriptionApi* | [**unsubscribe_market_order_book**](docs/MarketSubscriptionApi.md#unsubscribe_market_order_book) | **POST** /api/v3/market/subscription/orderBook/unsubscribe | Unsubscribe from order book updates
-*TradeOrderApi* | [**cancel_trade_order**](docs/TradeOrderApi.md#cancel_trade_order) | **POST** /api/v3/tradeOrder/cancel | Cancel trade order
-*TradeOrderApi* | [**list_trade_orders**](docs/TradeOrderApi.md#list_trade_orders) | **GET** /api/v3/tradeOrder/list | List trade orders
-*TradeOrderApi* | [**submit_trade_order**](docs/TradeOrderApi.md#submit_trade_order) | **POST** /api/v3/tradeOrder/submit | Submit trade order
+*TradingApi* | [**cancel_trade_order**](docs/TradingApi.md#cancel_trade_order) | **POST** /api/v3/tradeOrder/cancel | Cancel trade order
+*TradingApi* | [**list_trade_orders**](docs/TradingApi.md#list_trade_orders) | **GET** /api/v3/tradeOrder/list | List trade orders
+*TradingApi* | [**quote_rfq**](docs/TradingApi.md#quote_rfq) | **POST** /api/v3/quote/rfq | Request for Quote
+*TradingApi* | [**submit_trade_order**](docs/TradingApi.md#submit_trade_order) | **POST** /api/v3/tradeOrder/submit | Submit trade order
 *TradingAccountApi* | [**connect_trading_account**](docs/TradingAccountApi.md#connect_trading_account) | **POST** /api/v3/tradingAccount/connect | Connect trading account
 *TradingAccountApi* | [**disable_trading_account**](docs/TradingAccountApi.md#disable_trading_account) | **POST** /api/v3/tradingAccount/disable | Disable trading account
 *TradingAccountApi* | [**disconnect_trading_account**](docs/TradingAccountApi.md#disconnect_trading_account) | **POST** /api/v3/tradingAccount/disconnect | Disconnect trading account
@@ -181,6 +190,16 @@ Class | Method | HTTP request | Description
  - [EnableMarketInstrument200Response](docs/EnableMarketInstrument200Response.md)
  - [EnableMarketInstrumentRequest](docs/EnableMarketInstrumentRequest.md)
  - [EnableTradingAccountRequest](docs/EnableTradingAccountRequest.md)
+ - [FermataCloseWalletRequest](docs/FermataCloseWalletRequest.md)
+ - [FermataCreateWallet200Response](docs/FermataCreateWallet200Response.md)
+ - [FermataCreateWalletRequest](docs/FermataCreateWalletRequest.md)
+ - [FermataFreezeWalletRequest](docs/FermataFreezeWalletRequest.md)
+ - [FermataLinkDealerRequest](docs/FermataLinkDealerRequest.md)
+ - [FermataListWallets200Response](docs/FermataListWallets200Response.md)
+ - [FermataTransferWalletRequest](docs/FermataTransferWalletRequest.md)
+ - [FermataUnfreezeWalletRequest](docs/FermataUnfreezeWalletRequest.md)
+ - [FermataUnlinkDealerRequest](docs/FermataUnlinkDealerRequest.md)
+ - [FermataWallet](docs/FermataWallet.md)
  - [FinancialSecurity](docs/FinancialSecurity.md)
  - [GetMarketOrderBook200Response](docs/GetMarketOrderBook200Response.md)
  - [Health200Response](docs/Health200Response.md)
@@ -219,6 +238,10 @@ Class | Method | HTTP request | Description
  - [PositionStatus](docs/PositionStatus.md)
  - [QuantityRounding](docs/QuantityRounding.md)
  - [QuantityType](docs/QuantityType.md)
+ - [Quote](docs/Quote.md)
+ - [QuoteRfq200Response](docs/QuoteRfq200Response.md)
+ - [QuoteRfqRequest](docs/QuoteRfqRequest.md)
+ - [QuoteStatus](docs/QuoteStatus.md)
  - [ResponseError](docs/ResponseError.md)
  - [RevokeTradingAccountCredentialRequest](docs/RevokeTradingAccountCredentialRequest.md)
  - [Root200Response](docs/Root200Response.md)
@@ -395,6 +418,8 @@ Class | Method | HTTP request | Description
  - [VenueStatus](docs/VenueStatus.md)
  - [VerifyTradingAccountCredential200Response](docs/VerifyTradingAccountCredential200Response.md)
  - [VerifyTradingAccountCredentialRequest](docs/VerifyTradingAccountCredentialRequest.md)
+ - [WalletStatus](docs/WalletStatus.md)
+ - [WalletType](docs/WalletType.md)
  - [WsClientInfo](docs/WsClientInfo.md)
  - [WsCommand](docs/WsCommand.md)
  - [WsConnectPush](docs/WsConnectPush.md)

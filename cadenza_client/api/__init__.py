@@ -2,9 +2,10 @@
 
 # import apis into api package
 from cadenza_client.api.authentication_api import AuthenticationApi
+from cadenza_client.api.fermata_api import FermataApi
 from cadenza_client.api.market_api import MarketApi
 from cadenza_client.api.market_subscription_api import MarketSubscriptionApi
-from cadenza_client.api.trade_order_api import TradeOrderApi
+from cadenza_client.api.trading_api import TradingApi
 from cadenza_client.api.trading_account_api import TradingAccountApi
 from cadenza_client.api.trading_account_credential_api import TradingAccountCredentialApi
 from cadenza_client.api.trading_account_portfolio_api import TradingAccountPortfolioApi

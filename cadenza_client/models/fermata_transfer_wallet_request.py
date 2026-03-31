@@ -17,24 +17,30 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from uuid import UUID
-from cadenza_client.models.venue import Venue
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ConnectTradingAccountRequest(BaseModel):
+class FermataTransferWalletRequest(BaseModel):
     """
-    Connect a trading account. For exchange venues, credentialIds and externalTradingAccountId are required. For Fermata venue, only venue is required (no credentials).
+    Transfer assets between wallets owned by the same user
     """ # noqa: E501
-    venue: Optional[Venue] = None
-    credential_ids: Optional[List[UUID]] = Field(default=None, description="Credential IDs for exchange venues. Not required for Fermata.", alias="credentialIds")
-    external_trading_account_id: Optional[StrictStr] = Field(default=None, description="External trading account ID. Not required for Fermata.", alias="externalTradingAccountId")
-    dealer_account_id: Optional[UUID] = Field(default=None, description="UUID string", alias="dealerAccountId")
-    nickname: Optional[StrictStr] = Field(default=None, description="Nickname of the trading account")
+    source_wallet_id: UUID = Field(description="UUID string", alias="sourceWalletId")
+    dest_wallet_id: UUID = Field(description="UUID string", alias="destWalletId")
+    asset: StrictStr = Field(description="Asset to transfer")
+    amount: Annotated[str, Field(strict=True)] = Field(description="Positive decimal value as string")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["venue", "credentialIds", "externalTradingAccountId", "dealerAccountId", "nickname"]
+    __properties: ClassVar[List[str]] = ["sourceWalletId", "destWalletId", "asset", "amount"]
+
+    @field_validator('amount')
+    def amount_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^\d+(\.\d+)?$", value):
+            raise ValueError(r"must validate the regular expression /^\d+(\.\d+)?$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +60,7 @@ class ConnectTradingAccountRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ConnectTradingAccountRequest from a JSON string"""
+        """Create an instance of FermataTransferWalletRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -86,7 +92,7 @@ class ConnectTradingAccountRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ConnectTradingAccountRequest from a dict"""
+        """Create an instance of FermataTransferWalletRequest from a dict"""
         if obj is None:
             return None
 
@@ -94,11 +100,10 @@ class ConnectTradingAccountRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "venue": obj.get("venue"),
-            "credentialIds": obj.get("credentialIds"),
-            "externalTradingAccountId": obj.get("externalTradingAccountId"),
-            "dealerAccountId": obj.get("dealerAccountId"),
-            "nickname": obj.get("nickname")
+            "sourceWalletId": obj.get("sourceWalletId"),
+            "destWalletId": obj.get("destWalletId"),
+            "asset": obj.get("asset"),
+            "amount": obj.get("amount")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

@@ -14,14 +14,15 @@
 """  # noqa: E501
 
 
-__version__ = "3.3.10"
+__version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
     "AuthenticationApi",
+    "FermataApi",
     "MarketApi",
     "MarketSubscriptionApi",
-    "TradeOrderApi",
+    "TradingApi",
     "TradingAccountApi",
     "TradingAccountCredentialApi",
     "TradingAccountPortfolioApi",
@@ -75,6 +76,16 @@ __all__ = [
     "EnableMarketInstrument200Response",
     "EnableMarketInstrumentRequest",
     "EnableTradingAccountRequest",
+    "FermataCloseWalletRequest",
+    "FermataCreateWallet200Response",
+    "FermataCreateWalletRequest",
+    "FermataFreezeWalletRequest",
+    "FermataLinkDealerRequest",
+    "FermataListWallets200Response",
+    "FermataTransferWalletRequest",
+    "FermataUnfreezeWalletRequest",
+    "FermataUnlinkDealerRequest",
+    "FermataWallet",
     "FinancialSecurity",
     "GetMarketOrderBook200Response",
     "Health200Response",
@@ -113,6 +124,10 @@ __all__ = [
     "PositionStatus",
     "QuantityRounding",
     "QuantityType",
+    "Quote",
+    "QuoteRfq200Response",
+    "QuoteRfqRequest",
+    "QuoteStatus",
     "ResponseError",
     "RevokeTradingAccountCredentialRequest",
     "Root200Response",
@@ -289,6 +304,8 @@ __all__ = [
     "VenueStatus",
     "VerifyTradingAccountCredential200Response",
     "VerifyTradingAccountCredentialRequest",
+    "WalletStatus",
+    "WalletType",
     "WsClientInfo",
     "WsCommand",
     "WsConnectPush",
@@ -334,9 +351,10 @@ __all__ = [
 
 # import apis into sdk package
 from cadenza_client.api.authentication_api import AuthenticationApi as AuthenticationApi
+from cadenza_client.api.fermata_api import FermataApi as FermataApi
 from cadenza_client.api.market_api import MarketApi as MarketApi
 from cadenza_client.api.market_subscription_api import MarketSubscriptionApi as MarketSubscriptionApi
-from cadenza_client.api.trade_order_api import TradeOrderApi as TradeOrderApi
+from cadenza_client.api.trading_api import TradingApi as TradingApi
 from cadenza_client.api.trading_account_api import TradingAccountApi as TradingAccountApi
 from cadenza_client.api.trading_account_credential_api import TradingAccountCredentialApi as TradingAccountCredentialApi
 from cadenza_client.api.trading_account_portfolio_api import TradingAccountPortfolioApi as TradingAccountPortfolioApi
@@ -394,6 +412,16 @@ from cadenza_client.models.disconnect_trading_account_request import DisconnectT
 from cadenza_client.models.enable_market_instrument200_response import EnableMarketInstrument200Response as EnableMarketInstrument200Response
 from cadenza_client.models.enable_market_instrument_request import EnableMarketInstrumentRequest as EnableMarketInstrumentRequest
 from cadenza_client.models.enable_trading_account_request import EnableTradingAccountRequest as EnableTradingAccountRequest
+from cadenza_client.models.fermata_close_wallet_request import FermataCloseWalletRequest as FermataCloseWalletRequest
+from cadenza_client.models.fermata_create_wallet200_response import FermataCreateWallet200Response as FermataCreateWallet200Response
+from cadenza_client.models.fermata_create_wallet_request import FermataCreateWalletRequest as FermataCreateWalletRequest
+from cadenza_client.models.fermata_freeze_wallet_request import FermataFreezeWalletRequest as FermataFreezeWalletRequest
+from cadenza_client.models.fermata_link_dealer_request import FermataLinkDealerRequest as FermataLinkDealerRequest
+from cadenza_client.models.fermata_list_wallets200_response import FermataListWallets200Response as FermataListWallets200Response
+from cadenza_client.models.fermata_transfer_wallet_request import FermataTransferWalletRequest as FermataTransferWalletRequest
+from cadenza_client.models.fermata_unfreeze_wallet_request import FermataUnfreezeWalletRequest as FermataUnfreezeWalletRequest
+from cadenza_client.models.fermata_unlink_dealer_request import FermataUnlinkDealerRequest as FermataUnlinkDealerRequest
+from cadenza_client.models.fermata_wallet import FermataWallet as FermataWallet
 from cadenza_client.models.financial_security import FinancialSecurity as FinancialSecurity
 from cadenza_client.models.get_market_order_book200_response import GetMarketOrderBook200Response as GetMarketOrderBook200Response
 from cadenza_client.models.health200_response import Health200Response as Health200Response
@@ -432,6 +460,10 @@ from cadenza_client.models.position_side import PositionSide as PositionSide
 from cadenza_client.models.position_status import PositionStatus as PositionStatus
 from cadenza_client.models.quantity_rounding import QuantityRounding as QuantityRounding
 from cadenza_client.models.quantity_type import QuantityType as QuantityType
+from cadenza_client.models.quote import Quote as Quote
+from cadenza_client.models.quote_rfq200_response import QuoteRfq200Response as QuoteRfq200Response
+from cadenza_client.models.quote_rfq_request import QuoteRfqRequest as QuoteRfqRequest
+from cadenza_client.models.quote_status import QuoteStatus as QuoteStatus
 from cadenza_client.models.response_error import ResponseError as ResponseError
 from cadenza_client.models.revoke_trading_account_credential_request import RevokeTradingAccountCredentialRequest as RevokeTradingAccountCredentialRequest
 from cadenza_client.models.root200_response import Root200Response as Root200Response
@@ -608,6 +640,8 @@ from cadenza_client.models.venue import Venue as Venue
 from cadenza_client.models.venue_status import VenueStatus as VenueStatus
 from cadenza_client.models.verify_trading_account_credential200_response import VerifyTradingAccountCredential200Response as VerifyTradingAccountCredential200Response
 from cadenza_client.models.verify_trading_account_credential_request import VerifyTradingAccountCredentialRequest as VerifyTradingAccountCredentialRequest
+from cadenza_client.models.wallet_status import WalletStatus as WalletStatus
+from cadenza_client.models.wallet_type import WalletType as WalletType
 from cadenza_client.models.ws_client_info import WsClientInfo as WsClientInfo
 from cadenza_client.models.ws_command import WsCommand as WsCommand
 from cadenza_client.models.ws_connect_push import WsConnectPush as WsConnectPush

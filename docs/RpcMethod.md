@@ -182,6 +182,42 @@ RPC method name corresponding to event types in the system. Format: `{category}.
 
 * `EVENT_DOT_SECURITY_DOT_UPDATED` (value: `'event.security.updated'`)
 
+* `COMMAND_DOT_QUOTE_DOT_RFQ` (value: `'command.quote.rfq'`)
+
+* `RESPONSE_DOT_QUOTE_DOT_RFQ` (value: `'response.quote.rfq'`)
+
+* `COMMAND_DOT_FERMATA_DOT_DEALER_DOT_LINK` (value: `'command.fermata.dealer.link'`)
+
+* `RESPONSE_DOT_FERMATA_DOT_DEALER_DOT_LINK` (value: `'response.fermata.dealer.link'`)
+
+* `COMMAND_DOT_FERMATA_DOT_DEALER_DOT_UNLINK` (value: `'command.fermata.dealer.unlink'`)
+
+* `RESPONSE_DOT_FERMATA_DOT_DEALER_DOT_UNLINK` (value: `'response.fermata.dealer.unlink'`)
+
+* `COMMAND_DOT_FERMATA_DOT_WALLET_DOT_CREATE` (value: `'command.fermata.wallet.create'`)
+
+* `RESPONSE_DOT_FERMATA_DOT_WALLET_DOT_CREATE` (value: `'response.fermata.wallet.create'`)
+
+* `QUERY_DOT_FERMATA_DOT_WALLET_DOT_LIST` (value: `'query.fermata.wallet.list'`)
+
+* `RESPONSE_DOT_FERMATA_DOT_WALLET_DOT_LIST` (value: `'response.fermata.wallet.list'`)
+
+* `COMMAND_DOT_FERMATA_DOT_WALLET_DOT_TRANSFER` (value: `'command.fermata.wallet.transfer'`)
+
+* `RESPONSE_DOT_FERMATA_DOT_WALLET_DOT_TRANSFER` (value: `'response.fermata.wallet.transfer'`)
+
+* `COMMAND_DOT_FERMATA_DOT_WALLET_DOT_FREEZE` (value: `'command.fermata.wallet.freeze'`)
+
+* `RESPONSE_DOT_FERMATA_DOT_WALLET_DOT_FREEZE` (value: `'response.fermata.wallet.freeze'`)
+
+* `COMMAND_DOT_FERMATA_DOT_WALLET_DOT_UNFREEZE` (value: `'command.fermata.wallet.unfreeze'`)
+
+* `RESPONSE_DOT_FERMATA_DOT_WALLET_DOT_UNFREEZE` (value: `'response.fermata.wallet.unfreeze'`)
+
+* `COMMAND_DOT_FERMATA_DOT_WALLET_DOT_CLOSE` (value: `'command.fermata.wallet.close'`)
+
+* `RESPONSE_DOT_FERMATA_DOT_WALLET_DOT_CLOSE` (value: `'response.fermata.wallet.close'`)
+
 * `QUERY_DOT_VENUE_DOT_LIST` (value: `'query.venue.list'`)
 
 * `RESPONSE_DOT_VENUE_DOT_LIST` (value: `'response.venue.list'`)

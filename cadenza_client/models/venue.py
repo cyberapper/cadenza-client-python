@@ -49,6 +49,7 @@ class Venue(str, Enum):
     BINANCE_SANDBOX = 'BINANCE_SANDBOX'
     B2_C2_SANDBOX = 'B2C2_SANDBOX'
     IBKR_PAPER = 'IBKR_PAPER'
+    FERMATA = 'FERMATA'
     MOCK = 'MOCK'
     PAPER = 'PAPER'
 
