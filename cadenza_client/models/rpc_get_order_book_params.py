@@ -21,20 +21,20 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RpcGetOrderBookParams(BaseModel):
     """
-    Request to get order book for an instrument
+    Request to get order book for an instrument.
     """ # noqa: E501
-    instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID (e.g., BINANCE:BTC/USDT)", alias="instrumentId")
-    venue: Optional[StrictStr] = Field(default=None, description="Venue (alternative to instrumentId)")
-    symbol: Optional[StrictStr] = Field(default=None, description="Symbol (alternative to instrumentId)")
+    instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     depth: Optional[StrictInt] = Field(default=10, description="Order book depth")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["instrumentId", "venue", "symbol", "depth"]
+    __properties: ClassVar[List[str]] = ["instrumentId", "depth"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -46,8 +46,7 @@ class RpcGetOrderBookParams(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -92,8 +91,6 @@ class RpcGetOrderBookParams(BaseModel):
 
         _obj = cls.model_validate({
             "instrumentId": obj.get("instrumentId"),
-            "venue": obj.get("venue"),
-            "symbol": obj.get("symbol"),
             "depth": obj.get("depth") if obj.get("depth") is not None else 10
         })
         # store additional fields in additional_properties

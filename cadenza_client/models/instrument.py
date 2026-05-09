@@ -29,6 +29,7 @@ from cadenza_client.models.time_in_force import TimeInForce
 from cadenza_client.models.venue import Venue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class Instrument(BaseModel):
     """
@@ -36,7 +37,7 @@ class Instrument(BaseModel):
     """ # noqa: E501
     instrument_id: StrictStr = Field(description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     venue: Venue
-    symbol: StrictStr = Field(description="Human-readable symbol format")
+    symbol: StrictStr = Field(description="Trading pair symbol in format {BASE}/{QUOTE}")
     external_symbol: StrictStr = Field(description="Symbol format used by the exchange", alias="externalSymbol")
     description: Optional[StrictStr] = Field(default=None, description="Symbol description, human readable description of the instrument")
     instrument_type: InstrumentType = Field(alias="instrumentType")
@@ -73,6 +74,9 @@ class Instrument(BaseModel):
     @field_validator('lot_size')
     def lot_size_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -80,6 +84,9 @@ class Instrument(BaseModel):
     @field_validator('pip_size')
     def pip_size_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -87,6 +94,9 @@ class Instrument(BaseModel):
     @field_validator('min_quantity')
     def min_quantity_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -94,6 +104,9 @@ class Instrument(BaseModel):
     @field_validator('max_quantity')
     def max_quantity_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -101,6 +114,9 @@ class Instrument(BaseModel):
     @field_validator('min_notional')
     def min_notional_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -111,6 +127,9 @@ class Instrument(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -120,6 +139,9 @@ class Instrument(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
@@ -141,12 +163,16 @@ class Instrument(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -158,8 +184,7 @@ class Instrument(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

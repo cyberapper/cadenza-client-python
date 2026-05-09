@@ -24,13 +24,14 @@ from cadenza_client.models.security_type import SecurityType
 from cadenza_client.models.venue import Venue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class FinancialSecurity(BaseModel):
     """
     FinancialSecurity
     """ # noqa: E501
     security_id: Optional[StrictStr] = Field(default=None, description="Security ID, id in the format of venue:symbol", alias="securityId")
-    symbol: Optional[StrictStr] = Field(default=None, description="Symbol")
+    symbol: Optional[StrictStr] = Field(default=None, description="Asset symbol (e.g. currency code, base asset)")
     venue: Optional[Venue] = None
     security_type: Optional[SecurityType] = Field(default=None, alias="securityType")
     precision: Optional[StrictInt] = Field(default=None, description="Precision")
@@ -46,6 +47,9 @@ class FinancialSecurity(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -56,12 +60,16 @@ class FinancialSecurity(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -73,8 +81,7 @@ class FinancialSecurity(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

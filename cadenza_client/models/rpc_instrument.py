@@ -26,14 +26,15 @@ from cadenza_client.models.security_type import SecurityType
 from cadenza_client.models.venue import Venue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RpcInstrument(BaseModel):
     """
     Financial instrument
     """ # noqa: E501
-    instrument_id: Optional[StrictStr] = Field(default=None, description="Unique instrument identifier (format: VENUE:BASE/QUOTE)", alias="instrumentId")
+    instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     venue: Optional[Venue] = None
-    symbol: Optional[StrictStr] = None
+    symbol: Optional[StrictStr] = Field(default=None, description="Trading pair symbol in format {BASE}/{QUOTE}")
     external_symbol: Optional[StrictStr] = Field(default=None, alias="externalSymbol")
     description: Optional[StrictStr] = None
     instrument_type: Optional[InstrumentType] = Field(default=None, alias="instrumentType")
@@ -61,7 +62,8 @@ class RpcInstrument(BaseModel):
     __properties: ClassVar[List[str]] = ["instrumentId", "venue", "symbol", "externalSymbol", "description", "instrumentType", "status", "baseAsset", "quoteAsset", "baseSecurityType", "quoteSecurityType", "basePrecision", "quotePrecision", "lotSize", "pipSize", "minQuantity", "maxQuantity", "minNotional", "maxNotional", "orderTypes", "timeInForceOptions", "fee", "isIcebergAllowed", "contractSize", "createdAt", "updatedAt"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -73,8 +75,7 @@ class RpcInstrument(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

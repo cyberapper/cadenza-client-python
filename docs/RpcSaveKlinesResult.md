@@ -6,7 +6,7 @@ Response for saving klines
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List[RpcKline]**](RpcKline.md) |  | [optional] 
+**data** | [**List[Kline]**](Kline.md) |  | [optional] 
 **error** | [**RpcError**](RpcError.md) |  | [optional] 
 
 ## Example

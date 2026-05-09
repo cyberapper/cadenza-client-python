@@ -8,10 +8,13 @@ Method | HTTP request | Description
 [**delete_market_security**](MarketApi.md#delete_market_security) | **DELETE** /api/v3/market/security/delete | Delete market security
 [**disable_market_instrument**](MarketApi.md#disable_market_instrument) | **POST** /api/v3/market/instrument/disable | Disable market instrument
 [**enable_market_instrument**](MarketApi.md#enable_market_instrument) | **POST** /api/v3/market/instrument/enable | Enable market instrument
+[**get_market_kline**](MarketApi.md#get_market_kline) | **GET** /api/v3/market/kline/get | Get market kline
 [**get_market_order_book**](MarketApi.md#get_market_order_book) | **GET** /api/v3/market/orderBook/get | Get market order book
+[**get_market_ticker**](MarketApi.md#get_market_ticker) | **GET** /api/v3/market/ticker/get | Get market ticker
 [**list_market_instruments**](MarketApi.md#list_market_instruments) | **GET** /api/v3/market/instrument/list | List market instruments
 [**list_market_order_books**](MarketApi.md#list_market_order_books) | **GET** /api/v3/market/orderBook/list | List market order books
 [**list_market_securities**](MarketApi.md#list_market_securities) | **GET** /api/v3/market/security/list | List market securities
+[**list_market_tickers**](MarketApi.md#list_market_tickers) | **GET** /api/v3/market/ticker/list | List market tickers
 [**list_market_venues**](MarketApi.md#list_market_venues) | **GET** /api/v3/market/venue/list | List market venues
 [**sync_market_instruments**](MarketApi.md#sync_market_instruments) | **POST** /api/v3/market/instrument/sync | Sync market instruments
 [**sync_market_securities**](MarketApi.md#sync_market_securities) | **POST** /api/v3/market/security/sync | Sync market securities
@@ -353,12 +356,109 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_market_kline**
+> GetMarketKline200Response get_market_kline(interval, instrument_id=instrument_id, var_from=var_from, to=to, limit=limit)
+
+Get market kline
+
+Get klines (candlestick data) for a specific instrument and interval.
+Returns a single `kline` object containing an array of OHLCV candles.
+
+Returns `isClosed: true` for historical-only queries; `isClosed: false` only when
+the queried range includes the live (currently forming) bar.
+
+
+### Example
+
+* Bearer (JWT) Authentication (SupabaseOAuth2BearerAuth):
+
+```python
+import cadenza_client
+from cadenza_client.models.get_market_kline200_response import GetMarketKline200Response
+from cadenza_client.models.kline_interval import KlineInterval
+from cadenza_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cadenza_client.Configuration(
+    host = "https://cadenza-api-uat.algo724.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): SupabaseOAuth2BearerAuth
+configuration = cadenza_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with cadenza_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cadenza_client.MarketApi(api_client)
+    interval = cadenza_client.KlineInterval() # KlineInterval | Kline interval (e.g. `1m`, `5m`, `1h`, `1d`)
+    instrument_id = 'instrument_id_example' # str | Instrument ID (optional)
+    var_from = 56 # int | Range start (Unix timestamp in milliseconds, inclusive) (optional)
+    to = 56 # int | Range end (Unix timestamp in milliseconds, inclusive) (optional)
+    limit = 50 # int | Limit the number of returned results (optional) (default to 50)
+
+    try:
+        # Get market kline
+        api_response = api_instance.get_market_kline(interval, instrument_id=instrument_id, var_from=var_from, to=to, limit=limit)
+        print("The response of MarketApi->get_market_kline:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MarketApi->get_market_kline: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **interval** | [**KlineInterval**](.md)| Kline interval (e.g. &#x60;1m&#x60;, &#x60;5m&#x60;, &#x60;1h&#x60;, &#x60;1d&#x60;) | 
+ **instrument_id** | **str**| Instrument ID | [optional] 
+ **var_from** | **int**| Range start (Unix timestamp in milliseconds, inclusive) | [optional] 
+ **to** | **int**| Range end (Unix timestamp in milliseconds, inclusive) | [optional] 
+ **limit** | **int**| Limit the number of returned results | [optional] [default to 50]
+
+### Return type
+
+[**GetMarketKline200Response**](GetMarketKline200Response.md)
+
+### Authorization
+
+[SupabaseOAuth2BearerAuth](../README.md#SupabaseOAuth2BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Get market kline response |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized - Authentication required |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not found |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_market_order_book**
-> GetMarketOrderBook200Response get_market_order_book(instrument_id=instrument_id, venue=venue, symbol=symbol, depth=depth)
+> GetMarketOrderBook200Response get_market_order_book(instrument_id=instrument_id, depth=depth)
 
 Get market order book
 
-Get order book for a specific instrument. instrumentId or venue+symbol
+Get order book for a specific instrument.
 
 ### Example
 
@@ -367,7 +467,6 @@ Get order book for a specific instrument. instrumentId or venue+symbol
 ```python
 import cadenza_client
 from cadenza_client.models.get_market_order_book200_response import GetMarketOrderBook200Response
-from cadenza_client.models.venue import Venue
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
@@ -392,13 +491,11 @@ with cadenza_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cadenza_client.MarketApi(api_client)
     instrument_id = 'instrument_id_example' # str | Instrument ID (optional)
-    venue = cadenza_client.Venue() # Venue | Exchange type (optional)
-    symbol = 'BTC/USDT' # str | Instrument Symbol (optional)
     depth = 10 # int | Order book depth (optional) (default to 10)
 
     try:
         # Get market order book
-        api_response = api_instance.get_market_order_book(instrument_id=instrument_id, venue=venue, symbol=symbol, depth=depth)
+        api_response = api_instance.get_market_order_book(instrument_id=instrument_id, depth=depth)
         print("The response of MarketApi->get_market_order_book:\n")
         pprint(api_response)
     except Exception as e:
@@ -413,8 +510,6 @@ with cadenza_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instrument_id** | **str**| Instrument ID | [optional] 
- **venue** | [**Venue**](.md)| Exchange type | [optional] 
- **symbol** | **str**| Instrument Symbol | [optional] 
  **depth** | **int**| Order book depth | [optional] [default to 10]
 
 ### Return type
@@ -435,6 +530,89 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get market order book response |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized - Authentication required |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not found |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_market_ticker**
+> GetMarketTicker200Response get_market_ticker(instrument_id=instrument_id)
+
+Get market ticker
+
+Get ticker for a specific instrument.
+
+### Example
+
+* Bearer (JWT) Authentication (SupabaseOAuth2BearerAuth):
+
+```python
+import cadenza_client
+from cadenza_client.models.get_market_ticker200_response import GetMarketTicker200Response
+from cadenza_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cadenza_client.Configuration(
+    host = "https://cadenza-api-uat.algo724.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): SupabaseOAuth2BearerAuth
+configuration = cadenza_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with cadenza_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cadenza_client.MarketApi(api_client)
+    instrument_id = 'instrument_id_example' # str | Instrument ID (optional)
+
+    try:
+        # Get market ticker
+        api_response = api_instance.get_market_ticker(instrument_id=instrument_id)
+        print("The response of MarketApi->get_market_ticker:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MarketApi->get_market_ticker: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instrument_id** | **str**| Instrument ID | [optional] 
+
+### Return type
+
+[**GetMarketTicker200Response**](GetMarketTicker200Response.md)
+
+### Authorization
+
+[SupabaseOAuth2BearerAuth](../README.md#SupabaseOAuth2BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Get market ticker response |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Authentication required |  -  |
 **403** | Forbidden - Insufficient permissions |  -  |
@@ -540,11 +718,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_market_order_books**
-> ListMarketOrderBooks200Response list_market_order_books(instrument_ids=instrument_ids, venue=venue, symbols=symbols, depth=depth)
+> ListMarketOrderBooks200Response list_market_order_books(instrument_ids=instrument_ids, depth=depth)
 
 List market order books
 
-List order books for multiple instruments
+List order books for multiple instruments. Filter by `instrumentIds`.
 
 ### Example
 
@@ -553,7 +731,6 @@ List order books for multiple instruments
 ```python
 import cadenza_client
 from cadenza_client.models.list_market_order_books200_response import ListMarketOrderBooks200Response
-from cadenza_client.models.venue import Venue
 from cadenza_client.rest import ApiException
 from pprint import pprint
 
@@ -577,14 +754,12 @@ configuration = cadenza_client.Configuration(
 with cadenza_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cadenza_client.MarketApi(api_client)
-    instrument_ids = ['instrument_ids_example'] # List[str] |  (optional)
-    venue = cadenza_client.Venue() # Venue | Exchange type (optional)
-    symbols = ['symbols_example'] # List[str] | Instrument Symbols array (optional)
+    instrument_ids = ['instrument_ids_example'] # List[str] | Instrument ID array. Repeat the param to pass multiple values. (optional)
     depth = 10 # int | Order book depth (optional) (default to 10)
 
     try:
         # List market order books
-        api_response = api_instance.list_market_order_books(instrument_ids=instrument_ids, venue=venue, symbols=symbols, depth=depth)
+        api_response = api_instance.list_market_order_books(instrument_ids=instrument_ids, depth=depth)
         print("The response of MarketApi->list_market_order_books:\n")
         pprint(api_response)
     except Exception as e:
@@ -598,9 +773,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **instrument_ids** | [**List[str]**](str.md)|  | [optional] 
- **venue** | [**Venue**](.md)| Exchange type | [optional] 
- **symbols** | [**List[str]**](str.md)| Instrument Symbols array | [optional] 
+ **instrument_ids** | [**List[str]**](str.md)| Instrument ID array. Repeat the param to pass multiple values. | [optional] 
  **depth** | **int**| Order book depth | [optional] [default to 10]
 
 ### Return type
@@ -711,6 +884,95 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List market securities response |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized - Authentication required |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not found |  -  |
+**500** | Internal server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_market_tickers**
+> ListMarketTickers200Response list_market_tickers(instrument_ids=instrument_ids, limit=limit, offset=offset, cursor=cursor)
+
+List market tickers
+
+List tickers for screening — filter by `instrumentIds`.
+
+### Example
+
+* Bearer (JWT) Authentication (SupabaseOAuth2BearerAuth):
+
+```python
+import cadenza_client
+from cadenza_client.models.list_market_tickers200_response import ListMarketTickers200Response
+from cadenza_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://cadenza-api-uat.algo724.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cadenza_client.Configuration(
+    host = "https://cadenza-api-uat.algo724.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): SupabaseOAuth2BearerAuth
+configuration = cadenza_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
+
+# Enter a context with an instance of the API client
+with cadenza_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cadenza_client.MarketApi(api_client)
+    instrument_ids = ['instrument_ids_example'] # List[str] | Instrument ID array. Repeat the param to pass multiple values. (optional)
+    limit = 50 # int | Limit the number of returned results (optional) (default to 50)
+    offset = 0 # int | Offset of the returned results (optional) (default to 0)
+    cursor = 'cursor_example' # str |  (optional)
+
+    try:
+        # List market tickers
+        api_response = api_instance.list_market_tickers(instrument_ids=instrument_ids, limit=limit, offset=offset, cursor=cursor)
+        print("The response of MarketApi->list_market_tickers:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MarketApi->list_market_tickers: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instrument_ids** | [**List[str]**](str.md)| Instrument ID array. Repeat the param to pass multiple values. | [optional] 
+ **limit** | **int**| Limit the number of returned results | [optional] [default to 50]
+ **offset** | **int**| Offset of the returned results | [optional] [default to 0]
+ **cursor** | **str**|  | [optional] 
+
+### Return type
+
+[**ListMarketTickers200Response**](ListMarketTickers200Response.md)
+
+### Authorization
+
+[SupabaseOAuth2BearerAuth](../README.md#SupabaseOAuth2BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List market tickers response |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized - Authentication required |  -  |
 **403** | Forbidden - Insufficient permissions |  -  |

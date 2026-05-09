@@ -6,7 +6,7 @@ Request to save tickers
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tickers** | [**List[RpcTicker]**](RpcTicker.md) |  | 
+**tickers** | [**List[Ticker]**](Ticker.md) |  | 
 
 ## Example
 

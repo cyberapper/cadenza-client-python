@@ -7,7 +7,7 @@ Security (base asset)
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **security_id** | **str** |  | [optional] 
-**symbol** | **str** |  | [optional] 
+**symbol** | **str** | Asset symbol (e.g. currency code, base asset) | [optional] 
 **external_symbol** | **str** |  | [optional] 
 **venue** | [**Venue**](Venue.md) |  | [optional] 
 

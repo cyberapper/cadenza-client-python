@@ -6,7 +6,7 @@ Request to save order books
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**order_books** | [**List[RpcOrderBook]**](RpcOrderBook.md) |  | 
+**order_books** | [**List[OrderBook]**](OrderBook.md) |  | 
 
 ## Example
 

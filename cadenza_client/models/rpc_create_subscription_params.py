@@ -19,23 +19,27 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from cadenza_client.models.kline_interval import KlineInterval
 from cadenza_client.models.subscription_type import SubscriptionType
 from cadenza_client.models.venue import Venue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RpcCreateSubscriptionParams(BaseModel):
     """
-    Request to create a market data subscription
+    Request to create a market data subscription.  `subscriptionType` selects the data stream — for unified market data surfaces, use `MARKET.SUBSCRIPTION.ORDERBOOK`, `MARKET.SUBSCRIPTION.TICKER`, or `MARKET.SUBSCRIPTION.KLINE`. `interval` is required when `subscriptionType: MARKET.SUBSCRIPTION.KLINE` and ignored otherwise. 
     """ # noqa: E501
     venue: Venue
     instruments: Optional[List[StrictStr]] = None
     subscription_type: SubscriptionType = Field(alias="subscriptionType")
+    interval: Optional[KlineInterval] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["venue", "instruments", "subscriptionType"]
+    __properties: ClassVar[List[str]] = ["venue", "instruments", "subscriptionType", "interval"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -47,8 +51,7 @@ class RpcCreateSubscriptionParams(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -94,7 +97,8 @@ class RpcCreateSubscriptionParams(BaseModel):
         _obj = cls.model_validate({
             "venue": obj.get("venue"),
             "instruments": obj.get("instruments"),
-            "subscriptionType": obj.get("subscriptionType")
+            "subscriptionType": obj.get("subscriptionType"),
+            "interval": obj.get("interval")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

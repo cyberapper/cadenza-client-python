@@ -20,16 +20,17 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from uuid import UUID
-from cadenza_client.models.orderbook import Orderbook
+from cadenza_client.models.order_book import OrderBook
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class WsMarketOrderBookUpdate(BaseModel):
     """
     WsMarketOrderBookUpdate
     """ # noqa: E501
     channel: StrictStr
-    data: Orderbook
+    data: OrderBook
     subscription_id: UUID = Field(description="UUID string", alias="subscriptionId")
     timestamp: StrictInt = Field(description="Unix timestamp in milliseconds")
     additional_properties: Dict[str, Any] = {}
@@ -43,7 +44,8 @@ class WsMarketOrderBookUpdate(BaseModel):
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -55,8 +57,7 @@ class WsMarketOrderBookUpdate(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -104,7 +105,7 @@ class WsMarketOrderBookUpdate(BaseModel):
 
         _obj = cls.model_validate({
             "channel": obj.get("channel"),
-            "data": Orderbook.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": OrderBook.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "subscriptionId": obj.get("subscriptionId"),
             "timestamp": obj.get("timestamp")
         })

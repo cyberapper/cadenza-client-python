@@ -47,7 +47,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
     api_instance = cadenza_client.TradingAccountPortfolioApi(api_client)
     trading_account_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Trading account ID (optional)
     venue = cadenza_client.Venue() # Venue | Exchange type (optional)
-    currency = 'USDT' # str | Currency (optional)
+    currency = 'currency_example' # str | Currency (optional)
     limit = 50 # int | Limit the number of returned results (optional) (default to 50)
     offset = 0 # int | Offset of the returned results (optional) (default to 0)
 

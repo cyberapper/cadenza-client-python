@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.4.0"
+__version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
@@ -66,6 +66,7 @@ __all__ = [
     "CreateTradingAccountCredentialRequest",
     "CredentialStatus",
     "CredentialType",
+    "DealerStatus",
     "DeleteMarketInstrument200Response",
     "DeleteMarketInstrumentRequest",
     "DeleteMarketSecurity200Response",
@@ -76,18 +77,27 @@ __all__ = [
     "EnableMarketInstrument200Response",
     "EnableMarketInstrumentRequest",
     "EnableTradingAccountRequest",
+    "FermataArchiveDealerRequest",
     "FermataCloseWalletRequest",
+    "FermataCreateDealer200Response",
+    "FermataCreateDealerRequest",
     "FermataCreateWallet200Response",
     "FermataCreateWalletRequest",
+    "FermataDealer",
     "FermataFreezeWalletRequest",
     "FermataLinkDealerRequest",
+    "FermataListDealers200Response",
     "FermataListWallets200Response",
+    "FermataPauseDealerRequest",
+    "FermataResumeDealerRequest",
     "FermataTransferWalletRequest",
     "FermataUnfreezeWalletRequest",
     "FermataUnlinkDealerRequest",
     "FermataWallet",
     "FinancialSecurity",
+    "GetMarketKline200Response",
     "GetMarketOrderBook200Response",
+    "GetMarketTicker200Response",
     "Health200Response",
     "Health200ResponseChecks",
     "HealthCheckComponent",
@@ -96,9 +106,12 @@ __all__ = [
     "Instrument",
     "InstrumentStatus",
     "InstrumentType",
+    "Kline",
+    "KlineInterval",
     "ListMarketInstruments200Response",
     "ListMarketOrderBooks200Response",
     "ListMarketSecurities200Response",
+    "ListMarketTickers200Response",
     "ListMarketVenues200Response",
     "ListTradeOrders200Response",
     "ListTradingAccountCredentials200Response",
@@ -110,11 +123,12 @@ __all__ = [
     "MarketVenue",
     "OperationStatus",
     "OperationType",
+    "OrderBook",
+    "OrderBookType",
     "OrderQuantityType",
     "OrderSide",
     "OrderStatus",
     "OrderType",
-    "Orderbook",
     "Pagination",
     "Portfolio",
     "PortfolioSummary",
@@ -175,7 +189,6 @@ __all__ = [
     "RpcHealthCheckResult",
     "RpcInstrument",
     "RpcInstrumentUpdatedEvent",
-    "RpcKline",
     "RpcListCredentialsParams",
     "RpcListCredentialsResult",
     "RpcListInstrumentsParams",
@@ -204,9 +217,6 @@ __all__ = [
     "RpcListTradingAccountsResult",
     "RpcListVenuesResult",
     "RpcMethod",
-    "RpcOhlcv",
-    "RpcOrderBook",
-    "RpcOrderBookLevel",
     "RpcOrderBookUpdatedEvent",
     "RpcPagination",
     "RpcPortfolio",
@@ -252,7 +262,6 @@ __all__ = [
     "RpcSyncSecuritiesParams",
     "RpcSyncSecuritiesResult",
     "RpcSystemInfo",
-    "RpcTicker",
     "RpcTradeOrder",
     "RpcTradeOrderUpdatedEvent",
     "RpcTradingAccount",
@@ -288,6 +297,7 @@ __all__ = [
     "SyncMarketInstrumentsRequest",
     "SyncMarketInstrumentsResponseData",
     "SyncMarketSecuritiesRequest",
+    "Ticker",
     "TimeInForce",
     "TradeExecution",
     "TradeOrder",
@@ -300,6 +310,7 @@ __all__ = [
     "UnsubscribeRequest",
     "UpdateMode",
     "UpdateTradingAccountRequest",
+    "UpdateType",
     "Venue",
     "VenueStatus",
     "VerifyTradingAccountCredential200Response",
@@ -402,6 +413,7 @@ from cadenza_client.models.create_trading_account_credential200_response import 
 from cadenza_client.models.create_trading_account_credential_request import CreateTradingAccountCredentialRequest as CreateTradingAccountCredentialRequest
 from cadenza_client.models.credential_status import CredentialStatus as CredentialStatus
 from cadenza_client.models.credential_type import CredentialType as CredentialType
+from cadenza_client.models.dealer_status import DealerStatus as DealerStatus
 from cadenza_client.models.delete_market_instrument200_response import DeleteMarketInstrument200Response as DeleteMarketInstrument200Response
 from cadenza_client.models.delete_market_instrument_request import DeleteMarketInstrumentRequest as DeleteMarketInstrumentRequest
 from cadenza_client.models.delete_market_security200_response import DeleteMarketSecurity200Response as DeleteMarketSecurity200Response
@@ -412,18 +424,27 @@ from cadenza_client.models.disconnect_trading_account_request import DisconnectT
 from cadenza_client.models.enable_market_instrument200_response import EnableMarketInstrument200Response as EnableMarketInstrument200Response
 from cadenza_client.models.enable_market_instrument_request import EnableMarketInstrumentRequest as EnableMarketInstrumentRequest
 from cadenza_client.models.enable_trading_account_request import EnableTradingAccountRequest as EnableTradingAccountRequest
+from cadenza_client.models.fermata_archive_dealer_request import FermataArchiveDealerRequest as FermataArchiveDealerRequest
 from cadenza_client.models.fermata_close_wallet_request import FermataCloseWalletRequest as FermataCloseWalletRequest
+from cadenza_client.models.fermata_create_dealer200_response import FermataCreateDealer200Response as FermataCreateDealer200Response
+from cadenza_client.models.fermata_create_dealer_request import FermataCreateDealerRequest as FermataCreateDealerRequest
 from cadenza_client.models.fermata_create_wallet200_response import FermataCreateWallet200Response as FermataCreateWallet200Response
 from cadenza_client.models.fermata_create_wallet_request import FermataCreateWalletRequest as FermataCreateWalletRequest
+from cadenza_client.models.fermata_dealer import FermataDealer as FermataDealer
 from cadenza_client.models.fermata_freeze_wallet_request import FermataFreezeWalletRequest as FermataFreezeWalletRequest
 from cadenza_client.models.fermata_link_dealer_request import FermataLinkDealerRequest as FermataLinkDealerRequest
+from cadenza_client.models.fermata_list_dealers200_response import FermataListDealers200Response as FermataListDealers200Response
 from cadenza_client.models.fermata_list_wallets200_response import FermataListWallets200Response as FermataListWallets200Response
+from cadenza_client.models.fermata_pause_dealer_request import FermataPauseDealerRequest as FermataPauseDealerRequest
+from cadenza_client.models.fermata_resume_dealer_request import FermataResumeDealerRequest as FermataResumeDealerRequest
 from cadenza_client.models.fermata_transfer_wallet_request import FermataTransferWalletRequest as FermataTransferWalletRequest
 from cadenza_client.models.fermata_unfreeze_wallet_request import FermataUnfreezeWalletRequest as FermataUnfreezeWalletRequest
 from cadenza_client.models.fermata_unlink_dealer_request import FermataUnlinkDealerRequest as FermataUnlinkDealerRequest
 from cadenza_client.models.fermata_wallet import FermataWallet as FermataWallet
 from cadenza_client.models.financial_security import FinancialSecurity as FinancialSecurity
+from cadenza_client.models.get_market_kline200_response import GetMarketKline200Response as GetMarketKline200Response
 from cadenza_client.models.get_market_order_book200_response import GetMarketOrderBook200Response as GetMarketOrderBook200Response
+from cadenza_client.models.get_market_ticker200_response import GetMarketTicker200Response as GetMarketTicker200Response
 from cadenza_client.models.health200_response import Health200Response as Health200Response
 from cadenza_client.models.health200_response_checks import Health200ResponseChecks as Health200ResponseChecks
 from cadenza_client.models.health_check_component import HealthCheckComponent as HealthCheckComponent
@@ -432,9 +453,12 @@ from cadenza_client.models.inline_object import InlineObject as InlineObject
 from cadenza_client.models.instrument import Instrument as Instrument
 from cadenza_client.models.instrument_status import InstrumentStatus as InstrumentStatus
 from cadenza_client.models.instrument_type import InstrumentType as InstrumentType
+from cadenza_client.models.kline import Kline as Kline
+from cadenza_client.models.kline_interval import KlineInterval as KlineInterval
 from cadenza_client.models.list_market_instruments200_response import ListMarketInstruments200Response as ListMarketInstruments200Response
 from cadenza_client.models.list_market_order_books200_response import ListMarketOrderBooks200Response as ListMarketOrderBooks200Response
 from cadenza_client.models.list_market_securities200_response import ListMarketSecurities200Response as ListMarketSecurities200Response
+from cadenza_client.models.list_market_tickers200_response import ListMarketTickers200Response as ListMarketTickers200Response
 from cadenza_client.models.list_market_venues200_response import ListMarketVenues200Response as ListMarketVenues200Response
 from cadenza_client.models.list_trade_orders200_response import ListTradeOrders200Response as ListTradeOrders200Response
 from cadenza_client.models.list_trading_account_credentials200_response import ListTradingAccountCredentials200Response as ListTradingAccountCredentials200Response
@@ -446,11 +470,12 @@ from cadenza_client.models.margin_mode import MarginMode as MarginMode
 from cadenza_client.models.market_venue import MarketVenue as MarketVenue
 from cadenza_client.models.operation_status import OperationStatus as OperationStatus
 from cadenza_client.models.operation_type import OperationType as OperationType
+from cadenza_client.models.order_book import OrderBook as OrderBook
+from cadenza_client.models.order_book_type import OrderBookType as OrderBookType
 from cadenza_client.models.order_quantity_type import OrderQuantityType as OrderQuantityType
 from cadenza_client.models.order_side import OrderSide as OrderSide
 from cadenza_client.models.order_status import OrderStatus as OrderStatus
 from cadenza_client.models.order_type import OrderType as OrderType
-from cadenza_client.models.orderbook import Orderbook as Orderbook
 from cadenza_client.models.pagination import Pagination as Pagination
 from cadenza_client.models.portfolio import Portfolio as Portfolio
 from cadenza_client.models.portfolio_summary import PortfolioSummary as PortfolioSummary
@@ -511,7 +536,6 @@ from cadenza_client.models.rpc_health_check import RpcHealthCheck as RpcHealthCh
 from cadenza_client.models.rpc_health_check_result import RpcHealthCheckResult as RpcHealthCheckResult
 from cadenza_client.models.rpc_instrument import RpcInstrument as RpcInstrument
 from cadenza_client.models.rpc_instrument_updated_event import RpcInstrumentUpdatedEvent as RpcInstrumentUpdatedEvent
-from cadenza_client.models.rpc_kline import RpcKline as RpcKline
 from cadenza_client.models.rpc_list_credentials_params import RpcListCredentialsParams as RpcListCredentialsParams
 from cadenza_client.models.rpc_list_credentials_result import RpcListCredentialsResult as RpcListCredentialsResult
 from cadenza_client.models.rpc_list_instruments_params import RpcListInstrumentsParams as RpcListInstrumentsParams
@@ -540,9 +564,6 @@ from cadenza_client.models.rpc_list_trading_accounts_params import RpcListTradin
 from cadenza_client.models.rpc_list_trading_accounts_result import RpcListTradingAccountsResult as RpcListTradingAccountsResult
 from cadenza_client.models.rpc_list_venues_result import RpcListVenuesResult as RpcListVenuesResult
 from cadenza_client.models.rpc_method import RpcMethod as RpcMethod
-from cadenza_client.models.rpc_ohlcv import RpcOhlcv as RpcOhlcv
-from cadenza_client.models.rpc_order_book import RpcOrderBook as RpcOrderBook
-from cadenza_client.models.rpc_order_book_level import RpcOrderBookLevel as RpcOrderBookLevel
 from cadenza_client.models.rpc_order_book_updated_event import RpcOrderBookUpdatedEvent as RpcOrderBookUpdatedEvent
 from cadenza_client.models.rpc_pagination import RpcPagination as RpcPagination
 from cadenza_client.models.rpc_portfolio import RpcPortfolio as RpcPortfolio
@@ -588,7 +609,6 @@ from cadenza_client.models.rpc_sync_instruments_result_data import RpcSyncInstru
 from cadenza_client.models.rpc_sync_securities_params import RpcSyncSecuritiesParams as RpcSyncSecuritiesParams
 from cadenza_client.models.rpc_sync_securities_result import RpcSyncSecuritiesResult as RpcSyncSecuritiesResult
 from cadenza_client.models.rpc_system_info import RpcSystemInfo as RpcSystemInfo
-from cadenza_client.models.rpc_ticker import RpcTicker as RpcTicker
 from cadenza_client.models.rpc_trade_order import RpcTradeOrder as RpcTradeOrder
 from cadenza_client.models.rpc_trade_order_updated_event import RpcTradeOrderUpdatedEvent as RpcTradeOrderUpdatedEvent
 from cadenza_client.models.rpc_trading_account import RpcTradingAccount as RpcTradingAccount
@@ -624,6 +644,7 @@ from cadenza_client.models.sync_market_instruments200_response import SyncMarket
 from cadenza_client.models.sync_market_instruments_request import SyncMarketInstrumentsRequest as SyncMarketInstrumentsRequest
 from cadenza_client.models.sync_market_instruments_response_data import SyncMarketInstrumentsResponseData as SyncMarketInstrumentsResponseData
 from cadenza_client.models.sync_market_securities_request import SyncMarketSecuritiesRequest as SyncMarketSecuritiesRequest
+from cadenza_client.models.ticker import Ticker as Ticker
 from cadenza_client.models.time_in_force import TimeInForce as TimeInForce
 from cadenza_client.models.trade_execution import TradeExecution as TradeExecution
 from cadenza_client.models.trade_order import TradeOrder as TradeOrder
@@ -636,6 +657,7 @@ from cadenza_client.models.trading_account_type import TradingAccountType as Tra
 from cadenza_client.models.unsubscribe_request import UnsubscribeRequest as UnsubscribeRequest
 from cadenza_client.models.update_mode import UpdateMode as UpdateMode
 from cadenza_client.models.update_trading_account_request import UpdateTradingAccountRequest as UpdateTradingAccountRequest
+from cadenza_client.models.update_type import UpdateType as UpdateType
 from cadenza_client.models.venue import Venue as Venue
 from cadenza_client.models.venue_status import VenueStatus as VenueStatus
 from cadenza_client.models.verify_trading_account_credential200_response import VerifyTradingAccountCredential200Response as VerifyTradingAccountCredential200Response

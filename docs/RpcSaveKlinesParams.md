@@ -6,7 +6,7 @@ Request to save klines (candlestick data)
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**klines** | [**List[RpcKline]**](RpcKline.md) |  | 
+**klines** | [**List[Kline]**](Kline.md) |  | 
 
 ## Example
 

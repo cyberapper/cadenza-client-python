@@ -15,7 +15,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr
+from pydantic import Field, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
 from cadenza_client.models.delete_market_instrument200_response import DeleteMarketInstrument200Response
@@ -25,11 +25,15 @@ from cadenza_client.models.delete_market_security_request import DeleteMarketSec
 from cadenza_client.models.disable_market_instrument_request import DisableMarketInstrumentRequest
 from cadenza_client.models.enable_market_instrument200_response import EnableMarketInstrument200Response
 from cadenza_client.models.enable_market_instrument_request import EnableMarketInstrumentRequest
+from cadenza_client.models.get_market_kline200_response import GetMarketKline200Response
 from cadenza_client.models.get_market_order_book200_response import GetMarketOrderBook200Response
+from cadenza_client.models.get_market_ticker200_response import GetMarketTicker200Response
 from cadenza_client.models.instrument_status import InstrumentStatus
+from cadenza_client.models.kline_interval import KlineInterval
 from cadenza_client.models.list_market_instruments200_response import ListMarketInstruments200Response
 from cadenza_client.models.list_market_order_books200_response import ListMarketOrderBooks200Response
 from cadenza_client.models.list_market_securities200_response import ListMarketSecurities200Response
+from cadenza_client.models.list_market_tickers200_response import ListMarketTickers200Response
 from cadenza_client.models.list_market_venues200_response import ListMarketVenues200Response
 from cadenza_client.models.security_type import SecurityType
 from cadenza_client.models.sync_market_instruments200_response import SyncMarketInstruments200Response
@@ -1212,11 +1216,355 @@ class MarketApi:
 
 
     @validate_call
+    def get_market_kline(
+        self,
+        interval: Annotated[KlineInterval, Field(description="Kline interval (e.g. `1m`, `5m`, `1h`, `1d`)")],
+        instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
+        var_from: Annotated[Optional[StrictInt], Field(description="Range start (Unix timestamp in milliseconds, inclusive)")] = None,
+        to: Annotated[Optional[StrictInt], Field(description="Range end (Unix timestamp in milliseconds, inclusive)")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Limit the number of returned results")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetMarketKline200Response:
+        """Get market kline
+
+        Get klines (candlestick data) for a specific instrument and interval. Returns a single `kline` object containing an array of OHLCV candles.  Returns `isClosed: true` for historical-only queries; `isClosed: false` only when the queried range includes the live (currently forming) bar. 
+
+        :param interval: Kline interval (e.g. `1m`, `5m`, `1h`, `1d`) (required)
+        :type interval: KlineInterval
+        :param instrument_id: Instrument ID
+        :type instrument_id: str
+        :param var_from: Range start (Unix timestamp in milliseconds, inclusive)
+        :type var_from: int
+        :param to: Range end (Unix timestamp in milliseconds, inclusive)
+        :type to: int
+        :param limit: Limit the number of returned results
+        :type limit: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_market_kline_serialize(
+            interval=interval,
+            instrument_id=instrument_id,
+            var_from=var_from,
+            to=to,
+            limit=limit,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMarketKline200Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_market_kline_with_http_info(
+        self,
+        interval: Annotated[KlineInterval, Field(description="Kline interval (e.g. `1m`, `5m`, `1h`, `1d`)")],
+        instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
+        var_from: Annotated[Optional[StrictInt], Field(description="Range start (Unix timestamp in milliseconds, inclusive)")] = None,
+        to: Annotated[Optional[StrictInt], Field(description="Range end (Unix timestamp in milliseconds, inclusive)")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Limit the number of returned results")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetMarketKline200Response]:
+        """Get market kline
+
+        Get klines (candlestick data) for a specific instrument and interval. Returns a single `kline` object containing an array of OHLCV candles.  Returns `isClosed: true` for historical-only queries; `isClosed: false` only when the queried range includes the live (currently forming) bar. 
+
+        :param interval: Kline interval (e.g. `1m`, `5m`, `1h`, `1d`) (required)
+        :type interval: KlineInterval
+        :param instrument_id: Instrument ID
+        :type instrument_id: str
+        :param var_from: Range start (Unix timestamp in milliseconds, inclusive)
+        :type var_from: int
+        :param to: Range end (Unix timestamp in milliseconds, inclusive)
+        :type to: int
+        :param limit: Limit the number of returned results
+        :type limit: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_market_kline_serialize(
+            interval=interval,
+            instrument_id=instrument_id,
+            var_from=var_from,
+            to=to,
+            limit=limit,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMarketKline200Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_market_kline_without_preload_content(
+        self,
+        interval: Annotated[KlineInterval, Field(description="Kline interval (e.g. `1m`, `5m`, `1h`, `1d`)")],
+        instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
+        var_from: Annotated[Optional[StrictInt], Field(description="Range start (Unix timestamp in milliseconds, inclusive)")] = None,
+        to: Annotated[Optional[StrictInt], Field(description="Range end (Unix timestamp in milliseconds, inclusive)")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Limit the number of returned results")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get market kline
+
+        Get klines (candlestick data) for a specific instrument and interval. Returns a single `kline` object containing an array of OHLCV candles.  Returns `isClosed: true` for historical-only queries; `isClosed: false` only when the queried range includes the live (currently forming) bar. 
+
+        :param interval: Kline interval (e.g. `1m`, `5m`, `1h`, `1d`) (required)
+        :type interval: KlineInterval
+        :param instrument_id: Instrument ID
+        :type instrument_id: str
+        :param var_from: Range start (Unix timestamp in milliseconds, inclusive)
+        :type var_from: int
+        :param to: Range end (Unix timestamp in milliseconds, inclusive)
+        :type to: int
+        :param limit: Limit the number of returned results
+        :type limit: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_market_kline_serialize(
+            interval=interval,
+            instrument_id=instrument_id,
+            var_from=var_from,
+            to=to,
+            limit=limit,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMarketKline200Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_market_kline_serialize(
+        self,
+        interval,
+        instrument_id,
+        var_from,
+        to,
+        limit,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if instrument_id is not None:
+            
+            _query_params.append(('instrumentId', instrument_id))
+            
+        if interval is not None:
+            
+            _query_params.append(('interval', interval.value))
+            
+        if var_from is not None:
+            
+            _query_params.append(('from', var_from))
+            
+        if to is not None:
+            
+            _query_params.append(('to', to))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'SupabaseOAuth2BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v3/market/kline/get',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def get_market_order_book(
         self,
         instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
-        venue: Annotated[Optional[Venue], Field(description="Exchange type")] = None,
-        symbol: Annotated[Optional[StrictStr], Field(description="Instrument Symbol")] = None,
         depth: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Order book depth")] = None,
         _request_timeout: Union[
             None,
@@ -1233,14 +1581,10 @@ class MarketApi:
     ) -> GetMarketOrderBook200Response:
         """Get market order book
 
-        Get order book for a specific instrument. instrumentId or venue+symbol
+        Get order book for a specific instrument.
 
         :param instrument_id: Instrument ID
         :type instrument_id: str
-        :param venue: Exchange type
-        :type venue: Venue
-        :param symbol: Instrument Symbol
-        :type symbol: str
         :param depth: Order book depth
         :type depth: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1267,8 +1611,6 @@ class MarketApi:
 
         _param = self._get_market_order_book_serialize(
             instrument_id=instrument_id,
-            venue=venue,
-            symbol=symbol,
             depth=depth,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1299,8 +1641,6 @@ class MarketApi:
     def get_market_order_book_with_http_info(
         self,
         instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
-        venue: Annotated[Optional[Venue], Field(description="Exchange type")] = None,
-        symbol: Annotated[Optional[StrictStr], Field(description="Instrument Symbol")] = None,
         depth: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Order book depth")] = None,
         _request_timeout: Union[
             None,
@@ -1317,14 +1657,10 @@ class MarketApi:
     ) -> ApiResponse[GetMarketOrderBook200Response]:
         """Get market order book
 
-        Get order book for a specific instrument. instrumentId or venue+symbol
+        Get order book for a specific instrument.
 
         :param instrument_id: Instrument ID
         :type instrument_id: str
-        :param venue: Exchange type
-        :type venue: Venue
-        :param symbol: Instrument Symbol
-        :type symbol: str
         :param depth: Order book depth
         :type depth: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1351,8 +1687,6 @@ class MarketApi:
 
         _param = self._get_market_order_book_serialize(
             instrument_id=instrument_id,
-            venue=venue,
-            symbol=symbol,
             depth=depth,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1383,8 +1717,6 @@ class MarketApi:
     def get_market_order_book_without_preload_content(
         self,
         instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
-        venue: Annotated[Optional[Venue], Field(description="Exchange type")] = None,
-        symbol: Annotated[Optional[StrictStr], Field(description="Instrument Symbol")] = None,
         depth: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Order book depth")] = None,
         _request_timeout: Union[
             None,
@@ -1401,14 +1733,10 @@ class MarketApi:
     ) -> RESTResponseType:
         """Get market order book
 
-        Get order book for a specific instrument. instrumentId or venue+symbol
+        Get order book for a specific instrument.
 
         :param instrument_id: Instrument ID
         :type instrument_id: str
-        :param venue: Exchange type
-        :type venue: Venue
-        :param symbol: Instrument Symbol
-        :type symbol: str
         :param depth: Order book depth
         :type depth: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1435,8 +1763,6 @@ class MarketApi:
 
         _param = self._get_market_order_book_serialize(
             instrument_id=instrument_id,
-            venue=venue,
-            symbol=symbol,
             depth=depth,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1462,8 +1788,6 @@ class MarketApi:
     def _get_market_order_book_serialize(
         self,
         instrument_id,
-        venue,
-        symbol,
         depth,
         _request_auth,
         _content_type,
@@ -1491,14 +1815,6 @@ class MarketApi:
             
             _query_params.append(('instrumentId', instrument_id))
             
-        if venue is not None:
-            
-            _query_params.append(('venue', venue.value))
-            
-        if symbol is not None:
-            
-            _query_params.append(('symbol', symbol))
-            
         if depth is not None:
             
             _query_params.append(('depth', depth))
@@ -1525,6 +1841,284 @@ class MarketApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v3/market/orderBook/get',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_market_ticker(
+        self,
+        instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetMarketTicker200Response:
+        """Get market ticker
+
+        Get ticker for a specific instrument.
+
+        :param instrument_id: Instrument ID
+        :type instrument_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_market_ticker_serialize(
+            instrument_id=instrument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMarketTicker200Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_market_ticker_with_http_info(
+        self,
+        instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetMarketTicker200Response]:
+        """Get market ticker
+
+        Get ticker for a specific instrument.
+
+        :param instrument_id: Instrument ID
+        :type instrument_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_market_ticker_serialize(
+            instrument_id=instrument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMarketTicker200Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_market_ticker_without_preload_content(
+        self,
+        instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get market ticker
+
+        Get ticker for a specific instrument.
+
+        :param instrument_id: Instrument ID
+        :type instrument_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_market_ticker_serialize(
+            instrument_id=instrument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMarketTicker200Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_market_ticker_serialize(
+        self,
+        instrument_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if instrument_id is not None:
+            
+            _query_params.append(('instrumentId', instrument_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'SupabaseOAuth2BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v3/market/ticker/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1907,9 +2501,7 @@ class MarketApi:
     @validate_call
     def list_market_order_books(
         self,
-        instrument_ids: Optional[List[StrictStr]] = None,
-        venue: Annotated[Optional[Venue], Field(description="Exchange type")] = None,
-        symbols: Annotated[Optional[List[StrictStr]], Field(description="Instrument Symbols array")] = None,
+        instrument_ids: Annotated[Optional[List[StrictStr]], Field(description="Instrument ID array. Repeat the param to pass multiple values.")] = None,
         depth: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Order book depth")] = None,
         _request_timeout: Union[
             None,
@@ -1926,14 +2518,10 @@ class MarketApi:
     ) -> ListMarketOrderBooks200Response:
         """List market order books
 
-        List order books for multiple instruments
+        List order books for multiple instruments. Filter by `instrumentIds`.
 
-        :param instrument_ids:
+        :param instrument_ids: Instrument ID array. Repeat the param to pass multiple values.
         :type instrument_ids: List[str]
-        :param venue: Exchange type
-        :type venue: Venue
-        :param symbols: Instrument Symbols array
-        :type symbols: List[str]
         :param depth: Order book depth
         :type depth: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1960,8 +2548,6 @@ class MarketApi:
 
         _param = self._list_market_order_books_serialize(
             instrument_ids=instrument_ids,
-            venue=venue,
-            symbols=symbols,
             depth=depth,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1991,9 +2577,7 @@ class MarketApi:
     @validate_call
     def list_market_order_books_with_http_info(
         self,
-        instrument_ids: Optional[List[StrictStr]] = None,
-        venue: Annotated[Optional[Venue], Field(description="Exchange type")] = None,
-        symbols: Annotated[Optional[List[StrictStr]], Field(description="Instrument Symbols array")] = None,
+        instrument_ids: Annotated[Optional[List[StrictStr]], Field(description="Instrument ID array. Repeat the param to pass multiple values.")] = None,
         depth: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Order book depth")] = None,
         _request_timeout: Union[
             None,
@@ -2010,14 +2594,10 @@ class MarketApi:
     ) -> ApiResponse[ListMarketOrderBooks200Response]:
         """List market order books
 
-        List order books for multiple instruments
+        List order books for multiple instruments. Filter by `instrumentIds`.
 
-        :param instrument_ids:
+        :param instrument_ids: Instrument ID array. Repeat the param to pass multiple values.
         :type instrument_ids: List[str]
-        :param venue: Exchange type
-        :type venue: Venue
-        :param symbols: Instrument Symbols array
-        :type symbols: List[str]
         :param depth: Order book depth
         :type depth: int
         :param _request_timeout: timeout setting for this request. If one
@@ -2044,8 +2624,6 @@ class MarketApi:
 
         _param = self._list_market_order_books_serialize(
             instrument_ids=instrument_ids,
-            venue=venue,
-            symbols=symbols,
             depth=depth,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2075,9 +2653,7 @@ class MarketApi:
     @validate_call
     def list_market_order_books_without_preload_content(
         self,
-        instrument_ids: Optional[List[StrictStr]] = None,
-        venue: Annotated[Optional[Venue], Field(description="Exchange type")] = None,
-        symbols: Annotated[Optional[List[StrictStr]], Field(description="Instrument Symbols array")] = None,
+        instrument_ids: Annotated[Optional[List[StrictStr]], Field(description="Instrument ID array. Repeat the param to pass multiple values.")] = None,
         depth: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Order book depth")] = None,
         _request_timeout: Union[
             None,
@@ -2094,14 +2670,10 @@ class MarketApi:
     ) -> RESTResponseType:
         """List market order books
 
-        List order books for multiple instruments
+        List order books for multiple instruments. Filter by `instrumentIds`.
 
-        :param instrument_ids:
+        :param instrument_ids: Instrument ID array. Repeat the param to pass multiple values.
         :type instrument_ids: List[str]
-        :param venue: Exchange type
-        :type venue: Venue
-        :param symbols: Instrument Symbols array
-        :type symbols: List[str]
         :param depth: Order book depth
         :type depth: int
         :param _request_timeout: timeout setting for this request. If one
@@ -2128,8 +2700,6 @@ class MarketApi:
 
         _param = self._list_market_order_books_serialize(
             instrument_ids=instrument_ids,
-            venue=venue,
-            symbols=symbols,
             depth=depth,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2155,8 +2725,6 @@ class MarketApi:
     def _list_market_order_books_serialize(
         self,
         instrument_ids,
-        venue,
-        symbols,
         depth,
         _request_auth,
         _content_type,
@@ -2168,7 +2736,6 @@ class MarketApi:
 
         _collection_formats: Dict[str, str] = {
             'instrumentIds': 'multi',
-            'symbols': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -2185,14 +2752,6 @@ class MarketApi:
         if instrument_ids is not None:
             
             _query_params.append(('instrumentIds', instrument_ids))
-            
-        if venue is not None:
-            
-            _query_params.append(('venue', venue.value))
-            
-        if symbols is not None:
-            
-            _query_params.append(('symbols', symbols))
             
         if depth is not None:
             
@@ -2549,6 +3108,336 @@ class MarketApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/v3/market/security/list',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def list_market_tickers(
+        self,
+        instrument_ids: Annotated[Optional[List[StrictStr]], Field(description="Instrument ID array. Repeat the param to pass multiple values.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Limit the number of returned results")] = None,
+        offset: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Offset of the returned results")] = None,
+        cursor: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ListMarketTickers200Response:
+        """List market tickers
+
+        List tickers for screening — filter by `instrumentIds`.
+
+        :param instrument_ids: Instrument ID array. Repeat the param to pass multiple values.
+        :type instrument_ids: List[str]
+        :param limit: Limit the number of returned results
+        :type limit: int
+        :param offset: Offset of the returned results
+        :type offset: int
+        :param cursor:
+        :type cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_market_tickers_serialize(
+            instrument_ids=instrument_ids,
+            limit=limit,
+            offset=offset,
+            cursor=cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListMarketTickers200Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def list_market_tickers_with_http_info(
+        self,
+        instrument_ids: Annotated[Optional[List[StrictStr]], Field(description="Instrument ID array. Repeat the param to pass multiple values.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Limit the number of returned results")] = None,
+        offset: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Offset of the returned results")] = None,
+        cursor: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ListMarketTickers200Response]:
+        """List market tickers
+
+        List tickers for screening — filter by `instrumentIds`.
+
+        :param instrument_ids: Instrument ID array. Repeat the param to pass multiple values.
+        :type instrument_ids: List[str]
+        :param limit: Limit the number of returned results
+        :type limit: int
+        :param offset: Offset of the returned results
+        :type offset: int
+        :param cursor:
+        :type cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_market_tickers_serialize(
+            instrument_ids=instrument_ids,
+            limit=limit,
+            offset=offset,
+            cursor=cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListMarketTickers200Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def list_market_tickers_without_preload_content(
+        self,
+        instrument_ids: Annotated[Optional[List[StrictStr]], Field(description="Instrument ID array. Repeat the param to pass multiple values.")] = None,
+        limit: Annotated[Optional[Annotated[int, Field(le=1000, strict=True, ge=1)]], Field(description="Limit the number of returned results")] = None,
+        offset: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Offset of the returned results")] = None,
+        cursor: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """List market tickers
+
+        List tickers for screening — filter by `instrumentIds`.
+
+        :param instrument_ids: Instrument ID array. Repeat the param to pass multiple values.
+        :type instrument_ids: List[str]
+        :param limit: Limit the number of returned results
+        :type limit: int
+        :param offset: Offset of the returned results
+        :type offset: int
+        :param cursor:
+        :type cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._list_market_tickers_serialize(
+            instrument_ids=instrument_ids,
+            limit=limit,
+            offset=offset,
+            cursor=cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ListMarketTickers200Response",
+            '400': "BaseResponse",
+            '401': "BaseResponse",
+            '403': "BaseResponse",
+            '404': "BaseResponse",
+            '500': "BaseResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _list_market_tickers_serialize(
+        self,
+        instrument_ids,
+        limit,
+        offset,
+        cursor,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'instrumentIds': 'multi',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if instrument_ids is not None:
+            
+            _query_params.append(('instrumentIds', instrument_ids))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        if offset is not None:
+            
+            _query_params.append(('offset', offset))
+            
+        if cursor is not None:
+            
+            _query_params.append(('cursor', cursor))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'SupabaseOAuth2BearerAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/v3/market/ticker/list',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

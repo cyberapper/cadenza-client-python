@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RpcPortfolioSummary(BaseModel):
     """
@@ -29,7 +30,7 @@ class RpcPortfolioSummary(BaseModel):
     """ # noqa: E501
     portfolio_summary_id: Optional[UUID] = Field(default=None, alias="portfolioSummaryId")
     trading_account_id: Optional[UUID] = Field(default=None, alias="tradingAccountId")
-    currency: Optional[StrictStr] = Field(default=None, description="Summary currency")
+    currency: Optional[StrictStr] = Field(default=None, description="Asset symbol (e.g. currency code, base asset)")
     leverage: Optional[StrictInt] = None
     equity: Optional[StrictStr] = Field(default=None, description="Total equity")
     margin: Optional[StrictStr] = Field(default=None, description="Margin collateral")
@@ -45,7 +46,8 @@ class RpcPortfolioSummary(BaseModel):
     __properties: ClassVar[List[str]] = ["portfolioSummaryId", "tradingAccountId", "currency", "leverage", "equity", "margin", "marginLoan", "marginUsage", "marginRequirement", "marginLevel", "credit", "riskExposure", "maxRiskExposure", "riskExposureRate"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -57,8 +59,7 @@ class RpcPortfolioSummary(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
