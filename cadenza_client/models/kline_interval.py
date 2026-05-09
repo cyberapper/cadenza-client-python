@@ -26,22 +26,22 @@ class KlineInterval(str, Enum):
     """
     allowed enum values
     """
-    ENUM_1S = '1s'
-    ENUM_1M = '1m'
-    ENUM_3M = '3m'
-    ENUM_5M = '5m'
-    ENUM_15M = '15m'
-    ENUM_30M = '30m'
-    ENUM_1H = '1h'
-    ENUM_2H = '2h'
-    ENUM_4H = '4h'
-    ENUM_6H = '6h'
-    ENUM_8H = '8h'
-    ENUM_12H = '12h'
-    ENUM_1D = '1d'
-    ENUM_3D = '3d'
-    ENUM_1W = '1w'
-    ENUM_1M = '1M'
+    SECOND_1 = '1s'
+    MINUTE_1 = '1m'
+    MINUTE_3 = '3m'
+    MINUTE_5 = '5m'
+    MINUTE_15 = '15m'
+    MINUTE_30 = '30m'
+    HOUR_1 = '1h'
+    HOUR_2 = '2h'
+    HOUR_4 = '4h'
+    HOUR_6 = '6h'
+    HOUR_8 = '8h'
+    HOUR_12 = '12h'
+    DAY_1 = '1d'
+    DAY_3 = '3d'
+    WEEK_1 = '1w'
+    MONTH_1 = '1M'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
