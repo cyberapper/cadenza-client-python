@@ -31,3 +31,6 @@ CLAUDE.md
 pyproject.toml
 setup.py
 requirements.txt
+
+# Protect openapi-generator-cli version pin
+openapitools.json
