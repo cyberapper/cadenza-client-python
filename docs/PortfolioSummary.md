@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **trading_account_id** | **UUID** | UUID string | 
-**currency** | **str** | Base currency for the portfolio summary | 
+**currency** | **str** | Asset symbol (e.g. currency code, base asset) | 
 **leverage** | **int** | Leverage multiplier | 
 **equity** | **str** | Decimal value as string to preserve precision | 
 **margin** | **str** | Decimal value as string to preserve precision | 

@@ -19,20 +19,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from cadenza_client.models.rpc_ticker import RpcTicker
+from cadenza_client.models.ticker import Ticker
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RpcSaveTickersParams(BaseModel):
     """
     Request to save tickers
     """ # noqa: E501
-    tickers: List[RpcTicker]
+    tickers: List[Ticker]
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tickers"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -44,8 +46,7 @@ class RpcSaveTickersParams(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -96,7 +97,7 @@ class RpcSaveTickersParams(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "tickers": [RpcTicker.from_dict(_item) for _item in obj["tickers"]] if obj.get("tickers") is not None else None
+            "tickers": [Ticker.from_dict(_item) for _item in obj["tickers"]] if obj.get("tickers") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

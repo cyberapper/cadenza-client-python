@@ -43,11 +43,16 @@ Include your JWT token in the connect command:
 
 Subscribe to channels for real-time updates:
 
-| Channel Pattern | Description |
-|-----------------|-------------|
-| `tradingAccount:{accountId}` | Trading account updates (orders, portfolio, balances) |
-| `market:orderBook:{instrumentId}` | Order book updates for an instrument |
-| `market:trade:{instrumentId}` | Trade updates for an instrument |
+| Channel Pattern | Payload Schema | Description |
+|-----------------|----------------|-------------|
+| `tradingAccount:{accountId}` | — | Trading account updates (orders, portfolio, balances) |
+| `market:orderbook:{venue}:{symbol}` | `orderBook` | Order book updates (`updateType` ∈ SNAPSHOT \| DIFF \| DELTA) |
+| `market:ticker:{venue}:{symbol}` | `ticker` | Per-instrument ticker updates |
+| `market:ticker:{venue}` | `ticker` | Venue-wide ticker fanout (live screening) |
+| `market:kline:{venue}:{symbol}:{interval}` | `kline` | Kline updates (`isClosed: false` while live, `true` on bar close) |
+| `market:trade:{venue}:{symbol}` | — | Trade updates for an instrument |
+
+Channel publications carry the same `orderBook` / `ticker` / `kline` schemas used by REST and WebSocket RPC.
 
 ## Message Format
 

@@ -6,7 +6,7 @@ Order book update event (pushed via WebSocket)
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**RpcOrderBook**](RpcOrderBook.md) |  | [optional] 
+**data** | [**OrderBook**](OrderBook.md) |  | [optional] 
 
 ## Example
 

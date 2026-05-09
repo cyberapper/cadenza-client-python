@@ -19,22 +19,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from cadenza_client.models.order_book import OrderBook
 from cadenza_client.models.rpc_error import RpcError
-from cadenza_client.models.rpc_order_book import RpcOrderBook
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RpcListOrderBooksResult(BaseModel):
     """
     Response containing list of order books
     """ # noqa: E501
-    data: Optional[List[RpcOrderBook]] = None
+    data: Optional[List[OrderBook]] = None
     error: Optional[RpcError] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["data", "error"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -46,8 +48,7 @@ class RpcListOrderBooksResult(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -101,7 +102,7 @@ class RpcListOrderBooksResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [RpcOrderBook.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [OrderBook.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "error": RpcError.from_dict(obj["error"]) if obj.get("error") is not None else None
         })
         # store additional fields in additional_properties

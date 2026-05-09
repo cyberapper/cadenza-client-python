@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **errno** | **int** | Error code (0 for success, non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code | 
 **error** | **str** | Error message (null for successful operations) | [optional] 
 **details** | [**BaseResponseDetails**](BaseResponseDetails.md) |  | [optional] 
-**data** | [**Orderbook**](Orderbook.md) |  | [optional] 
+**data** | [**OrderBook**](OrderBook.md) |  | [optional] 
 
 ## Example
 

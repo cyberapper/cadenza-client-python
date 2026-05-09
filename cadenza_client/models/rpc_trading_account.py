@@ -31,6 +31,7 @@ from cadenza_client.models.trading_account_type import TradingAccountType
 from cadenza_client.models.venue import Venue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RpcTradingAccount(BaseModel):
     """
@@ -56,7 +57,8 @@ class RpcTradingAccount(BaseModel):
     __properties: ClassVar[List[str]] = ["tradingAccountId", "userId", "tenantId", "nickname", "externalAccountId", "venue", "status", "accountType", "externalAccountType", "positionMode", "collateralMode", "marginMode", "credentials", "config", "createdAt", "updatedAt"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -68,8 +70,7 @@ class RpcTradingAccount(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

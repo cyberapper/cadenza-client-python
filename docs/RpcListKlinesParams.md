@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **instrument_ids** | **List[str]** |  | [optional] 
 **venue** | [**Venue**](Venue.md) |  | [optional] 
 **symbols** | **List[str]** |  | [optional] 
-**interval** | **str** |  | [optional] 
+**interval** | [**KlineInterval**](KlineInterval.md) |  | [optional] 
 
 ## Example
 

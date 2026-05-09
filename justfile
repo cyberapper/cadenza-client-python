@@ -31,7 +31,8 @@ openapi:
         -o . \
         --package-name cadenza_client \
         --git-user-id cyberapper \
-        --git-repo-id cadenza-client-python
+        --git-repo-id cadenza-client-python \
+        --additional-properties=packageVersion=1.0.0,projectName=cadenza-client-python,pythonAttrNoneIfUnset=true,disallowAdditionalPropertiesIfNotPresent=false
     echo "Cleaning up unwanted generated files..."
     rm -f .travis.yml .gitlab-ci.yml git_push.sh
     echo "Generation complete!"

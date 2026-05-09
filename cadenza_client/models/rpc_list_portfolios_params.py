@@ -23,6 +23,7 @@ from uuid import UUID
 from cadenza_client.models.rpc_pagination import RpcPagination
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RpcListPortfoliosParams(BaseModel):
     """
@@ -30,13 +31,14 @@ class RpcListPortfoliosParams(BaseModel):
     """ # noqa: E501
     trading_account_id: Optional[UUID] = Field(default=None, description="Filter by trading account ID", alias="tradingAccountId")
     venue: Optional[StrictStr] = Field(default=None, description="Filter by venue")
-    currency: Optional[StrictStr] = Field(default=None, description="Filter by currency")
+    currency: Optional[StrictStr] = Field(default=None, description="Asset symbol (e.g. currency code, base asset)")
     pagination: Optional[RpcPagination] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradingAccountId", "venue", "currency", "pagination"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -48,8 +50,7 @@ class RpcListPortfoliosParams(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

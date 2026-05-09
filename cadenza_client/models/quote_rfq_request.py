@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
@@ -24,6 +25,7 @@ from uuid import UUID
 from cadenza_client.models.order_side import OrderSide
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class QuoteRfqRequest(BaseModel):
     """
@@ -38,14 +40,20 @@ class QuoteRfqRequest(BaseModel):
     quantity: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Positive decimal value as string")
     quote_quantity: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Positive decimal value as string", alias="quoteQuantity")
     quote_request_id: Optional[StrictStr] = Field(default=None, description="Client-provided reference for idempotency and tracking", alias="quoteRequestId")
+    ttl: Optional[Annotated[int, Field(le=300, strict=True, ge=1)]] = Field(default=10, description="Time to live in seconds")
+    expire_at: Optional[datetime] = Field(default=None, description="Absolute expiry timestamp (ISO 8601). Mutually exclusive with ttl. If neither ttl nor expireAt is set, defaults to 10 seconds from quote creation.", alias="expireAt")
+    pricing_profile_id: Optional[UUID] = Field(default=None, description="UUID string", alias="pricingProfileId")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["dealerAccountId", "traderAccountId", "instrumentId", "baseAsset", "quoteAsset", "orderSide", "quantity", "quoteQuantity", "quoteRequestId"]
+    __properties: ClassVar[List[str]] = ["dealerAccountId", "traderAccountId", "instrumentId", "baseAsset", "quoteAsset", "orderSide", "quantity", "quoteQuantity", "quoteRequestId", "ttl", "expireAt", "pricingProfileId"]
 
     @field_validator('quantity')
     def quantity_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^\d+(\.\d+)?$/")
@@ -57,12 +65,16 @@ class QuoteRfqRequest(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^\d+(\.\d+)?$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -74,8 +86,7 @@ class QuoteRfqRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -127,7 +138,10 @@ class QuoteRfqRequest(BaseModel):
             "orderSide": obj.get("orderSide"),
             "quantity": obj.get("quantity"),
             "quoteQuantity": obj.get("quoteQuantity"),
-            "quoteRequestId": obj.get("quoteRequestId")
+            "quoteRequestId": obj.get("quoteRequestId"),
+            "ttl": obj.get("ttl") if obj.get("ttl") is not None else 10,
+            "expireAt": obj.get("expireAt"),
+            "pricingProfileId": obj.get("pricingProfileId")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

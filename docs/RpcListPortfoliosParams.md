@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **trading_account_id** | **UUID** | Filter by trading account ID | [optional] 
 **venue** | **str** | Filter by venue | [optional] 
-**currency** | **str** | Filter by currency | [optional] 
+**currency** | **str** | Asset symbol (e.g. currency code, base asset) | [optional] 
 **pagination** | [**RpcPagination**](RpcPagination.md) |  | [optional] 
 
 ## Example

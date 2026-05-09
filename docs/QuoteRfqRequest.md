@@ -15,6 +15,9 @@ Name | Type | Description | Notes
 **quantity** | **str** | Positive decimal value as string | [optional] 
 **quote_quantity** | **str** | Positive decimal value as string | [optional] 
 **quote_request_id** | **str** | Client-provided reference for idempotency and tracking | [optional] 
+**ttl** | **int** | Time to live in seconds | [optional] [default to 10]
+**expire_at** | **datetime** | Absolute expiry timestamp (ISO 8601). Mutually exclusive with ttl. If neither ttl nor expireAt is set, defaults to 10 seconds from quote creation. | [optional] 
+**pricing_profile_id** | **UUID** | UUID string | [optional] 
 
 ## Example
 

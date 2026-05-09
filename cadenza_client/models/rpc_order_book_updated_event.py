@@ -19,20 +19,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from cadenza_client.models.rpc_order_book import RpcOrderBook
+from cadenza_client.models.order_book import OrderBook
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RpcOrderBookUpdatedEvent(BaseModel):
     """
     Order book update event (pushed via WebSocket)
     """ # noqa: E501
-    data: Optional[RpcOrderBook] = None
+    data: Optional[OrderBook] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -44,8 +46,7 @@ class RpcOrderBookUpdatedEvent(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -92,7 +93,7 @@ class RpcOrderBookUpdatedEvent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": RpcOrderBook.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": OrderBook.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

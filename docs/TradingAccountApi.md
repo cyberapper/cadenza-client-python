@@ -390,7 +390,7 @@ with cadenza_client.ApiClient(configuration) as api_client:
     api_instance = cadenza_client.TradingAccountApi(api_client)
     trading_account_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID | Trading account ID (optional)
     operation_type = cadenza_client.OperationType() # OperationType | Operation type (optional)
-    start_time = 1622505600000 # int | Start time (in unix milliseconds), of the created at field (optional)
+    start_time = 56 # int | Start time (in unix milliseconds), of the created at field (optional)
     end_time = 56 # int | End time (in unix milliseconds), of the created at field (optional)
     limit = 50 # int | Limit the number of returned results (optional) (default to 50)
     offset = 0 # int | Offset of the returned results (optional) (default to 0)

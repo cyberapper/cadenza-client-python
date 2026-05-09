@@ -20,9 +20,10 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from cadenza_client.models.base_response_details import BaseResponseDetails
-from cadenza_client.models.orderbook import Orderbook
+from cadenza_client.models.order_book import OrderBook
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class GetMarketOrderBook200Response(BaseModel):
     """
@@ -32,12 +33,13 @@ class GetMarketOrderBook200Response(BaseModel):
     errno: StrictInt = Field(description="Error code (0 for success, non-zero indicates error). Format: AABBB where AA is the module code and BBB is the error code")
     error: Optional[StrictStr] = Field(default=None, description="Error message (null for successful operations)")
     details: Optional[BaseResponseDetails] = None
-    data: Optional[Orderbook] = None
+    data: Optional[OrderBook] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["success", "errno", "error", "details", "data"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -49,8 +51,7 @@ class GetMarketOrderBook200Response(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -114,7 +115,7 @@ class GetMarketOrderBook200Response(BaseModel):
             "errno": obj.get("errno"),
             "error": obj.get("error"),
             "details": BaseResponseDetails.from_dict(obj["details"]) if obj.get("details") is not None else None,
-            "data": Orderbook.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": OrderBook.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

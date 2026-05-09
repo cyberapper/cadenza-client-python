@@ -6,7 +6,7 @@ Response for listing tickers
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List[RpcTicker]**](RpcTicker.md) |  | [optional] 
+**data** | [**List[Ticker]**](Ticker.md) |  | [optional] 
 **error** | [**RpcError**](RpcError.md) |  | [optional] 
 
 ## Example

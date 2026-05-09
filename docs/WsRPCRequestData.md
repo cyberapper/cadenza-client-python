@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **credential_ids** | **List[UUID]** |  | [optional] 
 **credentials** | [**List[RpcTradingAccountCredential]**](RpcTradingAccountCredential.md) |  | [optional] 
 **credential_id** | **UUID** |  | 
-**currency** | **str** | Filter by currency | [optional] 
+**currency** | **str** | Asset symbol (e.g. currency code, base asset) | [optional] 
 **portfolio** | [**RpcPortfolio**](RpcPortfolio.md) |  | 
 **symbols** | **List[str]** |  | [optional] 
 **instruments** | **List[str]** |  | 
@@ -45,13 +45,12 @@ Name | Type | Description | Notes
 **securities** | **List[str]** |  | 
 **security_ids** | **List[UUID]** |  | 
 **external_symbols** | **List[str]** |  | [optional] 
-**symbol** | **str** | Symbol (alternative to instrumentId) | [optional] 
 **depth** | **int** | Order book depth | [optional] [default to 10]
 **instrument_ids** | **List[str]** |  | [optional] 
-**order_books** | [**List[RpcOrderBook]**](RpcOrderBook.md) |  | 
-**klines** | [**List[RpcKline]**](RpcKline.md) |  | 
-**interval** | **str** |  | [optional] 
-**tickers** | [**List[RpcTicker]**](RpcTicker.md) |  | 
+**order_books** | [**List[OrderBook]**](OrderBook.md) |  | 
+**klines** | [**List[Kline]**](Kline.md) |  | 
+**interval** | [**KlineInterval**](KlineInterval.md) |  | [optional] 
+**tickers** | [**List[Ticker]**](Ticker.md) |  | 
 
 ## Example
 

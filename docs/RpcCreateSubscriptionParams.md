@@ -1,6 +1,6 @@
 # RpcCreateSubscriptionParams
 
-Request to create a market data subscription
+Request to create a market data subscription.  `subscriptionType` selects the data stream — for unified market data surfaces, use `MARKET.SUBSCRIPTION.ORDERBOOK`, `MARKET.SUBSCRIPTION.TICKER`, or `MARKET.SUBSCRIPTION.KLINE`. `interval` is required when `subscriptionType: MARKET.SUBSCRIPTION.KLINE` and ignored otherwise. 
 
 ## Properties
 
@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **venue** | [**Venue**](Venue.md) |  | 
 **instruments** | **List[str]** |  | [optional] 
 **subscription_type** | [**SubscriptionType**](SubscriptionType.md) |  | 
+**interval** | [**KlineInterval**](KlineInterval.md) |  | [optional] 
 
 ## Example
 

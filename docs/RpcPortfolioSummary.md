@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **portfolio_summary_id** | **UUID** |  | [optional] 
 **trading_account_id** | **UUID** |  | [optional] 
-**currency** | **str** | Summary currency | [optional] 
+**currency** | **str** | Asset symbol (e.g. currency code, base asset) | [optional] 
 **leverage** | **int** |  | [optional] 
 **equity** | **str** | Total equity | [optional] 
 **margin** | **str** | Margin collateral | [optional] 

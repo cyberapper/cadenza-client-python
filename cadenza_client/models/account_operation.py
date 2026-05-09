@@ -25,6 +25,7 @@ from cadenza_client.models.operation_status import OperationStatus
 from cadenza_client.models.operation_type import OperationType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AccountOperation(BaseModel):
     """
@@ -40,7 +41,8 @@ class AccountOperation(BaseModel):
     __properties: ClassVar[List[str]] = ["operationId", "tradingAccountId", "operationType", "status", "createdAt", "createdAtDateTime"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -52,8 +54,7 @@ class AccountOperation(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

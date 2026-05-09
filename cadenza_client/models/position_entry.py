@@ -27,6 +27,7 @@ from cadenza_client.models.position_status import PositionStatus
 from cadenza_client.models.security_type import SecurityType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class PositionEntry(BaseModel):
     """
@@ -58,6 +59,9 @@ class PositionEntry(BaseModel):
     @field_validator('quantity')
     def quantity_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -67,6 +71,9 @@ class PositionEntry(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
@@ -78,6 +85,9 @@ class PositionEntry(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -87,6 +97,9 @@ class PositionEntry(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
@@ -98,6 +111,9 @@ class PositionEntry(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
@@ -108,12 +124,16 @@ class PositionEntry(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-?\d+(\.\d+)?$", value):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -125,8 +145,7 @@ class PositionEntry(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
