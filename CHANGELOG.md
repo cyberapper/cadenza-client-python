@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/cyberapper/cadenza-client-python/compare/v3.4.0...v3.5.0) (2026-05-09)
+
+
+### Features
+
+* **openapi:** regenerate Python SDK with unified market data schemas (CDZ-450) ([#41](https://github.com/cyberapper/cadenza-client-python/issues/41)) ([5a6082a](https://github.com/cyberapper/cadenza-client-python/commit/5a6082a0721d446fec4c2f7cebc6848466f14a42))
+
 ## [3.4.0](https://github.com/cyberapper/cadenza-client-python/compare/v3.3.10...v3.4.0) (2026-03-31)
 
 
