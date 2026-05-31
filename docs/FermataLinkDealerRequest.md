@@ -7,7 +7,7 @@ Link an exchange trading account to a dealer as a liquidity provider
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dealer_account_id** | **UUID** | UUID string | 
-**trading_account_id** | **UUID** | UUID string | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 
 ## Example
 

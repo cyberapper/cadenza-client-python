@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **UUID** | UUID string | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 **venue** | [**Venue**](Venue.md) |  | 
 **positions** | [**List[PositionEntry]**](PositionEntry.md) |  | 
 **balances** | [**List[BalanceEntry]**](BalanceEntry.md) |  | 

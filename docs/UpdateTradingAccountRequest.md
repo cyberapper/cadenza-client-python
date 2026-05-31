@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **UUID** | UUID string | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 **nickname** | **str** | New nickname for the trading account | [optional] 
 
 ## Example

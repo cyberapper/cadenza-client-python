@@ -28,8 +28,8 @@ class RpcGetTradeOrderParams(BaseModel):
     """
     Request to get a specific trade order
     """ # noqa: E501
-    trade_order_id: Optional[UUID] = Field(default=None, description="Trade order ID", alias="tradeOrderId")
-    trading_account_id: Optional[UUID] = Field(default=None, description="Trading account ID", alias="tradingAccountId")
+    trade_order_id: Optional[UUID] = Field(default=None, description="Internal trade order ID (UUID)", alias="tradeOrderId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     client_order_id: Optional[StrictStr] = Field(default=None, description="Client order ID", alias="clientOrderId")
     external_order_id: Optional[StrictStr] = Field(default=None, description="External order ID", alias="externalOrderId")
     additional_properties: Dict[str, Any] = {}

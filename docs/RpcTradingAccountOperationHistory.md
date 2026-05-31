@@ -7,7 +7,7 @@ Trading account operation history entry
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **trading_account_history_id** | **UUID** |  | [optional] 
-**trading_account_id** | **UUID** |  | [optional] 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | [optional] 
 **timestamp** | **datetime** |  | [optional] 
 **operation_type** | [**TradingAccountOperationType**](TradingAccountOperationType.md) |  | [optional] 
 **operate_by** | **str** |  | [optional] 

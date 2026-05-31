@@ -29,7 +29,7 @@ class RpcListPortfoliosParams(BaseModel):
     """
     Request to list portfolios
     """ # noqa: E501
-    trading_account_id: Optional[UUID] = Field(default=None, description="Filter by trading account ID", alias="tradingAccountId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     venue: Optional[StrictStr] = Field(default=None, description="Filter by venue")
     currency: Optional[StrictStr] = Field(default=None, description="Asset symbol (e.g. currency code, base asset)")
     pagination: Optional[RpcPagination] = None

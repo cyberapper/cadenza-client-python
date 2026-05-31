@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **UUID** | UUID string | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 **external_trading_account_id** | **str** | External trading account ID | 
 **venue** | [**Venue**](Venue.md) |  | 
 **nickname** | **str** | Nickname of the trading account | 

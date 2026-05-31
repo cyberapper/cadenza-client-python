@@ -33,7 +33,7 @@ class Portfolio(BaseModel):
     """
     Portfolio
     """ # noqa: E501
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     venue: Venue
     positions: List[PositionEntry]
     balances: List[BalanceEntry]

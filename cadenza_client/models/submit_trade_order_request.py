@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from uuid import UUID
+from cadenza_client.models.contingency_type import ContingencyType
 from cadenza_client.models.order_quantity_type import OrderQuantityType
 from cadenza_client.models.order_side import OrderSide
 from cadenza_client.models.order_type import OrderType
@@ -34,12 +35,13 @@ class SubmitTradeOrderRequest(BaseModel):
     """
     Submit a trade order. For exchange venues, instrumentId is required. For Fermata venue, quoteId is required instead (the quote already contains all trade parameters).
     """ # noqa: E501
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     idempotency_key: Optional[StrictStr] = Field(default=None, description="Idempotency key to prevent duplicate request processing", alias="idempotencyKey")
     client_order_id: Optional[StrictStr] = Field(default=None, description="Client-provided order ID, used as idempotency key", alias="clientOrderId")
     order_side: OrderSide = Field(alias="orderSide")
     order_type: Optional[OrderType] = Field(alias="orderType")
+    contingency_type: Optional[ContingencyType] = Field(default=None, alias="contingencyType")
     limit_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="limitPrice")
     stop_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="stopPrice")
     quantity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision")
@@ -58,7 +60,7 @@ class SubmitTradeOrderRequest(BaseModel):
     take_profit_time_in_force: Optional[TimeInForce] = Field(default=None, alias="takeProfitTimeInForce")
     stop_loss_time_in_force: Optional[TimeInForce] = Field(default=None, alias="stopLossTimeInForce")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["tradingAccountId", "instrumentId", "idempotencyKey", "clientOrderId", "orderSide", "orderType", "limitPrice", "stopPrice", "quantity", "quantityType", "quantityRounding", "positionId", "timeInForce", "expireAt", "quoteId", "leverage", "awaitClosed", "takeProfitPrice", "takeProfitLimitPrice", "stopLossPrice", "stopLossLimitPrice", "takeProfitTimeInForce", "stopLossTimeInForce"]
+    __properties: ClassVar[List[str]] = ["tradingAccountId", "instrumentId", "idempotencyKey", "clientOrderId", "orderSide", "orderType", "contingencyType", "limitPrice", "stopPrice", "quantity", "quantityType", "quantityRounding", "positionId", "timeInForce", "expireAt", "quoteId", "leverage", "awaitClosed", "takeProfitPrice", "takeProfitLimitPrice", "stopLossPrice", "stopLossLimitPrice", "takeProfitTimeInForce", "stopLossTimeInForce"]
 
     @field_validator('limit_price')
     def limit_price_validate_regular_expression(cls, value):
@@ -232,6 +234,7 @@ class SubmitTradeOrderRequest(BaseModel):
             "clientOrderId": obj.get("clientOrderId"),
             "orderSide": obj.get("orderSide"),
             "orderType": obj.get("orderType"),
+            "contingencyType": obj.get("contingencyType"),
             "limitPrice": obj.get("limitPrice"),
             "stopPrice": obj.get("stopPrice"),
             "quantity": obj.get("quantity"),

@@ -29,7 +29,7 @@ class UnsubscribeRequest(BaseModel):
     UnsubscribeRequest
     """ # noqa: E501
     subscription_id: Optional[UUID] = Field(default=None, description="UUID string", alias="subscriptionId")
-    trading_account_id: Optional[UUID] = Field(default=None, description="UUID string", alias="tradingAccountId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["subscriptionId", "tradingAccountId", "instrumentId"]

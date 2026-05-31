@@ -6,18 +6,18 @@ Trade order model
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trade_order_id** | **UUID** | Unique trade order ID | [optional] 
+**trade_order_id** | **UUID** | Internal trade order ID (UUID) | [optional] 
 **client_order_id** | **str** | Client-assigned order ID | [optional] 
 **original_client_order_id** | **str** | Original client order ID (for cancel/replace) | [optional] 
 **external_order_id** | **str** | Order ID from external venue | [optional] 
 **idempotency_key** | **str** | Idempotency key | [optional] 
 **venue** | **str** | Trading venue | [optional] 
-**trading_account_id** | **UUID** | Trading account ID | [optional] 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | [optional] 
 **external_trading_account_id** | **str** | External account ID at venue | [optional] 
 **instrument_id** | **str** | Instrument ID (VENUE:BASE/QUOTE) | [optional] 
 **external_symbol** | **str** | Symbol at external venue | [optional] 
-**base_asset** | **str** | Base asset | [optional] 
-**quote_asset** | **str** | Quote asset | [optional] 
+**base_asset** | **str** | Asset symbol (e.g. currency code, base asset) | [optional] 
+**quote_asset** | **str** | Asset symbol (e.g. currency code, base asset) | [optional] 
 **order_type** | [**OrderType**](OrderType.md) |  | [optional] 
 **order_side** | [**OrderSide**](OrderSide.md) |  | [optional] 
 **quantity_type** | [**QuantityType**](QuantityType.md) |  | [optional] 

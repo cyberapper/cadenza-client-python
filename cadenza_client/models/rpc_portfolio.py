@@ -34,7 +34,7 @@ class RpcPortfolio(BaseModel):
     """
     Portfolio model containing balances and positions
     """ # noqa: E501
-    trading_account_id: Optional[UUID] = Field(default=None, alias="tradingAccountId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     account_info: Optional[RpcTradingAccount] = Field(default=None, alias="accountInfo")
     balances: Optional[List[RpcBalanceEntry]] = None
     positions: Optional[List[RpcPositionEntry]] = None

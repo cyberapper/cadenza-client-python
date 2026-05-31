@@ -42,8 +42,8 @@ class Instrument(BaseModel):
     description: Optional[StrictStr] = Field(default=None, description="Symbol description, human readable description of the instrument")
     instrument_type: InstrumentType = Field(alias="instrumentType")
     status: InstrumentStatus
-    base_asset: StrictStr = Field(alias="baseAsset")
-    quote_asset: StrictStr = Field(alias="quoteAsset")
+    base_asset: StrictStr = Field(description="Asset symbol (e.g. currency code, base asset)", alias="baseAsset")
+    quote_asset: StrictStr = Field(description="Asset symbol (e.g. currency code, base asset)", alias="quoteAsset")
     base_security_type: Optional[SecurityType] = Field(default=None, alias="baseSecurityType")
     quote_security_type: Optional[SecurityType] = Field(default=None, alias="quoteSecurityType")
     base_precision: StrictInt = Field(description="Base asset precision", alias="basePrecision")

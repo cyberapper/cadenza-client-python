@@ -39,8 +39,8 @@ class RpcInstrument(BaseModel):
     description: Optional[StrictStr] = None
     instrument_type: Optional[InstrumentType] = Field(default=None, alias="instrumentType")
     status: Optional[InstrumentStatus] = None
-    base_asset: Optional[StrictStr] = Field(default=None, alias="baseAsset")
-    quote_asset: Optional[StrictStr] = Field(default=None, alias="quoteAsset")
+    base_asset: Optional[StrictStr] = Field(default=None, description="Asset symbol (e.g. currency code, base asset)", alias="baseAsset")
+    quote_asset: Optional[StrictStr] = Field(default=None, description="Asset symbol (e.g. currency code, base asset)", alias="quoteAsset")
     base_security_type: Optional[SecurityType] = Field(default=None, alias="baseSecurityType")
     quote_security_type: Optional[SecurityType] = Field(default=None, alias="quoteSecurityType")
     base_precision: Optional[StrictInt] = Field(default=None, alias="basePrecision")

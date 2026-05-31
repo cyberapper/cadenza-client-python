@@ -34,7 +34,7 @@ class RpcPositionEntry(BaseModel):
     """ # noqa: E501
     position_id: Optional[UUID] = Field(default=None, alias="positionId")
     external_position_id: Optional[StrictStr] = Field(default=None, alias="externalPositionId")
-    trading_account_id: Optional[UUID] = Field(default=None, alias="tradingAccountId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     security_symbol: Optional[StrictStr] = Field(default=None, alias="securitySymbol")
     instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID", alias="instrumentId")
     security_type: Optional[SecurityType] = Field(default=None, alias="securityType")

@@ -30,7 +30,7 @@ class RpcCreateCredentialParams(BaseModel):
     """
     Request to create a credential
     """ # noqa: E501
-    trading_account_id: UUID = Field(alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     venue: Venue
     credential_type: Optional[CredentialType] = Field(alias="credentialType")
     api_key: Optional[StrictStr] = Field(default=None, alias="apiKey")

@@ -33,7 +33,7 @@ class RpcBalanceEntry(BaseModel):
     """ # noqa: E501
     balance_id: Optional[UUID] = Field(default=None, alias="balanceId")
     external_balance_id: Optional[StrictStr] = Field(default=None, alias="externalBalanceId")
-    trading_account_id: Optional[UUID] = Field(default=None, alias="tradingAccountId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     security_symbol: Optional[StrictStr] = Field(default=None, description="Asset symbol", alias="securitySymbol")
     security_type: Optional[SecurityType] = Field(default=None, alias="securityType")
     status: Optional[BalanceStatus] = None

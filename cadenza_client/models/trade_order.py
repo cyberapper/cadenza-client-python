@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_v
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from uuid import UUID
+from cadenza_client.models.contingency_type import ContingencyType
 from cadenza_client.models.order_quantity_type import OrderQuantityType
 from cadenza_client.models.order_side import OrderSide
 from cadenza_client.models.order_status import OrderStatus
@@ -39,16 +40,17 @@ class TradeOrder(BaseModel):
     """
     TradeOrder
     """ # noqa: E501
-    trade_order_id: UUID = Field(description="UUID string", alias="tradeOrderId")
-    order_list_id: Optional[StrictStr] = Field(default=None, description="Exchange order list ID linking sibling orders in OCO/OTO/OTOCO order lists. Present on all orders in a list.", alias="orderListId")
-    contingency_type: Optional[StrictStr] = Field(default=None, description="Order list contingency type. Present on all orders in a list.", alias="contingencyType")
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
+    trade_order_id: UUID = Field(description="Internal trade order ID (UUID)", alias="tradeOrderId")
+    order_list_id: Optional[UUID] = Field(default=None, description="Internal order list ID (UUID) linking sibling orders in OCO/OTO/OTOCO order lists", alias="orderListId")
+    external_order_list_id: Optional[StrictStr] = Field(default=None, description="Exchange-assigned order list ID linking sibling OCO/OTO/OTOCO legs", alias="externalOrderListId")
+    contingency_type: Optional[ContingencyType] = Field(default=None, alias="contingencyType")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     venue: Venue
     position_id: Optional[UUID] = Field(default=None, description="UUID string", alias="positionId")
     instrument_id: StrictStr = Field(description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     quote_id: Optional[UUID] = Field(default=None, description="UUID string", alias="quoteId")
-    base_asset: StrictStr = Field(description="Base asset in the trading pair", alias="baseAsset")
-    quote_asset: StrictStr = Field(description="Quote asset in the trading pair", alias="quoteAsset")
+    base_asset: StrictStr = Field(description="Asset symbol (e.g. currency code, base asset)", alias="baseAsset")
+    quote_asset: StrictStr = Field(description="Asset symbol (e.g. currency code, base asset)", alias="quoteAsset")
     order_side: OrderSide = Field(alias="orderSide")
     order_type: Optional[OrderType] = Field(alias="orderType")
     time_in_force: Optional[TimeInForce] = Field(alias="timeInForce")
@@ -80,17 +82,7 @@ class TradeOrder(BaseModel):
     canceled_at: Optional[StrictInt] = Field(default=None, description="Unix timestamp in milliseconds", alias="canceledAt")
     canceled_at_date_time: Optional[datetime] = Field(default=None, description="Cancellation timestamp in ISO 8601 format", alias="canceledAtDateTime")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["tradeOrderId", "orderListId", "contingencyType", "tradingAccountId", "venue", "positionId", "instrumentId", "quoteId", "baseAsset", "quoteAsset", "orderSide", "orderType", "timeInForce", "status", "rejectReason", "cancelReason", "limitPrice", "stopPrice", "takeProfitPrice", "takeProfitLimitPrice", "stopLossPrice", "stopLossLimitPrice", "takeProfitTimeInForce", "stopLossTimeInForce", "quantity", "orderQuantityType", "quantityRounding", "executedPrice", "executedQuantity", "executedCost", "fees", "executions", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "expireAt", "expireAtDateTime", "canceledAt", "canceledAtDateTime"]
-
-    @field_validator('contingency_type')
-    def contingency_type_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['OCO', 'OTO', 'OTOCO']):
-            raise ValueError("must be one of enum values ('OCO', 'OTO', 'OTOCO')")
-        return value
+    __properties: ClassVar[List[str]] = ["tradeOrderId", "orderListId", "externalOrderListId", "contingencyType", "tradingAccountId", "venue", "positionId", "instrumentId", "quoteId", "baseAsset", "quoteAsset", "orderSide", "orderType", "timeInForce", "status", "rejectReason", "cancelReason", "limitPrice", "stopPrice", "takeProfitPrice", "takeProfitLimitPrice", "stopLossPrice", "stopLossLimitPrice", "takeProfitTimeInForce", "stopLossTimeInForce", "quantity", "orderQuantityType", "quantityRounding", "executedPrice", "executedQuantity", "executedCost", "fees", "executions", "createdAt", "createdAtDateTime", "updatedAt", "updatedAtDateTime", "expireAt", "expireAtDateTime", "canceledAt", "canceledAtDateTime"]
 
     @field_validator('limit_price')
     def limit_price_validate_regular_expression(cls, value):
@@ -309,6 +301,7 @@ class TradeOrder(BaseModel):
         _obj = cls.model_validate({
             "tradeOrderId": obj.get("tradeOrderId"),
             "orderListId": obj.get("orderListId"),
+            "externalOrderListId": obj.get("externalOrderListId"),
             "contingencyType": obj.get("contingencyType"),
             "tradingAccountId": obj.get("tradingAccountId"),
             "venue": obj.get("venue"),

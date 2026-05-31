@@ -43,6 +43,7 @@ cadenza_client/models/cancel_trade_order_request.py
 cadenza_client/models/collateral_mode.py
 cadenza_client/models/connect_trading_account200_response.py
 cadenza_client/models/connect_trading_account_request.py
+cadenza_client/models/contingency_type.py
 cadenza_client/models/create_trading_account_credential200_response.py
 cadenza_client/models/create_trading_account_credential_request.py
 cadenza_client/models/credential_status.py
@@ -366,6 +367,7 @@ docs/CancelTradeOrderRequest.md
 docs/CollateralMode.md
 docs/ConnectTradingAccount200Response.md
 docs/ConnectTradingAccountRequest.md
+docs/ContingencyType.md
 docs/CreateTradingAccountCredential200Response.md
 docs/CreateTradingAccountCredentialRequest.md
 docs/CredentialStatus.md
@@ -676,4 +678,5 @@ git_push.sh
 setup.cfg
 test-requirements.txt
 test/__init__.py
+test/test_contingency_type.py
 tox.ini

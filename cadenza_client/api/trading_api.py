@@ -339,7 +339,8 @@ class TradingApi:
     def list_trade_orders(
         self,
         trade_order_id: Annotated[Optional[UUID], Field(description="Trade order ID")] = None,
-        order_list_id: Annotated[Optional[StrictStr], Field(description="Filter by order list ID to retrieve child orders of an OCO/OTO/OTOCO parent")] = None,
+        order_list_id: Annotated[Optional[UUID], Field(description="Filter by internal order list ID (UUID) to retrieve child orders of an OCO/OTO/OTOCO parent")] = None,
+        external_order_list_id: Annotated[Optional[StrictStr], Field(description="Filter by exchange-assigned order list ID to retrieve child orders of an OCO/OTO/OTOCO parent")] = None,
         order_status: Annotated[Optional[OrderStatus], Field(description="Order status")] = None,
         trading_account_id: Annotated[Optional[UUID], Field(description="Trading account ID")] = None,
         instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
@@ -368,8 +369,10 @@ class TradingApi:
 
         :param trade_order_id: Trade order ID
         :type trade_order_id: UUID
-        :param order_list_id: Filter by order list ID to retrieve child orders of an OCO/OTO/OTOCO parent
-        :type order_list_id: str
+        :param order_list_id: Filter by internal order list ID (UUID) to retrieve child orders of an OCO/OTO/OTOCO parent
+        :type order_list_id: UUID
+        :param external_order_list_id: Filter by exchange-assigned order list ID to retrieve child orders of an OCO/OTO/OTOCO parent
+        :type external_order_list_id: str
         :param order_status: Order status
         :type order_status: OrderStatus
         :param trading_account_id: Trading account ID
@@ -413,6 +416,7 @@ class TradingApi:
         _param = self._list_trade_orders_serialize(
             trade_order_id=trade_order_id,
             order_list_id=order_list_id,
+            external_order_list_id=external_order_list_id,
             order_status=order_status,
             trading_account_id=trading_account_id,
             instrument_id=instrument_id,
@@ -451,7 +455,8 @@ class TradingApi:
     def list_trade_orders_with_http_info(
         self,
         trade_order_id: Annotated[Optional[UUID], Field(description="Trade order ID")] = None,
-        order_list_id: Annotated[Optional[StrictStr], Field(description="Filter by order list ID to retrieve child orders of an OCO/OTO/OTOCO parent")] = None,
+        order_list_id: Annotated[Optional[UUID], Field(description="Filter by internal order list ID (UUID) to retrieve child orders of an OCO/OTO/OTOCO parent")] = None,
+        external_order_list_id: Annotated[Optional[StrictStr], Field(description="Filter by exchange-assigned order list ID to retrieve child orders of an OCO/OTO/OTOCO parent")] = None,
         order_status: Annotated[Optional[OrderStatus], Field(description="Order status")] = None,
         trading_account_id: Annotated[Optional[UUID], Field(description="Trading account ID")] = None,
         instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
@@ -480,8 +485,10 @@ class TradingApi:
 
         :param trade_order_id: Trade order ID
         :type trade_order_id: UUID
-        :param order_list_id: Filter by order list ID to retrieve child orders of an OCO/OTO/OTOCO parent
-        :type order_list_id: str
+        :param order_list_id: Filter by internal order list ID (UUID) to retrieve child orders of an OCO/OTO/OTOCO parent
+        :type order_list_id: UUID
+        :param external_order_list_id: Filter by exchange-assigned order list ID to retrieve child orders of an OCO/OTO/OTOCO parent
+        :type external_order_list_id: str
         :param order_status: Order status
         :type order_status: OrderStatus
         :param trading_account_id: Trading account ID
@@ -525,6 +532,7 @@ class TradingApi:
         _param = self._list_trade_orders_serialize(
             trade_order_id=trade_order_id,
             order_list_id=order_list_id,
+            external_order_list_id=external_order_list_id,
             order_status=order_status,
             trading_account_id=trading_account_id,
             instrument_id=instrument_id,
@@ -563,7 +571,8 @@ class TradingApi:
     def list_trade_orders_without_preload_content(
         self,
         trade_order_id: Annotated[Optional[UUID], Field(description="Trade order ID")] = None,
-        order_list_id: Annotated[Optional[StrictStr], Field(description="Filter by order list ID to retrieve child orders of an OCO/OTO/OTOCO parent")] = None,
+        order_list_id: Annotated[Optional[UUID], Field(description="Filter by internal order list ID (UUID) to retrieve child orders of an OCO/OTO/OTOCO parent")] = None,
+        external_order_list_id: Annotated[Optional[StrictStr], Field(description="Filter by exchange-assigned order list ID to retrieve child orders of an OCO/OTO/OTOCO parent")] = None,
         order_status: Annotated[Optional[OrderStatus], Field(description="Order status")] = None,
         trading_account_id: Annotated[Optional[UUID], Field(description="Trading account ID")] = None,
         instrument_id: Annotated[Optional[StrictStr], Field(description="Instrument ID")] = None,
@@ -592,8 +601,10 @@ class TradingApi:
 
         :param trade_order_id: Trade order ID
         :type trade_order_id: UUID
-        :param order_list_id: Filter by order list ID to retrieve child orders of an OCO/OTO/OTOCO parent
-        :type order_list_id: str
+        :param order_list_id: Filter by internal order list ID (UUID) to retrieve child orders of an OCO/OTO/OTOCO parent
+        :type order_list_id: UUID
+        :param external_order_list_id: Filter by exchange-assigned order list ID to retrieve child orders of an OCO/OTO/OTOCO parent
+        :type external_order_list_id: str
         :param order_status: Order status
         :type order_status: OrderStatus
         :param trading_account_id: Trading account ID
@@ -637,6 +648,7 @@ class TradingApi:
         _param = self._list_trade_orders_serialize(
             trade_order_id=trade_order_id,
             order_list_id=order_list_id,
+            external_order_list_id=external_order_list_id,
             order_status=order_status,
             trading_account_id=trading_account_id,
             instrument_id=instrument_id,
@@ -671,6 +683,7 @@ class TradingApi:
         self,
         trade_order_id,
         order_list_id,
+        external_order_list_id,
         order_status,
         trading_account_id,
         instrument_id,
@@ -709,6 +722,10 @@ class TradingApi:
         if order_list_id is not None:
             
             _query_params.append(('orderListId', order_list_id))
+            
+        if external_order_list_id is not None:
+            
+            _query_params.append(('externalOrderListId', external_order_list_id))
             
         if order_status is not None:
             

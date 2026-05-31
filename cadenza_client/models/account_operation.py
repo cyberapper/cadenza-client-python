@@ -32,7 +32,7 @@ class AccountOperation(BaseModel):
     AccountOperation
     """ # noqa: E501
     operation_id: UUID = Field(description="UUID string", alias="operationId")
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     operation_type: OperationType = Field(alias="operationType")
     status: OperationStatus
     created_at: StrictInt = Field(description="Unix timestamp in milliseconds", alias="createdAt")

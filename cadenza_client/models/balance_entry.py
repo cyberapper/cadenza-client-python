@@ -35,7 +35,7 @@ class BalanceEntry(BaseModel):
     security_symbol: StrictStr = Field(description="Security symbol", alias="securitySymbol")
     security_type: SecurityType = Field(alias="securityType")
     external_balance_id: Optional[StrictStr] = Field(default=None, description="External balance ID from the exchange", alias="externalBalanceId")
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     status: BalanceStatus
     position_id: Optional[UUID] = Field(default=None, description="UUID string", alias="positionId")
     free: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision")

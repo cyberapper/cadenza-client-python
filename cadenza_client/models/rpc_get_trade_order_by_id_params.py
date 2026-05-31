@@ -28,7 +28,7 @@ class RpcGetTradeOrderByIdParams(BaseModel):
     """
     Request to get a trade order by ID
     """ # noqa: E501
-    trade_order_id: UUID = Field(alias="tradeOrderId")
+    trade_order_id: UUID = Field(description="Internal trade order ID (UUID)", alias="tradeOrderId")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradeOrderId"]
 

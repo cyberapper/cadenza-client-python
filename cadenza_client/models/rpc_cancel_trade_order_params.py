@@ -28,8 +28,8 @@ class RpcCancelTradeOrderParams(BaseModel):
     """
     Request to cancel an existing trade order
     """ # noqa: E501
-    trade_order_id: Optional[UUID] = Field(default=None, description="Trade order ID to cancel", alias="tradeOrderId")
-    trading_account_id: UUID = Field(description="Trading account ID", alias="tradingAccountId")
+    trade_order_id: Optional[UUID] = Field(default=None, description="Internal trade order ID (UUID)", alias="tradeOrderId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     client_order_id: Optional[StrictStr] = Field(default=None, description="Client order ID (alternative to tradeOrderId)", alias="clientOrderId")
     external_order_id: Optional[StrictStr] = Field(default=None, description="External order ID from venue", alias="externalOrderId")
     additional_properties: Dict[str, Any] = {}

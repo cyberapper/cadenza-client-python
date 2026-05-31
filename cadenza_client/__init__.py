@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.5.0"
+__version__ = "1.0.0"
 
 # Define package exports
 __all__ = [
@@ -62,6 +62,7 @@ __all__ = [
     "CollateralMode",
     "ConnectTradingAccount200Response",
     "ConnectTradingAccountRequest",
+    "ContingencyType",
     "CreateTradingAccountCredential200Response",
     "CreateTradingAccountCredentialRequest",
     "CredentialStatus",
@@ -409,6 +410,7 @@ from cadenza_client.models.cancel_trade_order_request import CancelTradeOrderReq
 from cadenza_client.models.collateral_mode import CollateralMode as CollateralMode
 from cadenza_client.models.connect_trading_account200_response import ConnectTradingAccount200Response as ConnectTradingAccount200Response
 from cadenza_client.models.connect_trading_account_request import ConnectTradingAccountRequest as ConnectTradingAccountRequest
+from cadenza_client.models.contingency_type import ContingencyType as ContingencyType
 from cadenza_client.models.create_trading_account_credential200_response import CreateTradingAccountCredential200Response as CreateTradingAccountCredential200Response
 from cadenza_client.models.create_trading_account_credential_request import CreateTradingAccountCredentialRequest as CreateTradingAccountCredentialRequest
 from cadenza_client.models.credential_status import CredentialStatus as CredentialStatus

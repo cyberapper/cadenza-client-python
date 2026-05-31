@@ -30,7 +30,7 @@ class RpcSubmitTradeOrderParams(BaseModel):
     Request to submit a new trade order
     """ # noqa: E501
     trade_order: RpcTradeOrder = Field(alias="tradeOrder")
-    trading_account_id: UUID = Field(description="Trading account ID to place order on", alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     idempotency_key: Optional[StrictStr] = Field(default=None, description="Idempotency key to prevent duplicate orders", alias="idempotencyKey")
     await_closed: Optional[StrictBool] = Field(default=False, description="Wait for order to reach terminal state before responding", alias="awaitClosed")
     additional_properties: Dict[str, Any] = {}

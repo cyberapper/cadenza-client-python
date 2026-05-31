@@ -36,18 +36,18 @@ class RpcTradeOrder(BaseModel):
     """
     Trade order model
     """ # noqa: E501
-    trade_order_id: Optional[UUID] = Field(default=None, description="Unique trade order ID", alias="tradeOrderId")
+    trade_order_id: Optional[UUID] = Field(default=None, description="Internal trade order ID (UUID)", alias="tradeOrderId")
     client_order_id: Optional[StrictStr] = Field(default=None, description="Client-assigned order ID", alias="clientOrderId")
     original_client_order_id: Optional[StrictStr] = Field(default=None, description="Original client order ID (for cancel/replace)", alias="originalClientOrderId")
     external_order_id: Optional[StrictStr] = Field(default=None, description="Order ID from external venue", alias="externalOrderId")
     idempotency_key: Optional[StrictStr] = Field(default=None, description="Idempotency key", alias="idempotencyKey")
     venue: Optional[StrictStr] = Field(default=None, description="Trading venue")
-    trading_account_id: Optional[UUID] = Field(default=None, description="Trading account ID", alias="tradingAccountId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     external_trading_account_id: Optional[StrictStr] = Field(default=None, description="External account ID at venue", alias="externalTradingAccountId")
     instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID (VENUE:BASE/QUOTE)", alias="instrumentId")
     external_symbol: Optional[StrictStr] = Field(default=None, description="Symbol at external venue", alias="externalSymbol")
-    base_asset: Optional[StrictStr] = Field(default=None, description="Base asset", alias="baseAsset")
-    quote_asset: Optional[StrictStr] = Field(default=None, description="Quote asset", alias="quoteAsset")
+    base_asset: Optional[StrictStr] = Field(default=None, description="Asset symbol (e.g. currency code, base asset)", alias="baseAsset")
+    quote_asset: Optional[StrictStr] = Field(default=None, description="Asset symbol (e.g. currency code, base asset)", alias="quoteAsset")
     order_type: Optional[OrderType] = Field(default=None, alias="orderType")
     order_side: Optional[OrderSide] = Field(default=None, alias="orderSide")
     quantity_type: Optional[QuantityType] = Field(default=None, alias="quantityType")

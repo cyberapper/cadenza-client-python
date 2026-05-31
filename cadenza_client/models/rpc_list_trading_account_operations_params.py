@@ -29,7 +29,7 @@ class RpcListTradingAccountOperationsParams(BaseModel):
     """
     Request to list trading account operations
     """ # noqa: E501
-    trading_account_id: UUID = Field(alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     pagination: Optional[RpcPagination] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradingAccountId", "pagination"]

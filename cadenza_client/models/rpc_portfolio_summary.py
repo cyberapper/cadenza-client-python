@@ -29,7 +29,7 @@ class RpcPortfolioSummary(BaseModel):
     Portfolio summary with aggregated metrics
     """ # noqa: E501
     portfolio_summary_id: Optional[UUID] = Field(default=None, alias="portfolioSummaryId")
-    trading_account_id: Optional[UUID] = Field(default=None, alias="tradingAccountId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     currency: Optional[StrictStr] = Field(default=None, description="Asset symbol (e.g. currency code, base asset)")
     leverage: Optional[StrictInt] = None
     equity: Optional[StrictStr] = Field(default=None, description="Total equity")

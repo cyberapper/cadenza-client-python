@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | [optional] 
 **dealer_account_id** | **UUID** | UUID string | 
 **trader_account_id** | **UUID** | UUID string | [optional] 
-**base_asset** | **str** | Base asset being traded | 
-**quote_asset** | **str** | Quote asset (payment currency) | 
+**base_asset** | **str** | Asset symbol (e.g. currency code, base asset) | 
+**quote_asset** | **str** | Asset symbol (e.g. currency code, base asset) | 
 **order_side** | [**OrderSide**](OrderSide.md) |  | 
 **quantity_type** | [**QuantityType**](QuantityType.md) |  | [optional] 
 **quantity** | **str** | Positive decimal value as string | 

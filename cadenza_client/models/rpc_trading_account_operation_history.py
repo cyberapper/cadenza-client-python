@@ -31,7 +31,7 @@ class RpcTradingAccountOperationHistory(BaseModel):
     Trading account operation history entry
     """ # noqa: E501
     trading_account_history_id: Optional[UUID] = Field(default=None, alias="tradingAccountHistoryId")
-    trading_account_id: Optional[UUID] = Field(default=None, alias="tradingAccountId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     timestamp: Optional[datetime] = None
     operation_type: Optional[TradingAccountOperationType] = Field(default=None, alias="operationType")
     operate_by: Optional[StrictStr] = Field(default=None, alias="operateBy")
