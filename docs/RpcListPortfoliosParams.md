@@ -6,7 +6,7 @@ Request to list portfolios
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **UUID** | Filter by trading account ID | [optional] 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | [optional] 
 **venue** | **str** | Filter by venue | [optional] 
 **currency** | **str** | Asset symbol (e.g. currency code, base asset) | [optional] 
 **pagination** | [**RpcPagination**](RpcPagination.md) |  | [optional] 

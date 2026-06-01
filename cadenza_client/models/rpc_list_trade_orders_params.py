@@ -33,8 +33,8 @@ class RpcListTradeOrdersParams(BaseModel):
     """
     Request to list trade orders with filters
     """ # noqa: E501
-    trade_order_id: Optional[UUID] = Field(default=None, description="Filter by specific trade order ID", alias="tradeOrderId")
-    trading_account_id: Optional[UUID] = Field(default=None, description="Filter by trading account ID", alias="tradingAccountId")
+    trade_order_id: Optional[UUID] = Field(default=None, description="Internal trade order ID (UUID)", alias="tradeOrderId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     instrument_id: Optional[StrictStr] = Field(default=None, description="Filter by instrument ID (e.g., BINANCE:BTC/USDT)", alias="instrumentId")
     side: Optional[OrderSide] = None
     order_type: Optional[OrderType] = Field(default=None, alias="orderType")

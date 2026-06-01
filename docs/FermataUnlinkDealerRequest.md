@@ -7,7 +7,7 @@ Unlink an exchange trading account from a dealer
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **dealer_account_id** | **UUID** | UUID string | 
-**trading_account_id** | **UUID** | UUID string | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 
 ## Example
 

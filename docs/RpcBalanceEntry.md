@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **balance_id** | **UUID** |  | [optional] 
 **external_balance_id** | **str** |  | [optional] 
-**trading_account_id** | **UUID** |  | [optional] 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | [optional] 
 **security_symbol** | **str** | Asset symbol | [optional] 
 **security_type** | [**SecurityType**](SecurityType.md) |  | [optional] 
 **status** | [**BalanceStatus**](BalanceStatus.md) |  | [optional] 

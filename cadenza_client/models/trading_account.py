@@ -36,7 +36,7 @@ class TradingAccount(BaseModel):
     """
     TradingAccount
     """ # noqa: E501
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     external_trading_account_id: StrictStr = Field(description="External trading account ID", alias="externalTradingAccountId")
     venue: Venue
     nickname: StrictStr = Field(description="Nickname of the trading account")

@@ -6,7 +6,7 @@ Request to get portfolio for a trading account
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **UUID** | Trading account ID | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 
 ## Example
 

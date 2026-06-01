@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **UUID** | UUID string | 
-**trade_order_id** | **UUID** | UUID string | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
+**trade_order_id** | **UUID** | Internal trade order ID (UUID) | 
 
 ## Example
 

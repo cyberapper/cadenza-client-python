@@ -36,7 +36,7 @@ class PositionEntry(BaseModel):
     position_id: UUID = Field(description="UUID string", alias="positionId")
     security_symbol: StrictStr = Field(description="Security symbol", alias="securitySymbol")
     external_position_id: Optional[StrictStr] = Field(default=None, description="External position ID from the exchange", alias="externalPositionId")
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     instrument_id: Optional[StrictStr] = Field(default=None, description="Instrument ID in format {VENUE}:{BASE}/{QUOTE}", alias="instrumentId")
     security_type: SecurityType = Field(alias="securityType")
     status: PositionStatus

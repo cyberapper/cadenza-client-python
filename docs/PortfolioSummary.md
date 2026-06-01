@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **UUID** | UUID string | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 **currency** | **str** | Asset symbol (e.g. currency code, base asset) | 
 **leverage** | **int** | Leverage multiplier | 
 **equity** | **str** | Decimal value as string to preserve precision | 

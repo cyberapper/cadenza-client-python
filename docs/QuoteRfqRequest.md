@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **dealer_account_id** | **UUID** | UUID string | 
 **trader_account_id** | **UUID** | UUID string | [optional] 
 **instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | [optional] 
-**base_asset** | **str** | Base asset to trade. Used with quoteAsset for symbol-based venues. | [optional] 
-**quote_asset** | **str** | Quote asset (payment currency). Used with baseAsset for symbol-based venues. | [optional] 
+**base_asset** | **str** | Asset symbol (e.g. currency code, base asset) | [optional] 
+**quote_asset** | **str** | Asset symbol (e.g. currency code, base asset) | [optional] 
 **order_side** | [**OrderSide**](OrderSide.md) |  | 
 **quantity** | **str** | Positive decimal value as string | [optional] 
 **quote_quantity** | **str** | Positive decimal value as string | [optional] 

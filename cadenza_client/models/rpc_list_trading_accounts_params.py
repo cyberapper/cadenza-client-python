@@ -30,7 +30,7 @@ class RpcListTradingAccountsParams(BaseModel):
     """
     Request to list trading accounts
     """ # noqa: E501
-    trading_account_id: Optional[UUID] = Field(default=None, description="Filter by specific account ID", alias="tradingAccountId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     venue: Optional[StrictStr] = Field(default=None, description="Filter by venue")
     status: Optional[TradingAccountStatus] = None
     pagination: Optional[RpcPagination] = None

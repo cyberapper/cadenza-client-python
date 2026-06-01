@@ -5,16 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trade_order_id** | **UUID** | UUID string | 
-**order_list_id** | **str** | Exchange order list ID linking sibling orders in OCO/OTO/OTOCO order lists. Present on all orders in a list. | [optional] 
-**contingency_type** | **str** | Order list contingency type. Present on all orders in a list. | [optional] 
-**trading_account_id** | **UUID** | UUID string | 
+**trade_order_id** | **UUID** | Internal trade order ID (UUID) | 
+**order_list_id** | **UUID** | Internal order list ID (UUID) linking sibling orders in OCO/OTO/OTOCO order lists | [optional] 
+**external_order_list_id** | **str** | Exchange-assigned order list ID linking sibling OCO/OTO/OTOCO legs | [optional] 
+**contingency_type** | [**ContingencyType**](ContingencyType.md) |  | [optional] 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 **venue** | [**Venue**](Venue.md) |  | 
 **position_id** | **UUID** | UUID string | [optional] 
 **instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | 
 **quote_id** | **UUID** | UUID string | [optional] 
-**base_asset** | **str** | Base asset in the trading pair | 
-**quote_asset** | **str** | Quote asset in the trading pair | 
+**base_asset** | **str** | Asset symbol (e.g. currency code, base asset) | 
+**quote_asset** | **str** | Asset symbol (e.g. currency code, base asset) | 
 **order_side** | [**OrderSide**](OrderSide.md) |  | 
 **order_type** | [**OrderType**](OrderType.md) |  | 
 **time_in_force** | [**TimeInForce**](TimeInForce.md) |  | 

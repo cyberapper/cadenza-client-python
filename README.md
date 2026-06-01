@@ -186,6 +186,7 @@ Class | Method | HTTP request | Description
  - [CollateralMode](docs/CollateralMode.md)
  - [ConnectTradingAccount200Response](docs/ConnectTradingAccount200Response.md)
  - [ConnectTradingAccountRequest](docs/ConnectTradingAccountRequest.md)
+ - [ContingencyType](docs/ContingencyType.md)
  - [CreateTradingAccountCredential200Response](docs/CreateTradingAccountCredential200Response.md)
  - [CreateTradingAccountCredentialRequest](docs/CreateTradingAccountCredentialRequest.md)
  - [CredentialStatus](docs/CredentialStatus.md)

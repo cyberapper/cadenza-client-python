@@ -6,12 +6,13 @@ Submit a trade order. For exchange venues, instrumentId is required. For Fermata
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **UUID** | UUID string | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 **instrument_id** | **str** | Instrument ID in format {VENUE}:{BASE}/{QUOTE} | [optional] 
 **idempotency_key** | **str** | Idempotency key to prevent duplicate request processing | [optional] 
 **client_order_id** | **str** | Client-provided order ID, used as idempotency key | [optional] 
 **order_side** | [**OrderSide**](OrderSide.md) |  | 
 **order_type** | [**OrderType**](OrderType.md) |  | 
+**contingency_type** | [**ContingencyType**](ContingencyType.md) |  | [optional] 
 **limit_price** | **str** | Decimal value as string to preserve precision | [optional] 
 **stop_price** | **str** | Decimal value as string to preserve precision | [optional] 
 **quantity** | **str** | Decimal value as string to preserve precision | 

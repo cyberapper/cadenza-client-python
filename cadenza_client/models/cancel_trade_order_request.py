@@ -28,8 +28,8 @@ class CancelTradeOrderRequest(BaseModel):
     """
     CancelTradeOrderRequest
     """ # noqa: E501
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
-    trade_order_id: UUID = Field(description="UUID string", alias="tradeOrderId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
+    trade_order_id: UUID = Field(description="Internal trade order ID (UUID)", alias="tradeOrderId")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradingAccountId", "tradeOrderId"]
 

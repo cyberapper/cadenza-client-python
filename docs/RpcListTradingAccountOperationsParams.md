@@ -6,7 +6,7 @@ Request to list trading account operations
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**trading_account_id** | **UUID** |  | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 **pagination** | [**RpcPagination**](RpcPagination.md) |  | [optional] 
 
 ## Example

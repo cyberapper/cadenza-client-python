@@ -7,10 +7,10 @@ RPC request payload. Schema depends on the method being called.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **trade_order** | [**RpcTradeOrder**](RpcTradeOrder.md) |  | 
-**trading_account_id** | **UUID** | Filter by trading account ID | 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | 
 **idempotency_key** | **str** | Idempotency key to prevent duplicate orders | [optional] 
 **await_closed** | **bool** | Wait for order to reach terminal state before responding | [optional] [default to False]
-**trade_order_id** | **UUID** | Filter by specific trade order ID | 
+**trade_order_id** | **UUID** | Internal trade order ID (UUID) | 
 **client_order_id** | **str** | Client order ID | [optional] 
 **external_order_id** | **str** | External order ID | [optional] 
 **instrument_id** | **List[str]** |  | 

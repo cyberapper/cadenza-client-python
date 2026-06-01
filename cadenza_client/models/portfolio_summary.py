@@ -29,7 +29,7 @@ class PortfolioSummary(BaseModel):
     """
     PortfolioSummary
     """ # noqa: E501
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     currency: StrictStr = Field(description="Asset symbol (e.g. currency code, base asset)")
     leverage: Optional[StrictInt] = Field(description="Leverage multiplier")
     equity: Annotated[str, Field(strict=True)] = Field(description="Decimal value as string to preserve precision")

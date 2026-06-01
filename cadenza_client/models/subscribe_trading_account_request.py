@@ -28,7 +28,7 @@ class SubscribeTradingAccountRequest(BaseModel):
     """
     SubscribeTradingAccountRequest
     """ # noqa: E501
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["tradingAccountId"]
 

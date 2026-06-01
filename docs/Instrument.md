@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **description** | **str** | Symbol description, human readable description of the instrument | [optional] 
 **instrument_type** | [**InstrumentType**](InstrumentType.md) |  | 
 **status** | [**InstrumentStatus**](InstrumentStatus.md) |  | 
-**base_asset** | **str** |  | 
-**quote_asset** | **str** |  | 
+**base_asset** | **str** | Asset symbol (e.g. currency code, base asset) | 
+**quote_asset** | **str** | Asset symbol (e.g. currency code, base asset) | 
 **base_security_type** | [**SecurityType**](SecurityType.md) |  | [optional] 
 **quote_security_type** | [**SecurityType**](SecurityType.md) |  | [optional] 
 **base_precision** | **int** | Base asset precision | 

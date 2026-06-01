@@ -29,7 +29,7 @@ class RpcUnsubscribeTradingAccountStreamParams(BaseModel):
     Request to unsubscribe from trading account stream
     """ # noqa: E501
     subscription_id: Optional[UUID] = Field(default=None, alias="subscriptionId")
-    trading_account_id: UUID = Field(alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["subscriptionId", "tradingAccountId"]
 

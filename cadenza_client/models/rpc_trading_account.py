@@ -37,7 +37,7 @@ class RpcTradingAccount(BaseModel):
     """
     Trading account model
     """ # noqa: E501
-    trading_account_id: Optional[UUID] = Field(default=None, description="Unique trading account ID", alias="tradingAccountId")
+    trading_account_id: Optional[UUID] = Field(default=None, description="Internal trading account ID (UUID)", alias="tradingAccountId")
     user_id: Optional[UUID] = Field(default=None, description="User ID", alias="userId")
     tenant_id: Optional[StrictStr] = Field(default=None, description="Tenant identifier for multi-tenancy", alias="tenantId")
     nickname: Optional[StrictStr] = Field(default=None, description="Account nickname")

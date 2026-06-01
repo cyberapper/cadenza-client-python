@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **position_id** | **UUID** |  | [optional] 
 **external_position_id** | **str** |  | [optional] 
-**trading_account_id** | **UUID** |  | [optional] 
+**trading_account_id** | **UUID** | Internal trading account ID (UUID) | [optional] 
 **security_symbol** | **str** |  | [optional] 
 **instrument_id** | **str** | Instrument ID | [optional] 
 **security_type** | [**SecurityType**](SecurityType.md) |  | [optional] 

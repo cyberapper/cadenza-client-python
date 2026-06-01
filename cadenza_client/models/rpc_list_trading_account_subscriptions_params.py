@@ -31,7 +31,7 @@ class RpcListTradingAccountSubscriptionsParams(BaseModel):
     """
     Request to list trading account subscriptions
     """ # noqa: E501
-    trading_account_id: UUID = Field(alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     subscription_type: Optional[SubscriptionType] = Field(default=None, alias="subscriptionType")
     status: Optional[SubscriptionStatus] = None
     pagination: Optional[RpcPagination] = None

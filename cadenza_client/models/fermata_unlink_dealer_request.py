@@ -29,7 +29,7 @@ class FermataUnlinkDealerRequest(BaseModel):
     Unlink an exchange trading account from a dealer
     """ # noqa: E501
     dealer_account_id: UUID = Field(description="UUID string", alias="dealerAccountId")
-    trading_account_id: UUID = Field(description="UUID string", alias="tradingAccountId")
+    trading_account_id: UUID = Field(description="Internal trading account ID (UUID)", alias="tradingAccountId")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["dealerAccountId", "tradingAccountId"]
 
