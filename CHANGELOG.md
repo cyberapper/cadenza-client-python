@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.2](https://github.com/cyberapper/cadenza-client-python/compare/v3.5.1...v3.5.2) (2026-06-17)
+
+
+### Miscellaneous
+
+* regenerate Python client SDK for HYPERLIQUID venue ([#45](https://github.com/cyberapper/cadenza-client-python/issues/45)) ([26cf349](https://github.com/cyberapper/cadenza-client-python/commit/26cf349dbdd6b930f028256d81acc29d0f429898))
+
 ## [3.5.1](https://github.com/cyberapper/cadenza-client-python/compare/v3.5.0...v3.5.1) (2026-06-01)
 
 
