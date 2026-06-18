@@ -38,9 +38,10 @@ class Ticker(BaseModel):
     bid_quantity: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="bidQuantity")
     ask_price: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="askPrice")
     ask_quantity: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="askQuantity")
+    price_change_percent: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Decimal value as string to preserve precision", alias="priceChangePercent")
     timestamp: StrictInt = Field(description="Unix timestamp in milliseconds")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["instrumentId", "venue", "symbol", "lastPrice", "lastQuantity", "bidPrice", "bidQuantity", "askPrice", "askQuantity", "timestamp"]
+    __properties: ClassVar[List[str]] = ["instrumentId", "venue", "symbol", "lastPrice", "lastQuantity", "bidPrice", "bidQuantity", "askPrice", "askQuantity", "priceChangePercent", "timestamp"]
 
     @field_validator('last_price')
     def last_price_validate_regular_expression(cls, value):
@@ -120,6 +121,19 @@ class Ticker(BaseModel):
             raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
         return value
 
+    @field_validator('price_change_percent')
+    def price_change_percent_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not isinstance(value, str):
+            value = str(value)
+
+        if not re.match(r"^-?\d+(\.\d+)?$", value):
+            raise ValueError(r"must validate the regular expression /^-?\d+(\.\d+)?$/")
+        return value
+
     model_config = ConfigDict(
         validate_by_name=True,
         validate_by_alias=True,
@@ -187,6 +201,7 @@ class Ticker(BaseModel):
             "bidQuantity": obj.get("bidQuantity"),
             "askPrice": obj.get("askPrice"),
             "askQuantity": obj.get("askQuantity"),
+            "priceChangePercent": obj.get("priceChangePercent"),
             "timestamp": obj.get("timestamp")
         })
         # store additional fields in additional_properties

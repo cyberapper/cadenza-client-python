@@ -678,5 +678,4 @@ git_push.sh
 setup.cfg
 test-requirements.txt
 test/__init__.py
-test/test_contingency_type.py
 tox.ini
