@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **bid_quantity** | **str** | Decimal value as string to preserve precision | [optional] 
 **ask_price** | **str** | Decimal value as string to preserve precision | [optional] 
 **ask_quantity** | **str** | Decimal value as string to preserve precision | [optional] 
+**price_change_percent** | **str** | Decimal value as string to preserve precision | [optional] 
 **timestamp** | **int** | Unix timestamp in milliseconds | 
 
 ## Example
