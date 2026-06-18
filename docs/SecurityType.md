@@ -22,6 +22,8 @@ Type of financial instrument
 
 * `PERPETUAL` (value: `'PERPETUAL'`)
 
+* `CFD` (value: `'CFD'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

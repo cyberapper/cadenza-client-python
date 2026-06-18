@@ -35,6 +35,7 @@ class SecurityType(str, Enum):
     OPTION = 'OPTION'
     FUTURES = 'FUTURES'
     PERPETUAL = 'PERPETUAL'
+    CFD = 'CFD'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -20,13 +20,17 @@ from typing_extensions import Self
 
 class InstrumentType(str, Enum):
     """
-    Type of financial instrument
+    Trading mechanism of an instrument — how the two securities are exchanged and traded. Unlike `securityType` (which classifies the asset class), this focuses on the instrument's trading mechanism.  - `SPOT`: direct asset exchange, both balances change - `FUTURES`: fixed-expiry contract settled at maturity - `PERPETUAL`: perpetual contract with no expiry (funding rate) - `OPTION`: right to buy/sell at strike price - `CFD`: contract for difference, cash-settled - `CONTRACT`: **deprecated** — legacy umbrella for derivative contracts,   superseded by the more specific `FUTURES` / `PERPETUAL`. Retained for   backward compatibility with previously synced instruments. 
     """
 
     """
     allowed enum values
     """
     SPOT = 'SPOT'
+    FUTURES = 'FUTURES'
+    PERPETUAL = 'PERPETUAL'
+    OPTION = 'OPTION'
+    CFD = 'CFD'
     CONTRACT = 'CONTRACT'
 
     @classmethod
